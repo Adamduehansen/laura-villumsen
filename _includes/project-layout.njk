@@ -1,0 +1,13 @@
+---
+layout: layout.html
+---
+
+<div>
+  <h2>{{ title }}</h2>
+  <p>{{ text }}</p>
+  <ul>
+    {% for name in names %}
+      <li>{{ name }}</li>
+    {% endfor %}
+  </ul>
+</div>
