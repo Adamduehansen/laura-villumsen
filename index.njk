@@ -1,11 +1,10 @@
 ---
-layout: layout.html
+layout: layout.njk
 title: Laura Willumsen Taboryski
 ---
 
 {% for project in collections.projects %}
-<h2>
-  <a href="{{ project.url }}">{{ project.data.title }}</a>
-</h2>
-<p>{{ project.content }}</p>
+  <h2>
+    <a href="{{ project.url }}">{{ project.data.title }}</a>
+  </h2>
 {% endfor %}
