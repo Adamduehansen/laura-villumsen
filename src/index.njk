@@ -5,9 +5,10 @@ title: Laura Willumsen Taboryski
 
 <div class="px-3 md:grid md:grid-cols-2 md:gap-3">
   {% for work in collections.works %}
+    {% set image = work.data.images[0] %}
     <div class="mb-8">
       <a href="{{ work.url }}">
-        <img src="{{ work.data.images[0].url }}" class="w-full"/>
+        <img src="{{ image.url }}" alt="{{ image.alt }}" class="w-full"/>
         <div class="flex justify-between">
           <h2>
             {{ work.data.title }}
