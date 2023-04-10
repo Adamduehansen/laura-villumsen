@@ -13,23 +13,24 @@ socials:
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="assets/tailwind.css">
+    <link rel="stylesheet" href="/assets/tailwind.css">
     <title></title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne&display=swap" rel="stylesheet">
     <script defer src="assets/main.js"></script>
   </head>
-  <body>
-    <header class="bg-green">
+  <body class="font-syne">
+    <header class="fixed inset-x-0 bg-green py-4 px-3">
       <nav>
         <a href="/">{{ webtitle }}</a>
       </nav>
     </header>
-    <main class="font-syne">{{ content | safe }}</main>
-    <footer class="fixed bottom-0">
+    <main class="pt-16">{{ content | safe }}</main>
+    <footer class="fixed bottom-0 px-3">
+      <span class="mr-6">footer→</span>
       {% for social in socials %}
-        <a href="{{ social.link }}">{{ social.name }}</a>
+        <a href="{{ social.link }}" class="underline mr-4">{{ social.name }}</a>
       {% endfor %}
     </footer>
   </body>

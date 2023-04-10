@@ -3,8 +3,20 @@ layout: layout.njk
 title: Laura Willumsen Taboryski
 ---
 
-{% for work in collections.works %}
-  <h2>
-    <a href="{{ work.url }}">{{ work.data.title }}</a>
-  </h2>
-{% endfor %}
+<div class="px-3">
+  {% for work in collections.works %}
+    <div class="mb-8">
+      <a href="{{ work.url }}">
+        <img src="{{ work.data.images[0].url }}"/>
+        <div class="flex justify-between">
+          <h2>
+            {{ work.data.title }}
+          </h2>
+          <div class="underline">
+            {{ work.data.publish_date }}
+          </div>
+        </div>
+      </a>
+    </div>
+  {% endfor %}
+</div>
