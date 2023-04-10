@@ -27,10 +27,10 @@ socials:
       </nav>
     </header>
     <main class="pt-16">{{ content | safe }}</main>
-    <footer class="fixed bottom-0 px-3">
+    <footer class="fixed bottom-0 px-3 w-full text-right">
       <span class="mr-10">footer→</span>
       {% for social in socials %}
-        <a href="{{ social.link }}" class="underline mr-6">{{ social.name }}</a>
+        <a href="{{ social.link }}" class="underline mr-6 last:mr-0">{{ social.name }}</a>
       {% endfor %}
     </footer>
   </body>
