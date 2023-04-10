@@ -28,9 +28,9 @@ socials:
     </header>
     <main class="pt-16">{{ content | safe }}</main>
     <footer class="fixed bottom-0 px-3">
-      <span class="mr-6">footer→</span>
+      <span class="mr-10">footer→</span>
       {% for social in socials %}
-        <a href="{{ social.link }}" class="underline mr-4">{{ social.name }}</a>
+        <a href="{{ social.link }}" class="underline mr-6">{{ social.name }}</a>
       {% endfor %}
     </footer>
   </body>
