@@ -3,9 +3,9 @@
   "private": true,
   "scripts": {
     "watch:11ty": "npx @11ty/eleventy --serve",
-    "watch:css": "tailwindcss -i src/assets/css/tailwind.css -o _site/assets/css/tailwind.css --watch --postcss",
+    "watch:css": "tailwindcss -i src/assets/tailwind.css -o _site/assets/tailwind.css --watch --postcss",
     "start": "concurrently npm:watch:*",
-    "build:css": "tailwindcss -i src/assets/css/tailwind.css -o _site/assets/css/tailwind.css --postcss",
+    "build:css": "tailwindcss -i src/assets/tailwind.css -o _site/assets/tailwind.css --postcss",
     "build:11ty": "npx @11ty/eleventy",
     "build": "npm run build:11ty && npm run build:css"
   },

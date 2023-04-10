@@ -13,18 +13,28 @@ socials:
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="{{ '/assets/css/tailwind.css' | url }}">
+    <link rel="stylesheet" href="assets/tailwind.css">
     <title></title>
   </head>
   <body>
-    <header>
-      <h1>{{ webtitle }}</h1>
+    <header class="relative bg-green z-20">
+      <h1>
+        <a href="/">{{ webtitle }}</a>
+      </h1>
     </header>
+    <nav class="fixed bg-green inset-0 z-10 mt-[24px]">
+      <ul>
+        <a href="#">Arbejde</a>
+        <a href="#">Om mig</a>
+        <a href="#">Kontakt</a>
+      </ul>
+    </nav>
     <main>{{ content | safe }}</main>
-    <footer>
+    <footer class="fixed bottom-0">
       {% for social in socials %}
         <a href="{{ social.link }}">{{ social.name }}</a>
       {% endfor %}
     </footer>
+    <script src="assets/main.js"></script>
   </body>
 </html>
