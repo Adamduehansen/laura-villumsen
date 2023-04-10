@@ -15,26 +15,22 @@ socials:
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="assets/tailwind.css">
     <title></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne&display=swap" rel="stylesheet">
+    <script defer src="assets/main.js"></script>
   </head>
   <body>
-    <header class="relative bg-green z-20">
-      <h1>
+    <header class="bg-green">
+      <nav>
         <a href="/">{{ webtitle }}</a>
-      </h1>
+      </nav>
     </header>
-    <nav class="fixed bg-green inset-0 z-10 mt-[24px]">
-      <ul>
-        <a href="#">Arbejde</a>
-        <a href="#">Om mig</a>
-        <a href="#">Kontakt</a>
-      </ul>
-    </nav>
-    <main>{{ content | safe }}</main>
+    <main class="font-syne">{{ content | safe }}</main>
     <footer class="fixed bottom-0">
       {% for social in socials %}
         <a href="{{ social.link }}">{{ social.name }}</a>
       {% endfor %}
     </footer>
-    <script src="assets/main.js"></script>
   </body>
 </html>

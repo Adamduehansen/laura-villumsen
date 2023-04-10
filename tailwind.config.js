@@ -5,6 +5,12 @@ module.exports = {
     colors: {
       green: '#11AB4F',
     },
+    fontSize: {
+      header: '20rem',
+    },
+    fontFamily: {
+      syne: 'syne, sans-serif;',
+    },
   },
   plugins: [],
 };
