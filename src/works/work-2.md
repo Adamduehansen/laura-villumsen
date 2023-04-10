@@ -1,5 +1,5 @@
 ---
-title: Project 2
+title: work 2
 names: [billede-1, billede-2, billede-3]
 ---
 
