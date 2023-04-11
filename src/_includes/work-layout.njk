@@ -2,12 +2,9 @@
 layout: layout.njk
 ---
 
-<div>
-  <h2>{{ title }}</h2>
-  <ul>
-    {% for name in names %}
-      <li class="p-5">{{ name }}</li>
-    {% endfor %}
-  </ul>
-  {{ content | safe }}
+<div class="flex overflow-x-auto whitespace-nowrap">
+  {% for image in images %}
+    <img src="{{ image.url }}" alt="{{ image.alt }}" class="max-h-full max-w-full object-contain mr-3 last:mr-0"/>
+  {% endfor %}
 </div>
+{# {{ content | safe }} #}

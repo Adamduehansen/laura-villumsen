@@ -3,9 +3,17 @@ title: Work 1
 publish_date: december, 2022
 images: [
   {
-  url: http://placekitten.com/600/700,
-  alt: 'a cat'
-  }
+    url: http://placekitten.com/600/500,
+    alt: 'a cat'
+  },
+  {
+    url: http://placekitten.com/650/700,
+    alt: 'a cat'
+  },
+  {
+    url: http://placekitten.com/550/600,
+    alt: 'a cat'
+  },
 ]
 ---
 
