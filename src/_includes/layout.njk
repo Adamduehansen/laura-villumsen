@@ -27,7 +27,7 @@ socials:
       </nav>
     </header>
     <main class="pt-16">{{ content | safe }}</main>
-    <footer class="fixed bottom-0 px-3 w-full text-right">
+    <footer class="fixed bottom-0 px-3 w-full md:text-right">
       <span class="mr-10">footer→</span>
       {% for social in socials %}
         <a href="{{ social.link }}" class="underline mr-6 last:mr-0">{{ social.name }}</a>
