@@ -1,1 +1,1 @@
-const navigationElement = document.querySelector();
+console.log('Hello, World!');
