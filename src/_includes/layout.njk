@@ -18,12 +18,32 @@ socials:
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syne&family=Unbounded:wght@600&display=swap" rel="stylesheet">
     <script defer src="/assets/main.js"></script>
   </head>
   <body class="font-syne">
-    <header class="fixed inset-x-0 bg-green py-4 px-3">
-      <nav>
-        <a href="/">{{ webtitle }}</a>
+    <header class="fixed inset-x-0 bg-white py-4 px-3 flex flex-col">
+      <div class="flex justify-between">
+        <a href="/">
+          <h1>
+            {{ webtitle }}
+          </h1>
+          <span>Portfolio</span>
+        </a>
+        <button class="text-5xl" aria-label="Toggle menu" title="menu">+</button>
+      </div>
+      <nav class="hidden w-56 h-full">
+        <ul class="h-full flex flex-col justify-evenly">
+          <li>
+            <a href="#" class="text-6xl uppercase break-words font-unbounded">Arbejde</a>
+          </li>
+          <li>
+            <a href="#" class="text-6xl uppercase break-words font-unbounded">Om mig</a>
+          </li>
+          <li>
+            <a href="#" class="text-6xl uppercase break-words font-unbounded">Kontakt</a>
+          </li>
+        </ul>
       </nav>
     </header>
     <main class="pt-16">{{ content | safe }}</main>
