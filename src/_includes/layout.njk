@@ -22,32 +22,32 @@ socials:
     <script defer src="/assets/main.js"></script>
   </head>
   <body class="font-syne">
-    <header class="fixed inset-x-0 bg-white py-4 px-3 flex flex-col">
-      <div class="flex justify-between">
-        <a href="/">
+    <header class="fixed inset-x-0 py-4 px-3 flex flex-col bg-white">
+      <div class="flex justify-between bg-white">
+        <a href="/" class="lg:flex lg:justify-between lg:w-full">
           <h1>
             {{ webtitle }}
           </h1>
-          <span>Portfolio</span>
+          <span>Portfølje</span>
         </a>
-        <button class="text-5xl" aria-label="Toggle menu" title="menu">+</button>
+        <button class="text-5xl lg:hidden" aria-label="Toggle menu" title="menu">+</button>
       </div>
-      <nav class="hidden w-56 h-full">
-        <ul class="h-full flex flex-col justify-evenly">
+      <nav class="hidden w-full h-full lg:block bg-white lg:bg-transparent">
+        <ul class="h-full w-56 flex flex-col justify-evenly lg:flex-row lg:w-full lg:fixed lg:bottom-0 lg:h-auto lg:justify-between">
           <li>
-            <a href="#" class="text-6xl uppercase break-words font-unbounded">Arbejde</a>
+            <a href="#" class="text-6xl uppercase break-words font-unbounded lg:text-5xl">Arbejde</a>
           </li>
           <li>
-            <a href="#" class="text-6xl uppercase break-words font-unbounded">Om mig</a>
+            <a href="#" class="text-6xl uppercase break-words font-unbounded lg:text-5xl">Om mig</a>
           </li>
           <li>
-            <a href="#" class="text-6xl uppercase break-words font-unbounded">Kontakt</a>
+            <a href="#" class="text-6xl uppercase break-words font-unbounded lg:text-5xl">Kontakt</a>
           </li>
         </ul>
       </nav>
     </header>
     <main class="pt-16">{{ content | safe }}</main>
-    <footer class="fixed bottom-0 px-3 w-full md:text-right">
+    <footer class="fixed bottom-0 px-3 w-full md:text-right lg:relative lg:h-24">
       <span class="mr-10">footer→</span>
       {% for social in socials %}
         <a href="{{ social.link }}" class="underline mr-6 last:mr-0">{{ social.name }}</a>
