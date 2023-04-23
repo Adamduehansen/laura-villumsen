@@ -2,12 +2,14 @@
 layout: layout.njk
 ---
 
-<div class="pb-8">
-  <h2>{{ title }}</h2>
-  <time>{{ publish_date }}</time>
-  <p>{{ publisher }}</p>
+<div class="lg:grid lg:grid-cols-12 lg:gap-3 lg:pb-8">
+  <div class="pb-8 lg:pb-0 lg:col-start-4 lg:col-span-2">
+    <p>{{ publisher }}</p>
+    <h2>{{ title }}</h2>
+    <time>{{ publish_date }}</time>
+  </div>
+  <p class="pb-8 lg:pb-0 lg:col-start-9 lg:col-span-3">{{ content | striptags }}</p>
 </div>
-<p class="pb-8">{{ content | striptags }}</p>
 {% for image in images %}
   <img src="{{ image.url }}" alt="{{ image.alt }}" class="w-full"/>
   {% if loop.index0 == 1 %}{% endif %}
