@@ -1,5 +1,6 @@
 ---
 title: Work 2
+publisher: publisher 1
 publish_date: december, 2022
 images: [
   {

@@ -2,15 +2,13 @@
 layout: layout.njk
 ---
 
-<div class="flex overflow-x-auto">
-  {% for image in images %}
-    <img src="{{ image.url }}" alt="{{ image.alt }}" class="max-h-full max-w-full object-contain mr-3 last:mr-0"/>
-    {% if loop.index0 == 1 %}
-      <div class="mr-3">
-        <p class="w-96">
-          {{ content | striptags }}
-        </p>
-      </div>
-    {% endif %}
-  {% endfor %}
+<div class="pb-8">
+  <h2>{{ title }}</h2>
+  <time>{{ publish_date }}</time>
+  <p>{{ publisher }}</p>
 </div>
+<p class="pb-8">{{ content | striptags }}</p>
+{% for image in images %}
+  <img src="{{ image.url }}" alt="{{ image.alt }}" class="w-full"/>
+  {% if loop.index0 == 1 %}{% endif %}
+{% endfor %}
