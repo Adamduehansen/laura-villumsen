@@ -8,9 +8,8 @@ layout: layout.njk
     <h2>{{ title }}</h2>
     <time>{{ publish_date }}</time>
   </div>
-  <p class="pb-8 lg:pb-0 col-start-4 lg:col-start-9 col-span-3">{{ content | striptags(true) | escape | nl2br }}</p>
+  <p class="pb-8 lg:pb-0 col-start-4 lg:col-start-9 col-span-3">{{ text | striptags(true) | escape | nl2br }}</p>
 </div>
-{% for image in images %}
-  <img src="{{ image.url }}" alt="{{ image.alt }}" class="w-full"/>
-  {% if loop.index0 == 1 %}{% endif %}
-{% endfor %}
+<div class="content">
+  {{ content | safe }}
+</div>
