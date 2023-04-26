@@ -5,3 +5,15 @@
 .content img {
   width: 100%;
 }
+
+table {
+  width: 100%;
+  text-align: left;
+  margin-top: 30px;
+}
+
+table th {
+  vertical-align: top;
+  text-align: left;
+  width: 110px;
+}
