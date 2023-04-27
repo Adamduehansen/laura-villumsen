@@ -21,7 +21,7 @@ socials:
     <link href="https://fonts.googleapis.com/css2?family=Syne&family=Unbounded:wght@600&display=swap" rel="stylesheet">
     <script defer src="/assets/main.js"></script>
   </head>
-  <body class="font-syne">
+  <body class="font-syne h-screen flex flex-col">
     <header class="fixed inset-x-0 py-4 px-3 flex flex-col bg-white">
       <div class="flex justify-between bg-white">
         <a href="/" class="lg:flex lg:justify-between lg:w-full">
@@ -47,7 +47,7 @@ socials:
         </ul>
       </nav>
     </header>
-    <main class="pt-20 px-3 content">{{ content | safe }}</main>
+    <main class="pt-20 px-3 content flex-1">{{ content | safe }}</main>
     <footer class="relative px-3 w-full md:text-right my-6 lg:mb-24">
       <span class="mr-10">footer→</span>
       {% for social in socials %}
