@@ -13,5 +13,5 @@ module.exports = {
     },
   },
   plugins: [],
-  safelist: ['h-screen'],
+  safelist: ['h-screen', 'translate-y-0', 'rotate-45'],
 };

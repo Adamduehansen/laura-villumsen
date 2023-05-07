@@ -3,8 +3,8 @@ const button = document.querySelector('button');
 const navigationMenu = document.querySelector('nav');
 
 function onMenuToggleButtonClick() {
-  navigationMenu.classList.toggle('hidden');
-  header.classList.toggle('h-screen');
+  navigationMenu.classList.toggle('translate-y-0');
+  navigationMenu.classList.toggle('-translate-y-full');
   button.classList.toggle('rotate-45');
   button.classList.toggle('rotate-0');
 }
