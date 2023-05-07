@@ -23,7 +23,7 @@ socials:
   </head>
   <body class="font-syne h-screen flex flex-col">
     <header class="fixed inset-x-0 flex flex-col h-screen pointer-events-none">
-      <div class="flex justify-between py-4 px-3 bg-white z-50">
+      <div class="flex justify-between py-4 px-3 bg-white z-50 pointer-events-auto">
         <a href="/" class="lg:flex lg:justify-between lg:w-full">
           <h1>
             {{ webtitle }}
@@ -37,7 +37,8 @@ socials:
           <img src="/assets/add-icon.svg" alt="">
         </button>
       </div>
-      <nav class="w-full h-full lg:block bg-white lg:bg-transparent py-4 px-3 -translate-y-full duration-300 pointer-events-auto">
+      <nav class="w-full h-full lg:block bg-white lg:bg-transparent lg:fixed lg:bottom-0 lg:h-auto py-4 px-3 -translate-y-full
+          duration-300 pointer-events-auto">
         <ul class="h-full w-56 flex flex-col justify-evenly lg:flex-row lg:w-full lg:fixed lg:bottom-0 lg:left-0 lg:h-auto
             lg:justify-between">
           <li>
