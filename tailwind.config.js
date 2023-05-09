@@ -10,6 +10,11 @@ module.exports = {
       fontSize: {
         header: '20rem',
       },
+      colors: {
+        lime: {
+          450: '#96C92C',
+        },
+      },
     },
   },
   plugins: [],
