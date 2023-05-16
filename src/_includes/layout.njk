@@ -37,7 +37,7 @@ socials:
           <img src="/assets/add-icon.svg" alt="">
         </button>
       </div>
-      <nav class="w-full h-full lg:block bg-lime-450 lg:bg-transparent lg:fixed lg:bottom-0 lg:h-auto py-4 px-3 -translate-y-full
+      <nav class="w-full h-full lg:block bg-[#E8E6E7] lg:bg-transparent lg:fixed lg:bottom-0 lg:h-auto py-4 px-3 -translate-y-full
           duration-300 pointer-events-auto">
         <ul class="h-full w-56 flex flex-col justify-evenly lg:flex-row lg:w-full lg:fixed lg:bottom-0 lg:left-0 lg:h-auto
             lg:justify-between">
@@ -65,7 +65,7 @@ socials:
     <footer class="relative px-3 w-full md:text-right my-6 lg:mb-24">
       <span class="mr-10">footer→</span>
       {% for social in socials %}
-        <a href="{{ social.link }}" class="underline mr-6 last:mr-0">{{ social.name }}</a>
+        <a href="{{ social.link }}" class="underline mr-6 last:mr-0 italic">{{ social.name }}</a>
       {% endfor %}
     </footer>
   </body>
