@@ -6,6 +6,7 @@ module.exports = {
       syne: 'Syne, sans-serif;',
       unbounded: 'Unbounded, sans-serif;',
       neue: 'neue-haas-grotesk-display',
+      'owners-wide': 'owners-wide',
     },
     extend: {
       fontSize: {
