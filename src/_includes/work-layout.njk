@@ -3,7 +3,7 @@ layout: layout.njk
 ---
 
 <div>
-  <div class="pb-8 lg:col-start-4 text-4xl lg:text-5xl font-neue">
+  <div class="pb-8 text-4xl lg:text-5xl font-neue">
     <p>{{ publisher }}</p>
     <h2>{{ title }}</h2>
     <time>{{ publish_date }}</time>
@@ -12,6 +12,6 @@ layout: layout.njk
     <p class="pb-8 font-neue text-sm lg:text-base lg:col-span-5">{{ text | striptags(true) | escape | nl2br }}</p>
   </div>
 </div>
-<div class="">
+<div>
   {{ content | safe }}
 </div>
