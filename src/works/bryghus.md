@@ -1,13 +1,17 @@
 ---
-title: Dolle, Regular
-publisher: Skriftdesign
-publish_date: September 2022
+title: Halsnæs Bryghus
+publisher: Emballage
+publish_date: December 2022
 thumbnail: {
   url: https://lauravillumsen.com/assets/images/Forside/HalsnæsBryghus_Forside.png,
   alt: Halsnæs Bryghus
 }
 service: Emballagedesign,Visuel identitet
-text: Skrifttypen Dolle er inspireret af jazzmusikken. Skriften er en atypisk skrift og inspireret af klassiske groteske skrifttyper med et anderledes og skævt tvist, som er inspireret af jazz-musikkens skæve uforudsigeligeheder. Skriften er en sans serif-skrift, og er perfekt til overskrifter og display brug. Hvis du ønsker at få licens til skriften, så kontakt mig på laura@lauravillumsen.com.
+text: Emballagedesign for Halsnæs Bryghus, et mikrobryggeri i Nordsjælland. Halsnæs Bryghus ønskede nye og mere moderne øletiketter. Emballagedesignet er et bud på en sjov balance mellem impressionistiske penselstrøg og moderne typografiske virkemidler. Hver etikette symboliserer historien bag navnet på øllen. Emballagedesignet blev designet i forbindelse med et skoleprojekt på Danmarks Medie- og Journalisthøjskole.
 ---
 
-<img src="" alt="">
+<img src="https://lauravillumsen.com/assets/images/HalsnæsBryghus_underside/1_HalsnæsBryghus_underside.png" alt="">
+<img src="https://lauravillumsen.com/assets/images/HalsnæsBryghus_underside/2_HalsnæsBryghus_underside.png" alt="">
+<img src="https://lauravillumsen.com/assets/images/HalsnæsBryghus_underside/3_HalsnæsBryghus_underside.png" alt="">
+<img src="https://lauravillumsen.com/assets/images/HalsnæsBryghus_underside/4_HalsnæsBryghus_underside.png" alt="">
+<img src="https://lauravillumsen.com/assets/images/HalsnæsBryghus_underside/5_HalsnæsBryghus_underside.png" alt="">
