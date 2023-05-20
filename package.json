@@ -1,20 +1,25 @@
 {
   "name": "laura-portfolio",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "watch:11ty": "npx @11ty/eleventy --serve",
-    "watch:css": "tailwindcss -i src/assets/tailwind.css -o _site/assets/tailwind.css --watch --postcss",
-    "start": "concurrently npm:watch:*",
-    "build:clean": "rm -Rf ./_site",
-    "build:css": "tailwindcss -i src/assets/tailwind.css -o _site/assets/tailwind.css --postcss",
-    "build:11ty": "npx @11ty/eleventy",
-    "build": "npm run build:clean && npm run build:11ty && npm run build:css"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
-    "autoprefixer": "^10.4.14",
-    "concurrently": "^8.0.1",
-    "postcss": "^8.4.21",
-    "tailwindcss": "^3.3.1"
+  "dependencies": {
+    "@types/node": "20.3.1",
+    "@types/react": "18.2.12",
+    "@types/react-dom": "18.2.5",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.42.0",
+    "eslint-config-next": "13.4.6",
+    "next": "13.4.6",
+    "postcss": "8.4.24",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwindcss": "3.3.2",
+    "typescript": "5.1.3"
   }
 }
