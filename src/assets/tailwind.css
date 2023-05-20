@@ -2,8 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-.content img {
+.content img,
+.content video {
   width: 100%;
+  margin-bottom: 13px;
 }
 
 table {
