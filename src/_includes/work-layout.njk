@@ -10,6 +10,11 @@ layout: layout.njk
   </div>
   <div class="lg:grid lg:grid-cols-12">
     <p class="pb-8 font-neue text-sm lg:text-base lg:col-span-5">{{ text | striptags(true) | escape | nl2br }}</p>
+    <div class="text-right mb-8 lg:col-start-10 lg:text-left">
+      {% for s in service.split(',') %}
+        <p class="font-neue text-sm">{{ s }}</p>
+      {% endfor %}
+    </div>
   </div>
 </div>
 <div>
