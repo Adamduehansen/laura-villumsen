@@ -3,7 +3,7 @@ title: Limbic
 publisher: Magasin design
 publish_date: April 2021
 thumbnail: {
-  url: https://lauravillumsen.com/assets/images/Forside/Limbic_Forside.png,
+  url: https://lauravillumsen.dk/assets/images/Forside/Limbic_Forside.png,
   alt: Limbic
 }
 service: Editorialdesign,Koncept
@@ -11,10 +11,10 @@ text: Et magasindesign om følelser, på godt og ondt. Magasinet er sat med skri
 date: 2021-04-01
 ---
 
-<img src="https://lauravillumsen.com/assets/images/Limbic_underside/1_Limbic_underside.png" alt="">
-<img src="https://lauravillumsen.com/assets/images/Limbic_underside/2_Limbic_underside.png" alt="">
-<img src="https://lauravillumsen.com/assets/images/Limbic_underside/3_Limbic_underside.png" alt="">
-<img src="https://lauravillumsen.com/assets/images/Limbic_underside/4_Limbic_underside.png" alt="">
-<img src="https://lauravillumsen.com/assets/images/Limbic_underside/5_Limbic_underside.png" alt="">
-<img src="https://lauravillumsen.com/assets/images/Limbic_underside/6_Limbic_underside.png" alt="">
-<img src="https://lauravillumsen.com/assets/images/Limbic_underside/7_Limbic_underside.png" alt="">
+<img src="https://lauravillumsen.dk/assets/images/Limbic_underside/1_Limbic_underside.png" alt="">
+<img src="https://lauravillumsen.dk/assets/images/Limbic_underside/2_Limbic_underside.png" alt="">
+<img src="https://lauravillumsen.dk/assets/images/Limbic_underside/3_Limbic_underside.png" alt="">
+<img src="https://lauravillumsen.dk/assets/images/Limbic_underside/4_Limbic_underside.png" alt="">
+<img src="https://lauravillumsen.dk/assets/images/Limbic_underside/5_Limbic_underside.png" alt="">
+<img src="https://lauravillumsen.dk/assets/images/Limbic_underside/6_Limbic_underside.png" alt="">
+<img src="https://lauravillumsen.dk/assets/images/Limbic_underside/7_Limbic_underside.png" alt="">

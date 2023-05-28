@@ -3,7 +3,7 @@ title: Hello Summer
 publisher: Visuel identitet
 publish_date: Maj 2023
 thumbnail: {
-  url: https://lauravillumsen.com/assets/images/Forside/HelloSummer_Forside.jpg,
+  url: https://lauravillumsen.dk/assets/images/Forside/HelloSummer_Forside.jpg,
   alt: Hello Summer
 }
 service: Digital design,Visuel identitet,Animation
@@ -12,14 +12,14 @@ date: 2023-05-01
 ---
 
 <div class="lg:grid lg:grid-cols-12 lg:gap-3">
-  <img class="lg:col-span-4" src="https://lauravillumsen.com/assets/images/HelloSummer_underside/1_HelloSummer_underside.png" alt="">
-  <img class="lg:col-span-8" src="https://lauravillumsen.com/assets/images/HelloSummer_underside/2_HelloSummer_underside.jpg" alt="">
+  <img class="lg:col-span-4" src="https://lauravillumsen.dk/assets/images/HelloSummer_underside/1_HelloSummer_underside.png" alt="">
+  <img class="lg:col-span-8" src="https://lauravillumsen.dk/assets/images/HelloSummer_underside/2_HelloSummer_underside.jpg" alt="">
 </div>
 <video controls muted autoplay loop>
-  <source src="https://lauravillumsen.com/assets/images/HelloSummer_underside/3_HelloSummer_underside_video.mp4" type="video/mp4">
+  <source src="https://lauravillumsen.dk/assets/images/HelloSummer_underside/3_HelloSummer_underside_video.mp4" type="video/mp4">
 </video>
-<img src="https://lauravillumsen.com/assets/images/HelloSummer_underside/4_HelloSummer_underside.jpg" alt="">
-<img src="https://lauravillumsen.com/assets/images/HelloSummer_underside/5_HelloSummer_underside.jpg" alt="">
-<img src="https://lauravillumsen.com/assets/images/HelloSummer_underside/6_HelloSummer_underside.jpg" alt="">
-<img src="https://lauravillumsen.com/assets/images/HelloSummer_underside/7_HelloSummer_underside.jpg" alt="">
-<img src="https://lauravillumsen.com/assets/images/HelloSummer_underside/8_HelloSummer_underside.png" alt="">
+<img src="https://lauravillumsen.dk/assets/images/HelloSummer_underside/4_HelloSummer_underside.jpg" alt="">
+<img src="https://lauravillumsen.dk/assets/images/HelloSummer_underside/5_HelloSummer_underside.jpg" alt="">
+<img src="https://lauravillumsen.dk/assets/images/HelloSummer_underside/6_HelloSummer_underside.jpg" alt="">
+<img src="https://lauravillumsen.dk/assets/images/HelloSummer_underside/7_HelloSummer_underside.jpg" alt="">
+<img src="https://lauravillumsen.dk/assets/images/HelloSummer_underside/8_HelloSummer_underside.png" alt="">

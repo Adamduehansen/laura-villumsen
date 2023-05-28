@@ -3,7 +3,7 @@ title: Copenhagen Food Festival
 publisher: Visuel identitet
 publish_date: Juni 2022
 thumbnail: {
-  url: https://lauravillumsen.com/assets/images/Forside/CopenhagenFoodFestival_Forside.png,
+  url: https://lauravillumsen.dk/assets/images/Forside/CopenhagenFoodFestival_Forside.png,
   alt: Copenhagen Food Festival
 }
 service: Visuel identitet,Emballage,Merch,Editorialdesign
@@ -11,11 +11,11 @@ text: Copenhagen Food Festivals visuelle identitet er et appetitligt og sommerli
 date: 2022-06-01
 ---
 
-<img src="https://lauravillumsen.com/assets/images/CopenhagenFoodFestival_underside/1_CopenhagenFoodFestival_underside.png" alt="">
-<img src="https://lauravillumsen.com/assets/images/CopenhagenFoodFestival_underside/2_CopenhagenFoodFestival_underside.png" alt="">
-<img src="https://lauravillumsen.com/assets/images/CopenhagenFoodFestival_underside/3_CopenhagenFoodFestival_underside.jpg" alt="">
-<img src="https://lauravillumsen.com/assets/images/CopenhagenFoodFestival_underside/4_CopenhagenFoodFestival_underside.png" alt="">
-<img src="https://lauravillumsen.com/assets/images/CopenhagenFoodFestival_underside/5_CopenhagenFoodFestival_underside.png" alt="">
-<img src="https://lauravillumsen.com/assets/images/CopenhagenFoodFestival_underside/6_CopenhagenFoodFestival_underside.png" alt="">
-<img src="https://lauravillumsen.com/assets/images/CopenhagenFoodFestival_underside/7_CopenhagenFoodFestival_underside.png" alt="">
-<img src="https://lauravillumsen.com/assets/images/CopenhagenFoodFestival_underside/8_CopenhagenFoodFestival_underside.png" alt="">
+<img src="https://lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/1_CopenhagenFoodFestival_underside.png" alt="">
+<img src="https://lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/2_CopenhagenFoodFestival_underside.png" alt="">
+<img src="https://lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/3_CopenhagenFoodFestival_underside.jpg" alt="">
+<img src="https://lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/4_CopenhagenFoodFestival_underside.png" alt="">
+<img src="https://lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/5_CopenhagenFoodFestival_underside.png" alt="">
+<img src="https://lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/6_CopenhagenFoodFestival_underside.png" alt="">
+<img src="https://lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/7_CopenhagenFoodFestival_underside.png" alt="">
+<img src="https://lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/8_CopenhagenFoodFestival_underside.png" alt="">
