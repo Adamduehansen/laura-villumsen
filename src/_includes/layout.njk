@@ -75,8 +75,10 @@ socials:
       </nav>
     </header>
     <main class="pt-24 px-3 content flex-1 lg:pt-14">{{ content | safe }}</main>
-    <footer class="relative px-3 w-full md:text-right my-6 lg:mb-24">
-      <span class="mr-10">footer→</span>
+    <footer class="relative px-3 w-full md:text-right my-6 lg:mb-24 font-neue">
+      <span class="mr-10">
+        footer <img src="/assets/arrow_right.svg" class="inline w-3"/>
+      </span>
       {% for social in socials %}
         <a href="{{ social.link }}" class="underline mr-6 last:mr-0 italic" target="_BLANK">{{ social.name }}</a>
       {% endfor %}
