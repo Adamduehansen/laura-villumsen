@@ -9,6 +9,7 @@ thumbnail: {
 service: Emballagedesign,Visuel identitet
 text: Emballagedesign for Halsnæs Bryghus, et mikrobryggeri i Nordsjælland. Halsnæs Bryghus ønskede nye og mere moderne øletiketter. Emballagedesignet er et bud på en sjov balance mellem impressionistiske penselstrøg og moderne typografiske virkemidler. Hver etikette symboliserer historien bag navnet på øllen. Emballagedesignet blev designet i forbindelse med et skoleprojekt på Danmarks Medie- og Journalisthøjskole.
 date: 2022-12
+metaDesc: Emballagedesign for Halsnæs Bryghus. Et moderne og impressionistisk design, med fokus på historien bag mikrobryggeriet.
 ---
 
 <img src="https://www.lauravillumsen.dk/assets/images/HalsnæsBryghus_underside/1_HalsnæsBryghus_underside.png" alt="">

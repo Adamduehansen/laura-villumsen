@@ -9,6 +9,7 @@ thumbnail: {
 service: Skriftdesign
 text: Skrifttypen Dolle er inspireret af jazzmusikken. Skriften er en atypisk skrift og inspireret af klassiske groteske skrifttyper med et anderledes og skævt tvist, som er inspireret af jazz-musikkens skæve uforudsigeligeheder. Skriften er en sans serif-skrift, og er perfekt til overskrifter og display brug. Hvis du ønsker at få licens til skriften, så kontakt mig på laura@lauravillumsen.com.
 date: 2022-09
+metaDesc: Skrifttype inspireret af jazzmusikkens uforudsigligheder. Skriften er atypisk og inspireret af klassiske groteske skrifter.
 ---
 
 <img src="https://www.lauravillumsen.dk/assets/images/DolleRegular_underside/1_DolleRegular_underside.png" alt="">
