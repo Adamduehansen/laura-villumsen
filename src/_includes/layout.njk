@@ -23,7 +23,7 @@ socials:
     <link rel="stylesheet" href="https://use.typekit.net/wsq1sgw.css">
     <script defer src="/assets/main.js"></script>
   </head>
-  <body class="h-screen flex flex-col">
+  <body class="h-screen flex flex-col lg:block lg:h-full">
     <header class="fixed inset-x-0 flex flex-col h-screen pointer-events-none">
       <div class="flex justify-between py-4 px-3 bg-white z-50 pointer-events-auto">
         <a href="/" class="lg:flex lg:justify-between lg:w-full font-neue text-base lg:text-xl">
@@ -75,7 +75,7 @@ socials:
       </nav>
     </header>
     <main class="pt-24 px-3 content flex-1 lg:pt-14">{{ content | safe }}</main>
-    <footer class="relative px-3 w-full md:text-right my-6 lg:pb-24 font-neue">
+    <footer class="relative px-3 w-full md:text-right my-6 lg:mb-24 font-neue">
       <span class="mr-10">
         footer <img src="/assets/arrow_right.svg" class="inline w-3"/>
       </span>
