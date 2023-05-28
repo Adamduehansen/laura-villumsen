@@ -6,7 +6,7 @@ layout: layout.njk
   <div class="pb-8 text-4xl lg:text-5xl font-neue">
     <p>{{ publisher }}</p>
     <h1>{{ title }}</h1>
-    <time>{{ publish_date }}</time>
+    <time datetime="{{ date }}">{{ publish_date }}</time>
   </div>
   <div class="lg:grid lg:grid-cols-12">
     <p class="pb-8 font-neue text-sm lg:text-base lg:col-span-5">{{ text | striptags(true) | escape | nl2br }}</p>
