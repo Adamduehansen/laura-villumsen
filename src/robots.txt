@@ -1,0 +1,4 @@
+Sitemap: https://www.lauravillumsen.dk/sitemap.xml
+
+User-agent: *
+Disallow:
