@@ -3,7 +3,7 @@ title: Chivas Regal
 publisher: Emballage, visuel identitet
 publish_date: Januar 2022
 thumbnail: {
-  url: https://lauravillumsen.dk/assets/images/Forside/ChivasRegal_Forside.png,
+  url: https://www.lauravillumsen.dk/assets/images/Forside/ChivasRegal_Forside.png,
   alt: Chivas Regal
 }
 service: Emballagedesign,Visuel identitet,Koncept
@@ -11,7 +11,7 @@ text: En visuel identitet for brandet Chivas Regal. Den visuelle identitet skal 
 date: 2022-01
 ---
 
-<img src="https://lauravillumsen.dk/assets/images/ChivasRegal_underside/1_ChivasRegal_underside.png" alt="">
-<img src="https://lauravillumsen.dk/assets/images/ChivasRegal_underside/2_ChivasRegal_underside.png" alt="">
-<img src="https://lauravillumsen.dk/assets/images/ChivasRegal_underside/3_ChivasRegal_underside.png" alt="">
-<img src="https://lauravillumsen.dk/assets/images/ChivasRegal_underside/4_ChivasRegal_underside.png" alt="">
+<img src="https://www.lauravillumsen.dk/assets/images/ChivasRegal_underside/1_ChivasRegal_underside.png" alt="">
+<img src="https://www.lauravillumsen.dk/assets/images/ChivasRegal_underside/2_ChivasRegal_underside.png" alt="">
+<img src="https://www.lauravillumsen.dk/assets/images/ChivasRegal_underside/3_ChivasRegal_underside.png" alt="">
+<img src="https://www.lauravillumsen.dk/assets/images/ChivasRegal_underside/4_ChivasRegal_underside.png" alt="">

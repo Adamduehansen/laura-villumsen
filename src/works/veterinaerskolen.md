@@ -3,7 +3,7 @@ title: Veterinærskolen
 publisher: Bogdesign
 publish_date: Maj 2023
 thumbnail: {
-  url: https://lauravillumsen.dk/assets/images/Forside/Veterinærskolen_Forside.jpg,
+  url: https://www.lauravillumsen.dk/assets/images/Forside/Veterinærskolen_Forside.jpg,
   alt: Veterinærskolen
 }
 service: Editorialdesign,Cover,Research
@@ -11,12 +11,12 @@ text: Jubilæumsbog for Veterinærskolen er en visuel bog, som hylder Veterinær
 date: 2023-05
 ---
 
-<img src="https://lauravillumsen.dk/assets/images/Veterinærskolen_underside/1_Veterinærskolen_underside.jpg" alt="">
-<img src="https://lauravillumsen.dk/assets/images/Veterinærskolen_underside/2_Veterinærskolen_underside.jpg" alt="">
+<img src="https://www.lauravillumsen.dk/assets/images/Veterinærskolen_underside/1_Veterinærskolen_underside.jpg" alt="">
+<img src="https://www.lauravillumsen.dk/assets/images/Veterinærskolen_underside/2_Veterinærskolen_underside.jpg" alt="">
 <video controls muted autoplay loop>
-  <source src="https://lauravillumsen.dk/assets/images/Veterinærskolen_underside/3_Veterinæskolen_underside_video.mp4" type="video/mp4">
+  <source src="https://www.lauravillumsen.dk/assets/images/Veterinærskolen_underside/3_Veterinæskolen_underside_video.mp4" type="video/mp4">
 </video>
-<img src="https://lauravillumsen.dk/assets/images/Veterinærskolen_underside/4_Veterinærskolen_underside.jpg" alt="">
-<img src="https://lauravillumsen.dk/assets/images/Veterinærskolen_underside/5_Veterinærskolen_underside.jpg" alt="">
-<img src="https://lauravillumsen.dk/assets/images/Veterinærskolen_underside/6_Veterinærskolen_underside.jpg" alt="">
-<img src="https://lauravillumsen.dk/assets/images/Veterinærskolen_underside/7_Veterinærskolen_underside.jpg" alt="">
+<img src="https://www.lauravillumsen.dk/assets/images/Veterinærskolen_underside/4_Veterinærskolen_underside.jpg" alt="">
+<img src="https://www.lauravillumsen.dk/assets/images/Veterinærskolen_underside/5_Veterinærskolen_underside.jpg" alt="">
+<img src="https://www.lauravillumsen.dk/assets/images/Veterinærskolen_underside/6_Veterinærskolen_underside.jpg" alt="">
+<img src="https://www.lauravillumsen.dk/assets/images/Veterinærskolen_underside/7_Veterinærskolen_underside.jpg" alt="">
