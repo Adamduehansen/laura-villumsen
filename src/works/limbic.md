@@ -12,10 +12,10 @@ date: 2021-04
 metaDesc: Magasindesign med fokus på følelser. Magasinet udtrykker kant og blødhed og skal prøve at sætte ord på følelser og alt det de kan indebære.
 ---
 
-<img src="https://www.lauravillumsen.dk/assets/images/Limbic_underside/1_Limbic_underside.png" alt="">
-<img src="https://www.lauravillumsen.dk/assets/images/Limbic_underside/2_Limbic_underside.png" alt="">
-<img src="https://www.lauravillumsen.dk/assets/images/Limbic_underside/3_Limbic_underside.png" alt="">
-<img src="https://www.lauravillumsen.dk/assets/images/Limbic_underside/4_Limbic_underside.png" alt="">
-<img src="https://www.lauravillumsen.dk/assets/images/Limbic_underside/5_Limbic_underside.png" alt="">
-<img src="https://www.lauravillumsen.dk/assets/images/Limbic_underside/6_Limbic_underside.png" alt="">
-<img src="https://www.lauravillumsen.dk/assets/images/Limbic_underside/7_Limbic_underside.png" alt="">
+<img src="https://www.lauravillumsen.dk/assets/images/Limbic_underside/1_Limbic_underside.png" alt="Forsiden af magasinet">
+<img src="https://www.lauravillumsen.dk/assets/images/Limbic_underside/2_Limbic_underside.png" alt="Opslag af magasinets indholdsfortegnelse">
+<img src="https://www.lauravillumsen.dk/assets/images/Limbic_underside/3_Limbic_underside.png" alt="Opslag af artikel i magasinet">
+<img src="https://www.lauravillumsen.dk/assets/images/Limbic_underside/4_Limbic_underside.png" alt="Opslag af billeder i magasinet">
+<img src="https://www.lauravillumsen.dk/assets/images/Limbic_underside/5_Limbic_underside.png" alt="Opslag af billeder i magasinet">
+<img src="https://www.lauravillumsen.dk/assets/images/Limbic_underside/6_Limbic_underside.png" alt="Magasinets bagside, ryg og forside">
+<img src="https://www.lauravillumsen.dk/assets/images/Limbic_underside/7_Limbic_underside.png" alt="Magasinets indhold og design">

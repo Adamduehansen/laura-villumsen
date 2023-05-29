@@ -12,10 +12,10 @@ date: 2022-09
 metaDesc: Skrifttype inspireret af jazzmusikkens uforudsigligheder. Skriften er atypisk og inspireret af klassiske groteske skrifter.
 ---
 
-<img src="https://www.lauravillumsen.dk/assets/images/DolleRegular_underside/1_DolleRegular_underside.png" alt="">
-<img src="https://www.lauravillumsen.dk/assets/images/DolleRegular_underside/2_DolleRegular_underside.png" alt="">
+<img src="https://www.lauravillumsen.dk/assets/images/DolleRegular_underside/1_DolleRegular_underside.png" alt="Dolle skrifttype på mockup i byrummet">
+<img src="https://www.lauravillumsen.dk/assets/images/DolleRegular_underside/2_DolleRegular_underside.png" alt="Close-up af bogstaverne a og k">
 <video controls muted autoplay loop>
   <source src="https://www.lauravillumsen.dk/assets/images/DolleRegular_underside/4_DolleRegular_underside_video.mp4" type="video/mp4">
 </video>
-<img src="https://www.lauravillumsen.dk/assets/images/DolleRegular_underside/4_DolleRegular_underside.png" alt="">
-<img src="https://www.lauravillumsen.dk/assets/images/DolleRegular_underside/5_DolleRegular_underside.png" alt="">
+<img src="https://www.lauravillumsen.dk/assets/images/DolleRegular_underside/4_DolleRegular_underside.png" alt="Skilt med skrifttypen Dolle">
+<img src="https://www.lauravillumsen.dk/assets/images/DolleRegular_underside/5_DolleRegular_underside.png" alt="Hele skrifttypen vist fra a-z i ikke-versaler og versaler">
