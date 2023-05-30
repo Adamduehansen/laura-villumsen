@@ -20,4 +20,4 @@ metaDesc: Boddesign for Veterinærskolen, som hylder deres 250-års fødselsdag.
 <img src="https://www.lauravillumsen.dk/assets/images/Veterinærskolen_underside/4_Veterinærskolen_underside.jpg" alt="Kapitelstart i jubilæumsbog">
 <img src="https://www.lauravillumsen.dk/assets/images/Veterinærskolen_underside/5_Veterinærskolen_underside.jpg" alt="Opslag i bog med billede og tekst">
 <img src="https://www.lauravillumsen.dk/assets/images/Veterinærskolen_underside/6_Veterinærskolen_underside.jpg" alt="Opslag i bog med billeder af forskellige præparater">
-<img src="https://www.lauravillumsen.dk/assets/images/Veterinærskolen_underside/7_Veterinærskolen_underside.jpg" alt="Close-up af bogens forside med to grise">
+<img src="https://www.lauravillumsen.dk/assets/images/Veterinærskolen_underside/7_Veterinærskolen_underside.png" alt="Close-up af bogens forside med to grise">
