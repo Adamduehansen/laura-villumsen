@@ -3,7 +3,7 @@ title: Chivas Regal
 publisher: Emballage, visuel identitet
 publish_date: Januar 2022
 thumbnail: {
-  url: https://www.lauravillumsen.dk/assets/images/Forside/ChivasRegal_Forside.png,
+  url: https://www.lauravillumsen.dk/assets/images/Forside/ChivasRegal_Forside.jpg,
   alt: Plakat af designet i nattelivet
 }
 service: Emballagedesign,Visuel identitet,Koncept
@@ -12,7 +12,7 @@ date: 2022-01
 metaDesc: Emballagedesign og visuel identitet for Chivas Regal. En moderne og atypisk identitet, med fokus på at forny brandet.
 ---
 
-<img src="https://www.lauravillumsen.dk/assets/images/ChivasRegal_underside/1_ChivasRegal_underside.png" alt="Emballagedesign til Chivas regal og logodesign">
-<img src="https://www.lauravillumsen.dk/assets/images/ChivasRegal_underside/2_ChivasRegal_underside.png" alt="Identitetsdesign til Chivas Regal vist i en opvaskemaskine">
-<img src="https://www.lauravillumsen.dk/assets/images/ChivasRegal_underside/3_ChivasRegal_underside.png" alt="Logodesign i negativ og positiv visning">
-<img src="https://www.lauravillumsen.dk/assets/images/ChivasRegal_underside/4_ChivasRegal_underside.png" alt="Plakat af designet i nattelivet">
+<img src="https://www.lauravillumsen.dk/assets/images/ChivasRegal_underside/1_ChivasRegal_underside.jpg" alt="Emballagedesign til Chivas regal og logodesign">
+<img src="https://www.lauravillumsen.dk/assets/images/ChivasRegal_underside/2_ChivasRegal_underside.jpg" alt="Identitetsdesign til Chivas Regal vist i en opvaskemaskine">
+<img src="https://www.lauravillumsen.dk/assets/images/ChivasRegal_underside/3_ChivasRegal_underside.jpg" alt="Logodesign i negativ og positiv visning">
+<img src="https://www.lauravillumsen.dk/assets/images/ChivasRegal_underside/4_ChivasRegal_underside.jpg" alt="Plakat af designet i nattelivet">

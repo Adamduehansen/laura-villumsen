@@ -13,7 +13,7 @@ metaDesc: Visuel identitet for eventet ’Hello Summer’. Et sommerevent afhold
 ---
 
 <div class="lg:grid lg:grid-cols-12 lg:gap-3">
-  <img class="lg:col-span-4" src="https://www.lauravillumsen.dk/assets/images/HelloSummer_underside/1_HelloSummer_underside.png" alt="Billede af folk der hygger sig til eventet">
+  <img class="lg:col-span-4" src="https://www.lauravillumsen.dk/assets/images/HelloSummer_underside/1_HelloSummer_underside.jpg" alt="Billede af folk der hygger sig til eventet">
   <img class="lg:col-span-8" src="https://www.lauravillumsen.dk/assets/images/HelloSummer_underside/2_HelloSummer_underside.jpg" alt="Billede af visuel identitet for Hello Summer">
 </div>
 <video controls muted autoplay loop>
@@ -23,4 +23,4 @@ metaDesc: Visuel identitet for eventet ’Hello Summer’. Et sommerevent afhold
 <img src="https://www.lauravillumsen.dk/assets/images/HelloSummer_underside/5_HelloSummer_underside.jpg" alt="Billede af Line-up">
 <img src="https://www.lauravillumsen.dk/assets/images/HelloSummer_underside/6_HelloSummer_underside.jpg" alt="Billeder fra eventet hvor folk hygger sig">
 <img src="https://www.lauravillumsen.dk/assets/images/HelloSummer_underside/7_HelloSummer_underside.jpg" alt="Plakater fra eventet">
-<img src="https://www.lauravillumsen.dk/assets/images/HelloSummer_underside/8_HelloSummer_underside.png" alt="Fiktive plakater til eventet i byrummet">
+<img src="https://www.lauravillumsen.dk/assets/images/HelloSummer_underside/8_HelloSummer_underside.jpg" alt="Fiktive plakater til eventet i byrummet">

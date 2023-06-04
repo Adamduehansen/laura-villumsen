@@ -3,7 +3,7 @@ title: Dolle, Regular
 publisher: Skriftdesign
 publish_date: September 2022
 thumbnail: {
-  url: https://www.lauravillumsen.dk/assets/images/Forside/DolleRegular_Forside.png,
+  url: https://www.lauravillumsen.dk/assets/images/Forside/DolleRegular_Forside.jpg,
   alt: Dolle skrifttype på mockup i byrummet
 }
 service: Skriftdesign
@@ -12,9 +12,9 @@ date: 2022-09
 metaDesc: Skrifttype inspireret af jazzmusikkens uforudsigligheder. Skriften er atypisk og inspireret af klassiske groteske skrifter.
 ---
 
-<img src="https://www.lauravillumsen.dk/assets/images/DolleRegular_underside/1_DolleRegular_underside.png" alt="Dolle skrifttype på mockup i byrummet">
+<img src="https://www.lauravillumsen.dk/assets/images/DolleRegular_underside/1_DolleRegular_underside.jpg" alt="Dolle skrifttype på mockup i byrummet">
 <img src="https://www.lauravillumsen.dk/assets/images/DolleRegular_underside/2_DolleRegular_underside.jpg" alt="Close-up af bogstaverne a og k">
-<img src="https://www.lauravillumsen.dk/assets/images/DolleRegular_underside/3_DolleRegular_underside.png" alt="Skilt med skrifttypen Dolle">
+<img src="https://www.lauravillumsen.dk/assets/images/DolleRegular_underside/3_DolleRegular_underside.jpg" alt="Skilt med skrifttypen Dolle">
 <video controls muted autoplay loop>
   <source src="https://www.lauravillumsen.dk/assets/images/DolleRegular_underside/4_DolleRegular_underside_video.mp4" type="video/mp4">
 </video>

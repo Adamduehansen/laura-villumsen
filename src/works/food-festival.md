@@ -3,7 +3,7 @@ title: Copenhagen Food Festival
 publisher: Visuel identitet
 publish_date: Juni 2022
 thumbnail: {
-  url: https://www.lauravillumsen.dk/assets/images/Forside/CopenhagenFoodFestival_Forside.png,
+  url: https://www.lauravillumsen.dk/assets/images/Forside/CopenhagenFoodFestival_Forside.jpg,
   alt: Fire plakater til festivalen i byrummet
 }
 service: Visuel identitet,Emballage,Merch,Editorialdesign
@@ -12,11 +12,11 @@ date: 2022-06
 metaDesc: Visuel identitet for Copenhagen Food Festival, med fokus på sanselighed og det urbane miljø.
 ---
 
-<img src="https://www.lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/1_CopenhagenFoodFestival_underside.png" alt="Fire plakater til festivalen I byrummet">
-<img src="https://www.lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/2_CopenhagenFoodFestival_underside.png" alt="Visitkort hvor man kan se logo">
+<img src="https://www.lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/1_CopenhagenFoodFestival_underside.jpg" alt="Fire plakater til festivalen I byrummet">
+<img src="https://www.lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/2_CopenhagenFoodFestival_underside.jpg" alt="Visitkort hvor man kan se logo">
 <img src="https://www.lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/3_CopenhagenFoodFestival_underside.jpg" alt="Logoet i tre versioner">
-<img src="https://www.lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/4_CopenhagenFoodFestival_underside.png" alt="Plakat til festivalen på gaden">
-<img src="https://www.lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/5_CopenhagenFoodFestival_underside.png" alt="">
-<img src="https://www.lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/6_CopenhagenFoodFestival_underside.png" alt="Emballagedesign til vand-kartoner">
-<img src="https://www.lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/7_CopenhagenFoodFestival_underside.png" alt="Liggestole med designet på">
-<img src="https://www.lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/8_CopenhagenFoodFestival_underside.png" alt="Design til tape til madkasser eller praktiske ting">
+<img src="https://www.lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/4_CopenhagenFoodFestival_underside.jpg" alt="Plakat til festivalen på gaden">
+<img src="https://www.lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/5_CopenhagenFoodFestival_underside.jpg" alt="">
+<img src="https://www.lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/6_CopenhagenFoodFestival_underside.jpg" alt="Emballagedesign til vand-kartoner">
+<img src="https://www.lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/7_CopenhagenFoodFestival_underside.jpg" alt="Liggestole med designet på">
+<img src="https://www.lauravillumsen.dk/assets/images/CopenhagenFoodFestival_underside/8_CopenhagenFoodFestival_underside.jpg" alt="Design til tape til madkasser eller praktiske ting">
