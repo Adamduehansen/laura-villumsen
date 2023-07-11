@@ -1,4 +1,7 @@
-import { PageData, getPageData } from '@/utils/wpService';
+import Header from '@/components/Header';
+import PageDataProvider from '@/components/PageData';
+import { getPageData } from '@/utils/wpService';
+import type { PageData } from '@/utils/wpService';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Link from 'next/link';
 
@@ -7,24 +10,12 @@ import Link from 'next/link';
 
 export default function Home(props: PageData) {
   return (
-    <>
-      <header>
-        <Link href='/'>{props.siteName}</Link>
-        <nav>
-          <ul></ul>
-          {props.navigationItems.map(({ id, text, url }): JSX.Element => {
-            return (
-              <li key={id}>
-                <a href={url}>{text}</a>
-              </li>
-            );
-          })}
-        </nav>
-      </header>
+    <PageDataProvider pageData={props}>
+      <Header />
       <main>
         <h1>{props.title}</h1>
       </main>
-    </>
+    </PageDataProvider>
   );
 }
 
