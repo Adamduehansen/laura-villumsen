@@ -7,15 +7,31 @@ interface WPGraphQLPageDataResponse {
       title: string;
       content: string;
     } | null;
+    menu: {
+      menuItems: {
+        nodes: {
+          id: string;
+          label: string;
+          path: string;
+        }[];
+      };
+    };
     generalSettings: {
       title: string;
     };
   };
 }
 
-interface PageData {
+interface NavigationItem {
+  id: string;
+  text: string;
+  url: string;
+}
+
+export interface PageData {
   siteName: string;
   title: string;
+  navigationItems: NavigationItem[];
 }
 export interface GetPageDataResponse {
   notFound: boolean;
@@ -44,6 +60,16 @@ function getRequestBody(context: GetStaticPropsContext): string | null {
       page(id: "${finalPath}", idType: URI) {
         title
         content
+      },
+      menu(id: "dGVybToz") {
+        id,
+        menuItems {
+          nodes {
+            id
+            label
+            path
+          }
+        }
       },
       generalSettings {
         title
@@ -96,6 +122,13 @@ export async function getPageData(
     data: {
       siteName: data.generalSettings.title,
       title: data.page.title,
+      navigationItems: data.menu.menuItems.nodes.map((node): NavigationItem => {
+        return {
+          id: node.id,
+          text: node.label,
+          url: node.path,
+        };
+      }),
     },
     notFound: false,
   };

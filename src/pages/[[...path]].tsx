@@ -1,18 +1,29 @@
-import { GetPageDataResponse, getPageData } from '@/utils/wpService';
+import { PageData, getPageData } from '@/utils/wpService';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Link from 'next/link';
 
 // import { Inter } from 'next/font/google';
 // const inter = Inter({ subsets: ['latin'] });
 
-interface PageProps {
-  headerTitle: string;
-}
-
-export default function Home(props: PageProps) {
+export default function Home(props: PageData) {
   return (
     <>
-      <header>{props.headerTitle}</header>
-      <main></main>
+      <header>
+        <Link href='/'>{props.siteName}</Link>
+        <nav>
+          <ul></ul>
+          {props.navigationItems.map(({ id, text, url }): JSX.Element => {
+            return (
+              <li key={id}>
+                <a href={url}>{text}</a>
+              </li>
+            );
+          })}
+        </nav>
+      </header>
+      <main>
+        <h1>{props.title}</h1>
+      </main>
     </>
   );
 }
@@ -24,7 +35,7 @@ export const getStaticPaths: GetStaticPaths = async function () {
   };
 };
 
-export const getStaticProps: GetStaticProps<PageProps> = async function (
+export const getStaticProps: GetStaticProps<PageData> = async function (
   context
 ) {
   const { data, notFound } = await getPageData(context);
@@ -36,9 +47,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async function (
   }
 
   return {
-    props: {
-      headerTitle: data.siteName,
-    },
+    props: data,
     notFound: false,
   };
 };
