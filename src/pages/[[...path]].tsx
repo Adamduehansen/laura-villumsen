@@ -1,5 +1,4 @@
-import { raise } from '@/utils/raise';
-import { getPageData } from '@/utils/wpService';
+import { GetPageDataResponse, getPageData } from '@/utils/wpService';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 // import { Inter } from 'next/font/google';
@@ -10,7 +9,12 @@ interface PageProps {
 }
 
 export default function Home(props: PageProps) {
-  return <main>{props.headerTitle}</main>;
+  return (
+    <>
+      <header>{props.headerTitle}</header>
+      <main></main>
+    </>
+  );
 }
 
 export const getStaticPaths: GetStaticPaths = async function () {
@@ -20,16 +24,21 @@ export const getStaticPaths: GetStaticPaths = async function () {
   };
 };
 
-export const getStaticProps: GetStaticProps<PageProps> = async function () {
-  const siteName =
-    process.env.SITE_NAME ??
-    raise('Environment variable "SITE_NAME" was not defined');
+export const getStaticProps: GetStaticProps<PageProps> = async function (
+  context
+) {
+  const { data, notFound } = await getPageData(context);
 
-  const { data, error } = await getPageData(siteName);
+  if (notFound || data === undefined) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
-      headerTitle: data.siteInfo.name,
+      headerTitle: data.siteName,
     },
+    notFound: false,
   };
 };
