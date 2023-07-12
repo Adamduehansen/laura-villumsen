@@ -1,6 +1,6 @@
 import type { AppProps } from 'next/app';
 import Header from '@/components/Header';
-import PageDataProvider from '@/components/PageData';
+import PageDataProvider from '@/components/PageDataProvider';
 import { PageProps } from '@/utils/models';
 import '@/styles/globals.css';
 

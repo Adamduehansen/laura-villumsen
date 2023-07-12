@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useContext } from 'react';
-import { PageDataContext } from './PageData';
+import { PageDataContext } from './PageDataProvider';
 import Navigation from './Navigation';
 
 export default function Header(): JSX.Element {

@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { PageDataContext } from './PageData';
+import { PageDataContext } from './PageDataProvider';
 import Link from 'next/link';
 
 export default function Navigation(): JSX.Element {
