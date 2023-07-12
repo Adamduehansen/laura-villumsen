@@ -1,4 +1,4 @@
-import { PageData } from '@/utils/wpService';
+import { PageData } from '@/utils/models';
 import { createContext } from 'react';
 
 export const PageDataContext = createContext<PageData>({
