@@ -21,4 +21,4 @@ export interface PageData {
   navigationItems: MenuNavigationItem[];
 }
 
-export type PageProps<TProps> = PageData & TProps;
+export type PageProps<TProps = unknown> = PageData & TProps;
