@@ -9,7 +9,7 @@ interface WorkTeaserGraphQL {
   };
 }
 
-interface GetWorkTeaserData {
+interface WorkTeaserWPGraphQLResponse {
   data: {
     posts: {
       nodes: WorkTeaserGraphQL[];
@@ -26,7 +26,7 @@ function toWorkTeaser({ id, title, workData }: WorkTeaserGraphQL): WorkTeaser {
 }
 
 export async function getWorkTeasers(): Promise<ServiceResponse<WorkTeaser[]>> {
-  const workTeasersQuery = `
+  const worksResponse = await query(`
     query FrontpageData {
       posts {
         nodes {
@@ -38,10 +38,8 @@ export async function getWorkTeasers(): Promise<ServiceResponse<WorkTeaser[]>> {
         }
       }
     }
-  `;
-
-  const worksResponse = await query(workTeasersQuery);
-  const { data } = (await worksResponse.json()) as GetWorkTeaserData;
+  `);
+  const { data } = (await worksResponse.json()) as WorkTeaserWPGraphQLResponse;
 
   return {
     data: data.posts.nodes.map(toWorkTeaser),

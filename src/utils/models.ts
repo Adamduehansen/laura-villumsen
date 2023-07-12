@@ -5,6 +5,20 @@ export interface WorkTeaser {
 }
 
 export interface ServiceResponse<TData> {
-  error?: string;
+  error?: unknown;
   data: TData;
 }
+
+export interface MenuNavigationItem {
+  id: string;
+  text: string;
+  url: string;
+}
+
+export interface PageData {
+  siteName: string;
+  title: string;
+  navigationItems: MenuNavigationItem[];
+}
+
+export type PageProps<TProps> = PageData & TProps;
