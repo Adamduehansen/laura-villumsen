@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import Margin from './Margin';
+import Container from './Container';
 import { WorkTeaser } from '@/utils/models';
 
 interface Props {
@@ -28,12 +28,12 @@ export default function WorkTeasersListItem({
           height={image.height}
           priority
         />
-        <Margin>
+        <Container>
           <div className='flex justify-between'>
             <h2>{title}</h2>
             <time dateTime={date}>{dateString}</time>
           </div>
-        </Margin>
+        </Container>
       </Link>
     </li>
   );

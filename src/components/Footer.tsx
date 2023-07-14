@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import Image from 'next/image';
 import { PageDataContext } from './PageDataProvider';
 import { NavigationItem } from '@/utils/models';
-import Margin from './Margin';
+import Container from './Container';
 
 function toSocialComponent({ id, url, text }: NavigationItem): JSX.Element {
   return (
@@ -20,7 +20,7 @@ export default function Footer(): JSX.Element {
 
   return (
     <footer>
-      <Margin>
+      <Container>
         <div className='flex'>
           footer
           <Image
@@ -34,7 +34,7 @@ export default function Footer(): JSX.Element {
         <nav>
           <ul>{socialLinkComponents}</ul>
         </nav>
-      </Margin>
+      </Container>
     </footer>
   );
 }
