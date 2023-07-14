@@ -3,8 +3,10 @@ import { createContext } from 'react';
 
 export const PageDataContext = createContext<PageData>({
   siteName: '',
+  subName: '',
   title: '',
   navigationItems: [],
+  socials: [],
 });
 
 type Props = React.PropsWithChildren<{
