@@ -1,6 +1,8 @@
 import { useContext } from 'react';
+import Image from 'next/image';
 import { PageDataContext } from './PageDataProvider';
 import { NavigationItem } from '@/utils/models';
+import Margin from './Margin';
 
 function toSocialComponent({ id, url, text }: NavigationItem): JSX.Element {
   return (
@@ -11,16 +13,28 @@ function toSocialComponent({ id, url, text }: NavigationItem): JSX.Element {
     </li>
   );
 }
+
 export default function Footer(): JSX.Element {
   const pageData = useContext(PageDataContext);
-
   const socialLinkComponents = pageData.socials.map(toSocialComponent);
 
   return (
     <footer>
-      <nav>
-        <ul>{socialLinkComponents}</ul>
-      </nav>
+      <Margin>
+        <div className='flex'>
+          footer
+          <Image
+            src='arrow-right.svg'
+            alt=''
+            width={14}
+            height={12}
+            className='inline'
+          />
+        </div>
+        <nav>
+          <ul>{socialLinkComponents}</ul>
+        </nav>
+      </Margin>
     </footer>
   );
 }
