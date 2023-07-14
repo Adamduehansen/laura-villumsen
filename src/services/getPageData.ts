@@ -12,6 +12,7 @@ interface PageDataWPGraphQLResponse {
     };
     generalSettings: {
       title: string;
+      description: string;
     };
   };
 }
@@ -77,6 +78,7 @@ export async function getPageData(
       }
       generalSettings {
         title
+        description
       }
     }
   `);
@@ -88,6 +90,7 @@ export async function getPageData(
       data: {
         title: '',
         siteName: '',
+        subName: '',
         navigationItems: [],
         socials: [],
       },
@@ -98,6 +101,7 @@ export async function getPageData(
     data: {
       title: data.page.title,
       siteName: data.generalSettings.title,
+      subName: data.generalSettings.description,
       navigationItems: findNavigationItems(data.menus.nodes, 'navigation'),
       socials: findNavigationItems(data.menus.nodes, 'socials'),
     },

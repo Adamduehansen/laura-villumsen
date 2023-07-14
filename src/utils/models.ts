@@ -23,6 +23,7 @@ export interface NavigationItem {
 
 export interface PageData {
   siteName: string;
+  subName: string;
   title: string;
   navigationItems: NavigationItem[];
   socials: NavigationItem[];

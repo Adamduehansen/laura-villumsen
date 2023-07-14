@@ -4,11 +4,14 @@ import { PageDataContext } from './PageDataProvider';
 import Navigation from './Navigation';
 
 export default function Header(): JSX.Element {
-  const pageData = useContext(PageDataContext);
+  const { siteName, subName } = useContext(PageDataContext);
 
   return (
     <header>
-      <Link href='/'>{pageData.siteName}</Link>
+      <Link href='/' className='block'>
+        <div>{siteName}</div>
+        <div>{subName}</div>
+      </Link>
       <Navigation />
     </header>
   );
