@@ -27,8 +27,8 @@ export default function Home(props: HomeProps): JSX.Element {
                   <Image
                     src={image.src}
                     alt={image.alt}
-                    width={100}
-                    height={100}
+                    width={image.width}
+                    height={image.height}
                     priority
                   />
                 </div>

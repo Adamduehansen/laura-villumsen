@@ -5,6 +5,8 @@ export interface WorkTeaser {
   image: {
     src: string;
     alt: string;
+    width: number;
+    height: number;
   };
 }
 
