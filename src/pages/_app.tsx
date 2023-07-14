@@ -14,6 +14,7 @@ export default function App({ Component, pageProps }: AppProps<PageProps>) {
           rel='stylesheet'
           href='https://use.typekit.net/wsq1sgw.css'
         ></link>
+        <link rel='shortcut icon' href='favicon.png' type='image/x-icon' />
       </Head>
       <PageDataProvider pageData={pageProps}>
         <Header />
