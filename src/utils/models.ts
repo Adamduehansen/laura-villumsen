@@ -2,6 +2,10 @@ export interface WorkTeaser {
   id: string;
   title: string;
   date: string;
+  image: {
+    src: string;
+    alt: string;
+  };
 }
 
 export interface ServiceResponse<TData> {

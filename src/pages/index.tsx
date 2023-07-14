@@ -3,6 +3,7 @@ import { getWorkTeasers } from '@/services/getWorkTeasers';
 import { REVALIDATE_TIME } from '@/utils/const';
 import { PageProps, WorkTeaser } from '@/utils/models';
 import { GetStaticProps } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 
 type HomeProps = PageProps<{
@@ -13,7 +14,7 @@ export default function Home(props: HomeProps): JSX.Element {
   return (
     <main>
       <ul>
-        {props.workTeasers.map(({ id, title, date }) => {
+        {props.workTeasers.map(({ id, title, date, image }) => {
           const dateString = new Intl.DateTimeFormat('da-DK', {
             month: 'long',
             year: 'numeric',
@@ -22,7 +23,15 @@ export default function Home(props: HomeProps): JSX.Element {
           return (
             <li key={id}>
               <Link href={title}>
-                {/* <img src='' alt='' /> */}
+                <div className='relative'>
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width={100}
+                    height={100}
+                    priority
+                  />
+                </div>
                 <h2>{title}</h2>
                 <time dateTime={date}>{dateString}</time>
               </Link>
