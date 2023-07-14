@@ -13,7 +13,7 @@ export interface ServiceResponse<TData> {
   data: TData;
 }
 
-export interface MenuNavigationItem {
+export interface NavigationItem {
   id: string;
   text: string;
   url: string;
@@ -22,7 +22,8 @@ export interface MenuNavigationItem {
 export interface PageData {
   siteName: string;
   title: string;
-  navigationItems: MenuNavigationItem[];
+  navigationItems: NavigationItem[];
+  socials: NavigationItem[];
 }
 
 export type PageProps<TProps = unknown> = PageData & TProps;
