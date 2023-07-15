@@ -34,7 +34,7 @@ export default function Footer(): JSX.Element {
                 src='arrow-right.svg'
                 alt=''
                 width={14}
-                height={12}
+                height={24}
                 className='inline'
               />
             </div>
