@@ -18,11 +18,11 @@ export default function Work({
   types,
 }: WorkProps): JSX.Element {
   return (
-    <>
+    <div className='pt-main'>
       <Container>
         <Row>
           <Col>
-            <div className='text-lg mb-10'>
+            <div className='text-xl mb-10'>
               <h1>{title}</h1>
               <div>{types}</div>
               <time dateTime={date}>{formatDateString(date)}</time>
@@ -47,7 +47,7 @@ export default function Work({
           __html: galleryContent,
         }}
       ></div>
-    </>
+    </div>
   );
 }
 

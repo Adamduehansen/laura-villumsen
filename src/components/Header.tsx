@@ -16,12 +16,12 @@ export default function Header(): JSX.Element {
 
   return (
     <header className='fixed inset-x-0'>
-      <div className='bg-white'>
+      <div className='bg-white md:py-2'>
         <Container>
-          <div className='flex justify-between items-center pt-4 pb-6'>
+          <div className='flex justify-between items-center pt-4 pb-6 md:p-0'>
             <Link
               href='/'
-              className='block md:w-full md:flex md:justify-between'
+              className='block md:w-full md:flex md:justify-between md:text-lg'
             >
               <div>{siteName}</div>
               <div>{subName}</div>

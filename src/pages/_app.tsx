@@ -10,7 +10,7 @@ export default function App({ Component, pageProps }: AppProps<PageProps>) {
     <>
       <PageDataProvider pageData={pageProps}>
         <Header />
-        <main className='pt-main'>
+        <main>
           <Component {...pageProps} />
         </main>
         <Footer />

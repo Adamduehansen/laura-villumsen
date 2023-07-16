@@ -20,6 +20,10 @@ module.exports = {
       },
       fontSize: {
         lg: [
+          `${calculateRemFromPixel(20)}rem`,
+          `${calculateRemFromPixel(21.3)}rem`,
+        ],
+        xl: [
           `${calculateRemFromPixel(35)}rem`,
           `${calculateRemFromPixel(38.5)}rem`,
         ],
