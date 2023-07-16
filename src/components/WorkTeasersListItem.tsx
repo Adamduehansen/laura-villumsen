@@ -15,12 +15,12 @@ const dateFormatter = new Intl.DateTimeFormat('da-DK', {
 export default function WorkTeasersListItem({
   workTeaser,
 }: Props): JSX.Element {
-  const { title, image, date } = workTeaser;
+  const { title, image, path, date } = workTeaser;
   const dateString = dateFormatter.format(new Date(date));
 
   return (
     <li className='mb-6'>
-      <Link href={title}>
+      <Link href={path}>
         <Image
           src={image.src}
           alt={image.alt}

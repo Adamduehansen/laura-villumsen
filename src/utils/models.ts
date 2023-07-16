@@ -1,6 +1,7 @@
 export interface WorkTeaser {
   id: string;
   title: string;
+  path: string;
   date: string;
   image: {
     src: string;

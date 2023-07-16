@@ -4,6 +4,7 @@ import { query } from '@/utils/query';
 interface WorkTeaserGraphQL {
   id: string;
   title: string;
+  uri: string;
   featuredImage: {
     node: {
       sourceUrl: string;
@@ -32,10 +33,12 @@ function toWorkTeaser({
   title,
   workData,
   featuredImage,
+  uri,
 }: WorkTeaserGraphQL): WorkTeaser {
   return {
     id: id,
     title: title,
+    path: uri,
     date: workData.date,
     image: {
       src: featuredImage.node.sourceUrl,
@@ -66,6 +69,7 @@ export async function getWorkTeasers(): Promise<ServiceResponse<WorkTeaser[]>> {
         nodes {
           id
           title
+          uri
           featuredImage {
             node {
               sourceUrl
