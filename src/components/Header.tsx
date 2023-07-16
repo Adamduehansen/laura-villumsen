@@ -29,7 +29,7 @@ export default function Header(): JSX.Element {
           </div>
         </Container>
       </div>
-      <div className='flex-1'>{showBurgerMenu && <Navigation />}</div>
+      <Navigation show={showBurgerMenu} />
     </header>
   );
 }
