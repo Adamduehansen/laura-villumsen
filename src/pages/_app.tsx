@@ -11,7 +11,9 @@ export default function App({ Component, pageProps }: AppProps<PageProps>) {
     <>
       <PageDataProvider pageData={pageProps}>
         <Header />
-        <Component {...pageProps} />
+        <main className='pt-[88px]'>
+          <Component {...pageProps} />
+        </main>
         <Footer />
       </PageDataProvider>
     </>

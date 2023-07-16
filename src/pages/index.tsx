@@ -10,11 +10,7 @@ type HomeProps = PageProps<{
 }>;
 
 export default function Home(props: HomeProps): JSX.Element {
-  return (
-    <main>
-      <WorkTeasersList workTeasers={props.workTeasers} />
-    </main>
-  );
+  return <WorkTeasersList workTeasers={props.workTeasers} />;
 }
 
 export const getStaticProps: GetStaticProps<HomeProps> = async function () {
