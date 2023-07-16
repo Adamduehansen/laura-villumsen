@@ -39,6 +39,7 @@ export type WorkData = PageData & {
   content: string;
   tags: Tag[];
   date: string;
+  galleryContent: string;
 };
 
 export type PageProps<TProps = unknown> = PageData & TProps;

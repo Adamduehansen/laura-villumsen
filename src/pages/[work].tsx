@@ -1,4 +1,7 @@
+import Col from '@/components/Col';
 import Container from '@/components/Container';
+import Row from '@/components/Row';
+import TagList from '@/components/TagList';
 import { getPostData } from '@/services/getPostData';
 import { PageProps, WorkData } from '@/utils/models';
 import { formatDateString } from '@/utils/workDateFormatter';
@@ -6,15 +9,33 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 
 type WorkProps = PageProps<WorkData>;
 
-export default function Work({ title, date, content }: WorkProps): JSX.Element {
+export default function Work({
+  title,
+  date,
+  content,
+  tags,
+  galleryContent,
+}: WorkProps): JSX.Element {
   return (
     <Container>
-      <h1>{title}</h1>
-      <time dateTime={date}>{formatDateString(date)}</time>
+      <Row>
+        <Col>
+          <h1>{title}</h1>
+          <time dateTime={date}>{formatDateString(date)}</time>
+          <p
+            dangerouslySetInnerHTML={{
+              __html: content,
+            }}
+          ></p>
+        </Col>
+        <Col>
+          <TagList tags={tags} className='text-right' />
+        </Col>
+      </Row>
       <div
         className='work-content'
         dangerouslySetInnerHTML={{
-          __html: content,
+          __html: galleryContent,
         }}
       ></div>
     </Container>

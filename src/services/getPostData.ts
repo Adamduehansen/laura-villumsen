@@ -1,3 +1,4 @@
+import { parse } from 'node-html-parser';
 import { ServiceResponse, Tag, WorkData } from '@/utils/models';
 import { query } from '@/utils/query';
 import {
@@ -74,6 +75,7 @@ export async function getPostData(
     return {
       error: new Error('Post not found'),
       data: {
+        galleryContent: '',
         title: '',
         content: '',
         date: '',
@@ -86,10 +88,15 @@ export async function getPostData(
     };
   }
 
+  const root = parse(data.post.content);
+
+  const content = root.querySelector('p');
+  const gallery = root.querySelector('figure');
+
   return {
     data: {
       title: data.post.title,
-      content: data.post.content,
+      content: content?.innerHTML ?? '',
       date: data.post.workData.date,
       tags: data.post.tags.nodes.map(({ id, name }): Tag => {
         return {
@@ -101,6 +108,7 @@ export async function getPostData(
       subName: data.generalSettings.description,
       navigationItems: findNavigationItems(data.menus.nodes, 'navigation'),
       socials: findNavigationItems(data.menus.nodes, 'socials'),
+      galleryContent: gallery?.innerHTML ?? '',
     },
   };
 }
