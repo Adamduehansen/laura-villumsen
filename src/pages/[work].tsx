@@ -1,15 +1,18 @@
 import Container from '@/components/Container';
 import { getPostData } from '@/services/getPostData';
 import { PageProps, WorkData } from '@/utils/models';
+import { formatDateString } from '@/utils/workDateFormatter';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
 type WorkProps = PageProps<WorkData>;
 
-export default function Work({ title, content }: WorkProps): JSX.Element {
+export default function Work({ title, date, content }: WorkProps): JSX.Element {
   return (
     <Container>
       <h1>{title}</h1>
+      <time dateTime={date}>{formatDateString(date)}</time>
       <div
+        className='work-content'
         dangerouslySetInnerHTML={{
           __html: content,
         }}

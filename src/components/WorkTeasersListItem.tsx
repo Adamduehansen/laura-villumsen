@@ -2,21 +2,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Container from './Container';
 import { WorkTeaser } from '@/utils/models';
+import { formatDateString } from '@/utils/workDateFormatter';
 
 interface Props {
   workTeaser: WorkTeaser;
 }
 
-const dateFormatter = new Intl.DateTimeFormat('da-DK', {
-  month: 'long',
-  year: 'numeric',
-});
-
 export default function WorkTeasersListItem({
   workTeaser,
 }: Props): JSX.Element {
   const { title, image, path, date } = workTeaser;
-  const dateString = dateFormatter.format(new Date(date));
 
   return (
     <li className='mb-6'>
@@ -32,7 +27,7 @@ export default function WorkTeasersListItem({
         <Container>
           <div className='flex justify-between'>
             <h2>{title}</h2>
-            <time dateTime={date}>{dateString}</time>
+            <time dateTime={date}>{formatDateString(date)}</time>
           </div>
         </Container>
       </Link>
