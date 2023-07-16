@@ -1,3 +1,7 @@
 
-Todo:
-  ✔ Create tests for Container component @done(23-07-15 23:22)
+Todo: 
+  ☐ Cleanup services
+  ☐ Write tests for services
+
+Archive:
+  ✔ Create tests for Container component @done(23-07-15 23:22) @project(Todo)

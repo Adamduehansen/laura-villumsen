@@ -1,11 +1,11 @@
-import { NavigationItem, PageData, ServiceResponse } from '@/utils/models';
+import { PageData, ServiceResponse } from '@/utils/models';
 import { query } from '@/utils/query';
+import { MenuWPGRaphQL, findNavigationItems } from './common';
 
 interface PageDataWPGraphQLResponse {
   data: {
     page: {
       title: string;
-      content: string;
     } | null;
     menus: {
       nodes: MenuWPGRaphQL[];
@@ -17,52 +17,13 @@ interface PageDataWPGraphQLResponse {
   };
 }
 
-interface MenuWPGRaphQL {
-  name: string;
-  menuItems: {
-    nodes: MenuItemWPGraphQL[];
-  };
-}
-
-interface MenuItemWPGraphQL {
-  id: string;
-  label: string;
-  uri: string;
-}
-
-function findNavigationItems(
-  menus: MenuWPGRaphQL[],
-  key: string
-): NavigationItem[] {
-  const menu = menus.find((menu) => menu.name.toLowerCase() === key);
-
-  if (menu === undefined) {
-    return [];
-  }
-
-  return menu.menuItems.nodes.map(toMenuNavigationItem);
-}
-
-function toMenuNavigationItem({
-  id,
-  label,
-  uri,
-}: MenuItemWPGraphQL): NavigationItem {
-  return {
-    id: id,
-    text: label,
-    url: uri,
-  };
-}
-
 export async function getPageData(
   path: string
 ): Promise<ServiceResponse<PageData>> {
-  const worksResponse = await query(`
+  const pageDataResponse = await query(`
     query PageData {
-      page(id: "/", idType: URI) {
+      page(id: "${path}", idType: URI) {
         title
-        content
       }
       menus {
         nodes {
@@ -82,7 +43,7 @@ export async function getPageData(
       }
     }
   `);
-  const { data } = (await worksResponse.json()) as PageDataWPGraphQLResponse;
+  const { data } = (await pageDataResponse.json()) as PageDataWPGraphQLResponse;
 
   if (data.page === null) {
     return {
