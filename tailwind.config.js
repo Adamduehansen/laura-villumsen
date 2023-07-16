@@ -18,6 +18,12 @@ module.exports = {
       padding: {
         main: `${calculateRemFromPixel(88)}rem`,
       },
+      fontSize: {
+        lg: [
+          `${calculateRemFromPixel(35)}rem`,
+          `${calculateRemFromPixel(38.5)}rem`,
+        ],
+      },
     },
   },
   plugins: [],

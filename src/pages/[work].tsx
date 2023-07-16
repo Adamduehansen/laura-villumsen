@@ -22,22 +22,25 @@ export default function Work({
       <Container>
         <Row>
           <Col>
-            <h1>{title}</h1>
-            <div>{types}</div>
-            <time dateTime={date}>{formatDateString(date)}</time>
+            <div className='text-lg mb-10'>
+              <h1>{title}</h1>
+              <div>{types}</div>
+              <time dateTime={date}>{formatDateString(date)}</time>
+            </div>
             <p
+              className='mb-10'
               dangerouslySetInnerHTML={{
                 __html: content,
               }}
             ></p>
           </Col>
           <Col>
-            <TagList tags={tags} className='text-right' />
+            <TagList tags={tags} className='text-right mb-7' />
           </Col>
         </Row>
       </Container>
       <div
-        className='gallery'
+        className='gallery mb-20'
         dangerouslySetInnerHTML={{
           __html: galleryContent,
         }}
