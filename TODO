@@ -2,6 +2,7 @@
 Todo: 
   ☐ Cleanup services
   ☐ Write tests for services
+  ☐ Navigation needs to be finished
 
 Archive:
   ✔ Create tests for Container component @done(23-07-15 23:22) @project(Todo)
