@@ -5,6 +5,7 @@ Todo:
   ☐ Navigation needs to be finished
   ☐ Propper 400 handling
   ☐ Add paths to getStaticPaths for [work].tsx
+  ☐ Add "next design" link
 
 Archive:
   ✔ Create tests for Container component @done(23-07-15 23:22) @project(Todo)
