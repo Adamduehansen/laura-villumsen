@@ -6,6 +6,11 @@ body {
   font-family: neue-haas-grotesk-display;
 }
 
+.gallery figure img,
+.gallery figure video {
+  @apply w-full;
+}
+
 .gallery figure:not(:last-child) img,
 .gallery figure:not(:last-child) video {
   @apply mb-1;
