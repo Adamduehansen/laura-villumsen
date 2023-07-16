@@ -27,6 +27,8 @@ export default function Work({
               <div>{types}</div>
               <time dateTime={date}>{formatDateString(date)}</time>
             </div>
+          </Col>
+          <Col md={5}>
             <p
               className='mb-10'
               dangerouslySetInnerHTML={{
@@ -34,8 +36,8 @@ export default function Work({
               }}
             ></p>
           </Col>
-          <Col>
-            <TagList tags={tags} className='text-right mb-7' />
+          <Col md={3} mdStart={10}>
+            <TagList tags={tags} className='text-right mb-7 md:text-left' />
           </Col>
         </Row>
       </Container>
