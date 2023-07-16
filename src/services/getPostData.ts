@@ -91,7 +91,9 @@ export async function getPostData(
   const root = parse(data.post.content);
 
   const content = root.querySelector('p');
-  const gallery = root.querySelector('figure');
+  const gallery = root.querySelectorAll(':scope > figure');
+
+  console.log(gallery.length);
 
   return {
     data: {
@@ -108,7 +110,7 @@ export async function getPostData(
       subName: data.generalSettings.description,
       navigationItems: findNavigationItems(data.menus.nodes, 'navigation'),
       socials: findNavigationItems(data.menus.nodes, 'socials'),
-      galleryContent: gallery?.innerHTML ?? '',
+      galleryContent: gallery.join(''),
     },
   };
 }
