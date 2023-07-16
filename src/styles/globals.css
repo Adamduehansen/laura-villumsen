@@ -5,3 +5,7 @@
 body {
   font-family: neue-haas-grotesk-display;
 }
+
+.work-content img {
+  @apply mb-1;
+}
