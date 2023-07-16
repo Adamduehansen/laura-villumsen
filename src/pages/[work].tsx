@@ -42,7 +42,7 @@ export default function Work({
         </Row>
       </Container>
       <div
-        className='gallery mb-20'
+        className='gallery'
         dangerouslySetInnerHTML={{
           __html: galleryContent,
         }}

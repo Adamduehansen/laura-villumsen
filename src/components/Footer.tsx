@@ -24,7 +24,7 @@ export default function Footer(): JSX.Element {
   const [instagram, linkedIn] = pageData.socials.map(toSocialComponent);
 
   return (
-    <footer className='mb-20'>
+    <footer className='my-20'>
       <Container>
         <Row>
           <Col mdStart={9}>
