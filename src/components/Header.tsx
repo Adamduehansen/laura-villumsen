@@ -19,11 +19,14 @@ export default function Header(): JSX.Element {
       <div className='bg-white'>
         <Container>
           <div className='flex justify-between items-center pt-4 pb-6'>
-            <Link href='/' className='block'>
+            <Link
+              href='/'
+              className='block md:w-full md:flex md:justify-between'
+            >
               <div>{siteName}</div>
               <div>{subName}</div>
             </Link>
-            <button onClick={toggleBurgerMenu} className='w-5 h-5'>
+            <button onClick={toggleBurgerMenu} className='w-5 h-5 md:hidden'>
               <Image src='add.svg' alt='' width={20} height={20} />
             </button>
           </div>
