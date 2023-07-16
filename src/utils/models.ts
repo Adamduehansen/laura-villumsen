@@ -36,6 +36,7 @@ export interface Tag {
 }
 
 export type WorkData = PageData & {
+  types: string;
   content: string;
   tags: Tag[];
   date: string;

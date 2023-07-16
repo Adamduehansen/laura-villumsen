@@ -20,6 +20,7 @@ interface PostWPGraphQL {
   };
   workData: {
     date: string;
+    types: string;
   };
 }
 
@@ -47,6 +48,7 @@ export async function getPostData(
         }
         workData {
           date
+          types
         }
       }
       menus {
@@ -84,16 +86,14 @@ export async function getPostData(
         siteName: '',
         socials: [],
         subName: '',
+        types: '',
       },
     };
   }
 
   const root = parse(data.post.content);
-
   const content = root.querySelector('p');
   const gallery = root.querySelectorAll(':scope > figure');
-
-  console.log(gallery.length);
 
   return {
     data: {
@@ -111,6 +111,7 @@ export async function getPostData(
       navigationItems: findNavigationItems(data.menus.nodes, 'navigation'),
       socials: findNavigationItems(data.menus.nodes, 'socials'),
       galleryContent: gallery.join(''),
+      types: data.post.workData.types,
     },
   };
 }

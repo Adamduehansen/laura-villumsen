@@ -15,6 +15,7 @@ export default function Work({
   content,
   tags,
   galleryContent,
+  types,
 }: WorkProps): JSX.Element {
   return (
     <>
@@ -22,6 +23,7 @@ export default function Work({
         <Row>
           <Col>
             <h1>{title}</h1>
+            <div>{types}</div>
             <time dateTime={date}>{formatDateString(date)}</time>
             <p
               dangerouslySetInnerHTML={{
