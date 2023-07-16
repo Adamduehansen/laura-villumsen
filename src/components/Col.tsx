@@ -6,6 +6,7 @@ type Props = React.PropsWithChildren<{
   sm?: ColRange;
   md?: ColRange;
   mdStart?: ColRange;
+  className?: string;
 }>;
 
 export default function Col({
@@ -13,10 +14,11 @@ export default function Col({
   sm = 12,
   md,
   mdStart,
+  className,
 }: Props): JSX.Element {
   return (
     <div
-      className={classNames(`col-span-${sm}`, {
+      className={classNames(`col-span-${sm}`, className, {
         [`md:col-span-${md}`]: md,
         [`md:col-start-${mdStart}`]: mdStart,
       })}
