@@ -2,8 +2,7 @@ import { useContext } from 'react';
 import { PageDataContext } from './PageDataProvider';
 import Link from 'next/link';
 import Container from './Container';
-import Row from './Row';
-import Col from './Col';
+import classNames from 'classnames';
 
 interface Props {
   show: boolean;
@@ -14,20 +13,25 @@ export default function Navigation({ show }: Props): JSX.Element {
 
   return (
     <nav
-      className={`bg-[#E8E6E7] h-full fixed inset-0 -z-10 pt-main duration-300 ${
-        show ? 'translate-y-0' : '-translate-y-full'
-      }`}
+      className={classNames(
+        'bg-[#E8E6E7] h-full fixed inset-0 -z-10 pt-main duration-300',
+        {
+          'translate-y-0': show,
+          '-translate-y-full': !show,
+        },
+        'md:translate-y-0 md:bg-transparent md:h-auto md:bottom-0 md:top-auto md:pt-0'
+      )}
     >
-      <Container>
-        <Row>
+      <Container className='h-full'>
+        <div className='flex flex-col h-full justify-around'>
           {pageData.navigationItems.map(({ id, text, url }): JSX.Element => {
             return (
-              <Col key={id}>
-                <Link href={url}>{text}</Link>
-              </Col>
+              <Link key={id} href={url} className='block'>
+                {text}
+              </Link>
             );
           })}
-        </Row>
+        </div>
       </Container>
     </nav>
   );
