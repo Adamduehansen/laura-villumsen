@@ -4,7 +4,6 @@ import PageDataProvider from '@/components/PageDataProvider';
 import { PageProps } from '@/utils/models';
 import Footer from '@/components/Footer';
 import '@/styles/globals.css';
-import Navigation from '@/components/Navigation';
 
 export default function App({ Component, pageProps }: AppProps<PageProps>) {
   return (
