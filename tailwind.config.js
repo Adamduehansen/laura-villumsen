@@ -1,3 +1,8 @@
+function calculateRemFromPixel(pixelValue, baseFontSize = 16) {
+  const remValue = pixelValue / baseFontSize;
+  return remValue;
+}
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -8,7 +13,10 @@ module.exports = {
   theme: {
     extend: {
       margin: {
-        grid: '0.625rem',
+        grid: `${calculateRemFromPixel(10)}rem`,
+      },
+      padding: {
+        main: `${calculateRemFromPixel(88)}rem`,
       },
     },
   },

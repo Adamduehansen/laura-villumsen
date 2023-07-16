@@ -14,7 +14,7 @@ export default function Navigation({ show }: Props): JSX.Element {
 
   return (
     <nav
-      className={`bg-[#E8E6E7] h-full fixed inset-0 -z-10 pt-[88px] duration-300 ${
+      className={`bg-[#E8E6E7] h-full fixed inset-0 -z-10 pt-main duration-300 ${
         show ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
