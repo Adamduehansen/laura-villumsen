@@ -23,7 +23,7 @@ export default function Navigation({ show }: Props): JSX.Element {
       )}
     >
       <Container className='h-full'>
-        <div className='flex flex-col h-full justify-around'>
+        <div className='flex flex-col h-full justify-around md:flex-row md:justify-between'>
           {pageData.navigationItems.map(({ id, text, url }): JSX.Element => {
             return (
               <Link key={id} href={url} className='block'>
