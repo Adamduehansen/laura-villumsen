@@ -6,6 +6,6 @@ body {
   font-family: neue-haas-grotesk-display;
 }
 
-.work-content img {
+.gallery img {
   @apply mb-1;
 }

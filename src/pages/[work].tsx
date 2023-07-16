@@ -17,28 +17,30 @@ export default function Work({
   galleryContent,
 }: WorkProps): JSX.Element {
   return (
-    <Container>
-      <Row>
-        <Col>
-          <h1>{title}</h1>
-          <time dateTime={date}>{formatDateString(date)}</time>
-          <p
-            dangerouslySetInnerHTML={{
-              __html: content,
-            }}
-          ></p>
-        </Col>
-        <Col>
-          <TagList tags={tags} className='text-right' />
-        </Col>
-      </Row>
+    <>
+      <Container>
+        <Row>
+          <Col>
+            <h1>{title}</h1>
+            <time dateTime={date}>{formatDateString(date)}</time>
+            <p
+              dangerouslySetInnerHTML={{
+                __html: content,
+              }}
+            ></p>
+          </Col>
+          <Col>
+            <TagList tags={tags} className='text-right' />
+          </Col>
+        </Row>
+      </Container>
       <div
-        className='work-content'
+        className='gallery'
         dangerouslySetInnerHTML={{
           __html: galleryContent,
         }}
       ></div>
-    </Container>
+    </>
   );
 }
 
