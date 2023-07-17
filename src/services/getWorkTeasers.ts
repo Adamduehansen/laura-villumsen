@@ -51,7 +51,7 @@ function toWorkTeaser({
 
 function byDescendingDate(
   workTeaserA: WorkTeaser,
-  workTeaserB: WorkTeaser
+  workTeaserB: WorkTeaser,
 ): number {
   if (workTeaserA.date > workTeaserB.date) {
     return -1;

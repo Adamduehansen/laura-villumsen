@@ -18,7 +18,7 @@ interface PageDataWPGraphQLResponse {
 }
 
 export async function getPageData(
-  path: string
+  path: string,
 ): Promise<ServiceResponse<PageData>> {
   const pageDataResponse = await query(`
     query PageData {

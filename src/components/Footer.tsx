@@ -1,10 +1,10 @@
-import { useContext } from 'react';
-import Image from 'next/image';
-import { PageDataContext } from './PageDataProvider';
 import { NavigationItem } from '@/utils/models';
-import Container from './Container';
-import Row from './Row';
+import Image from 'next/image';
+import { useContext } from 'react';
 import Col from './Col';
+import Container from './Container';
+import { PageDataContext } from './PageDataProvider';
+import Row from './Row';
 
 function toSocialComponent({ id, url, text }: NavigationItem): JSX.Element {
   return (

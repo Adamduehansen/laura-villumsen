@@ -1,9 +1,9 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { useContext, useState } from 'react';
-import { PageDataContext } from './PageDataProvider';
-import Image from 'next/image';
 import Container from './Container';
 import Navigation from './Navigation';
+import { PageDataContext } from './PageDataProvider';
 
 export default function Header(): JSX.Element {
   const [showBurgerMenu, setshowBurgerMenu] = useState(false);
@@ -18,15 +18,15 @@ export default function Header(): JSX.Element {
     <header className='fixed inset-x-0'>
       <div className='bg-white md:py-2'>
         <Container>
-          <div className='flex justify-between items-center pt-4 pb-6 md:p-0'>
+          <div className='flex items-center justify-between pb-6 pt-4 md:p-0'>
             <Link
               href='/'
-              className='block md:w-full md:flex md:justify-between md:text-lg'
+              className='block md:flex md:w-full md:justify-between md:text-lg'
             >
               <div>{siteName}</div>
               <div>{subName}</div>
             </Link>
-            <button onClick={toggleBurgerMenu} className='w-5 h-5 md:hidden'>
+            <button onClick={toggleBurgerMenu} className='h-5 w-5 md:hidden'>
               <Image src='add.svg' alt='' width={20} height={20} />
             </button>
           </div>

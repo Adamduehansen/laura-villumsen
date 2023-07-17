@@ -1,6 +1,6 @@
-import { parse } from 'node-html-parser';
 import { ServiceResponse, Tag, WorkData } from '@/utils/models';
 import { query } from '@/utils/query';
+import { parse } from 'node-html-parser';
 import {
   GeneralSettingsWPGraphQL,
   MenusWPGraphQL,
@@ -33,7 +33,7 @@ interface PostWPGraphQLResponse {
 }
 
 export async function getPostData(
-  path: string
+  path: string,
 ): Promise<ServiceResponse<WorkData>> {
   const postDataResponse = await query(`
     query PostData {

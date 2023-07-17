@@ -22,7 +22,7 @@ export default function Work({
       <Container>
         <Row>
           <Col>
-            <div className='text-xl mb-10'>
+            <div className='mb-10 text-xl'>
               <h1>{title}</h1>
               <div>{types}</div>
               <time dateTime={date}>{formatDateString(date)}</time>
@@ -37,7 +37,7 @@ export default function Work({
             ></p>
           </Col>
           <Col md={3} mdStart={10}>
-            <TagList tags={tags} className='text-right mb-7 md:text-left' />
+            <TagList tags={tags} className='mb-7 text-right md:text-left' />
           </Col>
         </Row>
       </Container>
@@ -59,7 +59,7 @@ export const getStaticPaths: GetStaticPaths = async function () {
 };
 
 export const getStaticProps: GetStaticProps<WorkProps> = async function (
-  context
+  context,
 ) {
   const { data } = await getPostData(context.params!.work!.toString());
 

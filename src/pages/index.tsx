@@ -1,9 +1,9 @@
-import { GetStaticProps } from 'next';
+import WorkTeasersList from '@/components/WorkTeasersList';
 import { getPageData } from '@/services/getPageData';
 import { getWorkTeasers } from '@/services/getWorkTeasers';
 import { REVALIDATE_TIME } from '@/utils/const';
 import { PageProps, WorkTeaser } from '@/utils/models';
-import WorkTeasersList from '@/components/WorkTeasersList';
+import { GetStaticProps } from 'next';
 
 type HomeProps = PageProps<{
   workTeasers: WorkTeaser[];

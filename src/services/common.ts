@@ -36,7 +36,7 @@ function toMenuNavigationItem({
 
 export function findNavigationItems(
   menus: MenuWPGRaphQL[],
-  key: string
+  key: string,
 ): NavigationItem[] {
   const menu = menus.find((menu) => menu.name.toLowerCase() === key);
 

@@ -1,8 +1,8 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import Container from './Container';
 import { WorkTeaser } from '@/utils/models';
 import { formatDateString } from '@/utils/workDateFormatter';
+import Image from 'next/image';
+import Link from 'next/link';
+import Container from './Container';
 
 interface Props {
   workTeaser: WorkTeaser;
