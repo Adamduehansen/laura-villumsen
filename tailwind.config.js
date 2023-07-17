@@ -11,6 +11,9 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    fontFamily: {
+      'owners-wide': 'owners-wide',
+    },
     extend: {
       margin: {
         grid: `${calculateRemFromPixel(10)}rem`,

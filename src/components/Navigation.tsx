@@ -23,15 +23,20 @@ export default function Navigation({ show }: Props): JSX.Element {
       )}
     >
       <Container className='h-full'>
-        <div className='flex flex-col h-full justify-around md:flex-row md:justify-between'>
+        <ul className='flex flex-col h-full justify-around md:flex-row md:justify-between w-64 leading-none'>
           {pageData.navigationItems.map(({ id, text, url }): JSX.Element => {
             return (
-              <Link key={id} href={url} className='block'>
-                {text}
-              </Link>
+              <li key={id}>
+                <Link
+                  href={url}
+                  className='max-[375px]:text-[4.375rem] text-[5rem] uppercase break-words block font-owners-wide'
+                >
+                  {text}
+                </Link>
+              </li>
             );
           })}
-        </div>
+        </ul>
       </Container>
     </nav>
   );
