@@ -16,17 +16,17 @@ export default function Header(): JSX.Element {
 
   return (
     <header className='fixed inset-x-0'>
-      <div className='bg-white md:py-2'>
+      <div className='bg-white lg:py-2'>
         <Container>
-          <div className='flex items-center justify-between pb-6 pt-4 md:p-0'>
+          <div className='flex items-center justify-between pb-6 pt-4 lg:p-0'>
             <Link
               href='/'
-              className='block md:flex md:w-full md:justify-between md:text-lg'
+              className='block lg:flex lg:w-full lg:justify-between lg:text-lg'
             >
               <div>{siteName}</div>
               <div>{subName}</div>
             </Link>
-            <button onClick={toggleBurgerMenu} className='h-5 w-5 md:hidden'>
+            <button onClick={toggleBurgerMenu} className='h-5 w-5 lg:hidden'>
               <Image src='add.svg' alt='' width={20} height={20} />
             </button>
           </div>
