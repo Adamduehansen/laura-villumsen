@@ -1,7 +1,7 @@
 import classNames from 'classnames';
-import Link from 'next/link';
 import { useContext } from 'react';
 import Container from './Container';
+import NavigationItem from './NavigationItem';
 import { PageDataContext } from './PageDataProvider';
 
 interface Props {
@@ -10,6 +10,9 @@ interface Props {
 
 export default function Navigation({ show }: Props): JSX.Element {
   const pageData = useContext(PageDataContext);
+
+  const [firstNavigation, secondNavigation, thirdNavigation] =
+    pageData.navigationItems;
 
   return (
     <nav
@@ -23,19 +26,21 @@ export default function Navigation({ show }: Props): JSX.Element {
       )}
     >
       <Container className='h-full'>
-        <ul className='flex h-full w-64 flex-col justify-around leading-none lg:flex-row lg:justify-between md:w-full'>
-          {pageData.navigationItems.map(({ id, text, url }): JSX.Element => {
-            return (
-              <li key={id}>
-                <Link
-                  href={url}
-                  className='block break-words font-owners-wide text-[5rem] uppercase max-[375px]:text-[4.375rem] md:text-[8.1rem] lg:text-[3.9rem] xl:text-[4.9rem] 2xl:text-[5.3rem]'
-                >
-                  {text}
-                </Link>
-              </li>
-            );
-          })}
+        <ul className='max-[375px]:w-[13.4rem] flex h-full w-64 flex-col justify-around leading-none lg:flex-row lg:justify-between md:w-full'>
+          <NavigationItem
+            text={firstNavigation.text}
+            url={firstNavigation.url}
+            className='after:content-["-"] after:absolute after:top-0 after:-right-6 md:after:content-none'
+          />
+          <NavigationItem
+            text={secondNavigation.text}
+            url={secondNavigation.url}
+          />
+          <NavigationItem
+            text={thirdNavigation.text}
+            url={thirdNavigation.url}
+            className='after:content-["-"] after:absolute after:top-0 after:-right-6 md:after:content-none'
+          />
         </ul>
       </Container>
     </nav>
