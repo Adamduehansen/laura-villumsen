@@ -1,18 +1,27 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useContext, useState } from 'react';
+import { useRouter } from 'next/router';
+import { useContext, useEffect, useState } from 'react';
 import Container from './Container';
 import Navigation from './Navigation';
 import { PageDataContext } from './PageDataProvider';
 
 export default function Header(): JSX.Element {
   const [showBurgerMenu, setshowBurgerMenu] = useState(false);
-
   const { siteName, subName } = useContext(PageDataContext);
+  const { events } = useRouter();
 
   function toggleBurgerMenu(): void {
     setshowBurgerMenu((current) => !current);
   }
+
+  function handleRouteChangeCompleteEvent() {
+    setshowBurgerMenu(false);
+  }
+
+  useEffect(() => {
+    events.on('routeChangeComplete', handleRouteChangeCompleteEvent);
+  }, [events]);
 
   return (
     <header className='fixed inset-x-0'>
