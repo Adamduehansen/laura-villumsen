@@ -2,15 +2,15 @@
 Todo: 
   ☐ Cleanup services
   ☐ Write tests for services
-  ☐ Navigation needs to be finished
   ☐ Propper 400 handling
   ☐ Add paths to getStaticPaths for [work].tsx
   ☐ Add "next design" link
-  ☐ Document needs title element
+  ✔ Document needs title element @done(23-07-22 20:44)
   ☐ Open burger menu button need accessibility name
   ☐ Add robots.txt.
   ☐ Add Sitemap.xml
   ☐ Document need meta description
 
 Archive:
+  ✔ Navigation needs to be finished @done(23-07-22 20:38) @project(Todo)
   ✔ Create tests for Container component @done(23-07-15 23:22) @project(Todo)
