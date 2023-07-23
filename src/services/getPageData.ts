@@ -51,7 +51,7 @@ export async function getPageData(
       data: {
         title: '',
         siteName: '',
-        subName: '',
+        description: '',
         navigationItems: [],
         socials: [],
       },
@@ -62,7 +62,7 @@ export async function getPageData(
     data: {
       title: data.page.title,
       siteName: data.generalSettings.title,
-      subName: data.generalSettings.description,
+      description: data.generalSettings.description,
       navigationItems: findNavigationItems(data.menus.nodes, 'navigation'),
       socials: findNavigationItems(data.menus.nodes, 'socials'),
     },

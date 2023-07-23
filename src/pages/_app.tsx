@@ -13,6 +13,7 @@ export default function App({ Component, pageProps }: AppProps<PageProps>) {
     <>
       <Head>
         <title>{siteTitle}</title>
+        <meta name='description' content={pageProps.description} />
       </Head>
       <PageDataProvider pageData={pageProps}>
         <Header />

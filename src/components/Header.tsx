@@ -8,7 +8,7 @@ import { PageDataContext } from './PageDataProvider';
 
 export default function Header(): JSX.Element {
   const [showBurgerMenu, setshowBurgerMenu] = useState(false);
-  const { siteName, subName } = useContext(PageDataContext);
+  const { siteName } = useContext(PageDataContext);
   const { events } = useRouter();
 
   function toggleBurgerMenu(): void {
@@ -33,7 +33,7 @@ export default function Header(): JSX.Element {
               className='block lg:flex lg:w-full lg:justify-between lg:text-lg'
             >
               <div>{siteName}</div>
-              <div>{subName}</div>
+              <div>Portefølje</div>
             </Link>
             <button onClick={toggleBurgerMenu} className='h-5 w-5 lg:hidden'>
               <Image src='add.svg' alt='' width={20} height={20} />

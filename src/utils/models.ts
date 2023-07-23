@@ -5,7 +5,7 @@ export interface ServiceResponse<TData> {
 
 export interface PageData {
   siteName: string;
-  subName: string;
+  description: string;
   title: string;
   navigationItems: NavigationItem[];
   socials: NavigationItem[];

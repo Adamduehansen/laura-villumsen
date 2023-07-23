@@ -85,7 +85,7 @@ export async function getPostData(
         navigationItems: [],
         siteName: '',
         socials: [],
-        subName: '',
+        description: '',
         types: '',
       },
     };
@@ -107,7 +107,7 @@ export async function getPostData(
         };
       }),
       siteName: data.generalSettings.title,
-      subName: data.generalSettings.description,
+      description: data.generalSettings.description,
       navigationItems: findNavigationItems(data.menus.nodes, 'navigation'),
       socials: findNavigationItems(data.menus.nodes, 'socials'),
       galleryContent: gallery.join(''),
