@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  font-family: neue-haas-grotesk-display;
+  font-family: neue-haas-grotesk-display, Arial, Helvetica, sans-serif;
 }
 
 .gallery figure img,

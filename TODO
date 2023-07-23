@@ -6,7 +6,7 @@ Todo:
   ☐ Add paths to getStaticPaths for [work].tsx
   ☐ Add "next design" link
   ✔ Document needs title element @done(23-07-22 20:44)
-  ☐ Open burger menu button need accessibility name
+  ✔ Open burger menu button need accessibility name @done(23-07-23 14:16)
   ☐ Add robots.txt.
   ☐ Add Sitemap.xml
   ✔ Document need meta description @done(23-07-23 14:15)
