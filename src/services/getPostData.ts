@@ -77,6 +77,7 @@ export async function getPostData(
     return {
       error: new Error('Post not found'),
       data: {
+        image: null,
         galleryContent: '',
         title: '',
         content: '',
@@ -112,6 +113,7 @@ export async function getPostData(
       socials: findNavigationItems(data.menus.nodes, 'socials'),
       galleryContent: gallery.join(''),
       types: data.post.workData.types,
+      image: null,
     },
   };
 }
