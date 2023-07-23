@@ -1,3 +1,4 @@
+import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -40,7 +41,16 @@ export default function Header(): JSX.Element {
               className='h-5 w-5 lg:hidden'
               aria-label='menu'
             >
-              <Image src='add.svg' alt='' width={20} height={20} />
+              <Image
+                src='add.svg'
+                alt=''
+                width={20}
+                height={20}
+                className={classNames('duration-300', {
+                  'rotate-45': showBurgerMenu,
+                  'rotate-0': !showBurgerMenu,
+                })}
+              />
             </button>
           </div>
         </Container>
