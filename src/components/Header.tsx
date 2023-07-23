@@ -35,7 +35,11 @@ export default function Header(): JSX.Element {
               <div>{siteName}</div>
               <div>Portefølje</div>
             </Link>
-            <button onClick={toggleBurgerMenu} className='h-5 w-5 lg:hidden'>
+            <button
+              onClick={toggleBurgerMenu}
+              className='h-5 w-5 lg:hidden'
+              aria-label='menu'
+            >
               <Image src='add.svg' alt='' width={20} height={20} />
             </button>
           </div>
