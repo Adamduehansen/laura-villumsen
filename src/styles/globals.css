@@ -15,3 +15,12 @@ body {
 .gallery figure:not(:last-child) video {
   @apply mb-1;
 }
+
+.cvlist table {
+  @apply w-full;
+}
+
+.cvlist table tbody tr td:first-child {
+  @apply w-28;
+  @apply align-top;
+}

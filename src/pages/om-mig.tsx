@@ -15,13 +15,16 @@ export default function About(props: PageData): JSX.Element {
 
   return (
     <div className='pt-main md:pt-14'>
-      <p>{textElement!.innerHTML}</p>
+      <p className='text-[2rem] leading-9 mx-grid mb-5'>
+        {textElement!.innerHTML}
+      </p>
       {props.image && (
         <Image
           src={props.image.src}
           alt={props.image.alt}
           width={props.image.width}
           height={props.image.height}
+          className='mb-5'
         />
       )}
       {cvElements.map((cvElement, index): JSX.Element => {
@@ -30,9 +33,10 @@ export default function About(props: PageData): JSX.Element {
         figcaptionElement.remove();
 
         return (
-          <div key={index}>
+          <div key={index} className='mx-grid'>
             <h3>{title}</h3>
             <figure
+              className='mb-5 cvlist'
               dangerouslySetInnerHTML={{
                 __html: cvElement.innerHTML,
               }}
