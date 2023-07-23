@@ -3,10 +3,19 @@ export interface ServiceResponse<TData> {
   data: TData;
 }
 
+export interface Image {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+}
+
 export interface PageData {
   siteName: string;
   description: string;
   title: string;
+  content: string;
+  image: Image | null;
   navigationItems: NavigationItem[];
   socials: NavigationItem[];
 }
@@ -22,12 +31,7 @@ export interface WorkTeaser {
   title: string;
   path: string;
   date: string;
-  image: {
-    src: string;
-    alt: string;
-    width: number;
-    height: number;
-  };
+  image: Image;
 }
 
 export interface Tag {

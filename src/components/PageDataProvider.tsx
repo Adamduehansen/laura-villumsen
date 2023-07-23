@@ -5,8 +5,10 @@ export const PageDataContext = createContext<PageData>({
   siteName: '',
   description: '',
   title: '',
+  content: '',
   navigationItems: [],
   socials: [],
+  image: null,
 });
 
 type Props = React.PropsWithChildren<{

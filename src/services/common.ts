@@ -1,5 +1,16 @@
 import { NavigationItem } from '@/utils/models';
 
+export interface FeaturedImage {
+  node: {
+    sourceUrl: string;
+    altText: string;
+    mediaDetails: {
+      height: number;
+      width: number;
+    };
+  };
+}
+
 export interface MenuItemWPGraphQL {
   id: string;
   label: string;

@@ -3,12 +3,21 @@ import { getPageData } from '@/services/getPageData';
 import { REVALIDATE_TIME } from '@/utils/const';
 import { PageProps } from '@/utils/models';
 import { GetStaticProps } from 'next';
+import parse from 'node-html-parser';
 
 export default function Contact(props: PageProps): JSX.Element {
+  const { content } = props;
+
+  const root = parse(content);
+
   return (
     <div className='pt-main md:pt-14'>
       <Container>
-        <p>{props.title}</p>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: props.content,
+          }}
+        ></div>
       </Container>
     </div>
   );

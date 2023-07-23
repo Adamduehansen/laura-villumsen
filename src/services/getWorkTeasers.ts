@@ -1,20 +1,12 @@
 import { ServiceResponse, WorkTeaser } from '@/utils/models';
 import { query } from '@/utils/query';
+import { FeaturedImage } from './common';
 
 interface WorkTeaserGraphQL {
   id: string;
   title: string;
   uri: string;
-  featuredImage: {
-    node: {
-      sourceUrl: string;
-      altText: string;
-      mediaDetails: {
-        height: number;
-        width: number;
-      };
-    };
-  };
+  featuredImage: FeaturedImage;
   workData: {
     date: string;
   };
