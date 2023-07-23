@@ -61,7 +61,15 @@ export const getStaticPaths: GetStaticPaths = async function () {
 export const getStaticProps: GetStaticProps<WorkProps> = async function (
   context,
 ) {
-  const { data } = await getPostData(context.params!.work!.toString());
+  const { data, error } = await getPostData(
+    `works/${context.params!.work?.toString()}`,
+  );
+
+  if (error) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
