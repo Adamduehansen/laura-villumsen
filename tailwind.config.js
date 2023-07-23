@@ -37,11 +37,11 @@ module.exports = {
   safelist: [
     {
       pattern: /^col-span-(?:[1-9]|1[0-2])$/,
-      variants: ['md'],
+      variants: ['md', 'lg'],
     },
     {
       pattern: /^col-start-(?:[1-9]|1[0-2])$/,
-      variants: ['md'],
+      variants: ['md', 'lg'],
     },
   ],
 };

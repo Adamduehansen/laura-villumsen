@@ -27,10 +27,10 @@ export default function Footer(): JSX.Element {
     <footer className='my-20'>
       <Container>
         <Row>
-          <Col mdStart={9}>
+          <Col lgStart={9}>
             <Container fluid>
               <Row>
-                <Col sm={4} md={3}>
+                <Col sm={4} md={2} lg={3}>
                   <div className='flex gap-1'>
                     footer
                     <Image
@@ -42,13 +42,13 @@ export default function Footer(): JSX.Element {
                     />
                   </div>
                 </Col>
-                <Col sm={4} md={3}>
+                <Col sm={4} md={2} lg={3}>
                   {instagram}
                 </Col>
-                <Col sm={4} md={3}>
+                <Col sm={4} md={2} lg={3}>
                   {linkedIn}
                 </Col>
-                <Col sm={4} md={3} className='hidden md:block'>
+                <Col sm={4} md={2} lg={3} className='hidden md:block'>
                   <a href='#' className='italic underline'>
                     Til toppen
                   </a>
