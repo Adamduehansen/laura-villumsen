@@ -7,12 +7,12 @@ import type { AppProps } from 'next/app';
 import Head from 'next/head';
 
 export default function App({ Component, pageProps }: AppProps<PageProps>) {
+  const siteTitle = `${pageProps.title} | ${pageProps.siteName}`;
+
   return (
     <>
       <Head>
-        <title>
-          {pageProps.title} | {pageProps.siteName}
-        </title>
+        <title>{siteTitle}</title>
       </Head>
       <PageDataProvider pageData={pageProps}>
         <Header />
