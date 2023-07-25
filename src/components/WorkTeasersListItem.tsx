@@ -21,7 +21,7 @@ export default function WorkTeasersListItem({
           alt={image.alt}
           width={image.width}
           height={image.height}
-          className='mb-1'
+          className='mb-1 w-screen'
           priority
         />
         <Container>
