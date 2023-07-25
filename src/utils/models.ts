@@ -47,4 +47,9 @@ export type WorkData = PageData & {
   galleryContent: string;
 };
 
+export interface SitemapNode {
+  url: string;
+  date: string;
+}
+
 export type PageProps<TProps = unknown> = PageData & TProps;
