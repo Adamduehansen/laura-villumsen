@@ -8,6 +8,7 @@ type Props = React.PropsWithChildren<{
   lg?: ColRange;
   mdStart?: ColRange;
   lgStart?: ColRange;
+  lgOrder?: number;
   className?: string;
 }>;
 
@@ -18,6 +19,7 @@ export default function Col({
   mdStart,
   lg,
   lgStart,
+  lgOrder,
   className,
 }: Props): JSX.Element {
   return (
@@ -27,6 +29,7 @@ export default function Col({
         [`md:col-start-${mdStart}`]: mdStart,
         [`lg:col-span-${lg}`]: lg,
         [`lg:col-start-${lgStart}`]: lgStart,
+        [`lg:order-${lgOrder}`]: lgOrder,
       })}
     >
       {children}
