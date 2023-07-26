@@ -5,7 +5,10 @@ export default function Sitemap(): JSX.Element {
   return <></>;
 }
 
-export const getServerSideProps: GetServerSideProps = async function ({ res }) {
+export const getServerSideProps: GetServerSideProps = async function ({
+  res,
+  req,
+}) {
   // We make an API call to gather the URLs for our site
   const { data } = await getSitemapData();
 
@@ -14,10 +17,11 @@ export const getServerSideProps: GetServerSideProps = async function ({ res }) {
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       ${data
         .map((sitemapNode) => {
-          return `<url>
-          <loc>${sitemapNode.url}</loc>
-          <lastmod>${sitemapNode.date}</lastmod>
-        </url>`;
+          return `
+            <url>
+              <loc>${sitemapNode.url}</loc>
+              <lastmod>${sitemapNode.date}</lastmod>
+            </url>`;
         })
         .join('')}
     </urlset>

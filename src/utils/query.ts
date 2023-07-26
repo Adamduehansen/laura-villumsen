@@ -9,8 +9,8 @@ function wrapQuery(query: string): string {
 
 export async function query(query: string) {
   const siteUrl =
-    process.env.SITE_URL ??
-    raise('Environment variable SITE_URL was not defined');
+    process.env.WP_SITE_URL ??
+    raise('Environment variable WP_SITE_URL was not defined');
 
   return await fetch(`${siteUrl}/index.php?graphql`, {
     method: 'POST',
