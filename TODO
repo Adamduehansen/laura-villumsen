@@ -3,7 +3,7 @@ Todo:
   ☐ Cleanup services
   ☐ Write tests for services
   ☐ Propper 400 handling
-  ☐ Add paths to getStaticPaths for [work].tsx
+  ✔ Add paths to getStaticPaths for [work].tsx @done(23-07-26 10:37)
   ☐ Add "next design" link
 
 Archive:
