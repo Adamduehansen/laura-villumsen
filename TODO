@@ -5,12 +5,12 @@ Todo:
   ☐ Propper 400 handling
   ☐ Add paths to getStaticPaths for [work].tsx
   ☐ Add "next design" link
-  ✔ Document needs title element @done(23-07-22 20:44)
-  ✔ Open burger menu button need accessibility name @done(23-07-23 14:16)
-  ☐ Add robots.txt.
-  ☐ Add Sitemap.xml
-  ✔ Document need meta description @done(23-07-23 14:15)
 
 Archive:
+  ✔ Document needs title element @done(23-07-22 20:44) @project(Todo)
+  ✔ Open burger menu button need accessibility name @done(23-07-23 14:16) @project(Todo)
+  ✔ Add robots.txt. @done(23-07-26 10:25) @project(Todo)
+  ✔ Add Sitemap.xml @done(23-07-26 10:21) @project(Todo)
+  ✔ Document need meta description @done(23-07-23 14:15) @project(Todo)
   ✔ Navigation needs to be finished @done(23-07-22 20:38) @project(Todo)
   ✔ Create tests for Container component @done(23-07-15 23:22) @project(Todo)
