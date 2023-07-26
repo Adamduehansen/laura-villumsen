@@ -4,6 +4,7 @@ import Row from '@/components/Row';
 import TagList from '@/components/TagList';
 import { getPostData } from '@/services/getPostData';
 import { PageProps, WorkData } from '@/utils/models';
+import { query } from '@/utils/query';
 import { formatDateString } from '@/utils/workDateFormatter';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
@@ -52,9 +53,31 @@ export default function Work({
 }
 
 export const getStaticPaths: GetStaticPaths = async function () {
+  const response = await query(`
+    query Works {
+      posts {
+        nodes {
+          uri
+        }
+      }
+    }
+  `);
+
+  const { data } = (await response.json()) as {
+    data: {
+      posts: {
+        nodes: {
+          uri: string;
+        }[];
+      };
+    };
+  };
+
   return {
     fallback: 'blocking',
-    paths: [],
+    paths: data.posts.nodes.map((node) => {
+      return node.uri;
+    }),
   };
 };
 
