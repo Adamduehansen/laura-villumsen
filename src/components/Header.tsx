@@ -26,7 +26,7 @@ export default function Header(): JSX.Element {
 
   return (
     <header className='fixed inset-x-0'>
-      <div className='bg-white lg:py-2'>
+      <div className='bg-transparent lg:py-2'>
         <Container>
           <div className='flex items-center justify-between pb-6 pt-4 lg:p-0'>
             <Link
