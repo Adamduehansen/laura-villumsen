@@ -11,9 +11,9 @@ type HomeProps = PageProps<{
 
 export default function Home(props: HomeProps): JSX.Element {
   return (
-    <div className='pt-main md:pt-14'>
+    
       <WorkTeasersList workTeasers={props.workTeasers} />
-    </div>
+    
   );
 }
 
