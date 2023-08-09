@@ -19,7 +19,7 @@ export default function Work({
   types,
 }: WorkProps): JSX.Element {
   return (
-    <div className='pt-main'>
+    <div>
       <Container>
         <Row>
           <Col>
