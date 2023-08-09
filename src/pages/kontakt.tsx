@@ -14,7 +14,7 @@ export default function Contact(props: PageProps): JSX.Element {
   const [intro, contactInfo] = root.querySelectorAll('p');
 
   return (
-    <div>
+    <div className='pt-main'>
       <Container>
         <Row>
           <Col lgStart={6} lg={6} lgOrder={2}>

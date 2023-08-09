@@ -14,7 +14,7 @@ export default function About(props: PageData): JSX.Element {
   const cvElements = root.querySelectorAll(':scope > figure');
 
   return (
-    <div className='lg:grid lg:grid-cols-12'>
+    <div className='pt-main lg:grid lg:grid-cols-12'>
       <div className='lg:flex lg:flex-col lg:col-span-7'>
         <p className='text-[2rem] leading-9 mx-grid mb-5 lg:order-2'>
           {textElement!.innerHTML}
