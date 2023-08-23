@@ -42,7 +42,7 @@ export default function Header(): JSX.Element {
               aria-label='menu'
             >
               <Image
-                src='add.svg'
+                src='/add.svg'
                 alt=''
                 width={20}
                 height={20}

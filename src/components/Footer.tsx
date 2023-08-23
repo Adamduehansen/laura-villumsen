@@ -34,7 +34,7 @@ export default function Footer(): JSX.Element {
                   <div className='flex gap-1'>
                     footer
                     <Image
-                      src='arrow-right.svg'
+                      src='/arrow-right.svg'
                       alt=''
                       width={14}
                       height={24}
