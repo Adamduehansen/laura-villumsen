@@ -7,6 +7,8 @@ import { PageProps, WorkData } from '@/utils/models';
 import { query } from '@/utils/query';
 import { formatDateString } from '@/utils/workDateFormatter';
 import { GetStaticPaths, GetStaticProps } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
 
 type WorkProps = PageProps<WorkData>;
 
@@ -48,6 +50,22 @@ export default function Work({
           __html: galleryContent,
         }}
       ></div>
+      <Container>
+        <Row>
+          <Col smStart={3} sm={4} mdStart={2}>
+            <Link href={'#'}>
+              Næste design{' '}
+              <Image
+                src='/arrow-right.svg'
+                alt=''
+                width={14}
+                height={24}
+                className='inline'
+              />
+            </Link>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 }
