@@ -107,3 +107,15 @@ export const workTeaserWPGraphQLResponseSchema = z.object({
     }),
   }),
 });
+
+export const workTeaserPathGraphQLResponseSchema = z.object({
+  data: z.object({
+    posts: z.object({
+      nodes: z
+        .object({
+          uri: z.string(),
+        })
+        .array(),
+    }),
+  }),
+});

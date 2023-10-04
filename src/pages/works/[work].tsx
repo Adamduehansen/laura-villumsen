@@ -4,7 +4,6 @@ import Row from '@/components/Row';
 import TagList from '@/components/TagList';
 import { WordPressClient } from '@/services/WordPressClient';
 import { PageProps, WorkData } from '@/utils/models';
-import { query } from '@/utils/query';
 import { formatDateString } from '@/utils/workDateFormatter';
 import { GetStaticPaths, GetStaticProps } from 'next';
 
@@ -53,31 +52,11 @@ export default function Work({
 }
 
 export const getStaticPaths: GetStaticPaths = async function () {
-  const response = await query(`
-    query Works {
-      posts {
-        nodes {
-          uri
-        }
-      }
-    }
-  `);
-
-  const { data } = (await response.json()) as {
-    data: {
-      posts: {
-        nodes: {
-          uri: string;
-        }[];
-      };
-    };
-  };
+  const wordPressClient = new WordPressClient();
 
   return {
     fallback: 'blocking',
-    paths: data.posts.nodes.map((node) => {
-      return node.uri;
-    }),
+    paths: await wordPressClient.getWorkPaths(),
   };
 };
 

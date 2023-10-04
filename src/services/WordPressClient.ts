@@ -14,6 +14,7 @@ import {
   pageDataWPGraphQLResponseSchema,
   postDataWPGraphQLResponse,
   sitemapWPGraphQLResponseSchema,
+  workTeaserPathGraphQLResponseSchema,
   workTeaserWPGraphQLResponseSchema,
 } from './schemas';
 
@@ -278,6 +279,21 @@ export class WordPressClient {
           }
         }),
     };
+  }
+
+  async getWorkPaths(): Promise<string[]> {
+    const response = await this.#queryGraphQL(`
+      query Works {
+        posts {
+          nodes {
+            uri
+          }
+        }
+      }
+    `);
+
+    const { data } = workTeaserPathGraphQLResponseSchema.parse(response);
+    return data.posts.nodes.map((node) => node.uri);
   }
 
   async #queryGraphQL(query: string): Promise<unknown> {
