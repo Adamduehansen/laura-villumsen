@@ -2,7 +2,7 @@ import Col from '@/components/Col';
 import Container from '@/components/Container';
 import Row from '@/components/Row';
 import TagList from '@/components/TagList';
-import { getPostData } from '@/services/getPostData';
+import { WordPressClient } from '@/services/WordPressClient';
 import { PageProps, WorkData } from '@/utils/models';
 import { query } from '@/utils/query';
 import { formatDateString } from '@/utils/workDateFormatter';
@@ -84,7 +84,8 @@ export const getStaticPaths: GetStaticPaths = async function () {
 export const getStaticProps: GetStaticProps<WorkProps> = async function (
   context,
 ) {
-  const { data, error } = await getPostData(
+  const wordPressClient = new WordPressClient();
+  const { data, error } = await wordPressClient.getPostData(
     `works/${context.params!.work?.toString()}`,
   );
 

@@ -16,14 +16,16 @@ export default function WorkTeasersListItem({
   return (
     <li className='mb-6'>
       <Link href={path}>
-        <Image
-          src={image.src}
-          alt={image.alt}
-          width={image.width}
-          height={image.height}
-          className='mb-1 w-screen'
-          priority
-        />
+        {image && (
+          <Image
+            src={image.src}
+            alt={image.alt}
+            width={image.width}
+            height={image.height}
+            className='mb-1 w-screen'
+            priority
+          />
+        )}
         <Container>
           <div className='flex justify-between'>
             <h2>{title}</h2>

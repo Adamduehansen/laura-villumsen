@@ -14,7 +14,7 @@ export interface PageData {
   siteName: string;
   description: string;
   title: string;
-  content: string;
+  content: string | null;
   image: Image | null;
   navigationItems: NavigationItem[];
   socials: NavigationItem[];
@@ -31,7 +31,7 @@ export interface WorkTeaser {
   title: string;
   path: string;
   date: string;
-  image: Image;
+  image: Image | null;
 }
 
 export interface Tag {

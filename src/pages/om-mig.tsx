@@ -1,4 +1,4 @@
-import { getPageData } from '@/services/getPageData';
+import { WordPressClient } from '@/services/WordPressClient';
 import { REVALIDATE_TIME } from '@/utils/const';
 import { PageProps } from '@/utils/models';
 import { GetStaticProps } from 'next';
@@ -7,8 +7,14 @@ import parse from 'node-html-parser';
 
 type PageData = PageProps;
 
-export default function About(props: PageData): JSX.Element {
-  const root = parse(props.content);
+export default function About(props: PageData): JSX.Element | null {
+  const { content } = props;
+
+  if (content === null) {
+    return null;
+  }
+
+  const root = parse(content);
 
   const textElement = root.querySelector('p');
   const cvElements = root.querySelectorAll(':scope > figure');
@@ -53,7 +59,10 @@ export default function About(props: PageData): JSX.Element {
 }
 
 export const getStaticProps: GetStaticProps<PageData> = async function () {
-  const { data: pageData, error: pageError } = await getPageData('/om-mig');
+  const wordPressClient = new WordPressClient();
+
+  const { data: pageData, error: pageError } =
+    await wordPressClient.getPageData('/om-mig');
 
   return {
     props: {
