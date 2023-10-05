@@ -8,6 +8,12 @@ import {
   WorkTeaser,
 } from '@/utils/models';
 import { raise } from '@/utils/raise';
+import {
+  ApolloClient,
+  InMemoryCache,
+  NormalizedCacheObject,
+  gql,
+} from '@apollo/client';
 import { parse as htmlParse } from 'node-html-parser';
 import {
   MenuWPGraphQLSchema,
@@ -19,23 +25,38 @@ import {
 } from './schemas';
 
 export class WordPressClient {
+  #client: ApolloClient<NormalizedCacheObject>;
+
+  constructor() {
+    const siteUrl =
+      process.env.WP_SITE_URL ??
+      raise('Environment variable WP_SITE_URL was not defined');
+
+    this.#client = new ApolloClient({
+      uri: `${siteUrl}/index.php?graphql`,
+      cache: new InMemoryCache(),
+    });
+  }
+
   async getSitemapData(): Promise<ServiceResponse<SitemapNode[]>> {
-    const response = await this.#queryGraphQL(`
-      query Sitemap {
-        posts {
-          nodes {
-            uri,
-            date
+    const response = await this.#client.query({
+      query: gql`
+        query Sitemap {
+          posts {
+            nodes {
+              uri
+              date
+            }
+          }
+          pages {
+            nodes {
+              uri
+              date
+            }
           }
         }
-        pages {
-          nodes {
-            uri
-            date
-          }
-        }
-      }
-    `);
+      `,
+    });
 
     const { data } = sitemapWPGraphQLResponseSchema.parse(response);
 
@@ -60,40 +81,42 @@ export class WordPressClient {
   }
 
   async getPageData(path: string): Promise<ServiceResponse<PageData>> {
-    const response = await this.#queryGraphQL(`
-      query PageData {
-        page(id: "${path}", idType: URI) {
-          title
-          content
-          featuredImage {
-            node {
-              sourceUrl
-              altText
-              mediaDetails {
-                width,
-                height
+    const response = await this.#client.query({
+      query: gql`
+        query PageData {
+          page(id: "${path}", idType: URI) {
+            title
+            content
+            featuredImage {
+              node {
+                sourceUrl
+                altText
+                mediaDetails {
+                  width,
+                  height
+                }
               }
             }
           }
-        }
-        menus {
-          nodes {
-            name
-            menuItems {
-              nodes {
-                id
-                label
-                uri
+          menus {
+            nodes {
+              name
+              menuItems {
+                nodes {
+                  id
+                  label
+                  uri
+                }
               }
             }
           }
+          generalSettings {
+            title
+            description
+          }
         }
-        generalSettings {
-          title
-          description
-        }
-      }
-    `);
+      `,
+    });
 
     const { data } = pageDataWPGraphQLResponseSchema.parse(response);
 
@@ -137,41 +160,43 @@ export class WordPressClient {
   }
 
   async getPostData(path: string): Promise<ServiceResponse<WorkData>> {
-    const response = await this.#queryGraphQL(`
-      query PostData {
-        post(id: "${path}", idType: URI) {
-          title
-          content
-          tags {
+    const response = await this.#client.query({
+      query: gql`
+        query PostData {
+          post(id: "${path}", idType: URI) {
+            title
+            content
+            tags {
+              nodes {
+                id
+                name
+              }
+            }
+            workData {
+              date
+              types
+            }
+          }
+          menus {
             nodes {
               id
               name
-            }
-          }
-          workData {
-            date
-            types
-          }
-        }
-        menus {
-          nodes {
-            id
-            name
-            menuItems {
-              nodes {
-                id
-                label
-                uri
+              menuItems {
+                nodes {
+                  id
+                  label
+                  uri
+                }
               }
             }
           }
+          generalSettings {
+            title
+            description
+          }
         }
-        generalSettings {
-          title
-          description
-        }
-      }
-    `);
+      `,
+    });
 
     const { data } = postDataWPGraphQLResponse.parse(response);
 
@@ -224,30 +249,32 @@ export class WordPressClient {
   }
 
   async getWorkTeasers(): Promise<ServiceResponse<WorkTeaser[]>> {
-    const response = await this.#queryGraphQL(`
-      query FrontpageData {
-        posts {
-          nodes {
-            id
-            title
-            uri
-            featuredImage {
-              node {
-                sourceUrl
-                altText
-                mediaDetails {
-                  height
-                  width
+    const response = await this.#client.query({
+      query: gql`
+        query FrontpageData {
+          posts {
+            nodes {
+              id
+              title
+              uri
+              featuredImage {
+                node {
+                  sourceUrl
+                  altText
+                  mediaDetails {
+                    height
+                    width
+                  }
                 }
               }
-            }
-            workData {
-              date
+              workData {
+                date
+              }
             }
           }
         }
-      }
-    `);
+      `,
+    });
 
     const { data } = workTeaserWPGraphQLResponseSchema.parse(response);
 
@@ -282,37 +309,20 @@ export class WordPressClient {
   }
 
   async getWorkPaths(): Promise<string[]> {
-    const response = await this.#queryGraphQL(`
-      query Works {
-        posts {
-          nodes {
-            uri
+    const response = await this.#client.query({
+      query: gql`
+        query Works {
+          posts {
+            nodes {
+              uri
+            }
           }
         }
-      }
-    `);
+      `,
+    });
 
     const { data } = workTeaserPathGraphQLResponseSchema.parse(response);
     return data.posts.nodes.map((node) => node.uri);
-  }
-
-  async #queryGraphQL(query: string): Promise<unknown> {
-    const siteUrl =
-      process.env.WP_SITE_URL ??
-      raise('Environment variable WP_SITE_URL was not defined');
-
-    const response = await fetch(`${siteUrl}/index.php?graphql`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        query: query,
-        variables: null,
-      }),
-    });
-
-    return response.json();
   }
 
   #findNavigationItems(
