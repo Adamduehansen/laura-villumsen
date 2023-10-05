@@ -2,7 +2,7 @@ import Col from '@/components/Col';
 import Container from '@/components/Container';
 import Row from '@/components/Row';
 import TagList from '@/components/TagList';
-import { WordPressClient } from '@/services/WordPressClient';
+import { wordPressClient } from '@/services/WordPressClient';
 import { PageProps, WorkData } from '@/utils/models';
 import { formatDateString } from '@/utils/workDateFormatter';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -52,8 +52,6 @@ export default function Work({
 }
 
 export const getStaticPaths: GetStaticPaths = async function () {
-  const wordPressClient = new WordPressClient();
-
   return {
     fallback: 'blocking',
     paths: await wordPressClient.getWorkPaths(),
@@ -63,7 +61,6 @@ export const getStaticPaths: GetStaticPaths = async function () {
 export const getStaticProps: GetStaticProps<WorkProps> = async function (
   context,
 ) {
-  const wordPressClient = new WordPressClient();
   const { data, error } = await wordPressClient.getPostData(
     `works/${context.params!.work?.toString()}`,
   );

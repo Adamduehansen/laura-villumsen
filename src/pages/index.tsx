@@ -1,5 +1,5 @@
 import WorkTeasersList from '@/components/WorkTeasersList';
-import { WordPressClient } from '@/services/WordPressClient';
+import { wordPressClient } from '@/services/WordPressClient';
 import { REVALIDATE_TIME } from '@/utils/const';
 import { PageProps, WorkTeaser } from '@/utils/models';
 import { GetStaticProps } from 'next';
@@ -13,8 +13,6 @@ export default function Home(props: HomeProps): JSX.Element {
 }
 
 export const getStaticProps: GetStaticProps<HomeProps> = async function () {
-  const wordPressClient = new WordPressClient();
-
   const { data: pageData, error: pageError } =
     await wordPressClient.getPageData('/');
 

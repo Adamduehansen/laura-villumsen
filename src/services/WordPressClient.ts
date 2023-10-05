@@ -334,3 +334,5 @@ export class WordPressClient {
     });
   }
 }
+
+export const wordPressClient = new WordPressClient();

@@ -1,4 +1,4 @@
-import { WordPressClient } from '@/services/WordPressClient';
+import { wordPressClient } from '@/services/WordPressClient';
 import { REVALIDATE_TIME } from '@/utils/const';
 import { PageProps } from '@/utils/models';
 import { GetStaticProps } from 'next';
@@ -59,8 +59,6 @@ export default function About(props: PageData): JSX.Element | null {
 }
 
 export const getStaticProps: GetStaticProps<PageData> = async function () {
-  const wordPressClient = new WordPressClient();
-
   const { data: pageData, error: pageError } =
     await wordPressClient.getPageData('/om-mig');
 

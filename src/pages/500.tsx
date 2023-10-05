@@ -1,4 +1,4 @@
-import { WordPressClient } from '@/services/WordPressClient';
+import { wordPressClient } from '@/services/WordPressClient';
 import { PageData } from '@/utils/models';
 import { GetStaticProps } from 'next';
 
@@ -7,7 +7,6 @@ export default function Error(): JSX.Element {
 }
 
 export const getStaticProps: GetStaticProps<PageData> = async function () {
-  const wordPressClient = new WordPressClient();
   const { data: pageData, error: pageError } =
     await wordPressClient.getPageData('/');
 

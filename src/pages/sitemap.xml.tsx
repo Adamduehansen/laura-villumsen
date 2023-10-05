@@ -1,15 +1,11 @@
-import { WordPressClient } from '@/services/WordPressClient';
+import { wordPressClient } from '@/services/WordPressClient';
 import { GetServerSideProps } from 'next';
 
 export default function Sitemap(): JSX.Element {
   return <></>;
 }
 
-export const getServerSideProps: GetServerSideProps = async function ({
-  res,
-  req,
-}) {
-  const wordPressClient = new WordPressClient();
+export const getServerSideProps: GetServerSideProps = async function ({ res }) {
   const { data } = await wordPressClient.getSitemapData();
 
   // We generate the XML sitemap with the posts data
