@@ -1,0 +1,22 @@
+query FrontpageData {
+  posts {
+    nodes {
+      id
+      title
+      uri
+      featuredImage {
+        node {
+          sourceUrl
+          altText
+          mediaDetails {
+            height
+            width
+          }
+        }
+      }
+      workData {
+        date
+      }
+    }
+  }
+}

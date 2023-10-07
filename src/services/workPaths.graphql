@@ -1,0 +1,7 @@
+query Works {
+  posts {
+    nodes {
+      uri
+    }
+  }
+}

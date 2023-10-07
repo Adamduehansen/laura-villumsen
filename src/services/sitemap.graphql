@@ -1,0 +1,14 @@
+query Sitemap {
+  posts {
+    nodes {
+      uri
+      date
+    }
+  }
+  pages {
+    nodes {
+      uri
+      date
+    }
+  }
+}

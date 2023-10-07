@@ -12,9 +12,9 @@ import {
   ApolloClient,
   InMemoryCache,
   NormalizedCacheObject,
-  gql,
 } from '@apollo/client';
 import { parse as htmlParse } from 'node-html-parser';
+import pageData from './pageData.graphql';
 import {
   MenuWPGraphQLSchema,
   pageDataWPGraphQLResponseSchema,
@@ -23,6 +23,10 @@ import {
   workTeaserPathGraphQLResponseSchema,
   workTeaserWPGraphQLResponseSchema,
 } from './schemas';
+import sitemap from './sitemap.graphql';
+import workData from './workData.graphql';
+import workPaths from './workPaths.graphql';
+import workTeasers from './workTeasers.graphql';
 
 export class WordPressClient {
   #client: ApolloClient<NormalizedCacheObject>;
@@ -40,22 +44,7 @@ export class WordPressClient {
 
   async getSitemapData(): Promise<ServiceResponse<SitemapNode[]>> {
     const response = await this.#client.query({
-      query: gql`
-        query Sitemap {
-          posts {
-            nodes {
-              uri
-              date
-            }
-          }
-          pages {
-            nodes {
-              uri
-              date
-            }
-          }
-        }
-      `,
+      query: sitemap,
     });
 
     const { data } = sitemapWPGraphQLResponseSchema.parse(response);
@@ -82,40 +71,10 @@ export class WordPressClient {
 
   async getPageData(path: string): Promise<ServiceResponse<PageData>> {
     const response = await this.#client.query({
-      query: gql`
-        query PageData {
-          page(id: "${path}", idType: URI) {
-            title
-            content
-            featuredImage {
-              node {
-                sourceUrl
-                altText
-                mediaDetails {
-                  width,
-                  height
-                }
-              }
-            }
-          }
-          menus {
-            nodes {
-              name
-              menuItems {
-                nodes {
-                  id
-                  label
-                  uri
-                }
-              }
-            }
-          }
-          generalSettings {
-            title
-            description
-          }
-        }
-      `,
+      query: pageData,
+      variables: {
+        id: path,
+      },
     });
 
     const { data } = pageDataWPGraphQLResponseSchema.parse(response);
@@ -161,41 +120,10 @@ export class WordPressClient {
 
   async getPostData(path: string): Promise<ServiceResponse<WorkData>> {
     const response = await this.#client.query({
-      query: gql`
-        query PostData {
-          post(id: "${path}", idType: URI) {
-            title
-            content
-            tags {
-              nodes {
-                id
-                name
-              }
-            }
-            workData {
-              date
-              types
-            }
-          }
-          menus {
-            nodes {
-              id
-              name
-              menuItems {
-                nodes {
-                  id
-                  label
-                  uri
-                }
-              }
-            }
-          }
-          generalSettings {
-            title
-            description
-          }
-        }
-      `,
+      query: workData,
+      variables: {
+        id: path,
+      },
     });
 
     const { data } = postDataWPGraphQLResponse.parse(response);
@@ -250,30 +178,7 @@ export class WordPressClient {
 
   async getWorkTeasers(): Promise<ServiceResponse<WorkTeaser[]>> {
     const response = await this.#client.query({
-      query: gql`
-        query FrontpageData {
-          posts {
-            nodes {
-              id
-              title
-              uri
-              featuredImage {
-                node {
-                  sourceUrl
-                  altText
-                  mediaDetails {
-                    height
-                    width
-                  }
-                }
-              }
-              workData {
-                date
-              }
-            }
-          }
-        }
-      `,
+      query: workTeasers,
     });
 
     const { data } = workTeaserWPGraphQLResponseSchema.parse(response);
@@ -310,15 +215,7 @@ export class WordPressClient {
 
   async getWorkPaths(): Promise<string[]> {
     const response = await this.#client.query({
-      query: gql`
-        query Works {
-          posts {
-            nodes {
-              uri
-            }
-          }
-        }
-      `,
+      query: workPaths,
     });
 
     const { data } = workTeaserPathGraphQLResponseSchema.parse(response);
