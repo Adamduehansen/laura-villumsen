@@ -5,6 +5,7 @@ Todo:
   ☐ Propper 400 handling
   ✔ Add paths to getStaticPaths for [work].tsx @done(23-07-26 10:37)
   ☐ Add "next design" link
+  ✔ Add Husky git: https://typicode.github.io/husky/ @done(23-10-08 22:50)
 
 Archive:
   ✔ Document needs title element @done(23-07-22 20:44) @project(Todo)

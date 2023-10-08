@@ -9,7 +9,8 @@
     "lint": "next lint",
     "test": "jest",
     "prettier:check": "prettier --check .",
-    "prettier:write": "prettier --write ."
+    "prettier:write": "prettier --write .",
+    "prepare": "husky install"
   },
   "@dependencies-comments": {
     "sharp": "This is recommended by Next to optimize images."
@@ -43,6 +44,7 @@
     "jest-environment-jsdom": "^29.6.1",
     "prettier": "3.0.0",
     "prettier-plugin-organize-imports": "^3.2.3",
-    "prettier-plugin-tailwindcss": "^0.4.1"
+    "prettier-plugin-tailwindcss": "^0.4.1",
+    "husky": "^8.0.0"
   }
 }
