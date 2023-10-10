@@ -44,12 +44,11 @@ export default function Contact(props: PageProps): JSX.Element | null {
 }
 
 export const getStaticProps: GetStaticProps<PageProps> = async function () {
-  const { data: pageData, error: pageError } =
-    await wordPressClient.getPageData('/kontakt');
+  const { data } = await wordPressClient.getPageData('/kontakt');
 
   return {
     props: {
-      ...pageData,
+      ...data,
     },
     revalidate: REVALIDATE_TIME,
   };

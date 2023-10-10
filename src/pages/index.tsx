@@ -13,11 +13,8 @@ export default function Home(props: HomeProps): JSX.Element {
 }
 
 export const getStaticProps: GetStaticProps<HomeProps> = async function () {
-  const { data: pageData, error: pageError } =
-    await wordPressClient.getPageData('/');
-
-  const { data: workTeasersData, error: workTeasersError } =
-    await wordPressClient.getWorkTeasers();
+  const { data: pageData } = await wordPressClient.getPageData('/');
+  const { data: workTeasersData } = await wordPressClient.getWorkTeasers();
 
   return {
     props: {

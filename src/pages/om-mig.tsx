@@ -59,12 +59,11 @@ export default function About(props: PageData): JSX.Element | null {
 }
 
 export const getStaticProps: GetStaticProps<PageData> = async function () {
-  const { data: pageData, error: pageError } =
-    await wordPressClient.getPageData('/om-mig');
+  const { data } = await wordPressClient.getPageData('/om-mig');
 
   return {
     props: {
-      ...pageData,
+      ...data,
     },
     revalidate: REVALIDATE_TIME,
   };

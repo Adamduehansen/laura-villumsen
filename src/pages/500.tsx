@@ -7,12 +7,11 @@ export default function Error(): JSX.Element {
 }
 
 export const getStaticProps: GetStaticProps<PageData> = async function () {
-  const { data: pageData, error: pageError } =
-    await wordPressClient.getPageData('/');
+  const { data } = await wordPressClient.getPageData('/');
 
   return {
     props: {
-      ...pageData,
+      ...data,
     },
   };
 };
