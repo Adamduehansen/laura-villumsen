@@ -3,6 +3,7 @@ import Container from '@/components/Container';
 import Row from '@/components/Row';
 import TagList from '@/components/TagList';
 import { wordPressClient } from '@/services/WordPressClient';
+import { REVALIDATE_TIME } from '@/utils/const';
 import { PageProps, WorkData } from '@/utils/models';
 import { formatDateString } from '@/utils/workDateFormatter';
 import { GetStaticPaths, GetStaticProps } from 'next';
@@ -75,5 +76,6 @@ export const getStaticProps: GetStaticProps<WorkProps> = async function (
     props: {
       ...data,
     },
+    revalidate: REVALIDATE_TIME,
   };
 };
