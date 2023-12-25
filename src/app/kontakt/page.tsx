@@ -2,19 +2,17 @@ import Col from '@/components/Col';
 import Container from '@/components/Container';
 import Row from '@/components/Row';
 import { wordPressClient } from '@/services/WordPressClient';
-import { REVALIDATE_TIME } from '@/utils/const';
 import { PageProps } from '@/utils/models';
-import { GetStaticProps } from 'next';
 import parse from 'node-html-parser';
 
-export default function Contact(props: PageProps): JSX.Element | null {
-  const { content } = props;
+export default async function Contact(props: PageProps): Promise<JSX.Element> {
+  const { data } = await wordPressClient.getPageData('/kontakt');
 
-  if (content === null) {
-    return null;
+  if (data.content === null) {
+    throw new Error('Redirect to 404');
   }
 
-  const root = parse(content);
+  const root = parse(data.content);
   const [intro, contactInfo] = root.querySelectorAll('p');
 
   return (
@@ -42,14 +40,3 @@ export default function Contact(props: PageProps): JSX.Element | null {
     </div>
   );
 }
-
-export const getStaticProps: GetStaticProps<PageProps> = async function () {
-  const { data } = await wordPressClient.getPageData('/kontakt');
-
-  return {
-    props: {
-      ...data,
-    },
-    revalidate: REVALIDATE_TIME,
-  };
-};
