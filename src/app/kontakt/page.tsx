@@ -2,10 +2,9 @@ import Col from '@/components/Col';
 import Container from '@/components/Container';
 import Row from '@/components/Row';
 import { wordPressClient } from '@/services/WordPressClient';
-import { PageProps } from '@/utils/models';
 import parse from 'node-html-parser';
 
-export default async function Contact(props: PageProps): Promise<JSX.Element> {
+export default async function Contact(): Promise<JSX.Element> {
   const { data } = await wordPressClient.getPageData('/kontakt');
 
   if (data.content === null) {
