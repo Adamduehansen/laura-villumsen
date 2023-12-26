@@ -5,6 +5,7 @@ import TagList from '@/components/TagList';
 import { wordPressClient } from '@/services/WordPressClient';
 import { formatDateString } from '@/utils/workDateFormatter';
 import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 export async function generateMetadata(context: {
   params: { work: string };
@@ -25,6 +26,10 @@ export default async function Work(context: {
   const { data } = await wordPressClient.getPostData(
     `works/${context.params.work}`,
   );
+
+  if (data.content === '') {
+    return notFound();
+  }
 
   return (
     <div className='pt-main'>
