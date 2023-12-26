@@ -12,7 +12,7 @@ export default async function Rootlayout({
           rel='stylesheet'
           href='https://use.typekit.net/wsq1sgw.css'
         ></link>
-        <link rel='shortcut icon' href='favicon.png' type='image/x-icon' />
+        <link rel='shortcut icon' href='/favicon.png' type='image/x-icon' />
       </head>
       <body className='flex h-screen flex-col'>
         <Header />
