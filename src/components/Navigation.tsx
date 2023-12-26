@@ -2,16 +2,22 @@
 
 import classNames from 'classnames';
 import Image from 'next/image';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import Container from './Container';
 import NavigationItem from './NavigationItem';
 
 export default function Navigation(): JSX.Element {
   const [show, setShow] = useState(false);
+  const pathname = usePathname();
 
   function toggleBurgerMenu(): void {
     setShow((current) => !current);
   }
+
+  useEffect(() => {
+    setShow(false);
+  }, [pathname]);
 
   return (
     <>
