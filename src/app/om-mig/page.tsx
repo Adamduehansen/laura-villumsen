@@ -1,20 +1,15 @@
 import { wordPressClient } from '@/services/WordPressClient';
-import { REVALIDATE_TIME } from '@/utils/const';
-import { PageProps } from '@/utils/models';
-import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import parse from 'node-html-parser';
 
-type PageData = PageProps;
+export default async function About(): Promise<JSX.Element> {
+  const { data } = await wordPressClient.getPageData('/om-mig');
 
-export default function About(props: PageData): JSX.Element | null {
-  const { content } = props;
-
-  if (content === null) {
-    return null;
+  if (data.content === null) {
+    throw new Error('Redirect to 404');
   }
 
-  const root = parse(content);
+  const root = parse(data.content);
 
   const textElement = root.querySelector('p');
   const cvElements = root.querySelectorAll(':scope > figure');
@@ -25,12 +20,12 @@ export default function About(props: PageData): JSX.Element | null {
         <p className='text-[2rem] leading-9 mx-grid mb-5 lg:order-2'>
           {textElement!.innerHTML}
         </p>
-        {props.image && (
+        {data.image && (
           <Image
-            src={props.image.src}
-            alt={props.image.alt}
-            width={props.image.width}
-            height={props.image.height}
+            src={data.image.src}
+            alt={data.image.alt}
+            width={data.image.width}
+            height={data.image.height}
             className='mb-5 lg:order-1'
           />
         )}
@@ -57,14 +52,3 @@ export default function About(props: PageData): JSX.Element | null {
     </div>
   );
 }
-
-export const getStaticProps: GetStaticProps<PageData> = async function () {
-  const { data } = await wordPressClient.getPageData('/om-mig');
-
-  return {
-    props: {
-      ...data,
-    },
-    revalidate: REVALIDATE_TIME,
-  };
-};

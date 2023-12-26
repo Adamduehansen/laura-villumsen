@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {
   const { data } = await wordPressClient.getPageData('/');
+
   return {
     title: `${data.title} | ${data.siteName}`,
     description: data.description,
