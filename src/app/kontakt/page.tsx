@@ -2,7 +2,17 @@ import Col from '@/components/Col';
 import Container from '@/components/Container';
 import Row from '@/components/Row';
 import { wordPressClient } from '@/services/WordPressClient';
+import { Metadata } from 'next';
 import parse from 'node-html-parser';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { data } = await wordPressClient.getPageData('/kontakt');
+
+  return {
+    title: `${data.title} | ${data.siteName}`,
+    description: data.description,
+  };
+}
 
 export default async function Contact(): Promise<JSX.Element> {
   const { data } = await wordPressClient.getPageData('/kontakt');

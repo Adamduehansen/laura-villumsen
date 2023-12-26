@@ -1,6 +1,16 @@
 import { wordPressClient } from '@/services/WordPressClient';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import parse from 'node-html-parser';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const { data } = await wordPressClient.getPageData('/om-mig');
+
+  return {
+    title: `${data.title} | ${data.siteName}`,
+    description: data.description,
+  };
+}
 
 export default async function About(): Promise<JSX.Element> {
   const { data } = await wordPressClient.getPageData('/om-mig');

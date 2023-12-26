@@ -4,6 +4,20 @@ import Row from '@/components/Row';
 import TagList from '@/components/TagList';
 import { wordPressClient } from '@/services/WordPressClient';
 import { formatDateString } from '@/utils/workDateFormatter';
+import { Metadata } from 'next';
+
+export async function generateMetadata(context: {
+  params: { work: string };
+}): Promise<Metadata> {
+  const { data } = await wordPressClient.getPostData(
+    `works/${context.params.work}`,
+  );
+
+  return {
+    title: `${data.title} | ${data.siteName}`,
+    description: data.description,
+  };
+}
 
 export default async function Work(context: {
   params: { work: string };
