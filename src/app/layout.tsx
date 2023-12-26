@@ -14,7 +14,7 @@ export default async function Rootlayout({
         ></link>
         <link rel='shortcut icon' href='favicon.png' type='image/x-icon' />
       </head>
-      <body>
+      <body className='flex h-screen flex-col'>
         <Header />
         <main>{children}</main>
         <Footer />
