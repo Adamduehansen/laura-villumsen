@@ -45,6 +45,7 @@ export class WordPressClient {
   async getSitemapData(): Promise<ServiceResponse<SitemapNode[]>> {
     const response = await this.#client.query({
       query: sitemap,
+      fetchPolicy: 'no-cache',
     });
 
     const { data } = sitemapWPGraphQLResponseSchema.parse(response);
@@ -75,6 +76,7 @@ export class WordPressClient {
       variables: {
         id: path,
       },
+      fetchPolicy: 'no-cache',
     });
 
     const { data } = pageDataWPGraphQLResponseSchema.parse(response);
@@ -124,6 +126,7 @@ export class WordPressClient {
       variables: {
         id: path,
       },
+      fetchPolicy: 'no-cache',
     });
 
     const { data } = postDataWPGraphQLResponse.parse(response);
@@ -179,6 +182,7 @@ export class WordPressClient {
   async getWorkTeasers(): Promise<ServiceResponse<WorkTeaser[]>> {
     const response = await this.#client.query({
       query: workTeasers,
+      fetchPolicy: 'no-cache',
     });
 
     const { data } = workTeaserWPGraphQLResponseSchema.parse(response);
@@ -216,6 +220,7 @@ export class WordPressClient {
   async getWorkPaths(): Promise<string[]> {
     const response = await this.#client.query({
       query: workPaths,
+      fetchPolicy: 'no-cache',
     });
 
     const { data } = workTeaserPathGraphQLResponseSchema.parse(response);
