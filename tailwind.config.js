@@ -14,6 +14,7 @@ module.exports = {
   theme: {
     fontFamily: {
       'owners-wide': 'owners-wide',
+      'neue-haas': 'neue-haas-grotesk-display',
     },
     extend: {
       margin: {
