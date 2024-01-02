@@ -52,7 +52,7 @@ export default function Navigation(): JSX.Element {
             <NavigationItem
               text='Arbejde'
               url='/'
-              className='after:content-["-"] after:absolute after:top-0 after:-right-6 md:after:content-none lg:after:hover:content-[url(/arrow-left.svg)] lg:after:hover:absolute lg:after:hover:w-12 lg:after:hover:-right-12 xl:after:hover:w-16 xl:after:hover:-right-16'
+              className='lg:after:hover:content-[url(/arrow-left.svg)] lg:after:hover:absolute lg:after:hover:w-12 lg:after:hover:-right-12 xl:after:hover:w-16 xl:after:hover:-right-16'
             />
             <NavigationItem
               text='Om mig'
@@ -62,7 +62,7 @@ export default function Navigation(): JSX.Element {
             <NavigationItem
               text='Kontakt'
               url='/kontakt'
-              className='after:content-["-"] after:absolute after:top-0 after:-right-6 md:after:content-none lg:after:hover:content-[url(/arrow-right.svg)] lg:after:hover:absolute lg:after:hover:w-12 lg:after:hover:-left-12 xl:after:hover:w-16 xl:after:hover:-left-16'
+              className='lg:after:hover:content-[url(/arrow-right.svg)] lg:after:hover:absolute lg:after:hover:w-12 lg:after:hover:-left-12 xl:after:hover:w-16 xl:after:hover:-left-16'
             />
           </ul>
         </Container>
