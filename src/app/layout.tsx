@@ -15,7 +15,7 @@ export default async function Rootlayout({
           href='https://use.typekit.net/wsq1sgw.css'
         ></link>
       </head>
-      <body className='flex h-screen flex-col'>
+      <body>
         <Header />
         <main>{children}</main>
         <Footer />
