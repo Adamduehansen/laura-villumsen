@@ -1,0 +1,13 @@
+query PageData($slug: String!) {
+  menus(where: { slug: $slug }) {
+    nodes {
+      menuItems {
+        nodes {
+          id
+          label
+          uri
+        }
+      }
+    }
+  }
+}
