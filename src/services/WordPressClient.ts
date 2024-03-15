@@ -2,6 +2,7 @@ import { raise } from '@/utils/raise';
 import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { z } from 'zod';
 import { MenuRepository } from './MenuRepository';
+import { WorkRepository } from './WorkRepository';
 
 const menuItemSchema = z.object({
   id: z.string(),
@@ -25,6 +26,7 @@ const menuSchema = z.object({
 
 export class WordPressClient {
   menu: MenuRepository;
+  work: WorkRepository;
 
   constructor() {
     const siteUrl =
@@ -37,6 +39,7 @@ export class WordPressClient {
     });
 
     this.menu = new MenuRepository(client);
+    this.work = new WorkRepository(client);
   }
 }
 

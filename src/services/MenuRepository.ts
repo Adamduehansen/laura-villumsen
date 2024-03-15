@@ -1,5 +1,6 @@
 import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
 import { z } from 'zod';
+import { Repository } from './Repository';
 import menuQuery from './menu.graphql';
 
 const menuItemSchema = z.object({
@@ -22,15 +23,13 @@ const menuSchema = z.object({
   }),
 });
 
-export class MenuRepository {
-  #client: ApolloClient<NormalizedCacheObject>;
-
+export class MenuRepository extends Repository {
   constructor(client: ApolloClient<NormalizedCacheObject>) {
-    this.#client = client;
+    super(client);
   }
 
   async getMenu(slug: string): Promise<MenuItem[]> {
-    const response = await this.#client.query({
+    const response = await this.client.query({
       query: menuQuery,
       variables: {
         slug: slug,

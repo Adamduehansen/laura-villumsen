@@ -1,0 +1,22 @@
+query workTeasers {
+  posts {
+    nodes {
+      id
+      title
+      uri
+      featuredImage {
+        node {
+          sourceUrl
+          altText
+          mediaDetails {
+            height
+            width
+          }
+        }
+      }
+      workData {
+        client
+      }
+    }
+  }
+}

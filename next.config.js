@@ -4,8 +4,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: '**.lauravillumsen.dk',
+        protocol: 'http',
+        hostname: 'localhost',
       },
     ],
   },

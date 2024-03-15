@@ -1,18 +1,20 @@
-import { WorkTeaser } from '@/utils/models';
+import { wordPressClient } from '@/services/WordPressClient';
+import Col from './Col';
+import Container from './Container';
 import WorkTeasersListItem from './WorkTeasersListItem';
 
-interface Props {
-  workTeasers: WorkTeaser[];
-}
+export default async function WorkTeasersList() {
+  const workTeasers = await wordPressClient.work.getTeasers();
 
-export default function WorkTeasersList({ workTeasers }: Props): JSX.Element {
   return (
-    <ul>
-      {workTeasers.map((workTeaser): JSX.Element => {
+    <Container fluid className='gap-2'>
+      {workTeasers.map((workTeaser, index): JSX.Element => {
         return (
-          <WorkTeasersListItem key={workTeaser.id} workTeaser={workTeaser} />
+          <Col lg={(index + 1) % 3 === 0 ? 12 : 6} key={workTeaser.id}>
+            <WorkTeasersListItem key={workTeaser.id} workTeaser={workTeaser} />
+          </Col>
         );
       })}
-    </ul>
+    </Container>
   );
 }
