@@ -5,9 +5,9 @@ import workTeaserQuery from './workTeasers.graphql';
 
 export type WorkTeaser = {
   id: string;
-  title: string;
   uri: string;
   client: string;
+  text: string;
   image: {
     src: string;
     alt: string;
@@ -21,7 +21,6 @@ const workTeasersSchema = z.object({
     nodes: z.array(
       z.object({
         id: z.string(),
-        title: z.string(),
         uri: z.string(),
         featuredImage: z.object({
           node: z.object({
@@ -35,6 +34,7 @@ const workTeasersSchema = z.object({
         }),
         workData: z.object({
           client: z.string(),
+          frontpageText: z.string(),
         }),
       }),
     ),
@@ -56,8 +56,8 @@ export class WorkRepository extends Repository {
     return workTeasers.posts.nodes.map((node): WorkTeaser => {
       return {
         id: node.id,
-        title: node.title,
         uri: node.uri,
+        text: node.workData.frontpageText,
         client: node.workData.client,
         image: {
           src: node.featuredImage.node.sourceUrl,

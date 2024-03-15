@@ -2,7 +2,6 @@ query workTeasers {
   posts {
     nodes {
       id
-      title
       uri
       featuredImage {
         node {
@@ -16,6 +15,7 @@ query workTeasers {
       }
       workData {
         client
+        frontpageText
       }
     }
   }

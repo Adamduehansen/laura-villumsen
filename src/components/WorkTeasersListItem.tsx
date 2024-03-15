@@ -9,7 +9,7 @@ interface Props {
 export default function WorkTeasersListItem({
   workTeaser,
 }: Props): JSX.Element {
-  const { image, uri, client } = workTeaser;
+  const { image, uri, client, text } = workTeaser;
 
   return (
     <div className='relative overflow-hidden group'>
@@ -23,13 +23,14 @@ export default function WorkTeasersListItem({
             alt={image.alt}
             width={image.width}
             height={image.height}
-            className=''
+            className='w-full'
             priority
           />
         )}
       </Link>
-      <span className='absolute bottom-0 left-0 lg:opacity-0 lg:duration-700 lg:group-hover:opacity-100'>
-        {client}
+      <span className='hidden lg:absolute lg:bottom-2 lg:left-4 lg:opacity-0 lg:duration-700 lg:group-hover:opacity-100 lg:flex lg:gap-x-12'>
+        <span>{client}</span>
+        <span>{text}</span>
       </span>
     </div>
   );
