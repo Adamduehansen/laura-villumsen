@@ -1,6 +1,8 @@
 import { WorkTeaser } from '@/services/WorkRepository';
 import Image from 'next/image';
 import Link from 'next/link';
+import Col from './Col';
+import Container from './Container';
 
 interface Props {
   workTeaser: WorkTeaser;
@@ -28,10 +30,14 @@ export default function WorkTeasersListItem({
           />
         )}
       </Link>
-      <span className='hidden lg:absolute lg:bottom-2 lg:left-4 lg:opacity-0 lg:duration-700 lg:group-hover:opacity-100 lg:flex lg:gap-x-12'>
-        <span>{client}</span>
-        <span>{text}</span>
-      </span>
+      <Container className='absolute bottom-0 inset-x-0 text-xs pb-4 lg:opacity-0 lg:duration-700 lg:group-hover:opacity-100'>
+        <Col sm={4}>
+          <span>{client}</span>
+        </Col>
+        <Col sm={8}>
+          <span>{text}</span>
+        </Col>
+      </Container>
     </div>
   );
 }
