@@ -1,5 +1,14 @@
+import classNames from 'classnames';
+
+type Props = {
+  className?: string;
+};
+
 export default function Row({
   children,
-}: React.PropsWithChildren): JSX.Element {
-  return <div className='grid grid-cols-12'>{children}</div>;
+  className,
+}: React.PropsWithChildren<Props>): JSX.Element {
+  return (
+    <div className={classNames('grid grid-cols-12', className)}>{children}</div>
+  );
 }

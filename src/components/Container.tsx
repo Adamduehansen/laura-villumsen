@@ -15,7 +15,7 @@ export default function Container({
   const Component = as;
   return (
     <Component
-      className={classNames('grid grid-cols-12', className, {
+      className={classNames(className, {
         'mx-grid': !fluid,
       })}
     >

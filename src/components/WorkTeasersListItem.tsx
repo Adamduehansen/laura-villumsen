@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Col from './Col';
 import Container from './Container';
+import Row from './Row';
 
 interface Props {
   workTeaser: WorkTeaser;
@@ -31,12 +32,14 @@ export default function WorkTeasersListItem({
         )}
       </Link>
       <Container className='absolute bottom-0 inset-x-0 text-xs pb-4 lg:opacity-0 lg:duration-700 lg:group-hover:opacity-100'>
-        <Col sm={4}>
-          <span>{client}</span>
-        </Col>
-        <Col sm={8}>
-          <span>{text}</span>
-        </Col>
+        <Row>
+          <Col sm={4}>
+            <span>{client}</span>
+          </Col>
+          <Col sm={8}>
+            <span>{text}</span>
+          </Col>
+        </Row>
       </Container>
     </div>
   );

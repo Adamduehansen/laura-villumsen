@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import { useState } from 'react';
 import Col from './Col';
 import Container from './Container';
+import Row from './Row';
 
 type Props = {
   menuItems: MenuItem[];
@@ -30,25 +31,27 @@ export default function Navigation({ menuItems }: Props): React.JSX.Element {
       >
         <div className='absolute bottom-0'>
           <Container>
-            <Col>
-              <nav>
-                <ul>
-                  {menuItems.map((menuItem): React.JSX.Element => {
-                    return (
-                      <li key={menuItem.id}>
-                        <a href={menuItem.uri}>{menuItem.label}</a>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </nav>
-              <p>
-                M: <a href='mailto:'>design@lauravillumsen.dk</a>
-              </p>
-              <p>
-                M: <a href='tel:+'>+45 88888888</a>
-              </p>
-            </Col>
+            <Row>
+              <Col>
+                <nav>
+                  <ul>
+                    {menuItems.map((menuItem): React.JSX.Element => {
+                      return (
+                        <li key={menuItem.id}>
+                          <a href={menuItem.uri}>{menuItem.label}</a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </nav>
+                <p>
+                  M: <a href='mailto:'>design@lauravillumsen.dk</a>
+                </p>
+                <p>
+                  M: <a href='tel:+'>+45 88888888</a>
+                </p>
+              </Col>
+            </Row>
           </Container>
         </div>
       </div>
