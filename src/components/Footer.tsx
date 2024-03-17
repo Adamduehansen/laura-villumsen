@@ -23,12 +23,12 @@ export default async function Footer(): Promise<JSX.Element> {
           <a href={linkedInLink.uri}>{linkedInLink.label}</a>
         </Col>
         <Col sm={4} className='flex justify-end'>
-          <button className='flex items-center gap-x-2'>
+          <a href='#top' className='flex items-center gap-x-2'>
             To the top
             <svg width={16} height={16} className='-rotate-90'>
               <use href='icons.svg#arrow' />
             </svg>
-          </button>
+          </a>
         </Col>
       </Container>
       <Container>

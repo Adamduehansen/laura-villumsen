@@ -6,7 +6,7 @@ export default async function Rootlayout({
   children,
 }: React.PropsWithChildren): Promise<JSX.Element> {
   return (
-    <html lang='da'>
+    <html lang='da' className='scroll-smooth'>
       <head>
         <link
           rel='stylesheet'
