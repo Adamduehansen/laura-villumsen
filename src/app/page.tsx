@@ -1,5 +1,9 @@
 import WorkTeasersList from '@/components/WorkTeasersList';
 
 export default async function Page(): Promise<JSX.Element> {
-  return <WorkTeasersList />;
+  return (
+    <div className='mb-2'>
+      <WorkTeasersList />
+    </div>
+  );
 }

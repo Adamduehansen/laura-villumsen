@@ -1,0 +1,9 @@
+query Inquiries {
+  menus(where: { slug: "Inquiries" }) {
+    nodes {
+      inquiriesMenu {
+        inquiries
+      }
+    }
+  }
+}
