@@ -6,7 +6,7 @@ type Props = {
 
 export default function Socials({ menuItem }: Props): React.JSX.Element {
   return (
-    <ul>
+    <ul className='flex'>
       {menuItem.map((menuItem): React.JSX.Element => {
         return (
           <li key={menuItem.id}>
