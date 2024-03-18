@@ -1,9 +1,9 @@
-import WorkTeasersList from '@/components/WorkTeasersList';
+import WorkList from '@/components/WorkTeasersList';
 
-export default async function Page(): Promise<JSX.Element> {
+export default async function Page() {
   return (
     <div>
-      <WorkTeasersList />
+      <WorkList />
     </div>
   );
 }

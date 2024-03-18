@@ -1,0 +1,20 @@
+query Work($id: ID!) {
+  post(id: $id, idType: SLUG) {
+    content
+    tags {
+      nodes {
+        name
+      }
+    }
+    workData {
+      client
+      types
+      date
+      website {
+        target
+        title
+        url
+      }
+    }
+  }
+}

@@ -1,6 +1,8 @@
 import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
+import parse from 'node-html-parser';
 import { z } from 'zod';
 import { Repository } from './Repository';
+import workQuery from './Work.graphql';
 import workTeaserQuery from './workTeasers.graphql';
 
 export type WorkTeaser = {
@@ -41,9 +43,71 @@ const workTeasersSchema = z.object({
   }),
 });
 
+const workSchema = z.object({
+  post: z
+    .object({
+      content: z.string(),
+      tags: z.object({
+        nodes: z.array(
+          z.object({
+            name: z.string(),
+          }),
+        ),
+      }),
+      workData: z.object({
+        client: z.string(),
+        types: z.string(),
+        date: z.string(),
+        website: z
+          .object({
+            title: z.string(),
+            url: z.string(),
+          })
+          .nullable(),
+      }),
+    })
+    .nullable(),
+});
+
+export type Work = {
+  text: string;
+  client: string;
+  year: string;
+  services: string[];
+  url?: string;
+  images: Required<
+    Pick<React.ComponentProps<'img'>, 'src' | 'alt' | 'width' | 'height'>
+  >[];
+};
+
 export class WorkRepository extends Repository {
   constructor(client: ApolloClient<NormalizedCacheObject>) {
     super(client);
+  }
+
+  async getWork(id: string): Promise<Work | undefined> {
+    const response = await this.client.query({
+      query: workQuery,
+      variables: {
+        id: id,
+      },
+      fetchPolicy: 'no-cache',
+    });
+
+    const { post } = workSchema.parse(response.data);
+
+    if (post === null) {
+      return undefined;
+    }
+
+    return {
+      text: this.#extractText(post.content),
+      client: post.workData.client,
+      images: this.#extractImages(post.content),
+      services: post.tags.nodes.map((tag) => tag.name),
+      year: new Date(post.workData.date).getFullYear().toString(),
+      url: post.workData.website?.url || undefined,
+    };
   }
 
   async getTeasers(): Promise<WorkTeaser[]> {
@@ -65,6 +129,27 @@ export class WorkRepository extends Repository {
           height: node.featuredImage.node.mediaDetails.height,
           width: node.featuredImage.node.mediaDetails.width,
         },
+      };
+    });
+  }
+
+  #extractText(content: string): string {
+    const document = parse(content);
+    return document.querySelector('p')?.textContent || '';
+  }
+
+  #extractImages(
+    content: string,
+  ): Required<
+    Pick<React.ComponentProps<'img'>, 'src' | 'alt' | 'width' | 'height'>
+  >[] {
+    const document = parse(content);
+    return document.querySelectorAll('img').map((img) => {
+      return {
+        src: img.getAttribute('src') || '',
+        alt: img.getAttribute('alt') || '',
+        height: img.getAttribute('height') || 256,
+        width: img.getAttribute('width') || 256,
       };
     });
   }
