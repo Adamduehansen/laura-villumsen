@@ -75,10 +75,21 @@ export type Work = {
   year: string;
   services: string[];
   url?: string;
-  images: Required<
-    Pick<React.ComponentProps<'img'>, 'src' | 'alt' | 'width' | 'height'>
-  >[];
+  medias: Media[];
 };
+
+type Media =
+  | {
+      type: 'image';
+      src: string;
+      alt: string;
+      width: string;
+      height: string;
+    }
+  | {
+      type: 'video';
+      src: string;
+    };
 
 export class WorkRepository extends Repository {
   constructor(client: ApolloClient<NormalizedCacheObject>) {
@@ -103,7 +114,7 @@ export class WorkRepository extends Repository {
     return {
       text: this.#extractText(post.content),
       client: post.workData.client,
-      images: this.#extractImages(post.content),
+      medias: this.#extractImagesAndVideos(post.content),
       services: post.tags.nodes.map((tag) => tag.name),
       year: new Date(post.workData.date).getFullYear().toString(),
       url: post.workData.website?.url || undefined,
@@ -138,19 +149,32 @@ export class WorkRepository extends Repository {
     return document.querySelector('p')?.textContent || '';
   }
 
-  #extractImages(
-    content: string,
-  ): Required<
-    Pick<React.ComponentProps<'img'>, 'src' | 'alt' | 'width' | 'height'>
-  >[] {
+  #extractImagesAndVideos(content: string): Media[] {
     const document = parse(content);
-    return document.querySelectorAll('img').map((img) => {
-      return {
-        src: img.getAttribute('src') || '',
-        alt: img.getAttribute('alt') || '',
-        height: img.getAttribute('height') || 256,
-        width: img.getAttribute('width') || 256,
-      };
-    });
+    const elements = [
+      ...document.querySelectorAll('img'),
+      ...document.querySelectorAll('video'),
+    ];
+
+    return elements
+      .map((element): Media | undefined => {
+        if (element.rawTagName === 'img') {
+          return {
+            type: 'image',
+            src: element.getAttribute('src') || '',
+            alt: element.getAttribute('alt') || '',
+            height: element.getAttribute('height') || '256',
+            width: element.getAttribute('width') || '256',
+          };
+        }
+        if (element.rawTagName === 'video') {
+          return {
+            type: 'video',
+            src: element.getAttribute('src') || '',
+          };
+        }
+        return undefined;
+      })
+      .filter((element): element is Media => element !== undefined);
   }
 }

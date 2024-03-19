@@ -17,6 +17,8 @@ export default async function Page(context: {
     notFound();
   }
 
+  console.log(work.medias);
+
   return (
     <>
       <Container>
@@ -55,20 +57,25 @@ export default async function Page(context: {
         </Row>
       </Container>
       <WorkList
-        list={work.images}
-        renderItem={(image) => {
-          return (
-            <div className='relative overflow-hidden group'>
-              <Image
-                src={image.src}
-                alt={image.alt}
-                width={parseInt(image.width.toString())}
-                height={parseInt(image.height.toString())}
-                className='w-full scale-100 lg:duration-700 lg:ease-out lg:group-hover:scale-105'
-                priority
-              />
-            </div>
-          );
+        list={work.medias}
+        renderItem={(media) => {
+          if (media.type === 'image') {
+            return (
+              <div className='relative overflow-hidden group'>
+                <Image
+                  src={media.src}
+                  alt={media.alt}
+                  width={parseInt(media.width.toString())}
+                  height={parseInt(media.height.toString())}
+                  className='w-full scale-100 lg:duration-700 lg:ease-out lg:group-hover:scale-105'
+                  priority
+                />
+              </div>
+            );
+          }
+          if (media.type === 'video') {
+            return <video src={media.src} autoPlay loop controls></video>;
+          }
         }}
       />
     </>
