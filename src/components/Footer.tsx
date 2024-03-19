@@ -29,7 +29,7 @@ export default async function Footer(): Promise<JSX.Element> {
             >
               To the top
               <svg width={16} height={16} className='-rotate-90'>
-                <use href='icons.svg#arrow' />
+                <use href='/icons.svg#arrow' />
               </svg>
             </a>
           </Col>

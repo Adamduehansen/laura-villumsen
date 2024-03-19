@@ -51,14 +51,16 @@ export default async function Page(context: {
         list={work.images}
         renderItem={(image) => {
           return (
-            <Image
-              src={image.src}
-              alt={image.alt}
-              width={parseInt(image.width.toString())}
-              height={parseInt(image.height.toString())}
-              className='w-full'
-              priority
-            />
+            <div className='relative overflow-hidden group'>
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={parseInt(image.width.toString())}
+                height={parseInt(image.height.toString())}
+                className='w-full scale-100 lg:duration-700 lg:ease-out lg:group-hover:scale-105'
+                priority
+              />
+            </div>
           );
         }}
       />
