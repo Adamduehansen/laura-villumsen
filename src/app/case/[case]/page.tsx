@@ -8,10 +8,10 @@ import { notFound } from 'next/navigation';
 
 export default async function Page(context: {
   params: {
-    work: string;
+    case: string;
   };
 }) {
-  const work = await wordPressClient.work.getWork(context.params.work);
+  const work = await wordPressClient.work.getWork(context.params.case);
 
   if (work === undefined) {
     notFound();
