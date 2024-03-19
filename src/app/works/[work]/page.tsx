@@ -21,28 +21,35 @@ export default async function Page(context: {
     <>
       <Container>
         <Row className='pb-24'>
-          <Col>
-            <p>{work.text}</p>
+          <Col lg={11}>
+            <p className='text-2xl lg:text-4xl'>{work.text}</p>
           </Col>
         </Row>
-        <Row>
-          <Col sm={6}>
-            <p>Client</p>
+        <Row className='gap-y-10 pb-32 lg:pb-24'>
+          <Col sm={6} lg={2}>
+            <p>Client:</p>
             <p>{work.client}</p>
           </Col>
-          <Col sm={6}>
-            <p>Year</p>
+          <Col sm={6} lg={2}>
+            <p>Year:</p>
             <p>{work.year}</p>
           </Col>
-          <Col sm={6}>
-            <p>Services</p>
+          <Col sm={6} lg={2}>
+            <p>Services:</p>
             {work.services.map((service, index) => {
               return <p key={index}>{service}</p>;
             })}
           </Col>
           {work.url && (
-            <Col sm={6}>
-              <a href={work.url}>Visit website here</a>
+            <Col sm={6} lg={2} lgStart={10}>
+              <a
+                href={work.url}
+                target='_blank'
+                rel='noreferrer'
+                className='text-[#1453F7] underline'
+              >
+                Visit website here
+              </a>
             </Col>
           )}
         </Row>
