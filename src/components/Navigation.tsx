@@ -2,6 +2,7 @@
 
 import { MenuItem } from '@/services/MenuRepository';
 import classNames from 'classnames';
+import Link from 'next/link';
 import { useState } from 'react';
 import Col from './Col';
 import Container from './Container';
@@ -38,7 +39,7 @@ export default function Navigation({ menuItems }: Props): React.JSX.Element {
                     {menuItems.map((menuItem): React.JSX.Element => {
                       return (
                         <li key={menuItem.id}>
-                          <a href={menuItem.uri}>{menuItem.label}</a>
+                          <Link href={menuItem.uri}>{menuItem.label}</Link>
                         </li>
                       );
                     })}

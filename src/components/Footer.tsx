@@ -17,10 +17,14 @@ export default async function Footer(): Promise<JSX.Element> {
             <p>{inquiries}</p>
           </Col>
           <Col sm={4} lg={1} lgStart={10}>
-            <a href={instagramLink.uri}>{instagramLink.label}</a>
+            <a href={instagramLink.uri} target='_blank' rel='noreferrer'>
+              {instagramLink.label}
+            </a>
           </Col>
           <Col sm={4} lg={1}>
-            <a href={linkedInLink.uri}>{linkedInLink.label}</a>
+            <a href={linkedInLink.uri} target='_blank' rel='noreferrer'>
+              {linkedInLink.label}
+            </a>
           </Col>
           <Col sm={4} lg={1}>
             <a
