@@ -17,8 +17,6 @@ export default async function Page(context: {
     notFound();
   }
 
-  console.log(work.medias);
-
   return (
     <>
       <Container>

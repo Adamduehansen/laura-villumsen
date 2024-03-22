@@ -11,6 +11,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'wp.lauravillumsen.dk',
       },
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+      },
     ],
   },
   webpack: function (config, context) {

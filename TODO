@@ -1,5 +1,8 @@
 Todo:
   ☐ Sitemap
+  ☐ Bedre håndtering af billeder i content
+  ☐ Caching
+  ☐ Spacing i bunden af sitet
 
 Bugs:
   ☐ Hvis en case har 7 billeder, er der et skævt antal kolonner.

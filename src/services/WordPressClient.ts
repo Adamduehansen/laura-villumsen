@@ -3,6 +3,7 @@ import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { z } from 'zod';
 import { MenuRepository } from './MenuRepository';
 import { MetaRepository } from './MetaRepository';
+import { PageRepository } from './PageRepository';
 import { WorkRepository } from './WorkRepository';
 
 const menuItemSchema = z.object({
@@ -29,6 +30,7 @@ export class WordPressClient {
   menu: MenuRepository;
   work: WorkRepository;
   meta: MetaRepository;
+  page: PageRepository;
 
   constructor() {
     const siteUrl =
@@ -43,6 +45,7 @@ export class WordPressClient {
     this.menu = new MenuRepository(client);
     this.work = new WorkRepository(client);
     this.meta = new MetaRepository(client);
+    this.page = new PageRepository(client);
   }
 }
 

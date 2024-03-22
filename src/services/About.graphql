@@ -1,0 +1,6 @@
+query About {
+  page(id: "/about", idType: URI) {
+    id
+    content
+  }
+}
