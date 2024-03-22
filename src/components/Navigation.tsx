@@ -21,7 +21,19 @@ export default function Navigation({ menuItems }: Props): React.JSX.Element {
 
   return (
     <div>
-      <button onClick={toggleMobileMenu} className='z-20 relative'>
+      <button
+        onClick={toggleMobileMenu}
+        className='z-20 relative flex items-center gap-x-1'
+      >
+        <svg
+          width={14}
+          height={14}
+          className={classNames('rotate-0 duration-200', {
+            'rotate-45 duration-200': isMobileMenuOpen,
+          })}
+        >
+          <use href='/icons.svg#plus' />
+        </svg>
         {isMobileMenuOpen ? 'Close' : 'Menu'}
       </button>
       <div

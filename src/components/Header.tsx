@@ -13,10 +13,7 @@ export default async function Header() {
         <Row>
           <Col>
             <div className='flex justify-between py-12 z-20'>
-              <div className='z-20'>
-                <p>Laura Villumsen</p>
-                <p>Portfolio</p>
-              </div>
+              <p className='z-20'>Laura Villumsen</p>
               <p className='hidden lg:block z-20'>Portfolio</p>
               <Navigation menuItems={navigation} />
             </div>
