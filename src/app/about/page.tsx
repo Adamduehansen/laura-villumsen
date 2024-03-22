@@ -12,7 +12,7 @@ export default async function Page() {
       <Container className='mb-28'>
         <Row>
           <Col>
-            <p className='text-3xl'>{content.text}</p>
+            <p className='text-2xl lg:text-4xl'>{content.text}</p>
           </Col>
         </Row>
       </Container>
@@ -33,7 +33,7 @@ export default async function Page() {
       )}
       <Container>
         <Row>
-          <Col className='mb-20'>
+          <Col className='mb-20' lg={4}>
             <p>{content.educations.title}</p>
             <div
               className='[&>table>tbody>tr>td]:align-top first:[&>table>tbody>tr>td]:w-28 [&>table]:w-full'
@@ -42,7 +42,7 @@ export default async function Page() {
               }}
             ></div>
           </Col>
-          <Col className='mb-20'>
+          <Col className='mb-20' lg={4}>
             <p>{content.employments.title}</p>
             <div
               className='[&>table>tbody>tr>td]:align-top first:[&>table>tbody>tr>td]:w-28 [&>table]:w-full'
@@ -51,7 +51,7 @@ export default async function Page() {
               }}
             ></div>
           </Col>
-          <Col className='mb-20'>
+          <Col className='mb-20' lg={4}>
             <p>{content.awards.title}</p>
             <div
               className='[&>table>tbody>tr>td]:align-top first:[&>table>tbody>tr>td]:w-28 [&>table]:w-full'
