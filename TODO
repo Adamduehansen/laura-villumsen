@@ -3,6 +3,7 @@ Todo:
   ☐ Bedre håndtering af billeder i content
   ☐ Caching
   ☐ Spacing i bunden af sitet
+  ☐ Mangler breadcrumb efter portfolio
 
 Bugs:
   ☐ Hvis en case har 7 billeder, er der et skævt antal kolonner.

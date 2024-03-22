@@ -28,10 +28,10 @@ export default function Navigation({ menuItems }: Props): React.JSX.Element {
   }
 
   return (
-    <div>
+    <>
       <button
         onClick={toggleMobileMenu}
-        className='z-20 relative flex items-center gap-x-1'
+        className='z-20 relative flex items-center gap-x-1 lg:hidden'
       >
         <svg
           width={14}
@@ -45,20 +45,23 @@ export default function Navigation({ menuItems }: Props): React.JSX.Element {
         {isMobileMenuOpen ? 'Close' : 'Menu'}
       </button>
       <div
-        className={classNames('z-10 fixed inset-0 bg-[#E8E6E7] duration-200', {
-          'translate-y-0': isMobileMenuOpen,
-          '-translate-y-full': !isMobileMenuOpen,
-        })}
+        className={classNames(
+          'z-10 fixed inset-0 bg-[#E8E6E7] duration-200 lg:translate-y-0 lg:bg-transparent lg:bottom-0 lg:inset-y-auto lg:inset-x-0',
+          {
+            'translate-y-0': isMobileMenuOpen,
+            '-translate-y-full': !isMobileMenuOpen,
+          },
+        )}
       >
-        <div className='absolute bottom-0'>
+        <div className='absolute bottom-0 lg:inset-x-0'>
           <Container>
             <Row>
               <Col>
                 <nav className='mb-10'>
-                  <ul>
+                  <ul className='lg:flex lg:gap-x-10'>
                     {menuItems.map((menuItem): React.JSX.Element => {
                       return (
-                        <li key={menuItem.id} className='text-7xl'>
+                        <li key={menuItem.id} className='text-7xl lg:text-8xl'>
                           <Link href={menuItem.uri}>{menuItem.label}</Link>
                         </li>
                       );
@@ -73,7 +76,7 @@ export default function Navigation({ menuItems }: Props): React.JSX.Element {
                     </a>
                   </p>
                   <p>
-                    M: <a href='tel:+'>+45 88888888</a>
+                    T: <a href='tel:+'>+45 88888888</a>
                   </p>
                 </div>
               </Col>
@@ -81,6 +84,6 @@ export default function Navigation({ menuItems }: Props): React.JSX.Element {
           </Container>
         </div>
       </div>
-    </div>
+    </>
   );
 }
