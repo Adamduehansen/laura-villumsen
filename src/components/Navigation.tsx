@@ -3,7 +3,8 @@
 import { MenuItem } from '@/services/MenuRepository';
 import classNames from 'classnames';
 import Link from 'next/link';
-import { useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import Col from './Col';
 import Container from './Container';
 import Row from './Row';
@@ -14,9 +15,16 @@ type Props = {
 
 export default function Navigation({ menuItems }: Props): React.JSX.Element {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    document.documentElement.classList.remove('overflow-hidden');
+  }, [pathname]);
 
   function toggleMobileMenu() {
     setIsMobileMenuOpen((current) => !current);
+    document.documentElement.classList.toggle('overflow-hidden');
   }
 
   return (
@@ -46,23 +54,28 @@ export default function Navigation({ menuItems }: Props): React.JSX.Element {
           <Container>
             <Row>
               <Col>
-                <nav>
+                <nav className='mb-10'>
                   <ul>
                     {menuItems.map((menuItem): React.JSX.Element => {
                       return (
-                        <li key={menuItem.id}>
+                        <li key={menuItem.id} className='text-7xl'>
                           <Link href={menuItem.uri}>{menuItem.label}</Link>
                         </li>
                       );
                     })}
                   </ul>
                 </nav>
-                <p>
-                  M: <a href='mailto:'>design@lauravillumsen.dk</a>
-                </p>
-                <p>
-                  M: <a href='tel:+'>+45 88888888</a>
-                </p>
+                <div className='mb-10'>
+                  <p>
+                    M:{' '}
+                    <a className='text-link' href='mailto:'>
+                      design@lauravillumsen.dk
+                    </a>
+                  </p>
+                  <p>
+                    M: <a href='tel:+'>+45 88888888</a>
+                  </p>
+                </div>
               </Col>
             </Row>
           </Container>

@@ -12,6 +12,9 @@ module.exports = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    colors: {
+      link: '#1453F7',
+    },
     fontFamily: {
       'owners-wide': 'owners-wide',
       'neue-haas': 'neue-haas-grotesk-display',

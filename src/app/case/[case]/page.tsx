@@ -46,7 +46,7 @@ export default async function Page(context: {
                 href={work.url}
                 target='_blank'
                 rel='noreferrer'
-                className='text-[#1453F7] underline'
+                className='text-link underline'
               >
                 Visit website here
               </a>
