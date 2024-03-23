@@ -3,14 +3,29 @@ import Container from '@/components/Container';
 import Row from '@/components/Row';
 import WorkList from '@/components/WorkList';
 import { wordPressClient } from '@/services/WordPressClient';
+import { Metadata } from 'next';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
-export default async function Page(context: {
+type PageContext = {
   params: {
     case: string;
   };
-}) {
+};
+
+export async function generateMetadata(
+  context: PageContext,
+): Promise<Metadata> {
+  const metaData = await wordPressClient.meta.getMetaData();
+  const work = await wordPressClient.work.getWork(context.params.case);
+
+  return {
+    title: `${work?.client} | ${metaData.title}`,
+    description: metaData.description,
+  };
+}
+
+export default async function Page(context: PageContext) {
   const work = await wordPressClient.work.getWork(context.params.case);
 
   if (work === undefined) {
