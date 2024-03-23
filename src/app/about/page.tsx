@@ -2,7 +2,17 @@ import Col from '@/components/Col';
 import Container from '@/components/Container';
 import Row from '@/components/Row';
 import { wordPressClient } from '@/services/WordPressClient';
+import { Metadata } from 'next';
 import Image from 'next/image';
+
+export async function generateMetadata(): Promise<Metadata> {
+  const metaData = await wordPressClient.meta.getMetaData();
+
+  return {
+    title: `About | ${metaData.title}`,
+    description: metaData.description,
+  };
+}
 
 export default async function Page() {
   const content = await wordPressClient.page.getAboutPageContent();
