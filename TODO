@@ -1,22 +1,24 @@
 Todo:
-  ☐ Sitemap mangler at blive implementeret.
-  ☐ Mangler breadcrumb efter "portfolio".
-  ✔ Navn i navigation går ikke til forside. @done(24-03-23 09:21)
+  ☐ Meta data mangler
+  ☐ Skal der være JSON-LD?
   ☐ Navn og "portfolio" i header er hardcoded.
+  ☐ Mangler breadcrumb efter "portfolio".
   ☐ Kontaktoplysninger er hardcoded i koden.
   ☐ Farver på tekster i billeder på forsiden skal kunne sættes i WordPress.
-  ☐ Link til min side i footer mangler.
+  ☐ Næste og forrige design links.
   ☐ Hovereffekter på links i navigation i desktop.
   ☐ Hovereffekter på kontaktoplysninger i desktop.
   ☐ Hovereffekter på links i footer.
   ☐ Hovereffekter på preview link på case.
-  ☐ Næste og forrige design links.
+  ☐ Sitemap mangler at blive implementeret.
+  ☐ Link til min side i footer mangler.
 
 Bugs:
   ☐ Hvis en case har 7 billeder, er der et skævt antal kolonner.
   ☐ Videoer og billeder kan ikke mikses
 
 Archive:
+  ✔ Navn i navigation går ikke til forside. @done(24-03-23 09:21) @project(Todo)
   ✔ Bedre håndtering af billeder i content @done(24-03-22 19:02) @project(Todo)
   ✔ Caching @done(24-03-22 19:02) @project(Todo)
   ✔ Spacing i bunden af sitet @done(24-03-22 19:02) @project(Todo)
