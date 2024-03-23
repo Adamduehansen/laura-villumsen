@@ -1,12 +1,22 @@
 Todo:
-  ☐ Sitemap
-  ☐ Bedre håndtering af billeder i content
-  ☐ Caching
-  ☐ Spacing i bunden af sitet
-  ☐ Mangler breadcrumb efter portfolio
+  ☐ Sitemap mangler at blive implementeret.
+  ☐ Mangler breadcrumb efter "portfolio".
+  ✔ Navn i navigation går ikke til forside. @done(24-03-23 09:21)
+  ☐ Navn og "portfolio" i header er hardcoded.
+  ☐ Kontaktoplysninger er hardcoded i koden.
+  ☐ Farver på tekster i billeder på forsiden skal kunne sættes i WordPress.
+  ☐ Link til min side i footer mangler.
+  ☐ Hovereffekter på links i navigation i desktop.
+  ☐ Hovereffekter på kontaktoplysninger i desktop.
+  ☐ Hovereffekter på links i footer.
+  ☐ Hovereffekter på preview link på case.
+  ☐ Næste og forrige design links.
 
 Bugs:
   ☐ Hvis en case har 7 billeder, er der et skævt antal kolonner.
   ☐ Videoer og billeder kan ikke mikses
 
 Archive:
+  ✔ Bedre håndtering af billeder i content @done(24-03-22 19:02) @project(Todo)
+  ✔ Caching @done(24-03-22 19:02) @project(Todo)
+  ✔ Spacing i bunden af sitet @done(24-03-22 19:02) @project(Todo)
