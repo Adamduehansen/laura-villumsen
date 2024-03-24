@@ -1,5 +1,4 @@
 Todo:
-  ☐ Mangler breadcrumb efter "portfolio".
   ☐ Kontaktoplysninger er hardcoded i koden.
   ☐ Farver på tekster i billeder på forsiden skal kunne sættes i WordPress.
   ☐ Næste og forrige design links.
@@ -17,6 +16,7 @@ Bugs:
   ☐ Videoer og billeder kan ikke mikses
 
 Archive:
+  ✔ Mangler breadcrumb efter "portfolio". @done(24-03-24 09:00) @project(Todo)
   ✔ Meta data mangler @done(24-03-23 15:59) @project(Todo)
   ✔ Navn i navigation går ikke til forside. @done(24-03-23 09:21) @project(Todo)
   ✔ Bedre håndtering af billeder i content @done(24-03-22 19:02) @project(Todo)

@@ -1,5 +1,6 @@
 import { wordPressClient } from '@/services/WordPressClient';
 import Link from 'next/link';
+import Breadcrumb from './Breadcrumb';
 import Col from './Col';
 import Container from './Container';
 import Navigation from './Navigation';
@@ -13,11 +14,13 @@ export default async function Header() {
       <Container>
         <Row>
           <Col>
-            <div className='flex justify-between py-12 z-20'>
-              <Link href='/' className='block z-20'>
-                Laura Villumsen
-              </Link>
-              <p className='hidden lg:block z-20'>Portfolio</p>
+            <div className='flex justify-between py-12 z-20 items-start'>
+              <div>
+                <Link href='/' className='block z-20'>
+                  Laura Villumsen
+                </Link>
+                <Breadcrumb />
+              </div>
               <Navigation menuItems={navigation} />
             </div>
           </Col>
