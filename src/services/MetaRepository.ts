@@ -8,7 +8,7 @@ const contactSchema = z.object({
   menus: z.object({
     nodes: z.array(
       z.object({
-        inquiriesMenu: z.object({
+        contactMenu: z.object({
           inquiries: z.string(),
           email: z.string(),
           phone: z.string(),
@@ -49,7 +49,7 @@ export class MetaRepository extends Repository {
 
     const { menus } = contactSchema.parse(response.data);
 
-    const menu = menus.nodes[0].inquiriesMenu;
+    const menu = menus.nodes[0].contactMenu;
 
     return {
       inquiries: menu.inquiries,

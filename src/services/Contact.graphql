@@ -1,7 +1,7 @@
-query Inquiries {
-  menus(where: { slug: "Inquiries" }) {
+query Contact {
+  menus(where: { slug: "Contact" }) {
     nodes {
-      inquiriesMenu {
+      contactMenu {
         inquiries
         email
         phone
