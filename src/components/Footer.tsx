@@ -7,14 +7,14 @@ export default async function Footer(): Promise<JSX.Element> {
   const [instagramLink, linkedInLink] = await wordPressClient.menu.getMenu(
     'socials',
   );
-  const inquiries = await wordPressClient.meta.getInquiriesText();
+  const contactInfo = await wordPressClient.meta.getContactInfo();
 
   return (
     <footer className='bg-[#D9D9D9] py-3'>
       <Container>
         <Row className='pt-64 pb-4 lg:pt-0 lg:pb-64'>
           <Col lg={3} className='pb-4'>
-            <p>{inquiries}</p>
+            <p>{contactInfo.inquiries}</p>
           </Col>
           <Col sm={4} lg={1} lgStart={10}>
             <a href={instagramLink.uri} target='_blank' rel='noreferrer'>

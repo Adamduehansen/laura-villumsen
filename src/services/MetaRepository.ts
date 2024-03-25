@@ -1,20 +1,28 @@
 import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
 import { z } from 'zod';
+import contactQuery from './Contact.graphql';
 import metaQuery from './Meta.graphql';
 import { Repository } from './Repository';
-import inquiriesQuery from './inquiries.graphql';
 
-const inquiriesSchema = z.object({
+const contactSchema = z.object({
   menus: z.object({
     nodes: z.array(
       z.object({
         inquiriesMenu: z.object({
           inquiries: z.string(),
+          email: z.string(),
+          phone: z.string(),
         }),
       }),
     ),
   }),
 });
+
+type Contact = {
+  inquiries: string;
+  email: string;
+  phone: string;
+};
 
 const metaSchema = z.object({
   generalSettings: z.object({
@@ -33,15 +41,21 @@ export class MetaRepository extends Repository {
     super(client);
   }
 
-  async getInquiriesText(): Promise<string> {
+  async getContactInfo(): Promise<Contact> {
     const response = await this.client.query({
-      query: inquiriesQuery,
+      query: contactQuery,
       fetchPolicy: 'no-cache',
     });
 
-    const { menus } = inquiriesSchema.parse(response.data);
+    const { menus } = contactSchema.parse(response.data);
 
-    return menus.nodes[0].inquiriesMenu.inquiries;
+    const menu = menus.nodes[0].inquiriesMenu;
+
+    return {
+      inquiries: menu.inquiries,
+      email: menu.email,
+      phone: menu.phone,
+    };
   }
 
   async getMetaData(): Promise<MetaData> {

@@ -3,6 +3,8 @@ query Inquiries {
     nodes {
       inquiriesMenu {
         inquiries
+        email
+        phone
       }
     }
   }

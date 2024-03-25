@@ -11,9 +11,15 @@ import Row from './Row';
 
 type Props = {
   menuItems: MenuItem[];
+  email: string;
+  phone: string;
 };
 
-export default function Navigation({ menuItems }: Props): React.JSX.Element {
+export default function Navigation({
+  menuItems,
+  email,
+  phone,
+}: Props): React.JSX.Element {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
@@ -72,11 +78,11 @@ export default function Navigation({ menuItems }: Props): React.JSX.Element {
                   <p>
                     M:{' '}
                     <a className='text-link' href='mailto:'>
-                      design@lauravillumsen.dk
+                      {email}
                     </a>
                   </p>
                   <p>
-                    T: <a href='tel:+'>+45 88888888</a>
+                    T: <a href={`tel:${phone.replaceAll(' ', '')}`}>{phone}</a>
                   </p>
                 </div>
               </Col>

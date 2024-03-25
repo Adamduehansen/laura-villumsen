@@ -8,6 +8,7 @@ import Row from './Row';
 
 export default async function Header() {
   const navigation = await wordPressClient.menu.getMenu('navigation');
+  const contactInfo = await wordPressClient.meta.getContactInfo();
 
   return (
     <header className='z-10'>
@@ -21,7 +22,11 @@ export default async function Header() {
                 </Link>
                 <Breadcrumb />
               </div>
-              <Navigation menuItems={navigation} />
+              <Navigation
+                menuItems={navigation}
+                email={contactInfo.email}
+                phone={contactInfo.phone}
+              />
             </div>
           </Col>
         </Row>
