@@ -3,13 +3,14 @@ import parse from 'node-html-parser';
 import { z } from 'zod';
 import { Repository } from './Repository';
 import workQuery from './Work.graphql';
-import workTeaserQuery from './workTeasers.graphql';
+import workTeaserQuery from './WorkTeasers.graphql';
 
 export type WorkTeaser = {
   id: string;
   uri: string;
   client: string;
   text: string;
+  frontpageColor: 'black' | 'white';
   image: {
     src: string;
     alt: string;
@@ -37,6 +38,7 @@ const workTeasersSchema = z.object({
         workData: z.object({
           client: z.string(),
           frontpageText: z.string(),
+          frontpageColor: z.enum(['black', 'white']),
         }),
       }),
     ),
@@ -134,6 +136,7 @@ export class WorkRepository extends Repository {
         uri: node.uri,
         text: node.workData.frontpageText,
         client: node.workData.client,
+        frontpageColor: node.workData.frontpageColor,
         image: {
           src: node.featuredImage.node.sourceUrl,
           alt: node.featuredImage.node.altText,

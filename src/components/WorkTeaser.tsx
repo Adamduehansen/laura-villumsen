@@ -1,19 +1,20 @@
 import { WorkTeaser } from '@/services/WorkRepository';
+import classNames from 'classnames';
 import Image from 'next/image';
 import Link from 'next/link';
 import Col from './Col';
 import Container from './Container';
 import Row from './Row';
 
-interface Props {
-  workTeaser: WorkTeaser;
-}
+type Props = Omit<WorkTeaser, 'id'>;
 
 export default function WorkTeasersListItem({
-  workTeaser,
+  image,
+  uri,
+  client,
+  text,
+  frontpageColor,
 }: Props): JSX.Element {
-  const { image, uri, client, text } = workTeaser;
-
   return (
     <div className='relative overflow-hidden group'>
       <Link
@@ -31,7 +32,15 @@ export default function WorkTeasersListItem({
           />
         )}
       </Link>
-      <Container className='absolute bottom-0 inset-x-0 text-xs pb-4 lg:opacity-0 lg:duration-700 lg:group-hover:opacity-100'>
+      <Container
+        className={classNames(
+          'absolute bottom-0 inset-x-0 text-xs pb-4 lg:opacity-0 lg:duration-700 lg:group-hover:opacity-100',
+          {
+            'text-white': frontpageColor === 'white',
+            'text-black': frontpageColor === 'black',
+          },
+        )}
+      >
         <Row>
           <Col sm={4}>
             <span>{client}</span>

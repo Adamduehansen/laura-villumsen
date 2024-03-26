@@ -19,7 +19,8 @@ export default async function Page() {
     <WorkList
       list={workTeasers}
       renderItem={(workTeaser) => {
-        return <WorkTeaser key={workTeaser.id} workTeaser={workTeaser} />;
+        const { id, ...rest } = workTeaser;
+        return <WorkTeaser key={id} {...rest} />;
       }}
     />
   );

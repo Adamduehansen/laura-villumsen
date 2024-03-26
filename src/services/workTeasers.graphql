@@ -1,4 +1,4 @@
-query workTeasers {
+query WorkTeasers {
   posts {
     nodes {
       id
@@ -16,6 +16,7 @@ query workTeasers {
       workData {
         client
         frontpageText
+        frontpageColor
       }
     }
   }
