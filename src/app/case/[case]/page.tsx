@@ -74,16 +74,14 @@ export default async function Page(context: PageContext) {
         renderItem={(media) => {
           if (media.type === 'image') {
             return (
-              <div className='relative overflow-hidden group'>
-                <Image
-                  src={media.src}
-                  alt={media.alt}
-                  width={parseInt(media.width.toString())}
-                  height={parseInt(media.height.toString())}
-                  className='w-full scale-100 lg:duration-700 lg:ease-out lg:group-hover:scale-105'
-                  priority
-                />
-              </div>
+              <Image
+                src={media.src}
+                alt={media.alt}
+                width={parseInt(media.width.toString())}
+                height={parseInt(media.height.toString())}
+                className='w-full'
+                priority
+              />
             );
           }
           if (media.type === 'video') {
