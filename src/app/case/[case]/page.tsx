@@ -37,7 +37,7 @@ export default async function Page(context: PageContext) {
       <Container>
         <Row className='pb-24'>
           <Col lg={11}>
-            <p className='text-2xl lg:text-4xl'>{work.text}</p>
+            <p className='text-2xl lg:text-5xl'>{work.text}</p>
           </Col>
         </Row>
         <Row className='gap-y-10 pb-32 lg:pb-24'>
