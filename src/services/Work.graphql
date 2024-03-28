@@ -1,5 +1,6 @@
 query Work($id: ID!) {
   post(id: $id, idType: SLUG) {
+    id
     content
     tags {
       nodes {
@@ -14,6 +15,14 @@ query Work($id: ID!) {
         target
         title
         url
+      }
+    }
+  }
+  posts {
+    edges {
+      node {
+        id
+        uri
       }
     }
   }

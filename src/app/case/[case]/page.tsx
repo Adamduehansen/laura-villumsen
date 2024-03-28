@@ -5,6 +5,7 @@ import WorkList from '@/components/WorkList';
 import { wordPressClient } from '@/services/WordPressClient';
 import { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
 type PageContext = {
@@ -89,6 +90,30 @@ export default async function Page(context: PageContext) {
           }
         }}
       />
+      <Container className='pt-4 pb-36 lg:pt-[880px] lg:pb-10'>
+        <Row>
+          <Col sm={6} lg={2}>
+            {work.previousCase && (
+              <Link
+                href={work.previousCase}
+                className='text-link underline underline-offset-4'
+              >
+                Previous project
+              </Link>
+            )}
+          </Col>
+          <Col sm={6} lg={2} className='text-right lg:text-left'>
+            {work.nextCase && (
+              <Link
+                href={work.nextCase}
+                className='text-link underline underline-offset-4'
+              >
+                Next project
+              </Link>
+            )}
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 }

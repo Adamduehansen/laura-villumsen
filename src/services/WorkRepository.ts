@@ -48,6 +48,7 @@ const workTeasersSchema = z.object({
 const workSchema = z.object({
   post: z
     .object({
+      id: z.string(),
       content: z.string(),
       tags: z.object({
         nodes: z.array(
@@ -69,6 +70,16 @@ const workSchema = z.object({
       }),
     })
     .nullable(),
+  posts: z.object({
+    edges: z
+      .object({
+        node: z.object({
+          id: z.string(),
+          uri: z.string(),
+        }),
+      })
+      .array(),
+  }),
 });
 
 export type Work = {
@@ -78,6 +89,8 @@ export type Work = {
   services: string[];
   url?: string;
   medias: Media[];
+  nextCase?: string;
+  previousCase?: string;
 };
 
 type Media =
@@ -107,11 +120,19 @@ export class WorkRepository extends Repository {
       fetchPolicy: 'no-cache',
     });
 
-    const { post } = workSchema.parse(response.data);
+    const { post, posts } = workSchema.parse(response.data);
 
     if (post === null) {
       return undefined;
     }
+
+    const indexOfPostInPosts = posts.edges.findIndex(
+      (edge) => edge.node.id === post.id,
+    );
+
+    const previousCase = posts.edges.at(indexOfPostInPosts - 1);
+    const nextCase =
+      posts.edges.at(indexOfPostInPosts + 1) || posts.edges.at(0);
 
     return {
       text: this.#extractText(post.content),
@@ -120,6 +141,8 @@ export class WorkRepository extends Repository {
       services: post.tags.nodes.map((tag) => tag.name),
       year: new Date(post.workData.date).getFullYear().toString(),
       url: post.workData.website?.url || undefined,
+      nextCase: nextCase?.node.uri,
+      previousCase: previousCase?.node.uri,
     };
   }
 
