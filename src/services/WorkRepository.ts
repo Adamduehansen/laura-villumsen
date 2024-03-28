@@ -126,6 +126,8 @@ export class WorkRepository extends Repository {
       return undefined;
     }
 
+    posts.edges.reverse();
+
     const indexOfPostInPosts = posts.edges.findIndex(
       (edge) => edge.node.id === post.id,
     );
