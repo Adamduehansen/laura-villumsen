@@ -61,30 +61,30 @@ export default function Navigation({
       >
         <div className='absolute bottom-0 lg:inset-x-0'>
           <Container>
+            <Row as='nav' className='mb-10'>
+              {menuItems.map((menuItem): React.JSX.Element => {
+                return (
+                  <Col
+                    key={menuItem.id}
+                    className='text-7xl lg:text-8xl'
+                    lg={3}
+                  >
+                    <Link href={menuItem.uri}>{menuItem.label}</Link>
+                  </Col>
+                );
+              })}
+            </Row>
             <Row>
               <Col>
-                <nav className='mb-10'>
-                  <ul className='lg:flex lg:gap-x-10'>
-                    {menuItems.map((menuItem): React.JSX.Element => {
-                      return (
-                        <li key={menuItem.id} className='text-7xl lg:text-8xl'>
-                          <Link href={menuItem.uri}>{menuItem.label}</Link>
-                        </li>
-                      );
-                    })}
-                  </ul>
-                </nav>
-                <div className='mb-10'>
-                  <p>
-                    M:{' '}
-                    <a className='text-link' href='mailto:'>
-                      {email}
-                    </a>
-                  </p>
-                  <p>
-                    T: <a href={`tel:${phone.replaceAll(' ', '')}`}>{phone}</a>
-                  </p>
-                </div>
+                <p>
+                  M:{' '}
+                  <a className='text-link' href='mailto:'>
+                    {email}
+                  </a>
+                </p>
+                <p>
+                  T: <a href={`tel:${phone.replaceAll(' ', '')}`}>{phone}</a>
+                </p>
               </Col>
             </Row>
           </Container>
