@@ -16,7 +16,7 @@ export default async function Header() {
         <Row>
           <Col>
             <div className='flex justify-between py-12 z-20 items-start'>
-              <div>
+              <div className='z-20'>
                 <Link href='/' className='block z-20'>
                   Laura Villumsen
                 </Link>

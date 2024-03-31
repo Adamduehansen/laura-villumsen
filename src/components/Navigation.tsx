@@ -33,6 +33,8 @@ export default function Navigation({
     document.documentElement.classList.toggle('overflow-hidden');
   }
 
+  const [worksMenuItem, aboutMenuItem] = menuItems;
+
   return (
     <>
       <button
@@ -62,17 +64,26 @@ export default function Navigation({
         <div className='absolute bottom-0 lg:inset-x-0'>
           <Container>
             <Row as='nav' className='mb-10'>
-              {menuItems.map((menuItem): React.JSX.Element => {
-                return (
-                  <Col
-                    key={menuItem.id}
-                    className='text-7xl lg:text-8xl'
-                    lg={3}
-                  >
-                    <Link href={menuItem.uri}>{menuItem.label}</Link>
-                  </Col>
-                );
-              })}
+              <Col className='relative text-7xl lg:text-8xl group' lg={3}>
+                <Link href={worksMenuItem.uri}>{worksMenuItem.label}</Link>
+                <svg
+                  width={48}
+                  height={48}
+                  className='rotate-180 hidden group-hover:lg:block lg:absolute lg:top-7 lg:left-52'
+                >
+                  <use href='/icons.svg#arrow' />
+                </svg>
+              </Col>
+              <Col className='relative text-7xl lg:text-8xl group' lg={3}>
+                <svg
+                  width={48}
+                  height={48}
+                  className='hidden inset-y-auto group-hover:lg:block lg:absolute lg:top-7 lg:-left-14'
+                >
+                  <use href='/icons.svg#arrow' />
+                </svg>
+                <Link href={aboutMenuItem.uri}>{aboutMenuItem.label}</Link>
+              </Col>
             </Row>
             <Row>
               <Col>
