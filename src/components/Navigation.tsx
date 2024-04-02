@@ -85,14 +85,19 @@ export default function Navigation({
                 <Link href={aboutMenuItem.uri}>{aboutMenuItem.label}</Link>
               </Col>
             </Row>
-            <Row>
-              <Col>
+            <Row className='lg:fixed lg:w-full lg:left-0 lg:-top-[100vh]'>
+              <Col lgStart={8} lg={2}>
                 <p>
                   M:{' '}
-                  <a className='text-link' href='mailto:'>
+                  <a
+                    className='text-link'
+                    href='mailto:design@lauravillumsen.dk'
+                  >
                     {email}
                   </a>
                 </p>
+              </Col>
+              <Col lg={2}>
                 <p>
                   T: <a href={`tel:${phone.replaceAll(' ', '')}`}>{phone}</a>
                 </p>
