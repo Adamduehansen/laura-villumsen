@@ -35,7 +35,7 @@ export default async function Page(context: PageContext) {
 
   return (
     <>
-      <Container>
+      <Container className='lg:pt-14'>
         <Row className='pb-24'>
           <Col lg={11}>
             <p className='text-2xl lg:text-5xl'>{work.text}</p>

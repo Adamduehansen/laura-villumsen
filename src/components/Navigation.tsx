@@ -54,7 +54,7 @@ export default function Navigation({
       </button>
       <div
         className={classNames(
-          'z-10 fixed inset-0 bg-[#E8E6E7] duration-200 lg:translate-y-0 lg:bg-transparent lg:bottom-0 lg:inset-y-auto lg:inset-x-0',
+          'z-10 fixed inset-0 bg-[#E8E6E7] duration-200 lg:transform-none lg:bg-transparent lg:bottom-0 lg:inset-y-auto lg:inset-x-0',
           {
             'translate-y-0': isMobileMenuOpen,
             '-translate-y-full': !isMobileMenuOpen,
@@ -85,7 +85,7 @@ export default function Navigation({
                 <Link href={aboutMenuItem.uri}>{aboutMenuItem.label}</Link>
               </Col>
             </Row>
-            <Row className='lg:fixed lg:w-full lg:left-0 lg:-top-[100vh]'>
+            <Row className='lg:fixed lg:w-full lg:left-0 lg:top-3'>
               <Col lgStart={8} lg={2}>
                 <p>
                   M:{' '}
