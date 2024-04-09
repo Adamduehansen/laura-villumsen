@@ -63,7 +63,7 @@ export default function Navigation({
       >
         <div className='absolute bottom-0 lg:inset-x-0'>
           <Container>
-            <Row as='nav' className='mb-10'>
+            <Row as='nav' className='mb-10 lg:mb-0'>
               <Col className='relative text-7xl lg:text-8xl group' lg={3}>
                 <Link href={worksMenuItem.uri}>{worksMenuItem.label}</Link>
                 <svg
