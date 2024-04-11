@@ -71,6 +71,7 @@ export default async function Page(context: PageContext) {
         </Row>
       </Container>
       <WorkList
+        pattern='1-2'
         list={work.medias}
         renderItem={(media) => {
           if (media.type === 'image') {

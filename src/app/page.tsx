@@ -17,6 +17,7 @@ export default async function Page() {
 
   return (
     <WorkList
+      pattern='2-1'
       list={workTeasers}
       renderItem={(workTeaser) => {
         const { id, ...rest } = workTeaser;
