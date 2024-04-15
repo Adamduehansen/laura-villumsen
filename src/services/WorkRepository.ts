@@ -1,5 +1,5 @@
 import { ApolloClient, NormalizedCacheObject } from '@apollo/client';
-import parse from 'node-html-parser';
+import parse, { HTMLElement } from 'node-html-parser';
 import { z } from 'zod';
 import { Repository } from './Repository';
 import workQuery from './Work.graphql';
@@ -88,23 +88,23 @@ export type Work = {
   year: string;
   services: string[];
   url?: string;
-  medias: Media[];
+  medias: HTMLElement[];
   nextCase?: string;
   previousCase?: string;
 };
 
-type Media =
-  | {
-      type: 'image';
-      src: string;
-      alt: string;
-      width: string;
-      height: string;
-    }
-  | {
-      type: 'video';
-      src: string;
-    };
+// type Media =
+//   | {
+//       type: 'image';
+//       src: string;
+//       alt: string;
+//       width: string;
+//       height: string;
+//     }
+//   | {
+//       type: 'video';
+//       src: string;
+//     };
 
 export class WorkRepository extends Repository {
   constructor(client: ApolloClient<NormalizedCacheObject>) {
@@ -177,32 +177,33 @@ export class WorkRepository extends Repository {
     return document.querySelector('p')?.textContent || '';
   }
 
-  #extractImagesAndVideos(content: string): Media[] {
+  #extractImagesAndVideos(content: string) {
     const document = parse(content);
     const elements = [
       ...document.querySelectorAll('img'),
       ...document.querySelectorAll('video'),
     ];
 
-    return elements
-      .map((element): Media | undefined => {
-        if (element.rawTagName === 'img') {
-          return {
-            type: 'image',
-            src: element.getAttribute('src') || '',
-            alt: element.getAttribute('alt') || '',
-            height: element.getAttribute('height') || '256',
-            width: element.getAttribute('width') || '256',
-          };
-        }
-        if (element.rawTagName === 'video') {
-          return {
-            type: 'video',
-            src: element.getAttribute('src') || '',
-          };
-        }
-        return undefined;
-      })
-      .filter((element): element is Media => element !== undefined);
+    return elements;
+    //   return elements
+    //     .map((element): Media | undefined => {
+    //       if (element.rawTagName === 'img') {
+    //         return {
+    //           type: 'image',
+    //           src: element.getAttribute('src') || '',
+    //           alt: element.getAttribute('alt') || '',
+    //           height: element.getAttribute('height') || '256',
+    //           width: element.getAttribute('width') || '256',
+    //         };
+    //       }
+    //       if (element.rawTagName === 'video') {
+    //         return {
+    //           type: 'video',
+    //           src: element.getAttribute('src') || '',
+    //         };
+    //       }
+    //       return undefined;
+    //     })
+    //     .filter((element): element is Media => element !== undefined);
   }
 }

@@ -4,7 +4,6 @@ import Row from '@/components/Row';
 import WorkList from '@/components/WorkList';
 import { wordPressClient } from '@/services/WordPressClient';
 import { Metadata } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
@@ -74,20 +73,29 @@ export default async function Page(context: PageContext) {
         pattern='1-2'
         list={work.medias}
         renderItem={(media) => {
-          if (media.type === 'image') {
+          if (media.rawTagName === 'img') {
             return (
-              <Image
-                src={media.src}
-                alt={media.alt}
-                width={parseInt(media.width.toString())}
-                height={parseInt(media.height.toString())}
+              <img
+                src={media.getAttribute('src') || ''}
+                alt={media.getAttribute('alt') || ''}
+                height={media.getAttribute('height') || '256'}
+                width={media.getAttribute('width') || '256'}
                 className='w-full'
-                priority
+                srcSet={media.getAttribute('srcset')}
+                // sizes={media.getAttribute('sizes')}
               />
             );
           }
-          if (media.type === 'video') {
-            return <video src={media.src} autoPlay loop controls></video>;
+          if (media.rawTagName === 'video') {
+            return (
+              <video
+                src={media.getAttribute('src')}
+                autoPlay
+                loop
+                controls
+                className='w-full'
+              ></video>
+            );
           }
         }}
       />
