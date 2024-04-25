@@ -91,7 +91,7 @@ export default async function Page(context: PageContext) {
                 src={media.getAttribute('src')}
                 autoPlay
                 loop
-                controls
+                controls={false}
                 className='w-full'
               ></video>
             );
