@@ -82,7 +82,6 @@ export default async function Page(context: PageContext) {
                 width={media.getAttribute('width') || '256'}
                 className='w-full'
                 srcSet={media.getAttribute('srcset')}
-                // sizes={media.getAttribute('sizes')}
               />
             );
           }

@@ -43,28 +43,28 @@ export default async function Page() {
       )}
       <Container>
         <Row>
-          <Col className='mb-20' lg={4}>
-            <p>{content.educations.title}</p>
+          <Col className='mb-16' lg={4}>
+            <p className='mb-2'>{content.educations.title}</p>
             <div
-              className='[&>table>tbody>tr>td]:align-top first:[&>table>tbody>tr>td]:w-28 [&>table]:w-full'
+              className='[&>table>tbody>tr>td]:align-top [&>table>tbody>tr>td]:pb-4 first:[&>table>tbody>tr>td]:w-28 [&>table]:w-full '
               dangerouslySetInnerHTML={{
                 __html: content.educations.content,
               }}
             ></div>
           </Col>
-          <Col className='mb-20' lg={4}>
-            <p>{content.employments.title}</p>
+          <Col className='mb-16' lg={4}>
+            <p className='mb-2'>{content.employments.title}</p>
             <div
-              className='[&>table>tbody>tr>td]:align-top first:[&>table>tbody>tr>td]:w-28 [&>table]:w-full'
+              className='[&>table>tbody>tr>td]:align-top [&>table>tbody>tr>td]:pb-4 first:[&>table>tbody>tr>td]:w-28 [&>table]:w-full'
               dangerouslySetInnerHTML={{
                 __html: content.employments.content,
               }}
             ></div>
           </Col>
-          <Col className='mb-20' lg={4}>
-            <p>{content.awards.title}</p>
+          <Col className='mb-16' lg={4}>
+            <p className='mb-2'>{content.awards.title}</p>
             <div
-              className='[&>table>tbody>tr>td]:align-top first:[&>table>tbody>tr>td]:w-28 [&>table]:w-full'
+              className='[&>table>tbody>tr>td]:align-top [&>table>tbody>tr>td]:pb-4 first:[&>table>tbody>tr>td]:w-28 [&>table]:w-full'
               dangerouslySetInnerHTML={{
                 __html: content.awards.content,
               }}
