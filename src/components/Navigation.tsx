@@ -75,14 +75,14 @@ export default function Navigation({
                 </svg>
               </Col>
               <Col className='relative text-7xl lg:text-8xl group' lg={3}>
+                <Link href={aboutMenuItem.uri}>{aboutMenuItem.label}</Link>
                 <svg
                   width={48}
                   height={48}
-                  className='hidden inset-y-auto group-hover:lg:block lg:absolute lg:top-7 lg:-left-14'
+                  className='rotate-180 hidden group-hover:lg:block lg:absolute lg:top-7 lg:left-60'
                 >
                   <use href='/icons.svg#arrow' />
                 </svg>
-                <Link href={aboutMenuItem.uri}>{aboutMenuItem.label}</Link>
               </Col>
             </Row>
             <Row className='lg:fixed lg:w-full lg:left-0 lg:top-3'>
