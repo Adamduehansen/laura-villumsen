@@ -42,7 +42,7 @@ export default function WorkTeasersListItem({
         )}
       >
         <Row>
-          <Col sm={4}>
+          <Col sm={3}>
             <span>{client}</span>
           </Col>
           <Col sm={8}>
