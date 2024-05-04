@@ -85,7 +85,7 @@ export default function Navigation({
                 </svg>
               </Col>
             </Row>
-            <Row className='lg:fixed lg:w-full lg:left-0 lg:top-3'>
+            <Row className='lg:fixed lg:w-full lg:left-0 lg:top-[10px] lg:leading-4'>
               <Col lgStart={8} lg={2}>
                 <p>
                   M:{' '}
