@@ -103,8 +103,8 @@ export default async function Page(context: PageContext) {
           }
         }}
       />
-      <Container className='pt-4 pb-36 lg:pt-[880px] lg:pb-10'>
-        <Row>
+      <Container className='pt-4 pb-36 lg:h-[440px] lg:py-0 relative'>
+        <Row className='lg:absolute lg:bottom-10 lg:flex lg:gap-x-24'>
           <Col sm={6} lg={2}>
             {work.previousCase && (
               <Link
