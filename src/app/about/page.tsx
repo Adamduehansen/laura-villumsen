@@ -25,7 +25,9 @@ export default async function Page() {
       <Container className='mb-28 lg:mt-32'>
         <Row>
           <Col>
-            <p className='text-2xl lg:text-4xl'>{content.text}</p>
+            <p className='text-2xl lg:text-[55px] lg:leading-[63px]'>
+              {content.text}
+            </p>
           </Col>
         </Row>
       </Container>
