@@ -42,10 +42,8 @@ export default function WorkTeasersListItem({
         )}
       >
         <Row>
-          <Col sm={3}>
+          <Col className='flex gap-x-12'>
             <span>{client}</span>
-          </Col>
-          <Col sm={8}>
             <span>{text}</span>
           </Col>
         </Row>
