@@ -34,7 +34,7 @@ export default function WorkTeasersListItem({
       </Link>
       <Container
         className={classNames(
-          'absolute bottom-0 inset-x-0 text-xs pb-4 lg:opacity-0 lg:duration-700 lg:group-hover:opacity-100',
+          'absolute bottom-0 inset-x-0 text-xs pb-[10px] lg:opacity-0 lg:duration-700 lg:group-hover:opacity-100',
           {
             'text-white': frontpageColor === 'white',
             'text-black': frontpageColor === 'black',
