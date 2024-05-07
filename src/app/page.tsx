@@ -19,13 +19,15 @@ export default async function Page() {
   const workTeasers = await wordPressClient.work.getTeasers();
 
   return (
-    <WorkList
-      pattern='2-1'
-      list={workTeasers}
-      renderItem={(workTeaser) => {
-        const { id, ...rest } = workTeaser;
-        return <WorkTeaser key={id} {...rest} />;
-      }}
-    />
+    <div className='mb-44 lg:mb-[440px]'>
+      <WorkList
+        pattern='2-1'
+        list={workTeasers}
+        renderItem={(workTeaser) => {
+          const { id, ...rest } = workTeaser;
+          return <WorkTeaser key={id} {...rest} />;
+        }}
+      />
+    </div>
   );
 }
