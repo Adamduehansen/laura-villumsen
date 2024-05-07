@@ -54,7 +54,7 @@ export default function Navigation({
       </button>
       <div
         className={classNames(
-          'z-10 fixed inset-0 bg-[#E8E6E7] duration-200 lg:transform-none lg:bg-transparent lg:bottom-0 lg:inset-y-auto lg:inset-x-0',
+          'z-10 lg:z-20 fixed inset-0 bg-[#E8E6E7] duration-200 lg:transform-none lg:bg-transparent lg:bottom-0 lg:inset-y-auto lg:inset-x-0',
           {
             'translate-y-0': isMobileMenuOpen,
             '-translate-y-full': !isMobileMenuOpen,
@@ -85,8 +85,9 @@ export default function Navigation({
                 </svg>
               </Col>
             </Row>
-            <Row className='lg:fixed lg:w-full lg:left-0 lg:top-[10px] lg:leading-4'>
-              <Col lgStart={8} lg={2}>
+            <Row className='lg:fixed lg:w-full lg:left-0 lg:top-[10px] lg:leading-4 lg:pointer-events-none'>
+              <Col className='hidden lg:block' lg={7}></Col>
+              <Col lg={2} className='lg:pointer-events-auto'>
                 <p>
                   M:{' '}
                   <a
@@ -97,7 +98,7 @@ export default function Navigation({
                   </a>
                 </p>
               </Col>
-              <Col lg={2}>
+              <Col lg={2} className='lg:pointer-events-auto'>
                 <p>
                   T: <a href={`tel:${phone.replaceAll(' ', '')}`}>{phone}</a>
                 </p>
