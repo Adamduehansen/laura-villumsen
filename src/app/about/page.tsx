@@ -69,7 +69,7 @@ export default async function Page() {
           <Col className='mb-16' lg={4}>
             <p className='mb-2'>{content.awards.title}</p>
             <div
-              className='[&>table>tbody>tr>td]:align-top [&>table>tbody>tr>td]:pb-4 first:[&>table>tbody>tr>td]:w-28 [&>table]:w-full'
+              className='[&>table>tbody>tr>td]:align-top [&>table>tbody>tr>td]:pb-4 first:[&>table>tbody>tr>td]:w-28 [&>table]:w-full [&>table>tbody>tr>td>a]:underline [&>table>tbody>tr>td>a]:text-link'
               dangerouslySetInnerHTML={{
                 __html: content.awards.content,
               }}
