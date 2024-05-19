@@ -177,33 +177,18 @@ export class WorkRepository extends Repository {
     return document.querySelector('p')?.textContent || '';
   }
 
-  #extractImagesAndVideos(content: string) {
+  #extractImagesAndVideos(content: string): HTMLElement[] {
     const document = parse(content);
-    const elements = [
-      ...document.querySelectorAll('img'),
-      ...document.querySelectorAll('video'),
-    ];
+    const elements = document
+      .querySelectorAll(':scope > figure')
+      .map((element) => {
+        const medias = [
+          ...element.querySelectorAll('img'),
+          ...element.querySelectorAll('video'),
+        ];
+        return medias;
+      });
 
-    return elements;
-    //   return elements
-    //     .map((element): Media | undefined => {
-    //       if (element.rawTagName === 'img') {
-    //         return {
-    //           type: 'image',
-    //           src: element.getAttribute('src') || '',
-    //           alt: element.getAttribute('alt') || '',
-    //           height: element.getAttribute('height') || '256',
-    //           width: element.getAttribute('width') || '256',
-    //         };
-    //       }
-    //       if (element.rawTagName === 'video') {
-    //         return {
-    //           type: 'video',
-    //           src: element.getAttribute('src') || '',
-    //         };
-    //       }
-    //       return undefined;
-    //     })
-    //     .filter((element): element is Media => element !== undefined);
+    return elements.flat();
   }
 }
