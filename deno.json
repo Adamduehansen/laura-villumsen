@@ -1,7 +1,7 @@
 {
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
-    "dev": "deno run -A --watch=static/,routes/ dev.ts",
+    "dev": "deno run -A --env=.env.local --watch=static/,routes/ dev.ts",
     "build": "deno run -A dev.ts build",
     "start": "deno run -A main.ts",
     "update": "deno run -A -r jsr:@fresh/update ."
@@ -21,7 +21,8 @@
     "fresh": "jsr:@fresh/core@^2.0.0-alpha.19",
     "@fresh/plugin-tailwind": "jsr:@fresh/plugin-tailwind@^0.0.1-alpha.7",
     "preact": "npm:preact@^10.22.1",
-    "@preact/signals": "npm:@preact/signals@^1.2.3"
+    "@preact/signals": "npm:@preact/signals@^1.2.3",
+    "ky": "https://esm.sh/ky@1.5.0"
   },
   "compilerOptions": {
     "lib": [

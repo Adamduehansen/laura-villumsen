@@ -1,3 +1,9 @@
 # Running Docker containers
 
-`docker run --env-file=.env.local up`
+`docker compose --env-file .env.local up`
+
+# WordPress API routes:
+
+- Get all posts: http://localhost:8080/wp-json/wp/v2/posts?_embed
+- Get specific post:
+  https://wp.lauravillumsen.dk/wp-json/wp/v2/posts?slug=musikhuset-koebenhavn/

@@ -1,7 +1,5 @@
 version: '3.1'
 
-# docker compose --env-file .env.local up
-
 services:
   database:
     mem_limit: 2048m

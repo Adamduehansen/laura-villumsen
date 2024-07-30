@@ -1,27 +1,32 @@
-import { useSignal } from "@preact/signals";
+import { page } from "fresh";
+import { getWorkTeasers } from "../domain/WorkTeaser.ts";
 import { define } from "../utils.ts";
-import Counter from "../islands/Counter.tsx";
 
-export default define.page(function Home() {
-  const count = useSignal(3);
+export const handler = define.handlers({
+  GET: async function () {
+    const teasers = await getWorkTeasers();
+    return page({ teasers });
+  },
+});
 
+export default define.page<typeof handler>(({ data }) => {
   return (
-    <div class="px-4 py-8 mx-auto fresh-gradient">
-      <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
-        <img
-          class="my-6"
-          src="/logo.svg"
-          width="128"
-          height="128"
-          alt="the Fresh logo: a sliced lemon dripping with juice"
-        />
-        <h1 class="text-4xl font-bold">Welcome to Fresh</h1>
-        <p class="my-4">
-          Try updating this message in the
-          <code class="mx-2">./routes/index.tsx</code> file, and refresh.
-        </p>
-        <Counter count={count} />
-      </div>
-    </div>
+    <ul>
+      {data.teasers.map((post) => {
+        return (
+          <li>
+            <a href={post.path}>
+              <figure>
+                <img src={post.imageUrl} alt="" />
+                <figcaption>
+                  <span>{post.client}</span>
+                  <span>{post.types}</span>
+                </figcaption>
+              </figure>
+            </a>
+          </li>
+        );
+      })}
+    </ul>
   );
 });
