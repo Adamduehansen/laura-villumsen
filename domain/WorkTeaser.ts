@@ -1,4 +1,4 @@
-import { getAllPosts, Post } from "../api/post.ts";
+import { getAllPosts, Post } from "../services/post.ts";
 
 type WorkTeaser =
   & Pick<
