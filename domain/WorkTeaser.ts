@@ -1,24 +1,22 @@
 import { getAllPosts, Post } from "../services/post.ts";
 
-type WorkTeaser =
-  & Pick<
-    Post["acf"],
-    "client" | "types"
-  >
-  & {
-    frontpageText: string;
-    frontpageColor: string;
-    imageUrl: string;
-    path: string;
-  };
+type WorkTeaser = {
+  client: string;
+  types: string;
+  frontpageText: string;
+  frontpageColor: string;
+  imageUrl: string;
+  path: string;
+};
 
 function transformPostToWorkTeaser(post: Post): WorkTeaser {
   return {
-    ...post.acf,
-    frontpageColor: post.acf.frontpage_color,
-    frontpageText: post.acf.frontpage_text,
-    imageUrl: post._embedded["wp:featuredmedia"][0].source_url,
+    imageUrl: post.featuredImage.node.sourceUrl,
+    client: post.workData.client,
+    frontpageColor: post.workData.frontpageColor,
+    frontpageText: post.workData.frontpageText,
     path: new URL(post.link).pathname,
+    types: post.workData.types,
   };
 }
 

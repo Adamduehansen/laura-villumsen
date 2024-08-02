@@ -18,11 +18,12 @@
     "**/_fresh/*"
   ],
   "imports": {
-    "fresh": "jsr:@fresh/core@^2.0.0-alpha.19",
     "@fresh/plugin-tailwind": "jsr:@fresh/plugin-tailwind@^0.0.1-alpha.7",
-    "preact": "npm:preact@^10.22.1",
     "@preact/signals": "npm:@preact/signals@^1.2.3",
-    "ky": "https://esm.sh/ky@1.5.0"
+    "@valibot/valibot": "jsr:@valibot/valibot@^0.37.0",
+    "fresh": "jsr:@fresh/core@^2.0.0-alpha.19",
+    "ky": "https://esm.sh/ky@1.5.0",
+    "preact": "npm:preact@^10.22.1"
   },
   "compilerOptions": {
     "lib": [
