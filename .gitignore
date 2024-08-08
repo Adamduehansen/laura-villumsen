@@ -1,3 +1,5 @@
+.DS_Store
+
 # dotenv environment variable files
 .env
 .env.development.local
@@ -12,4 +14,6 @@ node_modules/
 vendor/
 
 # Wordpress
-docker/data
+/docker/data/wp-content/*
+/docker/data/wp-content/themes/index.php
+!/docker/data/wp-content/themes/
