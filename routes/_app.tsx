@@ -1,5 +1,6 @@
 import type { PageProps } from "fresh";
 import { getPageContent } from "../services/page.ts";
+import { Breadcrumb } from "../components/Breadcrumb.tsx";
 
 export default async function App({ Component, req }: PageProps) {
   const { navigationMenu, contactMenu, socialMenu } = await getPageContent();
@@ -17,7 +18,7 @@ export default async function App({ Component, req }: PageProps) {
         <header>
           <div>
             <a href="/">Laura Villumsen</a>
-            <p>{new URL(req.url).pathname}</p>
+            <Breadcrumb path={new URL(req.url).pathname} />
           </div>
           <nav>
             <ul>
