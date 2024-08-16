@@ -1,26 +1,6 @@
 import { api } from "./client.ts";
 import * as v from "@valibot/valibot";
 
-// export interface Post {
-//   id: string;
-//   title: {
-//     rendered: string;
-//   };
-//   link: string;
-//   acf: {
-//     types: string;
-//     client: string;
-//     website: string;
-//     frontpage_text: string;
-//     frontpage_color: string;
-//   };
-//   "_embedded": {
-//     "wp:featuredmedia": {
-//       source_url: string;
-//     }[];
-//   };
-// }
-
 const query = `
 {
   posts {
@@ -92,8 +72,6 @@ export async function getAllPosts(): Promise<Post[]> {
       "Content-Type": "application/json",
     },
   }).json();
-
-  console.log(postsResult);
 
   const result = v.parse(PostResponseSchema, postsResult);
   return result.data.posts.nodes;
