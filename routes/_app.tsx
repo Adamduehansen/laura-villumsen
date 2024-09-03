@@ -23,35 +23,42 @@ export default async function App({ Component, req }: PageProps) {
               <a href="/">Laura Villumsen</a>
               <Breadcrumb path={new URL(req.url).pathname} />
             </div>
-            <button>Menu</button>
-          </div>
-          <div>
-            <nav>
-              <ul>
-                {navigationMenu.nodes.map((menuItem) => {
-                  return (
-                    <li>
-                      <a href={menuItem.uri}>{menuItem.label}</a>
-                    </li>
-                  );
-                })}
-              </ul>
-            </nav>
             <div>
-              <ul>
-                <li>
-                  M:{" "}
-                  <a href={`mailto:${contactMenu.email}`}>
-                    {contactMenu.email}
-                  </a>
-                </li>
-                <li>
-                  T:{" "}
-                  <a href={`mailto:${contactMenu.phone}`}>
-                    {contactMenu.phone}
-                  </a>
-                </li>
-              </ul>
+              <input type="checkbox" id="menuToggle" />
+              <button>
+                <label for="menuToggle">
+                  Menu
+                </label>
+              </button>
+              <div class="menu">
+                <nav>
+                  <ul>
+                    {navigationMenu.nodes.map((menuItem) => {
+                      return (
+                        <li>
+                          <a href={menuItem.uri}>{menuItem.label}</a>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </nav>
+                <div>
+                  <ul>
+                    <li>
+                      M:{" "}
+                      <a href={`mailto:${contactMenu.email}`}>
+                        {contactMenu.email}
+                      </a>
+                    </li>
+                    <li>
+                      T:{" "}
+                      <a href={`mailto:${contactMenu.phone}`}>
+                        {contactMenu.phone}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </header>

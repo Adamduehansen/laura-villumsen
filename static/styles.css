@@ -26,3 +26,15 @@ img {
     justify-content: space-between;
   }
 }
+
+#menuToggle {
+  display: none;
+
+  &:checked ~ .menu {
+    display: block;
+  }
+}
+
+.menu {
+  display: none;
+}
