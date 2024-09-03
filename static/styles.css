@@ -1,0 +1,28 @@
+@import url("reset.css");
+
+html, body {
+  scroll-behavior: smooth;
+  font-family: neue-haas-grotesk-display, Arial, Helvetica, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+.container {
+  margin: 0 .625rem;
+}
+
+.main-header {
+  padding-top: 16px;
+  padding-bottom: 48px;
+
+  & > div:first-child {
+    display: flex;
+    justify-content: space-between;
+  }
+}

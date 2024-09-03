@@ -13,43 +13,50 @@ export default async function App({ Component, req }: PageProps) {
         <title>Laura Villumsen</title>
         <link rel="stylesheet" href="/styles.css" />
         <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+        <link rel="stylesheet" href="https://use.typekit.net/wsq1sgw.css">
+        </link>
       </head>
       <body>
-        <header>
+        <header class="container main-header">
           <div>
-            <a href="/">Laura Villumsen</a>
-            <Breadcrumb path={new URL(req.url).pathname} />
+            <div>
+              <a href="/">Laura Villumsen</a>
+              <Breadcrumb path={new URL(req.url).pathname} />
+            </div>
+            <button>Menu</button>
           </div>
-          <nav>
-            <ul>
-              {navigationMenu.nodes.map((menuItem) => {
-                return (
-                  <li>
-                    <a href={menuItem.uri}>{menuItem.label}</a>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
           <div>
-            <ul>
-              <li>
-                M:{" "}
-                <a href={`mailto:${contactMenu.email}`}>
-                  {contactMenu.email}
-                </a>
-              </li>
-              <li>
-                T:{" "}
-                <a href={`mailto:${contactMenu.phone}`}>
-                  {contactMenu.phone}
-                </a>
-              </li>
-            </ul>
+            <nav>
+              <ul>
+                {navigationMenu.nodes.map((menuItem) => {
+                  return (
+                    <li>
+                      <a href={menuItem.uri}>{menuItem.label}</a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
+            <div>
+              <ul>
+                <li>
+                  M:{" "}
+                  <a href={`mailto:${contactMenu.email}`}>
+                    {contactMenu.email}
+                  </a>
+                </li>
+                <li>
+                  T:{" "}
+                  <a href={`mailto:${contactMenu.phone}`}>
+                    {contactMenu.phone}
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
         </header>
         <Component />
-        <footer>
+        <footer class="container">
           <p>{contactMenu.inquiries}</p>
           <ul>
             {socialMenu.nodes.map((menuItem) => {
