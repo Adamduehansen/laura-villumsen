@@ -30,8 +30,33 @@ img {
 #menuToggle {
   display: none;
 
-  &:checked ~ .menu {
-    display: block;
+  &:checked {
+    & ~ .menu {
+      display: block;
+    }
+
+    & ~ #menuToggleButton label svg {
+      transition-duration: 200ms;
+      transform: rotate(45deg);
+    }
+  }
+}
+
+#menuToggleButton {
+  border: none;
+  background: none;
+  position: absolute;
+  right: 0;
+  
+  & label {
+    display: flex;
+    justify-content: center;
+    column-gap: 0.25rem;
+
+    svg {
+      transition-duration: 200ms;
+      transform: rotate(0deg);
+    }
   }
 }
 

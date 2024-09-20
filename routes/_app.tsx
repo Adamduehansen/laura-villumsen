@@ -25,8 +25,11 @@ export default async function App({ Component, req }: PageProps) {
             </div>
             <div>
               <input type="checkbox" id="menuToggle" />
-              <button>
+              <button id="menuToggleButton">
                 <label for="menuToggle">
+                  <svg width={14} height={14}>
+                    <use href="/icons.svg#plus" />
+                  </svg>
                   Menu
                 </label>
               </button>
