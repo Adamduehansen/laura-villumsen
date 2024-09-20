@@ -1,6 +1,8 @@
 import { page } from "fresh";
 import { getWorkTeasers } from "../domain/WorkTeaser.ts";
 import { define } from "../utils.ts";
+import WorkTeaserBox from "../components/WorkTeaser.tsx";
+import { JSX } from "preact";
 
 export const handler = define.handlers({
   GET: async function () {
@@ -12,20 +14,8 @@ export const handler = define.handlers({
 export default define.page<typeof handler>(({ data }) => {
   return (
     <ul>
-      {data.teasers.map((post) => {
-        return (
-          <li>
-            <a href={post.path}>
-              <figure>
-                <img src={post.imageUrl} alt="" />
-                <figcaption>
-                  <span>{post.client}</span>
-                  <span>{post.types}</span>
-                </figcaption>
-              </figure>
-            </a>
-          </li>
-        );
+      {data.teasers.map((post): JSX.Element => {
+        return <WorkTeaserBox {...post} />;
       })}
     </ul>
   );

@@ -1,6 +1,6 @@
 import { getAllPosts, Post } from "../services/post.ts";
 
-type WorkTeaser = {
+export type WorkTeaser = {
   client: string;
   types: string;
   frontpageText: string;
