@@ -27,11 +27,11 @@ img {
   }
 }
 
-#menuToggle {
+#menuToggleInput {
   display: none;
 
   &:checked {
-    & ~ .menu {
+    & ~ #menu {
       display: block;
     }
 
@@ -60,6 +60,6 @@ img {
   }
 }
 
-.menu {
+#menu {
   display: none;
 }

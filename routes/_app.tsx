@@ -24,16 +24,16 @@ export default async function App({ Component, req }: PageProps) {
               <Breadcrumb path={new URL(req.url).pathname} />
             </div>
             <div>
-              <input type="checkbox" id="menuToggle" />
+              <input type="checkbox" id="menuToggleInput" />
               <button id="menuToggleButton">
-                <label for="menuToggle">
+                <label for="menuToggleInput">
                   <svg width={14} height={14}>
                     <use href="/icons.svg#plus" />
                   </svg>
                   Menu
                 </label>
               </button>
-              <div class="menu">
+              <div id="menu">
                 <nav>
                   <ul>
                     {navigationMenu.nodes.map((menuItem) => {
