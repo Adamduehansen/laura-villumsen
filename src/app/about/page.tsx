@@ -48,7 +48,7 @@ export default async function Page() {
       )}
       <Container>
         <Row>
-          <Col className="mb-16" lg={4}>
+          <Col className="mb-28" lg={4}>
             <p className="mb-2">{content.educations.title}</p>
             <div
               className="[&>table>tbody>tr>td]:align-top [&>table>tbody>tr>td]:pb-4 first:[&>table>tbody>tr>td]:w-28 [&>table]:w-full "
@@ -58,7 +58,7 @@ export default async function Page() {
             >
             </div>
           </Col>
-          <Col className="mb-16" lg={4}>
+          <Col className="mb-28" lg={4}>
             <p className="mb-2">{content.employments.title}</p>
             <div
               className="[&>table>tbody>tr>td]:align-top [&>table>tbody>tr>td]:pb-4 first:[&>table>tbody>tr>td]:w-28 [&>table]:w-full"
@@ -68,7 +68,7 @@ export default async function Page() {
             >
             </div>
           </Col>
-          <Col className="mb-16" lg={4}>
+          <Col className="mb-28" lg={4}>
             <p className="mb-2">{content.awards.title}</p>
             <div
               className="[&>table>tbody>tr>td]:align-top [&>table>tbody>tr>td]:pb-4 first:[&>table>tbody>tr>td]:w-28 [&>table]:w-full [&>table>tbody>tr>td>a]:underline [&>table>tbody>tr>td>a]:text-link"
