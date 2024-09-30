@@ -1,5 +1,5 @@
 query WorkTeasers {
-  posts {
+  posts(first: 15) {
     nodes {
       id
       uri
