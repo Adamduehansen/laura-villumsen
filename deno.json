@@ -20,7 +20,7 @@
   "imports": {
     "@preact/signals": "npm:@preact/signals@^1.2.3",
     "@valibot/valibot": "jsr:@valibot/valibot@^0.37.0",
-    "fresh": "jsr:@fresh/core@^2.0.0-alpha.19",
+    "fresh": "jsr:@fresh/core@^2.0.0-alpha.20",
     "ky": "https://esm.sh/ky@1.5.0",
     "preact": "npm:preact@^10.22.1"
   },

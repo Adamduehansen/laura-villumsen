@@ -2,20 +2,20 @@
   "version": "3",
   "packages": {
     "specifiers": {
-      "jsr:@fresh/core@^2.0.0-alpha.19": "jsr:@fresh/core@2.0.0-alpha.19",
+      "jsr:@fresh/core@^2.0.0-alpha.20": "jsr:@fresh/core@2.0.0-alpha.20",
       "jsr:@luca/esbuild-deno-loader@^0.10.3": "jsr:@luca/esbuild-deno-loader@0.10.3",
       "jsr:@std/assert@^0.213.1": "jsr:@std/assert@0.213.1",
       "jsr:@std/assert@^0.226.0": "jsr:@std/assert@0.226.0",
       "jsr:@std/crypto@1.0.0-rc.1": "jsr:@std/crypto@1.0.0-rc.1",
-      "jsr:@std/datetime@^0.224.0": "jsr:@std/datetime@0.224.3",
+      "jsr:@std/datetime@^0.224.0": "jsr:@std/datetime@0.224.5",
       "jsr:@std/encoding@0.213": "jsr:@std/encoding@0.213.1",
-      "jsr:@std/encoding@^1.0.0-rc.1": "jsr:@std/encoding@1.0.1",
+      "jsr:@std/encoding@^1.0.0-rc.1": "jsr:@std/encoding@1.0.5",
       "jsr:@std/fmt@^0.225.3": "jsr:@std/fmt@0.225.6",
       "jsr:@std/fs@^0.229.1": "jsr:@std/fs@0.229.3",
       "jsr:@std/html@^0.224.2": "jsr:@std/html@0.224.2",
       "jsr:@std/jsonc@0.213": "jsr:@std/jsonc@0.213.1",
       "jsr:@std/jsonc@^0.224.1": "jsr:@std/jsonc@0.224.3",
-      "jsr:@std/media-types@^1.0.0-rc.1": "jsr:@std/media-types@1.0.2",
+      "jsr:@std/media-types@^1.0.0-rc.1": "jsr:@std/media-types@1.0.3",
       "jsr:@std/path@0.213": "jsr:@std/path@0.213.1",
       "jsr:@std/path@1.0.0-rc.1": "jsr:@std/path@1.0.0-rc.1",
       "jsr:@std/path@^0.225.2": "jsr:@std/path@0.225.2",
@@ -30,8 +30,8 @@
       "npm:preact@^10.22.1": "npm:preact@10.23.1"
     },
     "jsr": {
-      "@fresh/core@2.0.0-alpha.19": {
-        "integrity": "6f82a90a2f8ff8a9f44af0425607717807660d821a0b709d6080d03521a94755",
+      "@fresh/core@2.0.0-alpha.20": {
+        "integrity": "0b53226df203311014aa84f9e658f9a4c780ed947bd5cb3642933adec774a879",
         "dependencies": [
           "jsr:@luca/esbuild-deno-loader@^0.10.3",
           "jsr:@std/crypto@1.0.0-rc.1",
@@ -69,14 +69,14 @@
       "@std/crypto@1.0.0-rc.1": {
         "integrity": "5f7bf77275b35bc963a27aa0d83eed2c8243a48f0f34fef9bd660d0e313e9805"
       },
-      "@std/datetime@0.224.3": {
-        "integrity": "43197d0b2e00444fb169275b79a3e8fa506fd65c92398a207d71fd3e69b26c5b"
+      "@std/datetime@0.224.5": {
+        "integrity": "363fca6e2e46c1e85139c10ba77745d25c0936abd112b8bfdc9b8fc3615added"
       },
       "@std/encoding@0.213.1": {
         "integrity": "fcbb6928713dde941a18ca5db88ca1544d0755ec8fb20fe61e2dc8144b390c62"
       },
-      "@std/encoding@1.0.1": {
-        "integrity": "5955c6c542ebb4ce6587c3b548dc71e07a6c27614f1976d1d3887b1196cf4e65"
+      "@std/encoding@1.0.5": {
+        "integrity": "ecf363d4fc25bd85bd915ff6733a7e79b67e0e7806334af15f4645c569fefc04"
       },
       "@std/fmt@0.225.6": {
         "integrity": "aba6aea27f66813cecfd9484e074a9e9845782ab0685c030e453a8a70b37afc8"
@@ -99,8 +99,8 @@
       "@std/jsonc@0.224.3": {
         "integrity": "c10770a31489f5b85a3562d9b107c497666d8b6a49291ee2711d84da2616c2d6"
       },
-      "@std/media-types@1.0.2": {
-        "integrity": "abb78dc8f7d88141cba8c4d60fc1e8b421e5c7b0d7c84f2f708bc666cad46784"
+      "@std/media-types@1.0.3": {
+        "integrity": "b12d30a7852f7578f4d210622df713bbfd1cbdd9b4ec2eaf5c1845ab70bab159"
       },
       "@std/path@0.213.1": {
         "integrity": "f187bf278a172752e02fcbacf6bd78a335ed320d080a7ed3a5a59c3e88abc673",
@@ -281,7 +281,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@fresh/core@^2.0.0-alpha.19",
+      "jsr:@fresh/core@^2.0.0-alpha.20",
       "jsr:@valibot/valibot@^0.37.0",
       "npm:@preact/signals@^1.2.3",
       "npm:preact@^10.22.1"
