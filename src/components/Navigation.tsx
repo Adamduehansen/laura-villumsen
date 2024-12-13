@@ -54,7 +54,7 @@ export default function Navigation({
       </button>
       <div
         className={classNames(
-          "z-10 lg:z-20 fixed inset-0 bg-[#E8E6E7] duration-200 lg:transform-none lg:bg-transparent lg:bottom-0 lg:inset-y-auto lg:inset-x-0",
+          "z-10 lg:z-20 fixed inset-0 bg-white duration-200 lg:transform-none lg:bg-transparent lg:bottom-0 lg:inset-y-auto lg:inset-x-0",
           {
             "translate-y-0": isMobileMenuOpen,
             "-translate-y-full": !isMobileMenuOpen,
