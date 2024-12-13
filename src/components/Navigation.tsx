@@ -73,13 +73,6 @@ export default function Navigation({
                 >
                   {worksMenuItem.label}
                 </Link>
-                <svg
-                  width={48}
-                  height={48}
-                  className="rotate-180 hidden group-hover:lg:block lg:absolute lg:top-7 lg:left-52"
-                >
-                  <use href="/icons.svg#arrow" />
-                </svg>
               </Col>
               <Col className="relative text-7xl lg:text-8xl group" lg={3}>
                 <Link
@@ -90,13 +83,6 @@ export default function Navigation({
                 >
                   {aboutMenuItem.label}
                 </Link>
-                <svg
-                  width={48}
-                  height={48}
-                  className="rotate-180 hidden group-hover:lg:block lg:absolute lg:top-7 lg:left-60"
-                >
-                  <use href="/icons.svg#arrow" />
-                </svg>
               </Col>
             </Row>
             <Row className="lg:fixed lg:w-full lg:left-0 lg:top-[10px] lg:leading-4 lg:pointer-events-none">
