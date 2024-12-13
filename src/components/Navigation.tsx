@@ -65,7 +65,12 @@ export default function Navigation({
           <Container>
             <Row as="nav" className="mb-10 lg:mb-0">
               <Col className="relative text-7xl lg:text-8xl group" lg={3}>
-                <Link href={worksMenuItem.uri}>{worksMenuItem.label}</Link>
+                <Link
+                  className="lg:hover:blur-sm font-semibold"
+                  href={worksMenuItem.uri}
+                >
+                  {worksMenuItem.label}
+                </Link>
                 <svg
                   width={48}
                   height={48}
@@ -75,7 +80,12 @@ export default function Navigation({
                 </svg>
               </Col>
               <Col className="relative text-7xl lg:text-8xl group" lg={3}>
-                <Link href={aboutMenuItem.uri}>{aboutMenuItem.label}</Link>
+                <Link
+                  className="lg:hover:blur-sm font-semibold"
+                  href={aboutMenuItem.uri}
+                >
+                  {aboutMenuItem.label}
+                </Link>
                 <svg
                   width={48}
                   height={48}
