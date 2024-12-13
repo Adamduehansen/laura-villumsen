@@ -66,7 +66,9 @@ export default function Navigation({
             <Row as="nav" className="mb-10 lg:mb-0">
               <Col className="relative text-7xl lg:text-8xl group" lg={3}>
                 <Link
-                  className="lg:hover:blur-sm font-semibold"
+                  className={classNames("lg:hover:blur-sm font-semibold", {
+                    "blur-sm": "/" === pathname,
+                  })}
                   href={worksMenuItem.uri}
                 >
                   {worksMenuItem.label}
@@ -81,7 +83,9 @@ export default function Navigation({
               </Col>
               <Col className="relative text-7xl lg:text-8xl group" lg={3}>
                 <Link
-                  className="lg:hover:blur-sm font-semibold"
+                  className={classNames("lg:hover:blur-sm font-semibold", {
+                    "blur-sm": aboutMenuItem.uri.slice(0, -1) === pathname,
+                  })}
                   href={aboutMenuItem.uri}
                 >
                   {aboutMenuItem.label}
