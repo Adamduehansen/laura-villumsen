@@ -1,24 +1,2 @@
-Todo:
-  ☐ Kontaktoplysninger er hardcoded i koden.
-  ☐ Farver på tekster i billeder på forsiden skal kunne sættes i WordPress.
-  ☐ Næste og forrige design links.
-  ☐ Hovereffekter på links i navigation i desktop.
-  ☐ Hovereffekter på kontaktoplysninger i desktop.
-  ☐ Hovereffekter på links i footer.
-  ☐ Hovereffekter på preview link på case.
-  ☐ Sitemap mangler at blive implementeret.
-  ☐ Link til min side i footer mangler.
-  ☐ Navn og "portfolio" i header er hardcoded.
-  ☐ Skal der være JSON-LD?
-
-Bugs:
-  ☐ Hvis en case har 7 billeder, er der et skævt antal kolonner.
-  ☐ Videoer og billeder kan ikke mikses
-
-Archive:
-  ✔ Mangler breadcrumb efter "portfolio". @done(24-03-24 09:00) @project(Todo)
-  ✔ Meta data mangler @done(24-03-23 15:59) @project(Todo)
-  ✔ Navn i navigation går ikke til forside. @done(24-03-23 09:21) @project(Todo)
-  ✔ Bedre håndtering af billeder i content @done(24-03-22 19:02) @project(Todo)
-  ✔ Caching @done(24-03-22 19:02) @project(Todo)
-  ✔ Spacing i bunden af sitet @done(24-03-22 19:02) @project(Todo)
+Version 3:
+  ☐ 
