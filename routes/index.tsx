@@ -1,13 +1,19 @@
+import { JSX } from "preact/jsx-runtime";
+import { getPosts } from "../services/post-service.ts";
+
 export default async function Home() {
-  const response = await fetch(
-    "https://wp.lauravillumsen.dk/wp-json/wp/v2/posts",
-  );
-  const json = await response.json();
+  const posts = await getPosts();
 
   return (
     <div class="w-[500px]">
-      {json.map((post) => {
-        return <img src={post.featured_image_url} alt="" />;
+      {posts.map((post): JSX.Element => {
+        return (
+          <div>
+            <img src={post.featuredImageUrl} alt="" />
+            <div>{post.acf.client}</div>
+            <div>{post.acf.frontpageText}</div>
+          </div>
+        );
       })}
     </div>
   );
