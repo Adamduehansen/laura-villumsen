@@ -5,10 +5,10 @@ export default async function Home() {
   const posts = await getPosts();
 
   return (
-    <div class="w-[500px]">
+    <div>
       {posts.map((post): JSX.Element => {
         return (
-          <div>
+          <div class="w-full">
             <img src={post.featuredImageUrl} alt="" />
             <div>{post.acf.client}</div>
             <div>{post.acf.frontpageText}</div>
