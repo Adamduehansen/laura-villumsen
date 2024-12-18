@@ -8,11 +8,11 @@ export default async function Home() {
     <div>
       {posts.map((post): JSX.Element => {
         return (
-          <div class="w-full">
+          <a href={post.link} class="w-full block">
             <img src={post.featuredImageUrl} alt="" />
             <div>{post.acf.client}</div>
             <div>{post.acf.frontpageText}</div>
-          </div>
+          </a>
         );
       })}
     </div>
