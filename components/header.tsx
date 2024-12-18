@@ -4,7 +4,7 @@ import { Navigation } from "./navigation.tsx";
 
 export function Header(): JSX.Element {
   return (
-    <header>
+    <header class="flex justify-between">
       <div>
         <a href="/">
           <h1>Laura Villumsen</h1>
