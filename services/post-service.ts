@@ -19,6 +19,7 @@ const PostSchema = v.pipe(
     id: v.number(),
     featured_image_url: v.string(),
     acf: AcfSchema,
+    link: v.string(),
   }),
   v.transform((input) => {
     const { featured_image_url, ...rest } = input;
