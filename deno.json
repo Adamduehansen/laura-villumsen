@@ -23,6 +23,7 @@
   "imports": {
     "$fresh/": "https://deno.land/x/fresh@1.7.3/",
     "@valibot/valibot": "jsr:@valibot/valibot@^0.42.1",
+    "classnames": "npm:classnames@^2.5.1",
     "node-html-parser": "npm:node-html-parser@^6.1.13",
     "preact": "https://esm.sh/preact@10.22.0",
     "preact/": "https://esm.sh/preact@10.22.0/",

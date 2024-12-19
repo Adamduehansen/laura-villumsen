@@ -1,10 +1,11 @@
 import { JSX } from "preact/jsx-runtime";
 import { Contact } from "./contact.tsx";
 import { Navigation } from "./navigation.tsx";
+import { Container } from "./container.tsx";
 
 export function Header(): JSX.Element {
   return (
-    <header class="flex justify-between">
+    <Container as="header" className="flex justify-between mb-7 mt-2.5">
       <div>
         <a href="/">
           <h1>Laura Villumsen</h1>
@@ -23,6 +24,6 @@ export function Header(): JSX.Element {
           <Contact />
         </div>
       </div>
-    </header>
+    </Container>
   );
 }
