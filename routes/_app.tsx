@@ -10,8 +10,9 @@ export default function App({ Component }: PageProps) {
         <title>laura-villumsen</title>
         <link rel="stylesheet" href="/styles.css" />
         <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+        <link rel="stylesheet" href="https://use.typekit.net/wsq1sgw.css" />
       </head>
-      <body>
+      <body class="font-neue-haas">
         <Header />
         <Component />
       </body>
