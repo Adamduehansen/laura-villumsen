@@ -19,6 +19,7 @@ const PostSchema = v.pipe(
     id: v.number(),
     featured_image: v.object({
       url: v.string(),
+      alt: v.nullable(v.string()),
       width: v.number(),
       height: v.number(),
     }),

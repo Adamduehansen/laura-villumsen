@@ -18,7 +18,7 @@ export default async function Home() {
                 src={post.featuredImage.url}
                 width={post.featuredImage.width}
                 height={post.featuredImage.height}
-                alt=""
+                alt={post.featuredImage.alt ?? ""}
                 decoding="async"
               />
               <div>{post.acf.client}</div>
