@@ -1,6 +1,7 @@
 import { JSX } from "preact/jsx-runtime";
-import { getPosts } from "../services/post-service.ts";
 import { Head } from "$fresh/runtime.ts";
+import { getPosts } from "../services/post-service.ts";
+import { Image } from "$component/image.tsx";
 
 export default async function Home() {
   const posts = await getPosts();
@@ -14,12 +15,11 @@ export default async function Home() {
               <link rel="preload" as="image" href={post.featuredImage.url} />
             </Head>
             <a href={post.link} class="w-full block">
-              <img
+              <Image
                 src={post.featuredImage.url}
                 width={post.featuredImage.width}
                 height={post.featuredImage.height}
                 alt={post.featuredImage.alt ?? ""}
-                decoding="async"
               />
               <div>{post.acf.client}</div>
               <div>{post.acf.frontpageText}</div>
