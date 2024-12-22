@@ -4,12 +4,17 @@ const AcfSchema = v.pipe(
   v.object({
     client: v.string(),
     frontpage_text: v.string(),
+    date: v.string(),
+    website: v.string(),
+    notes: v.string(),
   }),
   v.transform((input) => {
-    const { frontpage_text, ...rest } = input;
+    const { frontpage_text, website, notes, ...rest } = input;
     return {
       ...rest,
       frontpageText: frontpage_text,
+      website: website !== "" ? website : null,
+      notes: notes.split(", "),
     };
   }),
 );
@@ -23,6 +28,7 @@ const PostSchema = v.pipe(
       width: v.number(),
       height: v.number(),
     }),
+    tag_names: v.array(v.string()),
     acf: AcfSchema,
     content: v.object({
       rendered: v.string(),
@@ -30,9 +36,10 @@ const PostSchema = v.pipe(
     link: v.string(),
   }),
   v.transform((input) => {
-    const { featured_image, ...rest } = input;
+    const { featured_image, tag_names, ...rest } = input;
     return {
       ...rest,
+      tagNames: tag_names,
       featuredImage: featured_image,
     };
   }),

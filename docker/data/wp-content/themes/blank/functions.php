@@ -39,3 +39,20 @@ function add_featured_image_details_to_rest_api($data, $post, $context) {
 }
 add_filter('rest_prepare_post', 'add_featured_image_details_to_rest_api', 10, 3);
 
+function add_tags_to_rest_api($data, $post, $context) {
+  // Get the tags for the post
+  $tags = get_the_terms($post->ID, 'post_tag');
+
+  if (!empty($tags) && !is_wp_error($tags)) {
+      // Extract tag names
+      $tag_names = wp_list_pluck($tags, 'name');
+  } else {
+      $tag_names = [];
+  }
+
+  // Add the tag names to the REST API response
+  $data->data['tag_names'] = $tag_names;
+
+  return $data;
+}
+add_filter('rest_prepare_post', 'add_tags_to_rest_api', 10, 3);
