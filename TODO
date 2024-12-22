@@ -5,6 +5,7 @@ Todo:
     ☐ Lille tekst
     ✔ Bælte med informationer @done(24-12-22 09:50)
     ☐ Billeder og tekst indhold
+    ☐ Styling af elementer.
 
 Backlog:
   ☐ Forside:
@@ -15,5 +16,6 @@ Backlog:
     ☐ Desktop visning
   ☐ Footer
   ☐ Optimer billeder
-  ☐ @critical WordPress URL is used in case page.
-  ☐ Update WordPress Docker image.
+  ☐ @critical Link til post skal bruge path og ikke hele URL'en.
+  ☐ Opdater WordPress version for Docker Container
+  ☐ Opret sitemap
