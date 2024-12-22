@@ -1,8 +1,8 @@
 import { FreshContext } from "$fresh/server.ts";
 import { JSX } from "preact/jsx-runtime";
-import { parse } from "node-html-parser";
 import { getPost } from "../../services/post-service.ts";
 import { Image } from "$component/image.tsx";
+import { PostContent } from "$utils/post-content.ts";
 
 export default async function Case(
   _req: Request,
@@ -11,8 +11,8 @@ export default async function Case(
   const caseSlug = ctx.params.case;
   const post = await getPost(caseSlug);
 
-  const document = parse(post.content.rendered);
-  const text = document.querySelector("p");
+  const postContent = new PostContent(post.content.rendered);
+  // postContent.blocks
 
   return (
     <div>
@@ -22,11 +22,11 @@ export default async function Case(
         height={post.featuredImage.height}
         alt={post.featuredImage.alt ?? ""}
       />
-      <p
-        dangerouslySetInnerHTML={{
-          __html: text!.innerHTML,
-        }}
-      >
+      <p>
+        {postContent.intro}
+      </p>
+      <p>
+        {postContent.text}
       </p>
       <div>
         <p>Client</p>
