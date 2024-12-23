@@ -61,6 +61,13 @@ export default async function Case(
           </ul>
         </div>
       )}
+      {postContent.blocks.map((block): JSX.Element => {
+        if (block.type === "video") {
+          return <video autoplay loop src={block.src}></video>;
+        }
+
+        return <></>;
+      })}
     </div>
   );
 }
