@@ -12,7 +12,7 @@ export default async function Case(
   const post = await getPost(caseSlug);
 
   const postContent = new PostContent(post.content.rendered);
-  // postContent.blocks
+  console.log(postContent.blocks);
 
   return (
     <div>
