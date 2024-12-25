@@ -1,29 +1,6 @@
 import { HTMLElement, Node, NodeType, parse } from "node-html-parser";
-
-interface TextBlock {
-  type: "text";
-  text: string;
-}
-
-interface VideoBlock {
-  type: "video";
-  src: string;
-}
-
-interface ImageBlock {
-  type: "image";
-  src: string;
-}
-
-type ContentBlock = TextBlock | ImageBlock | VideoBlock;
-
-interface TwoColumnBlock {
-  type: "two-columns";
-  left: ContentBlock | null;
-  right: ContentBlock | null;
-}
-
-type Block = ContentBlock | TwoColumnBlock;
+import { Block, ContentBlock } from "$utils/block.ts";
+import { BlockCreator, BlockFactory } from "$utils/block-factory.ts";
 
 export class PostContent {
   readonly intro: string;
@@ -45,11 +22,25 @@ export class PostContent {
     return node.nodeType === NodeType.ELEMENT_NODE;
   }
 
+  #isImageBlock(htmlElement: HTMLElement): boolean {
+    return htmlElement.classList.contains("wp-block-image");
+  }
+
+  #isVideoBlock(htmlElement: HTMLElement): boolean {
+    return htmlElement.classList.contains("wp-block-video");
+  }
+
+  #isTextBlock(htmlElement: HTMLElement): boolean {
+    return htmlElement.tagName.toLowerCase() === "p";
+  }
+
+  #isColumnBlock(htmlElement: HTMLElement): boolean {
+    return htmlElement.classList.contains("wp-block-columns");
+  }
+
   #getBlocks(nodes: HTMLElement[]): Block[] {
     return nodes.reduce<Block[]>((nodes, node): Block[] => {
-      const { classList } = node;
-
-      if (classList.contains("wp-block-columns")) {
+      if (this.#isColumnBlock(node)) {
         const columns = node.querySelectorAll("div");
         if (columns.length !== 2) {
           console.log("Whops, columns are not correct number");
@@ -93,44 +84,15 @@ export class PostContent {
   }
 
   #getBlock(htmlElement: HTMLElement): ContentBlock | null {
-    const { classList, tagName } = htmlElement;
-    if (classList.contains("wp-block-image")) {
-      const imageElement = htmlElement.querySelector("img");
-      if (imageElement === null) {
-        console.log("Whops, image figure had no image element");
-        return null;
-      }
-      const imageSrc = imageElement.getAttribute("src");
-      if (imageSrc === undefined) {
-        console.log("Whops, video element had no src");
-        return null;
-      }
-      return {
-        type: "image",
-        src: imageSrc,
-      };
-    } else if (classList.contains("wp-block-video")) {
-      const videoElement = htmlElement.querySelector("video");
-      if (videoElement === null) {
-        console.log("Whops, video figure had no video element");
-        return null;
-      }
-      const videoSrc = videoElement.getAttribute("src");
-      if (videoSrc === undefined) {
-        console.log("Whops, video element had no src");
-        return null;
-      }
-      return {
-        type: "video",
-        src: videoSrc,
-      };
-    } else if (tagName.toLowerCase() === "p") {
-      return {
-        type: "text",
-        text: htmlElement.innerText,
-      };
+    let blockCreator: BlockCreator | null = null;
+    if (this.#isImageBlock(htmlElement)) {
+      blockCreator = BlockFactory.get("image");
+    } else if (this.#isVideoBlock(htmlElement)) {
+      blockCreator = BlockFactory.get("video");
+    } else if (this.#isTextBlock(htmlElement)) {
+      blockCreator = BlockFactory.get("text");
     }
 
-    return null;
+    return blockCreator?.create(htmlElement) ?? null;
   }
 }
