@@ -3,6 +3,9 @@ import { JSX } from "preact/jsx-runtime";
 import { getPost } from "../../services/post-service.ts";
 import { Image } from "$component/image.tsx";
 import { PostContent } from "$utils/post-content.ts";
+import { Col } from "$component/layout/col.tsx";
+import { Row } from "$component/layout/row.tsx";
+import { Container } from "$component/layout/container.tsx";
 
 export default async function Case(
   _req: Request,
@@ -66,11 +69,26 @@ export default async function Case(
           case "video":
             return <video autoplay loop src={block.src}></video>;
           case "image":
-            return <></>;
+            return <img src={block.src} />;
           case "text":
-            return <></>;
-          case "two-columns":
-            return <></>;
+            return <p>{block.text}</p>;
+          case "two-columns": {
+            const { left, right } = block;
+            return (
+              <Container>
+                <Row>
+                  <Col lg={6}>
+                    {left?.type === "image" && <img src={left.src} />}
+                    {left?.type === "text" && <p>{left.text}</p>}
+                  </Col>
+                  <Col lg={6}>
+                    {right?.type === "image" && <img src={right.src} />}
+                    {right?.type === "text" && <p>{right.text}</p>}
+                  </Col>
+                </Row>
+              </Container>
+            );
+          }
         }
       })}
     </div>
