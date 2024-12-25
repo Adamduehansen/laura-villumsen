@@ -10,7 +10,20 @@ interface VideoBlock {
   src: string;
 }
 
-type Block = TextBlock | VideoBlock;
+interface ImageBlock {
+  type: "image";
+  src: string;
+}
+
+type ContentBlock = TextBlock | ImageBlock | VideoBlock;
+
+interface TwoColumnBlock {
+  type: "two-columns";
+  left: ContentBlock | null;
+  right: ContentBlock | null;
+}
+
+type Block = ContentBlock | TwoColumnBlock;
 
 export class PostContent {
   readonly intro: string;
@@ -36,24 +49,88 @@ export class PostContent {
     return nodes.reduce<Block[]>((nodes, node): Block[] => {
       const { classList } = node;
 
-      if (classList.contains("wp-block-video")) {
-        const videoElement = node.querySelector("video");
-        if (videoElement === null) {
-          console.log("Whops, video figure had no video element");
+      if (classList.contains("wp-block-columns")) {
+        const columns = node.querySelectorAll("div");
+        if (columns.length !== 2) {
+          console.log("Whops, columns are not correct number");
           return nodes;
         }
-        const videoSrc = videoElement.getAttribute("src");
-        if (videoSrc === undefined) {
-          console.log("Whops, video element had no src");
+        const [leftElement, rightElement] = columns;
+
+        const leftElementChild =
+          leftElement.childNodes.filter(this.#isHtmlNode)[0];
+        const rightElementChild =
+          rightElement.childNodes.filter(this.#isHtmlNode)[0];
+
+        if (leftElementChild === undefined || rightElementChild === undefined) {
+          console.log("Whops, columns does not have children");
           return nodes;
         }
+
+        if (
+          !this.#isHtmlNode(leftElementChild) ||
+          !this.#isHtmlNode(rightElementChild)
+        ) {
+          console.log("Whops, column children is not HTML elements");
+          return nodes;
+        }
+
         return [...nodes, {
-          type: "video",
-          src: videoSrc,
+          type: "two-columns",
+          left: this.#getBlock(leftElementChild),
+          right: this.#getBlock(rightElementChild),
         }];
       }
 
-      return nodes;
+      const block = this.#getBlock(node);
+
+      if (block === null) {
+        return nodes;
+      } else {
+        return [...nodes, block];
+      }
     }, []);
+  }
+
+  #getBlock(htmlElement: HTMLElement): ContentBlock | null {
+    const { classList, tagName } = htmlElement;
+    if (classList.contains("wp-block-image")) {
+      const imageElement = htmlElement.querySelector("img");
+      if (imageElement === null) {
+        console.log("Whops, image figure had no image element");
+        return null;
+      }
+      const imageSrc = imageElement.getAttribute("src");
+      if (imageSrc === undefined) {
+        console.log("Whops, video element had no src");
+        return null;
+      }
+      return {
+        type: "image",
+        src: imageSrc,
+      };
+    } else if (classList.contains("wp-block-video")) {
+      const videoElement = htmlElement.querySelector("video");
+      if (videoElement === null) {
+        console.log("Whops, video figure had no video element");
+        return null;
+      }
+      const videoSrc = videoElement.getAttribute("src");
+      if (videoSrc === undefined) {
+        console.log("Whops, video element had no src");
+        return null;
+      }
+      return {
+        type: "video",
+        src: videoSrc,
+      };
+    } else if (tagName.toLowerCase() === "p") {
+      return {
+        type: "text",
+        text: htmlElement.innerText,
+      };
+    }
+
+    return null;
   }
 }

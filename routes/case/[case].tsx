@@ -61,12 +61,17 @@ export default async function Case(
           </ul>
         </div>
       )}
-      {postContent.blocks.map((block): JSX.Element => {
-        if (block.type === "video") {
-          return <video autoplay loop src={block.src}></video>;
+      {postContent.blocks.map((block): JSX.Element | never => {
+        switch (block.type) {
+          case "video":
+            return <video autoplay loop src={block.src}></video>;
+          case "image":
+            return <></>;
+          case "text":
+            return <></>;
+          case "two-columns":
+            return <></>;
         }
-
-        return <></>;
       })}
     </div>
   );
