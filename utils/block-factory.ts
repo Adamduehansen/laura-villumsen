@@ -12,14 +12,16 @@ class ImageBlockCreator implements BlockCreator {
       console.log("Whops, image figure had no image element");
       return null;
     }
-    const imageSrc = imageElement.getAttribute("src");
-    if (imageSrc === undefined) {
+    const srcAttribute = imageElement.getAttribute("src");
+    if (srcAttribute === undefined) {
       console.log("Whops, video element had no src");
       return null;
     }
+    const altAttribute = imageElement.getAttribute("alt");
     return {
       type: "image",
-      src: imageSrc,
+      src: srcAttribute,
+      alt: altAttribute,
     };
   }
 }

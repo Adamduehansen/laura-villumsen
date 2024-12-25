@@ -78,11 +78,15 @@ export default async function Case(
               <Container>
                 <Row>
                   <Col lg={6}>
-                    {left?.type === "image" && <img src={left.src} />}
+                    {left?.type === "image" && (
+                      <Image src={left.src} alt={left.alt} />
+                    )}
                     {left?.type === "text" && <p>{left.text}</p>}
                   </Col>
                   <Col lg={6}>
-                    {right?.type === "image" && <img src={right.src} />}
+                    {right?.type === "image" && (
+                      <Image src={right.src} alt={right.alt} />
+                    )}
                     {right?.type === "text" && <p>{right.text}</p>}
                   </Col>
                 </Row>
