@@ -6,6 +6,11 @@ import { PostContent } from "$utils/post-content.ts";
 import { Col } from "$component/layout/col.tsx";
 import { Row } from "$component/layout/row.tsx";
 import { Container } from "$component/layout/container.tsx";
+import { CaseNotes } from "$component/case-content/case-notes.tsx";
+import { CaseWebsite } from "$component/case-content/case-website.tsx";
+import { CaseServices } from "$component/case-content/case-services.tsx";
+import { CaseYear } from "$component/case-content/case-year.tsx";
+import { CaseClient } from "$component/case-content/case-client.tsx";
 
 export default async function Case(
   _req: Request,
@@ -15,7 +20,6 @@ export default async function Case(
   const post = await getPost(caseSlug);
 
   const postContent = new PostContent(post.content.rendered);
-  console.log(postContent.blocks);
 
   return (
     <div>
@@ -31,45 +35,17 @@ export default async function Case(
       <p>
         {postContent.text}
       </p>
-      <div>
-        <p>Client</p>
-        <p>{post.acf.client}</p>
-      </div>
-      <div>
-        <p>Year</p>
-        <p>{post.acf.date.slice(0, 4)}</p>
-      </div>
-      <div>
-        <p>Services</p>
-        <ul>
-          {post.tagNames.map((tagName) => {
-            return <li>{tagName}</li>;
-          })}
-        </ul>
-      </div>
-      {post.acf.website !== null && (
-        <div>
-          <a href={post.acf.website} target="_BLANK" rel="noopener noreferrer">
-            View website here
-          </a>
-        </div>
-      )}
-      {post.acf.notes.length > 0 && (
-        <div>
-          <p>Notes</p>
-          <ul>
-            {post.acf.notes.map((note) => {
-              return <li>{note}</li>;
-            })}
-          </ul>
-        </div>
-      )}
+      <CaseClient client={post.acf.client} />
+      <CaseYear date={post.acf.date} />
+      <CaseServices services={post.tagNames} />
+      <CaseWebsite website={post.acf.website} />
+      <CaseNotes notes={post.acf.notes} />
       {postContent.blocks.map((block): JSX.Element | never => {
         switch (block.type) {
           case "video":
             return <video autoplay loop src={block.src}></video>;
           case "image":
-            return <img src={block.src} />;
+            return <Image src={block.src} />;
           case "text":
             return <p>{block.text}</p>;
           case "two-columns": {
