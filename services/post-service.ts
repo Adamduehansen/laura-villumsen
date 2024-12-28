@@ -5,7 +5,12 @@ const AcfSchema = v.pipe(
     client: v.string(),
     frontpage_text: v.string(),
     date: v.string(),
-    website: v.string(),
+    website: v.union([
+      v.string(),
+      v.object({
+        url: v.string(),
+      }),
+    ]),
     notes: v.string(),
   }),
   v.transform((input) => {
@@ -13,7 +18,7 @@ const AcfSchema = v.pipe(
     return {
       ...rest,
       frontpageText: frontpage_text,
-      website: website !== "" ? website : null,
+      website: typeof website === "string" ? null : website.url,
       notes: notes.split(", "),
     };
   }),
