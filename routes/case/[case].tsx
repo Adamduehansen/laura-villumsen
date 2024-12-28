@@ -29,17 +29,29 @@ export default async function Case(
         height={post.featuredImage.height}
         alt={post.featuredImage.alt ?? ""}
       />
-      <p>
-        {postContent.intro}
-      </p>
-      <p>
-        {postContent.text}
-      </p>
-      <CaseClient client={post.acf.client} />
-      <CaseYear date={post.acf.date} />
-      <CaseServices services={post.tagNames} />
-      <CaseWebsite website={post.acf.website} />
-      <CaseNotes notes={post.acf.notes} />
+      <Container>
+        <Row>
+          <Col>
+            <p>
+              {postContent.intro}
+            </p>
+            <p>
+              {postContent.text}
+            </p>
+          </Col>
+        </Row>
+      </Container>
+      <Container>
+        <Row>
+          <Col>
+            <CaseClient client={post.acf.client} />
+            <CaseYear date={post.acf.date} />
+            <CaseServices services={post.tagNames} />
+            <CaseWebsite website={post.acf.website} />
+            <CaseNotes notes={post.acf.notes} />
+          </Col>
+        </Row>
+      </Container>
       {postContent.blocks.map((block): JSX.Element | never => {
         switch (block.type) {
           case "video":
@@ -51,7 +63,7 @@ export default async function Case(
           case "two-columns": {
             const { left, right } = block;
             return (
-              <Container>
+              <Container fluid>
                 <Row>
                   <Col lg={6}>
                     {left?.type === "image" && (
