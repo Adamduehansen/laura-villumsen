@@ -16,6 +16,7 @@ Backlog:
     ☐ Mobil visning
     ☐ Desktop visning
   ☐ Footer
+  ☐ Vis kun "publiserede" cases
   ☐ Optimer billeder
   ☐ @critical Link til post skal bruge path og ikke hele URL'en.
   ☐ Opdater WordPress version for Docker Container
