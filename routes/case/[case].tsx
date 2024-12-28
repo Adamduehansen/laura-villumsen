@@ -58,12 +58,18 @@ export default async function Case(
                       <Image src={left.src} alt={left.alt} />
                     )}
                     {left?.type === "text" && <p>{left.text}</p>}
+                    {left?.type === "video" && (
+                      <video autoplay loop src={left.src}></video>
+                    )}
                   </Col>
                   <Col lg={6}>
                     {right?.type === "image" && (
                       <Image src={right.src} alt={right.alt} />
                     )}
                     {right?.type === "text" && <p>{right.text}</p>}
+                    {right?.type === "video" && (
+                      <video autoplay loop src={right.src}></video>
+                    )}
                   </Col>
                 </Row>
               </Container>
