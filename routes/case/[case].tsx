@@ -29,7 +29,7 @@ export default async function Case(
         height={post.featuredImage.height}
         alt={post.featuredImage.alt ?? ""}
       />
-      <Container>
+      <Container fluid>
         <Row>
           <Col>
             <p>
@@ -41,13 +41,21 @@ export default async function Case(
           </Col>
         </Row>
       </Container>
-      <Container>
+      <Container fluid>
         <Row>
-          <Col>
+          <Col sm={6} lg={2}>
             <CaseClient client={post.acf.client} />
+          </Col>
+          <Col sm={6} lg={2}>
             <CaseYear date={post.acf.date} />
+          </Col>
+          <Col sm={6} lg={2}>
             <CaseServices services={post.tagNames} />
+          </Col>
+          <Col sm={6} lg={2}>
             <CaseWebsite website={post.acf.website} />
+          </Col>
+          <Col sm={6} lg={2}>
             <CaseNotes notes={post.acf.notes} />
           </Col>
         </Row>

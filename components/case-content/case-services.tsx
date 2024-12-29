@@ -1,4 +1,5 @@
 import { JSX } from "preact/jsx-runtime";
+import { CaseContentWrapper } from "$component/case-content/case-content-wrapper.tsx";
 
 interface Props {
   services: string[];
@@ -6,13 +7,12 @@ interface Props {
 
 export function CaseServices({ services }: Props): JSX.Element | null {
   return (
-    <div>
-      <p>Services</p>
+    <CaseContentWrapper heading="Services">
       <ul>
         {services.map((tagName) => {
           return <li>{tagName}</li>;
         })}
       </ul>
-    </div>
+    </CaseContentWrapper>
   );
 }
