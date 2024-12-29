@@ -1,3 +1,4 @@
+import { yellow } from "@std/fmt/colors";
 import * as v from "@valibot/valibot";
 
 const AcfSchema = v.pipe(
@@ -64,9 +65,10 @@ export async function getPosts(): Promise<Post[]> {
 }
 
 export async function getPost(slug: string): Promise<Post> {
-  const response = await fetch(
-    `${WpSiteHost}/wp-json/wp/v2/posts?slug=${slug}`,
-  );
+  const url = new URL(`${WpSiteHost}/wp-json/wp/v2/posts?slug=${slug}`);
+  // TODO: move this to middleware once possible.
+  console.log("Case URL is", yellow(url.toString()));
+  const response = await fetch(url);
   const json = await response.json();
   const post = v.parse(
     v.array(PostSchema),
