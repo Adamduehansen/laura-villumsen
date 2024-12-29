@@ -14,12 +14,17 @@ export interface ImageBlock {
   alt?: string;
 }
 
-export type ContentBlock = TextBlock | ImageBlock | VideoBlock;
+export interface HeadingBlock {
+  type: "heading";
+  text: string;
+}
+
+export type ContentBlock = TextBlock | ImageBlock | VideoBlock | HeadingBlock;
 
 export interface TwoColumnBlock {
   type: "two-columns";
-  left: ContentBlock | null;
-  right: ContentBlock | null;
+  left: ContentBlock[];
+  right: ContentBlock[];
 }
 
 export type Block = ContentBlock | TwoColumnBlock;

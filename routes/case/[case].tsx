@@ -73,29 +73,39 @@ export default async function Case(
               return <video autoplay loop src={block.src}></video>;
             case "image":
               return <Image src={block.src} />;
+            case "heading":
             case "text":
               return <p>{block.text}</p>;
             case "two-columns": {
-              const { left, right } = block;
               return (
                 <Row className="gap-y-3 lg:gap-x-3">
                   <Col lg={6}>
-                    {left?.type === "image" && (
-                      <Image src={left.src} alt={left.alt} />
-                    )}
-                    {left?.type === "text" && <p>{left.text}</p>}
-                    {left?.type === "video" && (
-                      <video autoplay loop src={left.src}></video>
-                    )}
+                    {block.left.map((block): JSX.Element | never => {
+                      switch (block.type) {
+                        case "image":
+                          return <Image src={block.src} alt={block.alt} />;
+                        case "heading":
+                          return <h2>{block.text}</h2>;
+                        case "text":
+                          return <p>{block.text}</p>;
+                        case "video":
+                          return <video autoplay loop src={block.src}></video>;
+                      }
+                    })}
                   </Col>
                   <Col lg={6}>
-                    {right?.type === "image" && (
-                      <Image src={right.src} alt={right.alt} />
-                    )}
-                    {right?.type === "text" && <p>{right.text}</p>}
-                    {right?.type === "video" && (
-                      <video autoplay loop src={right.src}></video>
-                    )}
+                    {block.right.map((block): JSX.Element | never => {
+                      switch (block.type) {
+                        case "image":
+                          return <Image src={block.src} alt={block.alt} />;
+                        case "heading":
+                          return <h2>{block.text}</h2>;
+                        case "text":
+                          return <p>{block.text}</p>;
+                        case "video":
+                          return <video autoplay loop src={block.src}></video>;
+                      }
+                    })}
                   </Col>
                 </Row>
               );

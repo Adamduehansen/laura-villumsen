@@ -34,6 +34,10 @@ export class PostContent {
     return htmlElement.tagName.toLowerCase() === "p";
   }
 
+  #isHeadingBlock(htmlDocument: HTMLElement): boolean {
+    return htmlDocument.tagName.toLowerCase() === "h2";
+  }
+
   #isColumnBlock(htmlElement: HTMLElement): boolean {
     return htmlElement.classList.contains("wp-block-columns");
   }
@@ -48,28 +52,31 @@ export class PostContent {
         }
         const [leftElement, rightElement] = columns;
 
-        const leftElementChild =
-          leftElement.childNodes.filter(this.#isHtmlNode)[0];
-        const rightElementChild =
-          rightElement.childNodes.filter(this.#isHtmlNode)[0];
+        const leftChildren = leftElement.childNodes.filter(this.#isHtmlNode);
+        const rightChildren = rightElement.childNodes.filter(this.#isHtmlNode);
 
-        if (leftElementChild === undefined || rightElementChild === undefined) {
-          console.log("Whops, columns does not have children");
-          return nodes;
+        const rightBlocks: ContentBlock[] = [];
+        for (const child of rightChildren) {
+          const block = this.#getBlock(child);
+          if (block === null) {
+            continue;
+          }
+          rightBlocks.push(block);
         }
 
-        if (
-          !this.#isHtmlNode(leftElementChild) ||
-          !this.#isHtmlNode(rightElementChild)
-        ) {
-          console.log("Whops, column children is not HTML elements");
-          return nodes;
+        const leftBlocks: ContentBlock[] = [];
+        for (const child of leftChildren) {
+          const block = this.#getBlock(child);
+          if (block === null) {
+            continue;
+          }
+          leftBlocks.push(block);
         }
 
         return [...nodes, {
           type: "two-columns",
-          left: this.#getBlock(leftElementChild),
-          right: this.#getBlock(rightElementChild),
+          left: leftBlocks,
+          right: rightBlocks,
         }];
       }
 
@@ -91,6 +98,8 @@ export class PostContent {
       blockCreator = BlockFactory.get("video");
     } else if (this.#isTextBlock(htmlElement)) {
       blockCreator = BlockFactory.get("text");
+    } else if (this.#isHeadingBlock(htmlElement)) {
+      blockCreator = BlockFactory.get("heading");
     }
 
     return blockCreator?.create(htmlElement) ?? null;

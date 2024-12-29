@@ -54,6 +54,15 @@ class TextBlockCreator implements BlockCreator {
   }
 }
 
+class HeadingBlockCreator implements BlockCreator {
+  create(htmlElement: HTMLElement): ContentBlock | null {
+    return {
+      type: "heading",
+      text: htmlElement.innerText,
+    };
+  }
+}
+
 export class BlockFactory {
   static get(type: ContentBlock["type"]): BlockCreator | never {
     switch (type) {
@@ -63,6 +72,8 @@ export class BlockFactory {
         return new TextBlockCreator();
       case "video":
         return new VideoBlockCreator();
+      case "heading":
+        return new HeadingBlockCreator();
     }
   }
 }
