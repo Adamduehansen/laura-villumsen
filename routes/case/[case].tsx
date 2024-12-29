@@ -22,14 +22,20 @@ export default async function Case(
   const postContent = new PostContent(post.content.rendered);
 
   return (
-    <div>
-      <Image
-        src={post.featuredImage.url}
-        width={post.featuredImage.width}
-        height={post.featuredImage.height}
-        alt={post.featuredImage.alt ?? ""}
-      />
+    <>
       <Container fluid>
+        <Row>
+          <Col>
+            <Image
+              src={post.featuredImage.url}
+              width={post.featuredImage.width}
+              height={post.featuredImage.height}
+              alt={post.featuredImage.alt ?? ""}
+            />
+          </Col>
+        </Row>
+      </Container>
+      <Container>
         <Row>
           <Col>
             <p>
@@ -41,8 +47,8 @@ export default async function Case(
           </Col>
         </Row>
       </Container>
-      <Container fluid>
-        <Row>
+      <Container>
+        <Row className="gap-3">
           <Col sm={6} lg={2}>
             <CaseClient client={post.acf.client} />
           </Col>
@@ -60,19 +66,19 @@ export default async function Case(
           </Col>
         </Row>
       </Container>
-      {postContent.blocks.map((block): JSX.Element | never => {
-        switch (block.type) {
-          case "video":
-            return <video autoplay loop src={block.src}></video>;
-          case "image":
-            return <Image src={block.src} />;
-          case "text":
-            return <p>{block.text}</p>;
-          case "two-columns": {
-            const { left, right } = block;
-            return (
-              <Container fluid>
-                <Row>
+      <Container fluid className="flex flex-col gap-y-3">
+        {postContent.blocks.map((block): JSX.Element | never => {
+          switch (block.type) {
+            case "video":
+              return <video autoplay loop src={block.src}></video>;
+            case "image":
+              return <Image src={block.src} />;
+            case "text":
+              return <p>{block.text}</p>;
+            case "two-columns": {
+              const { left, right } = block;
+              return (
+                <Row className="gap-y-3 lg:gap-x-3">
                   <Col lg={6}>
                     {left?.type === "image" && (
                       <Image src={left.src} alt={left.alt} />
@@ -92,11 +98,11 @@ export default async function Case(
                     )}
                   </Col>
                 </Row>
-              </Container>
-            );
+              );
+            }
           }
-        }
-      })}
-    </div>
+        })}
+      </Container>
+    </>
   );
 }
