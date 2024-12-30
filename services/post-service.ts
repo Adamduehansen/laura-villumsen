@@ -61,6 +61,7 @@ export async function getPosts(): Promise<Post[]> {
   );
   const json = await response.json();
   const posts = v.parse(v.array(PostSchema), json);
+  // TODO: return only published posts
   return posts;
 }
 

@@ -19,12 +19,15 @@ export interface HeadingBlock {
   text: string;
 }
 
-export type ContentBlock = TextBlock | ImageBlock | VideoBlock | HeadingBlock;
-
 export interface TwoColumnBlock {
   type: "two-columns";
-  left: ContentBlock[];
-  right: ContentBlock[];
+  left: Block[];
+  right: Block[];
 }
 
-export type Block = ContentBlock | TwoColumnBlock;
+export type Block =
+  | TextBlock
+  | ImageBlock
+  | VideoBlock
+  | HeadingBlock
+  | TwoColumnBlock;

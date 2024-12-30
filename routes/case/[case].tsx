@@ -80,7 +80,7 @@ export default async function Case(
               return (
                 <Row className="gap-y-3 lg:gap-x-3">
                   <Col lg={6}>
-                    {block.left.map((block): JSX.Element | never => {
+                    {block.left.map((block): JSX.Element | null | never => {
                       switch (block.type) {
                         case "image":
                           return <Image src={block.src} alt={block.alt} />;
@@ -90,11 +90,13 @@ export default async function Case(
                           return <p>{block.text}</p>;
                         case "video":
                           return <video autoplay loop src={block.src}></video>;
+                        case "two-columns":
+                          return null;
                       }
                     })}
                   </Col>
                   <Col lg={6}>
-                    {block.right.map((block): JSX.Element | never => {
+                    {block.right.map((block): JSX.Element | null | never => {
                       switch (block.type) {
                         case "image":
                           return <Image src={block.src} alt={block.alt} />;
@@ -104,6 +106,8 @@ export default async function Case(
                           return <p>{block.text}</p>;
                         case "video":
                           return <video autoplay loop src={block.src}></video>;
+                        case "two-columns":
+                          return null;
                       }
                     })}
                   </Col>
