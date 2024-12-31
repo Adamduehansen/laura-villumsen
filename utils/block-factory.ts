@@ -105,6 +105,14 @@ class TwoColumnBlockCreator implements BlockCreator {
   }
 }
 
+const BlockFactoryCreatorMap: Record<Block["type"], BlockCreator> = {
+  "heading": new HeadingBlockCreator(),
+  "image": new ImageBlockCreator(),
+  "text": new TextBlockCreator(),
+  "two-columns": new TwoColumnBlockCreator(),
+  "video": new VideoBlockCreator(),
+};
+
 export class BlockFactory {
   static isImageBlock(htmlElement: HTMLElement): boolean {
     return htmlElement.classList.contains("wp-block-image");
@@ -127,34 +135,19 @@ export class BlockFactory {
   }
 
   static getBlock(htmlElement: HTMLElement): Block | null {
-    let blockCreator: BlockCreator | null = null;
+    let blockCreator: BlockCreator | undefined;
     if (BlockFactory.isImageBlock(htmlElement)) {
-      blockCreator = BlockFactory.get("image");
+      blockCreator = BlockFactoryCreatorMap["image"];
     } else if (BlockFactory.isVideoBlock(htmlElement)) {
-      blockCreator = BlockFactory.get("video");
+      blockCreator = BlockFactoryCreatorMap["video"];
     } else if (BlockFactory.isTextBlock(htmlElement)) {
-      blockCreator = BlockFactory.get("text");
+      blockCreator = BlockFactoryCreatorMap["text"];
     } else if (BlockFactory.isHeadingBlock(htmlElement)) {
-      blockCreator = BlockFactory.get("heading");
+      blockCreator = BlockFactoryCreatorMap["heading"];
     } else if (BlockFactory.isColumnBlock(htmlElement)) {
-      blockCreator = BlockFactory.get("two-columns");
+      blockCreator = BlockFactoryCreatorMap["two-columns"];
     }
 
     return blockCreator?.create(htmlElement) ?? null;
-  }
-
-  static get(type: Block["type"]): BlockCreator | never {
-    switch (type) {
-      case "image":
-        return new ImageBlockCreator();
-      case "text":
-        return new TextBlockCreator();
-      case "video":
-        return new VideoBlockCreator();
-      case "heading":
-        return new HeadingBlockCreator();
-      case "two-columns":
-        return new TwoColumnBlockCreator();
-    }
   }
 }
