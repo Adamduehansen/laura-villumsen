@@ -11,6 +11,7 @@ import { CaseWebsite } from "$component/case-content/case-website.tsx";
 import { CaseServices } from "$component/case-content/case-services.tsx";
 import { CaseYear } from "$component/case-content/case-year.tsx";
 import { CaseClient } from "$component/case-content/case-client.tsx";
+import { CaseBlock } from "$component/case-content/case-block.tsx";
 
 export default async function Case(
   _req: Request,
@@ -66,58 +67,15 @@ export default async function Case(
           </Col>
         </Row>
       </Container>
-      <Container fluid className="flex flex-col gap-y-3">
-        {postContent.blocks.map((block): JSX.Element | never => {
-          switch (block.type) {
-            case "video":
-              return <video autoplay loop src={block.src}></video>;
-            case "image":
-              return <Image src={block.src} />;
-            case "heading":
-            case "text":
-              return <p>{block.text}</p>;
-            case "two-columns": {
-              // TODO: refactor this shit of a redundant code
-              return (
-                <Row className="gap-y-3 lg:gap-x-3">
-                  <Col lg={6}>
-                    {block.left.map((block): JSX.Element | null | never => {
-                      switch (block.type) {
-                        case "image":
-                          return <Image src={block.src} alt={block.alt} />;
-                        case "heading":
-                          return <h2 class="text-xl">{block.text}</h2>;
-                        case "text":
-                          return <p class="text-sm">{block.text}</p>;
-                        case "video":
-                          return <video autoplay loop src={block.src}></video>;
-                        case "two-columns":
-                          return null;
-                      }
-                    })}
-                  </Col>
-                  <Col lg={6}>
-                    {block.right.map((block): JSX.Element | null | never => {
-                      switch (block.type) {
-                        case "image":
-                          return <Image src={block.src} alt={block.alt} />;
-                        case "heading":
-                          return <h2 class="text-xl">{block.text}</h2>;
-                        case "text":
-                          return <p class="text-sm">{block.text}</p>;
-                        case "video":
-                          return <video autoplay loop src={block.src}></video>;
-                        case "two-columns":
-                          return null;
-                      }
-                    })}
-                  </Col>
-                </Row>
-              );
-            }
-          }
-        })}
-      </Container>
+      {postContent.blocks.map((block): JSX.Element | never => {
+        return (
+          <Container fluid>
+            <Row className="lg:gap-x-3">
+              <CaseBlock block={block} />
+            </Row>
+          </Container>
+        );
+      })}
     </>
   );
 }
