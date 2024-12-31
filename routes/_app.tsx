@@ -12,7 +12,7 @@ export default function App({ Component }: PageProps) {
         <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
         <link rel="stylesheet" href="https://use.typekit.net/wsq1sgw.css" />
       </head>
-      <body class="font-neue-haas">
+      <body class="font-neue-haas text-base">
         <Header />
         <Component />
       </body>

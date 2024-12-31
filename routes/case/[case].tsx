@@ -38,10 +38,10 @@ export default async function Case(
       <Container>
         <Row>
           <Col>
-            <p>
+            <p class="text-xl">
               {postContent.intro}
             </p>
-            <p>
+            <p class="text-sm">
               {postContent.text}
             </p>
           </Col>
@@ -85,9 +85,9 @@ export default async function Case(
                         case "image":
                           return <Image src={block.src} alt={block.alt} />;
                         case "heading":
-                          return <h2>{block.text}</h2>;
+                          return <h2 class="text-xl">{block.text}</h2>;
                         case "text":
-                          return <p>{block.text}</p>;
+                          return <p class="text-sm">{block.text}</p>;
                         case "video":
                           return <video autoplay loop src={block.src}></video>;
                         case "two-columns":
@@ -101,9 +101,9 @@ export default async function Case(
                         case "image":
                           return <Image src={block.src} alt={block.alt} />;
                         case "heading":
-                          return <h2>{block.text}</h2>;
+                          return <h2 class="text-xl">{block.text}</h2>;
                         case "text":
-                          return <p>{block.text}</p>;
+                          return <p class="text-sm">{block.text}</p>;
                         case "video":
                           return <video autoplay loop src={block.src}></video>;
                         case "two-columns":
