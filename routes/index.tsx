@@ -14,6 +14,7 @@ export default async function Home() {
             <Head>
               <link rel="preload" as="image" href={post.featuredImage.url} />
             </Head>
+            {/* TODO: use pathname instead of link */}
             <a href={post.link} class="w-full block">
               <Image
                 src={post.featuredImage.url}

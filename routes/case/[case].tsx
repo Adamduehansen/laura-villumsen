@@ -77,6 +77,7 @@ export default async function Case(
             case "text":
               return <p>{block.text}</p>;
             case "two-columns": {
+              // TODO: refactor this shit of a redundant code
               return (
                 <Row className="gap-y-3 lg:gap-x-3">
                   <Col lg={6}>

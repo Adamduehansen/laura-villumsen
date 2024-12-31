@@ -1,6 +1,6 @@
 version: '3.1'
 
-# docker compose --env-file .env.local up
+# TODO: update service containers to latest versions.
 
 services:
   database:
