@@ -40,13 +40,15 @@ const PostSchema = v.pipe(
       rendered: v.string(),
     }),
     link: v.string(),
+    status: v.string(),
   }),
   v.transform((input) => {
-    const { featured_image, tag_names, ...rest } = input;
+    const { featured_image, tag_names, status, ...rest } = input;
     return {
       ...rest,
       tagNames: tag_names,
       featuredImage: featured_image,
+      published: status === "publish",
     };
   }),
 );
@@ -61,8 +63,7 @@ export async function getPosts(): Promise<Post[]> {
   );
   const json = await response.json();
   const posts = v.parse(v.array(PostSchema), json);
-  // TODO: return only published posts
-  return posts;
+  return posts.filter((post) => post.published);
 }
 
 export async function getPost(slug: string): Promise<Post> {
