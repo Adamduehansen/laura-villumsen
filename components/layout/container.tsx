@@ -17,6 +17,7 @@ export const Container: FunctionComponent<Props> = function ({
   return (
     <Component
       class={classNames(className, {
+        // FIXME: class prop is rendered as a empty property if no className is given.
         "mx-2.5": fluid === false,
       })}
     >
