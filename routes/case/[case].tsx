@@ -67,15 +67,17 @@ export default async function Case(
           </Col>
         </Row>
       </Container>
-      {postContent.blocks.map((block): JSX.Element | never => {
-        return (
-          <Container fluid>
-            <Row className="lg:gap-x-3">
-              <CaseBlock block={block} />
-            </Row>
-          </Container>
-        );
-      })}
+      <div class="flex flex-col gap-y-3">
+        {postContent.blocks.map((block): JSX.Element | never => {
+          return (
+            <Container fluid>
+              <Row className="lg:gap-x-3">
+                <CaseBlock block={block} />
+              </Row>
+            </Container>
+          );
+        })}
+      </div>
     </>
   );
 }
