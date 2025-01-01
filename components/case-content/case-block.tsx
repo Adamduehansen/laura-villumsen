@@ -8,6 +8,8 @@ interface Props {
   block: Block;
 }
 
+// TODO: Could we optimize this further so that there are no redundant elements?
+
 function getBlock(block: Block): JSX.Element | never {
   switch (block.type) {
     case "heading":
