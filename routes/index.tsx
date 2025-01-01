@@ -7,13 +7,15 @@ export default async function Home() {
   const posts = await getPosts();
 
   return (
-    <div>
+    <>
+      <Head>
+        <title>Laura Villumsen, Graphic Designer</title>
+      </Head>
       {posts.map((post): JSX.Element => {
         return (
           <>
             <Head>
               <link rel="preload" as="image" href={post.featuredImage.url} />
-              <title>Laura Villumsen, Graphic Designer</title>
             </Head>
             {/* TODO: use pathname instead of link */}
             <a href={post.link} class="w-full block">
@@ -29,6 +31,6 @@ export default async function Home() {
           </>
         );
       })}
-    </div>
+    </>
   );
 }
