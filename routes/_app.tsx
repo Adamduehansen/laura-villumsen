@@ -1,5 +1,5 @@
 import { type PageProps } from "$fresh/server.ts";
-import { Header } from "../components/header.tsx";
+import { Header } from "$component/header.tsx";
 
 export default function App({ Component }: PageProps) {
   return (
@@ -7,7 +7,6 @@ export default function App({ Component }: PageProps) {
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        {/* TODO: Use a unique title for each page. */}
         <title>laura-villumsen</title>
         <link rel="stylesheet" href="/styles.css" />
         <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />

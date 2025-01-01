@@ -12,6 +12,7 @@ import { CaseServices } from "$component/case-content/case-services.tsx";
 import { CaseYear } from "$component/case-content/case-year.tsx";
 import { CaseClient } from "$component/case-content/case-client.tsx";
 import { CaseBlock } from "$component/case-content/case-block.tsx";
+import { Head } from "$fresh/runtime.ts";
 
 export default async function Case(
   _req: Request,
@@ -24,6 +25,9 @@ export default async function Case(
 
   return (
     <>
+      <Head>
+        <title>{post.title.rendered} | Laura Villumsen, Graphic Designer</title>
+      </Head>
       <Container fluid>
         <Row>
           <Col>

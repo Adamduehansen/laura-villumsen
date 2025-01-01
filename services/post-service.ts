@@ -34,6 +34,9 @@ const PostSchema = v.pipe(
       width: v.number(),
       height: v.number(),
     }),
+    title: v.object({
+      rendered: v.string(),
+    }),
     tag_names: v.array(v.string()),
     acf: AcfSchema,
     content: v.object({
