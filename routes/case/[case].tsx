@@ -19,6 +19,8 @@ export default async function Case(
   ctx: FreshContext,
 ): Promise<JSX.Element> {
   const caseSlug = ctx.params.case;
+
+  // TODO: Handle if a case slug does not match a page.
   const post = await getPost(caseSlug);
 
   const postContent = new PostContent(post.content.rendered);
