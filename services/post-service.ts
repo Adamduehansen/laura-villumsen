@@ -69,15 +69,24 @@ export async function getPosts(): Promise<Post[]> {
   return posts.filter((post) => post.published);
 }
 
-export async function getPost(slug: string): Promise<Post> {
+export async function getPost(slug: string): Promise<Post | null> {
   const url = new URL(`${WpSiteHost}/wp-json/wp/v2/posts?slug=${slug}`);
   // TODO: move this to middleware once possible.
   console.log("Case URL is", yellow(url.toString()));
   const response = await fetch(url);
   const json = await response.json();
-  const post = v.parse(
+  const parsedPosts = v.parse(
     v.array(PostSchema),
     json,
-  )[0];
-  return post;
+  );
+
+  if (parsedPosts.length === 0) {
+    return null;
+  }
+
+  if (parsedPosts.length > 1) {
+    throw new Error(`Found more that one page for slug ${slug}`);
+  }
+
+  return parsedPosts[0];
 }

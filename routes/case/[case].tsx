@@ -1,6 +1,6 @@
-import { FreshContext } from "$fresh/server.ts";
+import { Handlers, PageProps } from "$fresh/server.ts";
 import { JSX } from "preact/jsx-runtime";
-import { getPost } from "../../services/post-service.ts";
+import { getPost, Post } from "../../services/post-service.ts";
 import { Image } from "$component/image.tsx";
 import { PostContent } from "$utils/post-content.ts";
 import { Col } from "$component/layout/col.tsx";
@@ -14,14 +14,25 @@ import { CaseClient } from "$component/case-content/case-client.tsx";
 import { CaseBlock } from "$component/case-content/case-block.tsx";
 import { Head } from "$fresh/runtime.ts";
 
-export default async function Case(
-  _req: Request,
-  ctx: FreshContext,
-): Promise<JSX.Element> {
-  const caseSlug = ctx.params.case;
+interface Props {
+  post: Post;
+}
 
-  // TODO: Handle if a case slug does not match a page.
-  const post = await getPost(caseSlug);
+export const handler: Handlers<Props> = {
+  GET: async function (_reg, ctx) {
+    const caseSlug = ctx.params.case;
+    const post = await getPost(caseSlug);
+    if (post === null) {
+      return ctx.renderNotFound();
+    }
+    return ctx.render({
+      post: post,
+    });
+  },
+};
+
+export default function Case({ data }: PageProps<Props>): JSX.Element {
+  const { post } = data;
 
   const postContent = new PostContent(post.content.rendered);
 
