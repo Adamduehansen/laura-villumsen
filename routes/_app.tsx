@@ -14,8 +14,9 @@ export default function App({ Component }: PageProps) {
       </head>
       <body class="font-neue-haas text-base">
         <Header />
-        {/* TODO: set "main" element here*/}
-        <Component />
+        <main>
+          <Component />
+        </main>
       </body>
     </html>
   );
