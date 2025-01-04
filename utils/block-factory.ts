@@ -49,7 +49,7 @@ class TextBlockCreator implements BlockCreator {
   create(htmlElement: HTMLElement): Block | null {
     return {
       type: "text",
-      text: htmlElement.innerText,
+      text: htmlElement.textContent,
     };
   }
 }
@@ -59,7 +59,7 @@ class HeadingBlockCreator implements BlockCreator {
     const tagName = htmlElement.tagName.toLowerCase();
     return {
       type: "heading",
-      text: htmlElement.innerText,
+      text: htmlElement.textContent,
       variant: tagName === "h1" ? "h1" : "h2",
     };
   }
