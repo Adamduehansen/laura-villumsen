@@ -22,6 +22,7 @@ export default {
       "neue-haas": "neue-haas-grotesk-display",
     },
     fontSize: {
+      xs: "0.5rem", // 8px
       sm: "0.938rem", // 15px
       base: "1rem", // 16px
       lg: "1.125rem", // 18px
