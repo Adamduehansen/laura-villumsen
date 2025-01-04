@@ -56,3 +56,37 @@ function add_tags_to_rest_api($data, $post, $context) {
   return $data;
 }
 add_filter('rest_prepare_post', 'add_tags_to_rest_api', 10, 3);
+
+function register_wp_case_info_block() {
+  // Register the block editor script
+  wp_register_script(
+      'wp-case-info-block',
+      get_template_directory_uri() . '/case-info-block-plugin/block.js',
+      array('wp-blocks', 'wp-element'), // Ensure dependencies are loaded
+      filemtime(get_template_directory() . '/case-info-block-plugin/block.js')
+  );
+
+  // Register the editor style
+  wp_register_style(
+      'wp-case-info-editor-style',
+      get_template_directory_uri() . '/case-info-block-plugin/editor.css',
+      array(),
+      filemtime(get_template_directory() . '/case-info-block-plugin/editor.css')
+  );
+
+  // Register the frontend style
+  wp_register_style(
+      'wp-case-info-style',
+      get_template_directory_uri() . '/case-info-block-plugin/style.css',
+      array(),
+      filemtime(get_template_directory() . '/case-info-block-plugin/style.css')
+  );
+
+  // Register the block
+  register_block_type('custom/wp-case-info', array(
+      'editor_script' => 'wp-case-info-block',
+      'editor_style' => 'wp-case-info-editor-style',
+      'style' => 'wp-case-info-style',
+  ));
+}
+add_action('init', 'register_wp_case_info_block');
