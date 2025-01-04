@@ -17,6 +17,7 @@ export interface ImageBlock {
 export interface HeadingBlock {
   type: "heading";
   text: string;
+  variant: "h1" | "h2";
 }
 
 export interface TwoColumnBlock {

@@ -56,9 +56,11 @@ class TextBlockCreator implements BlockCreator {
 
 class HeadingBlockCreator implements BlockCreator {
   create(htmlElement: HTMLElement): Block | null {
+    const tagName = htmlElement.tagName.toLowerCase();
     return {
       type: "heading",
       text: htmlElement.innerText,
+      variant: tagName === "h1" ? "h1" : "h2",
     };
   }
 }
@@ -136,7 +138,8 @@ export class BlockFactory {
   }
 
   static isHeadingBlock(htmlDocument: HTMLElement): boolean {
-    return htmlDocument.tagName.toLowerCase() === "h2";
+    const tagName = htmlDocument.tagName.toLowerCase();
+    return tagName === "h1" || tagName === "h2";
   }
 
   static isColumnBlock(htmlElement: HTMLElement): boolean {

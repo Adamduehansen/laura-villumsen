@@ -10,12 +10,12 @@ interface Props {
 
 // TODO: Could we optimize this further so that there are no redundant elements?
 
-function getBlock(block: Block): JSX.Element | never {
+function getBlock(block: Block): JSX.Element | null | never {
   switch (block.type) {
     case "heading":
       return (
         <Col>
-          <h2>{block.text}</h2>
+          {block.variant === "h1" && <h1 class="text-xl">{block.text}</h1>}
         </Col>
       );
     case "text":
@@ -36,6 +36,8 @@ function getBlock(block: Block): JSX.Element | never {
           <Image src={block.src} />
         </Col>
       );
+    case "case-info":
+      return null;
     case "two-columns":
       return (
         <>
@@ -50,6 +52,8 @@ function getBlock(block: Block): JSX.Element | never {
                   return <p class="text-sm">{block.text}</p>;
                 case "video":
                   return <video autoplay loop src={block.src}></video>;
+                case "case-info":
+                  return null;
                 case "two-columns":
                   return null;
               }
@@ -66,6 +70,8 @@ function getBlock(block: Block): JSX.Element | never {
                   return <p class="text-sm">{block.text}</p>;
                 case "video":
                   return <video autoplay loop src={block.src}></video>;
+                case "case-info":
+                  return null;
                 case "two-columns":
                   return null;
               }
