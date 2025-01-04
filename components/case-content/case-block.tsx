@@ -8,20 +8,27 @@ interface Props {
   block: Block;
 }
 
-// TODO: Could we optimize this further so that there are no redundant elements?
+function isAllTextBlock(blocks: Block[]) {
+  return blocks.every((block) =>
+    block.type === "heading" || block.type === "text"
+  );
+}
 
+// TODO: Could we optimize this further so that there are no redundant elements?
 function getBlock(block: Block): JSX.Element | null | never {
   switch (block.type) {
     case "heading":
       return (
         <Col>
-          {block.variant === "h1" && <h1 class="text-xl">{block.text}</h1>}
+          {block.variant === "h1" && (
+            <h1 class="text-xl mb-8.5 mx-2.5">{block.text}</h1>
+          )}
         </Col>
       );
     case "text":
       return (
         <Col>
-          <p>{block.text}</p>
+          <p class="mx-2.5">{block.text}</p>
         </Col>
       );
     case "video":
@@ -41,7 +48,10 @@ function getBlock(block: Block): JSX.Element | null | never {
     case "two-columns":
       return (
         <>
-          <Col lg={6}>
+          <Col
+            lg={6}
+            className={isAllTextBlock(block.left) ? "my-7 mx-2.5" : undefined}
+          >
             {block.left.map((block): JSX.Element | null | never => {
               switch (block.type) {
                 case "image":
@@ -59,7 +69,10 @@ function getBlock(block: Block): JSX.Element | null | never {
               }
             })}
           </Col>
-          <Col lg={6}>
+          <Col
+            lg={6}
+            className={isAllTextBlock(block.right) ? "my-7 mx-2.5" : undefined}
+          >
             {block.right.map((block): JSX.Element | null | never => {
               switch (block.type) {
                 case "image":

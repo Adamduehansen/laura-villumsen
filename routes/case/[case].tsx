@@ -41,7 +41,7 @@ export default function Case({ data }: PageProps<Props>): JSX.Element {
       <Head>
         <title>{post.title.rendered} | Laura Villumsen, Graphic Designer</title>
       </Head>
-      <Container fluid>
+      <Container fluid className="mb-8.5">
         <Row>
           <Col>
             <Image
@@ -57,7 +57,7 @@ export default function Case({ data }: PageProps<Props>): JSX.Element {
         {postContent.blocks.map((block): JSX.Element | never => {
           if (block.type === "case-info") {
             return (
-              <Container>
+              <Container className="my-8.5">
                 <Row className="gap-3">
                   <Col sm={6} lg={2}>
                     <CaseClient client={post.acf.client} />

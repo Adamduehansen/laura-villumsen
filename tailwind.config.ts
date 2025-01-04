@@ -31,6 +31,11 @@ export default {
       "4xl": "5.625rem", // 90px
       "5xl": "6.875rem", // 110px
     },
+    extend: {
+      spacing: {
+        "8.5": "34px",
+      },
+    },
   },
   safelist: [
     {
