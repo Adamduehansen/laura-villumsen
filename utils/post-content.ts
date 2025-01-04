@@ -13,6 +13,7 @@ export class PostContent {
       this.#isHtmlNode,
     );
 
+    // TODO: Let intro and text be part of the main blocks.
     this.intro = intro.innerText;
     this.text = text.innerText;
     this.blocks = this.#getBlocks(rest);
