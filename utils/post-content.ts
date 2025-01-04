@@ -3,20 +3,20 @@ import { Block } from "$utils/block.ts";
 import { BlockFactory } from "$utils/block-factory.ts";
 
 export class PostContent {
-  readonly intro: string;
-  readonly text: string;
+  // readonly intro: string;
+  // readonly text: string;
   readonly blocks: Block[];
 
   constructor(rawContent: string) {
     const htmlDocument = parse(rawContent);
-    const [intro, text, ...rest] = htmlDocument.childNodes.filter(
+    const blocks = htmlDocument.childNodes.filter(
       this.#isHtmlNode,
     );
 
     // TODO: Let intro and text be part of the main blocks.
-    this.intro = intro.innerText;
-    this.text = text.innerText;
-    this.blocks = this.#getBlocks(rest);
+    // this.intro = intro.innerText;
+    // this.text = text.innerText;
+    this.blocks = this.#getBlocks(blocks);
   }
 
   #isHtmlNode(node: Node): node is HTMLElement {

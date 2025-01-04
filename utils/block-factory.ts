@@ -1,5 +1,5 @@
 import { HTMLElement, Node, NodeType } from "node-html-parser";
-import { Block, ImageBlock, VideoBlock } from "$utils/block.ts";
+import { Block, CaseInfoBlock, ImageBlock, VideoBlock } from "$utils/block.ts";
 
 export interface BlockCreator {
   create: (htmlElement: HTMLElement) => Block | null;
@@ -105,12 +105,21 @@ class TwoColumnBlockCreator implements BlockCreator {
   }
 }
 
+class CaseInfoBlockCreator implements BlockCreator {
+  create(): CaseInfoBlock {
+    return {
+      type: "case-info",
+    };
+  }
+}
+
 const BlockFactoryCreatorMap: Record<Block["type"], BlockCreator> = {
   "heading": new HeadingBlockCreator(),
   "image": new ImageBlockCreator(),
   "text": new TextBlockCreator(),
   "two-columns": new TwoColumnBlockCreator(),
   "video": new VideoBlockCreator(),
+  "case-info": new CaseInfoBlockCreator(),
 };
 
 export class BlockFactory {
@@ -134,6 +143,10 @@ export class BlockFactory {
     return htmlElement.classList.contains("wp-block-columns");
   }
 
+  static isCaseInfo(htmlElement: HTMLElement): boolean {
+    return htmlElement.classList.contains("wp-case-info");
+  }
+
   static getBlock(htmlElement: HTMLElement): Block | null {
     let blockCreator: BlockCreator | undefined;
     if (BlockFactory.isImageBlock(htmlElement)) {
@@ -146,6 +159,8 @@ export class BlockFactory {
       blockCreator = BlockFactoryCreatorMap["heading"];
     } else if (BlockFactory.isColumnBlock(htmlElement)) {
       blockCreator = BlockFactoryCreatorMap["two-columns"];
+    } else if (BlockFactory.isCaseInfo(htmlElement)) {
+      blockCreator = BlockFactoryCreatorMap["case-info"];
     }
 
     return blockCreator?.create(htmlElement) ?? null;

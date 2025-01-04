@@ -25,9 +25,14 @@ export interface TwoColumnBlock {
   right: Block[];
 }
 
+export interface CaseInfoBlock {
+  type: "case-info";
+}
+
 export type Block =
   | TextBlock
   | ImageBlock
   | VideoBlock
   | HeadingBlock
-  | TwoColumnBlock;
+  | TwoColumnBlock
+  | CaseInfoBlock;

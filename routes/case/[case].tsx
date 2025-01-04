@@ -53,39 +53,32 @@ export default function Case({ data }: PageProps<Props>): JSX.Element {
           </Col>
         </Row>
       </Container>
-      <Container>
-        <Row>
-          <Col>
-            <p class="text-xl">
-              {postContent.intro}
-            </p>
-            <p class="text-sm">
-              {postContent.text}
-            </p>
-          </Col>
-        </Row>
-      </Container>
-      <Container>
-        <Row className="gap-3">
-          <Col sm={6} lg={2}>
-            <CaseClient client={post.acf.client} />
-          </Col>
-          <Col sm={6} lg={2}>
-            <CaseYear date={post.acf.date} />
-          </Col>
-          <Col sm={6} lg={2}>
-            <CaseServices services={post.tagNames} />
-          </Col>
-          <Col sm={6} lg={2}>
-            <CaseWebsite website={post.acf.website} />
-          </Col>
-          <Col sm={6} lg={2}>
-            <CaseNotes notes={post.acf.notes} />
-          </Col>
-        </Row>
-      </Container>
       <div class="flex flex-col gap-y-3">
         {postContent.blocks.map((block): JSX.Element | never => {
+          if (block.type === "case-info") {
+            return (
+              <Container>
+                <Row className="gap-3">
+                  <Col sm={6} lg={2}>
+                    <CaseClient client={post.acf.client} />
+                  </Col>
+                  <Col sm={6} lg={2}>
+                    <CaseYear date={post.acf.date} />
+                  </Col>
+                  <Col sm={6} lg={2}>
+                    <CaseServices services={post.tagNames} />
+                  </Col>
+                  <Col sm={6} lg={2}>
+                    <CaseWebsite website={post.acf.website} />
+                  </Col>
+                  <Col sm={6} lg={2}>
+                    <CaseNotes notes={post.acf.notes} />
+                  </Col>
+                </Row>
+              </Container>
+            );
+          }
+
           return (
             <Container fluid>
               <Row className="lg:gap-x-3">
