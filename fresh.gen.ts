@@ -7,7 +7,7 @@ import * as $_app from "./routes/_app.tsx";
 import * as $about from "./routes/about.tsx";
 import * as $case_case_ from "./routes/case/[case].tsx";
 import * as $index from "./routes/index.tsx";
-
+import * as $header from "./islands/header.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -18,7 +18,9 @@ const manifest = {
     "./routes/case/[case].tsx": $case_case_,
     "./routes/index.tsx": $index,
   },
-  islands: {},
+  islands: {
+    "./islands/header.tsx": $header,
+  },
   baseUrl: import.meta.url,
 } satisfies Manifest;
 

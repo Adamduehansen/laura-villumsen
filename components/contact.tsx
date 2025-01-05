@@ -5,6 +5,9 @@ export function Contact(): JSX.Element {
     <div>
       <ul>
         <li>
+          Open for new biz
+        </li>
+        <li>
           M:{" "}
           <a href={`mailto:design@lauravillumsen.dk`}>
             design@lauravillumsen.dk
