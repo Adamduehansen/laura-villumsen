@@ -37,6 +37,7 @@ export function Header(): JSX.Element {
               Menu
             </button>
           </div>
+          {/* TODO: Rework this in the future to also work in the emulator! */}
           <div
             class={classNames(
               "fixed inset-0 bg-white z-10 flex flex-col duration-200 justify-between px-2.5",
