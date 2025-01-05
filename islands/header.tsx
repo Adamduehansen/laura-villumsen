@@ -8,26 +8,16 @@ import { Col } from "$component/layout/col.tsx";
 import classNames from "classnames";
 
 function toggleScroll(): void {
-  document.body.classList.toggle("overflow-hidden");
+  document.documentElement.classList.toggle("overflow-hidden");
 }
 
 export function Header(): JSX.Element {
   const showMenu = useSignal(false);
 
   function toggleMenu(): void {
-    console.log("Clicked");
-
     showMenu.value = !showMenu.value;
     toggleScroll();
   }
-
-  const menuClasses = classNames(
-    "fixed inset-0 bg-white z-10 flex-col",
-    {
-      "hidden": showMenu.value === false,
-      "flex": showMenu.value === true,
-    },
-  );
 
   return (
     <Container as="header" className="mb-7 mt-2.5">
@@ -46,10 +36,18 @@ export function Header(): JSX.Element {
             >
               Menu
             </button>
-            <div class={menuClasses}>
-              <Navigation />
-              <Contact />
-            </div>
+          </div>
+          <div
+            class={classNames(
+              "fixed inset-0 bg-white z-10 flex flex-col duration-200 justify-between px-2.5",
+              {
+                "-translate-y-full": showMenu.value === false,
+                "translate-y-0": showMenu.value === true,
+              },
+            )}
+          >
+            <Navigation />
+            <Contact />
           </div>
         </Col>
       </Row>
