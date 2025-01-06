@@ -158,4 +158,16 @@ function add_media_thumbnail_to_rest($data, $post, $context) {
 }
 add_filter('rest_prepare_post', 'add_media_thumbnail_to_rest', 10, 3);
 
+function allow_cors_for_videos($headers) {
+  $headers['Access-Control-Allow-Origin'] = '*';
+  return $headers;
+}
+
+function add_cors_to_video_requests() {
+  if (is_attachment() && in_array(get_post_mime_type(), ['video/mp4', 'video/webm', 'video/ogg'])) {
+      add_filter('wp_headers', 'allow_cors_for_videos');
+  }
+}
+add_action('template_redirect', 'add_cors_to_video_requests');
+
 /* ===================================================== */

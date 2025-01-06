@@ -35,7 +35,8 @@ function getBlock(block: Block): JSX.Element | null | never {
       return (
         <Col>
           <figure>
-            <video muted playsInline loop src={block.src}></video>
+            <video muted loop autoPlay src={block.src}>
+            </video>
           </figure>
         </Col>
       );
