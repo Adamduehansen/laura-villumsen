@@ -81,6 +81,7 @@ function register_wp_case_info_block() {
   // Register the frontend style
   wp_register_style(
       'wp-case-info-style',
+      // TODO: This should point to the block.css instead.
       get_template_directory_uri() . '/case-info-block-plugin/style.css',
       array(),
       filemtime(get_template_directory() . '/case-info-block-plugin/style.css')
