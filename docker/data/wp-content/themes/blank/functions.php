@@ -100,12 +100,15 @@ add_action('init', 'register_wp_case_info_block');
 /* THUMBNAIL WITH VIDEO SUPPORT */
 function add_media_thumbnail_meta_box() {
   add_meta_box(
-      'media_thumbnail_meta_box',
-      'Media Thumbnail',
-      'media_thumbnail_meta_box_callback',
-      'post',
-      'side',
-      'high'
+    'media_thumbnail_meta_box',
+    'Udvalgt video',
+    'media_thumbnail_meta_box_callback',
+    'post',
+    'side',
+    'high',
+    array(
+      '__block_editor_compatible_meta_box' => true, // Ensure compatibility with the block editor
+    )
   );
 }
 add_action('add_meta_boxes', 'add_media_thumbnail_meta_box');
@@ -147,11 +150,13 @@ function add_media_thumbnail_to_rest($data, $post, $context) {
   $media_id = get_post_meta($post->ID, 'media_thumbnail_id', true);
 
   if ($media_id) {
-      $data->data['media_thumbnail'] = array(
-          'id' => $media_id,
-          'url' => wp_get_attachment_url($media_id),
-          'type' => wp_check_filetype(wp_get_attachment_url($media_id))['type'],
-      );
+    $data->data['featured_video'] = array(
+      'id' => $media_id,
+      'url' => wp_get_attachment_url($media_id),
+      'type' => wp_check_filetype(wp_get_attachment_url($media_id))['type'],
+    );
+  } else {
+    $data->data['featured_video'] = null;
   }
 
   return $data;
