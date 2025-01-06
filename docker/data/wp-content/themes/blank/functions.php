@@ -15,6 +15,7 @@ add_action('init', 'my_custom_menu');
 // Enables featured image
 add_theme_support('post-thumbnails');
 
+/* ADD FEATURED IMAGE INFO IN REST API */
 function add_featured_image_details_to_rest_api($data, $post, $context) {
   $featured_image_id = get_post_thumbnail_id($post->ID);
 
@@ -39,6 +40,7 @@ function add_featured_image_details_to_rest_api($data, $post, $context) {
 }
 add_filter('rest_prepare_post', 'add_featured_image_details_to_rest_api', 10, 3);
 
+/* ADD TAG NAMES IN REST API */
 function add_tags_to_rest_api($data, $post, $context) {
   // Get the tags for the post
   $tags = get_the_terms($post->ID, 'post_tag');
@@ -56,7 +58,9 @@ function add_tags_to_rest_api($data, $post, $context) {
   return $data;
 }
 add_filter('rest_prepare_post', 'add_tags_to_rest_api', 10, 3);
+/* ===================================================== */
 
+/* CUSTOM CASE INFO BLOCK SUPPORT */
 function register_wp_case_info_block() {
   // Register the block editor script
   wp_register_script(
@@ -90,3 +94,31 @@ function register_wp_case_info_block() {
   ));
 }
 add_action('init', 'register_wp_case_info_block');
+/* ===================================================== */
+
+/* THUMBNAIL WITH VIDEO SUPPORT */
+function add_video_thumbnail_meta_box() {
+  add_meta_box(
+      'video_thumbnail_meta_box',
+      'Video Thumbnail',
+      'video_thumbnail_meta_box_callback',
+      'post',
+      'side',
+      'low'
+  );
+}
+add_action('add_meta_boxes', 'add_video_thumbnail_meta_box');
+
+function video_thumbnail_meta_box_callback($post) {
+  $video_url = get_post_meta($post->ID, 'video_thumbnail', true);
+  echo '<label for="video_thumbnail">Video URL:</label>';
+  echo '<input type="url" id="video_thumbnail" name="video_thumbnail" value="' . esc_url($video_url) . '" style="width:100%">';
+}
+
+function save_video_thumbnail_meta($post_id) {
+  if (isset($_POST['video_thumbnail'])) {
+      update_post_meta($post_id, 'video_thumbnail', esc_url_raw($_POST['video_thumbnail']));
+  }
+}
+add_action('save_post', 'save_video_thumbnail_meta');
+/* ===================================================== */
