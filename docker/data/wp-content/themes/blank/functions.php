@@ -105,7 +105,7 @@ function add_media_thumbnail_meta_box() {
       'media_thumbnail_meta_box_callback',
       'post',
       'side',
-      'low'
+      'high'
   );
 }
 add_action('add_meta_boxes', 'add_media_thumbnail_meta_box');
