@@ -30,15 +30,23 @@ const AcfSchema = v.pipe(
 const PostSchema = v.pipe(
   v.object({
     id: v.number(),
-    featured_image: v.object({
-      url: v.string(),
-      alt: v.nullable(v.string()),
-      width: v.number(),
-      height: v.number(),
-    }),
+    featured_image: v.nullable(
+      v.object({
+        url: v.string(),
+        alt: v.nullable(v.string()),
+        width: v.number(),
+        height: v.number(),
+      }),
+    ),
     title: v.object({
       rendered: v.string(),
     }),
+    featured_video: v.nullable(
+      v.object({
+        url: v.string(),
+        type: v.string(),
+      }),
+    ),
     tag_names: v.array(v.string()),
     acf: AcfSchema,
     content: v.object({
@@ -48,12 +56,14 @@ const PostSchema = v.pipe(
     status: v.string(),
   }),
   v.transform((input) => {
-    const { featured_image, tag_names, status, ...rest } = input;
+    const { featured_image, tag_names, status, featured_video, ...rest } =
+      input;
     return {
       ...rest,
       tagNames: tag_names,
       featuredImage: featured_image,
       published: status === "publish",
+      featuredVideoUrl: featured_video !== null ? featured_video.url : null,
     };
   }),
 );

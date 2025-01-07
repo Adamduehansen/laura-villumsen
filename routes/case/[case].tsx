@@ -1,7 +1,6 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { JSX } from "preact/jsx-runtime";
 import { getPost, Post } from "../../services/post-service.ts";
-import { Image } from "$component/image.tsx";
 import { PostContent } from "$utils/post-content.ts";
 import { Col } from "$component/layout/col.tsx";
 import { Row } from "$component/layout/row.tsx";
@@ -13,6 +12,7 @@ import { CaseYear } from "$component/case-content/case-year.tsx";
 import { CaseClient } from "$component/case-content/case-client.tsx";
 import { CaseBlock } from "$component/case-content/case-block.tsx";
 import { Head } from "$fresh/runtime.ts";
+import { CaseHero } from "$component/case-content/case-hero.tsx";
 
 interface Props {
   post: Post;
@@ -41,18 +41,12 @@ export default function Case({ data }: PageProps<Props>): JSX.Element {
       <Head>
         <title>{post.title.rendered} | Laura Villumsen, Graphic Designer</title>
       </Head>
-      <Container fluid className="mb-8.5">
-        <Row>
-          <Col>
-            <Image
-              src={post.featuredImage.url}
-              width={post.featuredImage.width}
-              height={post.featuredImage.height}
-              alt={post.featuredImage.alt ?? ""}
-            />
-          </Col>
-        </Row>
-      </Container>
+      {post.featuredImage !== null && (
+        <CaseHero variant="image" {...post.featuredImage} />
+      )}
+      {post.featuredVideoUrl !== null && (
+        <CaseHero variant="video" src={post.featuredVideoUrl} />
+      )}
       <div class="flex flex-col gap-y-3">
         {postContent.blocks.map((block): JSX.Element | never => {
           if (block.type === "case-info") {
