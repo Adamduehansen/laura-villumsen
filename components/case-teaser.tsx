@@ -20,6 +20,7 @@ export function CaseTeaser({ post }: Props): JSX.Element {
           width={post.featuredImage.width}
           height={post.featuredImage.height}
           alt={post.featuredImage.alt ?? ""}
+          class="w-full"
         />
       )}
       {post.featuredVideoUrl !== null && (
