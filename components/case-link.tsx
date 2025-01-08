@@ -7,6 +7,7 @@ interface Props {
 export const CaseLink: FC<Props> = function ({ link, children }) {
   const url = new URL(link);
 
+  // TODO: missing hover animation.
   return (
     <a href={url.pathname} class="block relative">
       {children}

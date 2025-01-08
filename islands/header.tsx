@@ -7,6 +7,7 @@ import { Row } from "$component/layout/row.tsx";
 import { Col } from "$component/layout/col.tsx";
 import classNames from "classnames";
 
+// FIXME: we do not care about scroll lock. Go back to previous implementation.
 function toggleScroll(): void {
   document.documentElement.classList.toggle("overflow-hidden");
 }
@@ -18,6 +19,8 @@ export function Header(): JSX.Element {
     showMenu.value = !showMenu.value;
     toggleScroll();
   }
+
+  // TODO: needs desktop styling.
 
   return (
     <Container as="header" className="mb-7 mt-2.5">
