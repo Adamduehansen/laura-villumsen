@@ -8,7 +8,7 @@ export const CaseLink: FC<Props> = function ({ link, children }) {
   const url = new URL(link);
 
   return (
-    <a href={url.pathname}>
+    <a href={url.pathname} class="block relative">
       {children}
     </a>
   );
