@@ -37,6 +37,7 @@ export function Header(): JSX.Element {
               class="relative z-20"
               onClick={toggleMenu}
             >
+              {/* FIXME: should say "Close" when menu is open. */}
               Menu
             </button>
           </div>
