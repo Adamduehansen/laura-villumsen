@@ -25,7 +25,7 @@ export default async function Home() {
   const groupedPosts = await getPosts().then(getGroupedPosts);
 
   return (
-    <div class="flex flex-col gap-y-3">
+    <div class="flex flex-col gap-y-3 lg:mt-20">
       <Head>
         <title>Laura Villumsen, Graphic Designer</title>
       </Head>
