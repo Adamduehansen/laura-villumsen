@@ -18,8 +18,6 @@ export function Navigation(): JSX.Element {
     toggleScroll();
   }
 
-  // TODO: set styles for current list item.
-  // https://fresh.deno.dev/docs/examples/active-links
   return (
     <>
       <button
@@ -37,9 +35,9 @@ export function Navigation(): JSX.Element {
           },
         )}
       >
-        <div className="absolute bottom-0 lg:inset-x-0">
-          <Container>
-            <Row as="nav" className="mb-10 lg:mb-0">
+        <div className="lg:absolute lg:bottom-0 lg:inset-x-0">
+          <Container className="flex lg:block flex-col h-screen lg:h-auto">
+            <nav className="flex-1 flex flex-col justify-center lg:grid lg:grid-cols-12">
               <Col className="relative text-4xl lg:text-5xl group" lg={3}>
                 <a
                   className="lg:hover:blur-sm font-semibold aria-[current]:blur-sm"
@@ -56,7 +54,7 @@ export function Navigation(): JSX.Element {
                   About
                 </a>
               </Col>
-            </Row>
+            </nav>
             <Row className="lg:fixed lg:w-full lg:left-0 lg:top-[10px] lg:leading-4 lg:pointer-events-none">
               <Col className="hidden lg:block" lg={4}></Col>
               <Col lg={2}>Open for new biz!</Col>
