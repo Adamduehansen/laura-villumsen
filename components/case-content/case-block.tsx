@@ -19,7 +19,7 @@ function getBlock(block: Block): JSX.Element | null | never {
   switch (block.type) {
     case "heading":
       return (
-        <Col>
+        <Col lg={8}>
           {block.variant === "h1" && (
             <h1 class="text-xl mb-8.5 mx-2.5">{block.text}</h1>
           )}
