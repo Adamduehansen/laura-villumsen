@@ -1,7 +1,6 @@
 import { JSX } from "preact/jsx-runtime";
 import classNames from "classnames";
 import { Post } from "../services/post-service.ts";
-import { CaseLink } from "$component/case-link.tsx";
 import { Col } from "$component/layout/col.tsx";
 import { Container } from "$component/layout/container.tsx";
 import { Row } from "$component/layout/row.tsx";
@@ -12,35 +11,45 @@ interface Props {
 }
 
 export function CaseTeaser({ post }: Props): JSX.Element {
+  const url = new URL(post.link);
+
   return (
-    <CaseLink link={post.link}>
-      {post.featuredImage !== null && (
-        <Image
-          src={post.featuredImage.url}
-          width={post.featuredImage.width}
-          height={post.featuredImage.height}
-          alt={post.featuredImage.alt ?? ""}
-          class="w-full"
-        />
-      )}
-      {post.featuredVideoUrl !== null && (
-        <video autoplay loop muted src={post.featuredVideoUrl} />
-      )}
-      <Container
-        className={classNames(
-          "absolute bottom-3 left-3 text-xs w-full",
-          {
-            "text-white": post.acf.frontpageColor === "white",
-          },
-        )}
-      >
-        <Row>
-          <Col sm={4}>{post.acf.client}</Col>
-          <Col sm={4}>
-            {post.acf.frontpageText}
-          </Col>
-        </Row>
-      </Container>
-    </CaseLink>
+    <div class="relative">
+      <div class="overflow-hidden group">
+        <a
+          href={url.pathname}
+          class="block scale-100 lg:duration-700 lg:ease-out lg:group-hover:scale-105"
+        >
+          {post.featuredImage !== null && (
+            <Image
+              src={post.featuredImage.url}
+              width={post.featuredImage.width}
+              height={post.featuredImage.height}
+              alt={post.featuredImage.alt ?? ""}
+              class="w-full"
+            />
+          )}
+          {post.featuredVideoUrl !== null && (
+            <video autoplay loop muted src={post.featuredVideoUrl} />
+          )}
+        </a>
+        <Container
+          className={classNames(
+            "absolute bottom-0 inset-x-0 text-xs pb-[10px] lg:opacity-0 lg:duration-700 lg:group-hover:opacity-100 mx-grid",
+            {
+              "text-white": post.acf.frontpageColor === "white",
+            },
+          )}
+        >
+          <Row>
+            {/* TODO: Adjusts size for larger screens. */}
+            <Col sm={4}>{post.acf.client}</Col>
+            <Col sm={4}>
+              {post.acf.frontpageText}
+            </Col>
+          </Row>
+        </Container>
+      </div>
+    </div>
   );
 }
