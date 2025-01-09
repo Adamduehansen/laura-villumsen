@@ -27,7 +27,7 @@ function getBlock(block: Block): JSX.Element | null | never {
       );
     case "text":
       return (
-        <Col>
+        <Col lg={4}>
           <p class="mx-2.5">{block.text}</p>
         </Col>
       );
