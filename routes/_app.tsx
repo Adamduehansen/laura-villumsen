@@ -1,5 +1,5 @@
 import { type PageProps } from "$fresh/server.ts";
-import { Header } from "../islands/header.tsx";
+import { Header } from "../components/header.tsx";
 
 export default function App({ Component }: PageProps) {
   return (

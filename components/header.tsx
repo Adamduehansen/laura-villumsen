@@ -1,12 +1,10 @@
 import { JSX } from "preact/jsx-runtime";
-import { Navigation } from "$component/navigation.tsx";
+import { Navigation } from "../islands/navigation.tsx";
 import { Container } from "$component/layout/container.tsx";
 import { Row } from "$component/layout/row.tsx";
 import { Col } from "$component/layout/col.tsx";
 
 export function Header(): JSX.Element {
-  // TODO: needs desktop styling.
-
   return (
     <header className="z-10">
       <Container>

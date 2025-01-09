@@ -42,7 +42,7 @@ export function Navigation(): JSX.Element {
             <Row as="nav" className="mb-10 lg:mb-0">
               <Col className="relative text-4xl lg:text-5xl group" lg={3}>
                 <a
-                  className={classNames("lg:hover:blur-sm font-semibold")}
+                  className="lg:hover:blur-sm font-semibold aria-[current]:blur-sm"
                   href="/"
                 >
                   Works
@@ -50,7 +50,7 @@ export function Navigation(): JSX.Element {
               </Col>
               <Col className="relative text-4xl lg:text-5xl group" lg={3}>
                 <a
-                  className={classNames("lg:hover:blur-sm font-semibold")}
+                  className="lg:hover:blur-sm font-semibold aria-[current]:blur-sm"
                   href="/about"
                 >
                   About
