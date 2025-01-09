@@ -36,6 +36,9 @@ export default {
       spacing: {
         "8.5": "34px",
       },
+      colors: {
+        link: "#1453F7",
+      },
     },
   },
   safelist: [
