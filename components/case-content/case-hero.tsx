@@ -28,6 +28,7 @@ export function CaseHero(props: Props): JSX.Element {
               width={props.width}
               height={props.height}
               alt={props.alt ?? ""}
+              class="w-full"
             />
           )}
           {props.variant === "video" && (
