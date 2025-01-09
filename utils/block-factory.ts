@@ -17,11 +17,12 @@ class ImageBlockCreator implements BlockCreator {
       console.log("Whops, video element had no src");
       return null;
     }
-    const altAttribute = imageElement.getAttribute("alt");
     return {
       type: "image",
       src: srcAttribute,
-      alt: altAttribute,
+      alt: imageElement.getAttribute("alt"),
+      height: imageElement.getAttribute("height"),
+      width: imageElement.getAttribute("width"),
     };
   }
 }

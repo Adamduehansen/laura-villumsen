@@ -11,6 +11,8 @@ export interface VideoBlock {
 export interface ImageBlock {
   type: "image";
   src: string;
+  height?: string;
+  width?: string;
   alt?: string;
 }
 

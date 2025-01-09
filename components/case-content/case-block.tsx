@@ -44,8 +44,13 @@ function getBlock(block: Block): JSX.Element | null | never {
     case "image":
       return (
         <Col>
-          {/* TODO: Missing attributes. */}
-          <Image src={block.src} class="w-full" />
+          <Image
+            src={block.src}
+            width={block.width}
+            height={block.height}
+            alt={block.alt}
+            class="w-full"
+          />
         </Col>
       );
     case "case-info":
@@ -60,9 +65,14 @@ function getBlock(block: Block): JSX.Element | null | never {
             {block.left.map((block): JSX.Element | null | never => {
               switch (block.type) {
                 case "image":
-                  {/* TODO: Missing attributes. */}
                   return (
-                    <Image src={block.src} alt={block.alt} class="w-full" />
+                    <Image
+                      src={block.src}
+                      width={block.width}
+                      height={block.height}
+                      alt={block.alt}
+                      class="w-full"
+                    />
                   );
                 case "heading":
                   return <h2 class="text-xl">{block.text}</h2>;
@@ -84,7 +94,15 @@ function getBlock(block: Block): JSX.Element | null | never {
             {block.right.map((block): JSX.Element | null | never => {
               switch (block.type) {
                 case "image":
-                  return <Image src={block.src} alt={block.alt} />;
+                  return (
+                    <Image
+                      src={block.src}
+                      width={block.width}
+                      height={block.height}
+                      alt={block.alt}
+                      class="w-full"
+                    />
+                  );
                 case "heading":
                   return <h2 class="text-xl">{block.text}</h2>;
                 case "text":
