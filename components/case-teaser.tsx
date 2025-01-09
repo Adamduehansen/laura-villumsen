@@ -35,14 +35,13 @@ export function CaseTeaser({ post }: Props): JSX.Element {
         </a>
         <Container
           className={classNames(
-            "absolute bottom-0 inset-x-0 text-xs pb-[10px] lg:opacity-0 lg:duration-700 lg:group-hover:opacity-100 mx-grid",
+            "absolute bottom-0 inset-x-0 text-xs pb-[10px] lg:opacity-0 lg:duration-700 lg:group-hover:opacity-100 mx-grid lg:text-sm",
             {
               "text-white": post.acf.frontpageColor === "white",
             },
           )}
         >
           <Row>
-            {/* TODO: Adjusts size for larger screens. */}
             <Col sm={4}>{post.acf.client}</Col>
             <Col sm={4}>
               {post.acf.frontpageText}
