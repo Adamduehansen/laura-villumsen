@@ -5,7 +5,6 @@ import { Col } from "$component/layout/col.tsx";
 import { Container } from "$component/layout/container.tsx";
 import { Row } from "$component/layout/row.tsx";
 
-// FIXME: we do not care about scroll lock. Go back to previous implementation.
 function toggleScroll(): void {
   document.documentElement.classList.toggle("overflow-hidden");
 }
