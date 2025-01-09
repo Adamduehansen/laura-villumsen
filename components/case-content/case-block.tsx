@@ -36,7 +36,7 @@ function getBlock(block: Block): JSX.Element | null | never {
         <Col>
           {/* TODO: Create a video component */}
           <figure>
-            <video muted loop autoPlay src={block.src}>
+            <video muted loop autoPlay src={block.src} class="w-full">
             </video>
           </figure>
         </Col>
