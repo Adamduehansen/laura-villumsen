@@ -87,17 +87,14 @@ export async function getPost(slug: string): Promise<Post | null> {
   console.log("Case URL is", yellow(url.toString()));
   const response = await fetch(url);
   const json = await response.json();
-  const parsedPosts = v.parse(
-    v.array(PostSchema),
-    json,
-  );
+  const parsedPosts = v.parse(v.array(PostSchema), json);
 
   if (parsedPosts.length === 0) {
     return null;
   }
 
   if (parsedPosts.length > 1) {
-    throw new Error(`Found more that one page for slug ${slug}`);
+    throw new Error(`Found more that one post for slug ${slug}`);
   }
 
   return parsedPosts[0];

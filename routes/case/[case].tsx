@@ -39,7 +39,7 @@ export default function Case({ data }: PageProps<Props>): JSX.Element {
   return (
     <div class="lg:mt-20">
       <Head>
-        <title>{post.title.rendered} | Laura Villumsen, Graphic Designer</title>
+        <title>{post.title.rendered} | Laura Villumsen, Graphic Designer</title>
       </Head>
       {post.featuredImage !== null && (
         <CaseHero variant="image" {...post.featuredImage} />
