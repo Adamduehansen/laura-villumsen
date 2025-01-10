@@ -2,6 +2,7 @@ import { HTMLElement, Node, NodeType } from "node-html-parser";
 import {
   Block,
   CaseInfoBlock,
+  ColumnBlock,
   ImageBlock,
   TextBlock,
   VideoBlock,
@@ -82,45 +83,31 @@ class HeadingBlockCreator implements BlockCreator {
   }
 }
 
-class TwoColumnBlockCreator implements BlockCreator {
-  #isHtmlNode(node: Node): node is HTMLElement {
-    return node.nodeType === NodeType.ELEMENT_NODE;
+class ColumnBlockCreator implements BlockCreator {
+  create(htmlElement: HTMLElement): Block | null {
+    return {
+      type: "columns",
+      columns: htmlElement
+        .querySelectorAll("div")
+        .map(this.#createColumn.bind(this)),
+    };
   }
 
-  create(htmlElement: HTMLElement): Block | null {
-    const columns = htmlElement.querySelectorAll("div");
-    if (columns.length !== 2) {
-      console.log("Whops, columns are not correct number");
-      return null;
-    }
-    const [leftElement, rightElement] = columns;
-
-    const leftChildren = leftElement.childNodes.filter(this.#isHtmlNode);
-    const rightChildren = rightElement.childNodes.filter(this.#isHtmlNode);
-
-    const rightBlocks: Block[] = [];
-    for (const child of rightChildren) {
-      const block = BlockFactory.getBlock(child);
-      if (block === null) {
-        continue;
-      }
-      rightBlocks.push(block);
-    }
-
-    const leftBlocks: Block[] = [];
-    for (const child of leftChildren) {
-      const block = BlockFactory.getBlock(child);
-      if (block === null) {
-        continue;
-      }
-      leftBlocks.push(block);
-    }
-
+  #createColumn(columnElement: HTMLElement): ColumnBlock["columns"][number] {
     return {
-      type: "two-columns",
-      left: leftBlocks,
-      right: rightBlocks,
+      width: this.#getWidth(columnElement.getAttribute("style")),
+      blocks: [],
     };
+  }
+
+  #getWidth(style?: string): ColumnBlock["columns"][number]["width"] {
+    if (style === "flex-basis:66.66%") {
+      return 8;
+    } else if (style === "flex-basis:33.33%") {
+      return 4;
+    } else {
+      return 4;
+    }
   }
 }
 
@@ -136,7 +123,7 @@ const BlockFactoryCreatorMap: Record<Block["type"], BlockCreator> = {
   "heading": new HeadingBlockCreator(),
   "image": new ImageBlockCreator(),
   "text": new TextBlockCreator(),
-  "two-columns": new TwoColumnBlockCreator(),
+  "columns": new ColumnBlockCreator(),
   "video": new VideoBlockCreator(),
   "case-info": new CaseInfoBlockCreator(),
 };
@@ -169,19 +156,22 @@ export class BlockFactory {
 
   static getBlock(htmlElement: HTMLElement): Block | null {
     let blockCreator: BlockCreator | undefined;
-    if (BlockFactory.isImageBlock(htmlElement)) {
-      blockCreator = BlockFactoryCreatorMap["image"];
-    } else if (BlockFactory.isVideoBlock(htmlElement)) {
-      blockCreator = BlockFactoryCreatorMap["video"];
-    } else if (BlockFactory.isTextBlock(htmlElement)) {
-      blockCreator = BlockFactoryCreatorMap["text"];
-    } else if (BlockFactory.isHeadingBlock(htmlElement)) {
-      blockCreator = BlockFactoryCreatorMap["heading"];
-    } else if (BlockFactory.isColumnBlock(htmlElement)) {
-      blockCreator = BlockFactoryCreatorMap["two-columns"];
-    } else if (BlockFactory.isCaseInfo(htmlElement)) {
-      blockCreator = BlockFactoryCreatorMap["case-info"];
+    if (BlockFactory.isColumnBlock(htmlElement)) {
+      blockCreator = BlockFactoryCreatorMap["columns"];
     }
+    // if (BlockFactory.isImageBlock(htmlElement)) {
+    //   blockCreator = BlockFactoryCreatorMap["image"];
+    // } else if (BlockFactory.isVideoBlock(htmlElement)) {
+    //   blockCreator = BlockFactoryCreatorMap["video"];
+    // } else if (BlockFactory.isTextBlock(htmlElement)) {
+    //   blockCreator = BlockFactoryCreatorMap["text"];
+    // } else if (BlockFactory.isHeadingBlock(htmlElement)) {
+    //   blockCreator = BlockFactoryCreatorMap["heading"];
+    // } else if (BlockFactory.isColumnBlock(htmlElement)) {
+    //   blockCreator = BlockFactoryCreatorMap["two-columns"];
+    // } else if (BlockFactory.isCaseInfo(htmlElement)) {
+    //   blockCreator = BlockFactoryCreatorMap["case-info"];
+    // }
 
     return blockCreator?.create(htmlElement) ?? null;
   }

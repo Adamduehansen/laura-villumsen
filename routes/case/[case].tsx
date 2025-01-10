@@ -13,6 +13,7 @@ import { CaseClient } from "$component/case-content/case-client.tsx";
 import { CaseBlock } from "$component/case-content/case-block.tsx";
 import { Head } from "$fresh/runtime.ts";
 import { CaseHero } from "$component/case-content/case-hero.tsx";
+import { parseBlocks } from "$utils/parse-blocks.ts";
 
 interface Props {
   post: Post;
@@ -34,7 +35,10 @@ export const handler: Handlers<Props> = {
 export default function Case({ data }: PageProps<Props>): JSX.Element {
   const { post } = data;
 
-  const postContent = new PostContent(post.content.rendered);
+  // const postContent = new PostContent(post.content.rendered);
+  const blocks = parseBlocks(post.content.rendered);
+
+  console.log(blocks);
 
   return (
     <div class="lg:mt-20">
@@ -48,7 +52,8 @@ export default function Case({ data }: PageProps<Props>): JSX.Element {
         <CaseHero variant="video" src={post.featuredVideoUrl} />
       )}
       <div class="flex flex-col gap-y-3">
-        {postContent.blocks.map((block): JSX.Element | never => {
+        {
+          /* {postContent.blocks.map((block): JSX.Element | never => {
           if (block.type === "case-info") {
             return (
               <Container className="my-8.5">
@@ -80,7 +85,8 @@ export default function Case({ data }: PageProps<Props>): JSX.Element {
               </Row>
             </Container>
           );
-        })}
+        })} */
+        }
       </div>
     </div>
   );

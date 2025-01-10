@@ -23,10 +23,12 @@ export interface HeadingBlock {
   variant: "h1" | "h2";
 }
 
-export interface TwoColumnBlock {
-  type: "two-columns";
-  left: Block[];
-  right: Block[];
+export interface ColumnBlock {
+  type: "columns";
+  columns: {
+    width: 4 | 6 | 8;
+    blocks: Block[];
+  }[];
 }
 
 export interface CaseInfoBlock {
@@ -38,5 +40,5 @@ export type Block =
   | ImageBlock
   | VideoBlock
   | HeadingBlock
-  | TwoColumnBlock
+  | ColumnBlock
   | CaseInfoBlock;
