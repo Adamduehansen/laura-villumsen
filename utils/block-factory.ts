@@ -1,5 +1,11 @@
 import { HTMLElement, Node, NodeType } from "node-html-parser";
-import { Block, CaseInfoBlock, ImageBlock, VideoBlock } from "$utils/block.ts";
+import {
+  Block,
+  CaseInfoBlock,
+  ImageBlock,
+  TextBlock,
+  VideoBlock,
+} from "$utils/block.ts";
 
 export interface BlockCreator {
   create: (htmlElement: HTMLElement) => Block | null;
@@ -51,7 +57,17 @@ class TextBlockCreator implements BlockCreator {
     return {
       type: "text",
       text: htmlElement.textContent,
+      size: this.#getSize(htmlElement.classList),
     };
+  }
+
+  #getSize(classList: HTMLElement["classList"]): TextBlock["size"] {
+    if (classList.contains("has-x-large-font-size")) {
+      return "extra large";
+    } else if (classList.contains("has-large-font-size")) {
+      return "large";
+    }
+    return "normal";
   }
 }
 

@@ -1,6 +1,7 @@
 export interface TextBlock {
   type: "text";
   text: string;
+  size: "normal" | "large" | "extra large";
 }
 
 export interface VideoBlock {

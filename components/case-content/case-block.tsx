@@ -3,6 +3,7 @@ import { Block } from "$utils/block.ts";
 import { Image } from "$component/image.tsx";
 import { JSX } from "preact/jsx-runtime";
 import { Col } from "$component/layout/col.tsx";
+import classNames from "classnames";
 
 interface Props {
   block: Block;
@@ -28,7 +29,13 @@ function getBlock(block: Block): JSX.Element | null | never {
     case "text":
       return (
         <Col lg={4}>
-          <p class="mx-2.5">{block.text}</p>
+          <p
+            class={classNames("mx-2.5", {
+              "text-3xl": block.size === "extra large",
+            })}
+          >
+            {block.text}
+          </p>
         </Col>
       );
     case "video":
@@ -75,9 +82,25 @@ function getBlock(block: Block): JSX.Element | null | never {
                     />
                   );
                 case "heading":
-                  return <h2 class="text-xl">{block.text}</h2>;
+                  if (block.variant === "h1") {
+                    return <h1 class="text-xl mb-8.5 mx-2.5">{block.text}</h1>;
+                  } else if (block.variant === "h2") {
+                    return <h2 class="text-xl">{block.text}</h2>;
+                  } else {
+                    return null;
+                  }
                 case "text":
-                  return <p class="text-sm">{block.text}</p>;
+                  return (
+                    <p
+                      class={classNames({
+                        "text-3xl": block.size === "extra large",
+                        "text-2xl": block.size === "large",
+                        "text-base": block.size === "normal",
+                      })}
+                    >
+                      {block.text}
+                    </p>
+                  );
                 case "video":
                   return <video autoplay loop src={block.src}></video>;
                 case "case-info":
@@ -104,9 +127,25 @@ function getBlock(block: Block): JSX.Element | null | never {
                     />
                   );
                 case "heading":
-                  return <h2 class="text-xl">{block.text}</h2>;
+                  if (block.variant === "h1") {
+                    return <h1 class="text-xl mb-8.5 mx-2.5">{block.text}</h1>;
+                  } else if (block.variant === "h2") {
+                    return <h2 class="text-xl">{block.text}</h2>;
+                  } else {
+                    return null;
+                  }
                 case "text":
-                  return <p class="text-sm">{block.text}</p>;
+                  return (
+                    <p
+                      class={classNames({
+                        "text-3xl": block.size === "extra large",
+                        "text-2xl": block.size === "large",
+                        "text-base": block.size === "normal",
+                      })}
+                    >
+                      {block.text}
+                    </p>
+                  );
                 case "video":
                   return <video autoplay loop src={block.src}></video>;
                 case "case-info":
