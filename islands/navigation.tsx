@@ -38,6 +38,8 @@ export function Navigation(): JSX.Element {
           <Container className="flex lg:block flex-col h-screen lg:h-auto">
             <nav className="flex-1 flex flex-col justify-center lg:grid lg:grid-cols-12">
               <Col className="relative text-4xl lg:text-5xl group" lg={3}>
+                {/* TODO: blur should only be appied on page not ancestors. */}
+                {/* TODO: Can blur effect be animated? */}
                 <a
                   className="lg:hover:blur-sm font-semibold aria-[current]:blur-sm"
                   href="/"
