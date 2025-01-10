@@ -8,6 +8,7 @@ import { Container } from "$component/layout/container.tsx";
 import { Row } from "$component/layout/row.tsx";
 import { Col } from "$component/layout/col.tsx";
 import { CaseBlock } from "$component/case-content/case-block.tsx";
+import { parseBlocks } from "$utils/parse-blocks.ts";
 
 interface Props {
   page: Page;
@@ -28,14 +29,17 @@ export const handler: Handlers<Props> = {
 
 export default function About({ data }: PageProps<Props>): JSX.Element {
   const { page } = data;
-  const pageContent = new PostContent(page.content.rendered);
+  // const pageContent = new PostContent(page.content.rendered);
+  const blocks = parseBlocks(page.content.rendered);
+  console.log(blocks);
 
   return (
     <div class="lg:mt-20">
       <Head>
         <title>About | Laura Villumsen, Graphic Designer</title>
       </Head>
-      {pageContent.blocks.map((block) => (
+      {
+        /* {pageContent.blocks.map((block) => (
         <Container>
           <Row>
             <Col>
@@ -43,7 +47,8 @@ export default function About({ data }: PageProps<Props>): JSX.Element {
             </Col>
           </Row>
         </Container>
-      ))}
+      ))} */
+      }
     </div>
   );
 }

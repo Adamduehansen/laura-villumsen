@@ -1,5 +1,6 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { JSX } from "preact/jsx-runtime";
+import { ComponentType } from "preact";
 import { getPost, Post } from "../../services/post-service.ts";
 import { PostContent } from "$utils/post-content.ts";
 import { Col } from "$component/layout/col.tsx";
@@ -14,6 +15,8 @@ import { CaseBlock } from "$component/case-content/case-block.tsx";
 import { Head } from "$fresh/runtime.ts";
 import { CaseHero } from "$component/case-content/case-hero.tsx";
 import { parseBlocks } from "$utils/parse-blocks.ts";
+import { Blocks } from "$component/blocks.tsx";
+import { Block } from "$utils/block.ts";
 
 interface Props {
   post: Post;
@@ -38,8 +41,6 @@ export default function Case({ data }: PageProps<Props>): JSX.Element {
   // const postContent = new PostContent(post.content.rendered);
   const blocks = parseBlocks(post.content.rendered);
 
-  console.log(blocks);
-
   return (
     <div class="lg:mt-20">
       <Head>
@@ -52,6 +53,7 @@ export default function Case({ data }: PageProps<Props>): JSX.Element {
         <CaseHero variant="video" src={post.featuredVideoUrl} />
       )}
       <div class="flex flex-col gap-y-3">
+        <Blocks blocks={blocks} />
         {
           /* {postContent.blocks.map((block): JSX.Element | never => {
           if (block.type === "case-info") {

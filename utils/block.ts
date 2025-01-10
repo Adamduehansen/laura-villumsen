@@ -1,7 +1,7 @@
 export interface TextBlock {
   type: "text";
   text: string;
-  size: "normal" | "large" | "extra large";
+  size: "normal" | "large" | "extra-large";
 }
 
 export interface VideoBlock {
@@ -21,12 +21,13 @@ export interface HeadingBlock {
   type: "heading";
   text: string;
   variant: "h1" | "h2";
+  size: "large" | "extra-large";
 }
 
 export interface ColumnBlock {
   type: "columns";
   columns: {
-    width: 4 | 6 | 8;
+    width: 4 | 6 | 8 | 12;
     blocks: Block[];
   }[];
 }

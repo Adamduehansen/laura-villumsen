@@ -1,12 +1,14 @@
-import { HTMLElement, Node, NodeType } from "node-html-parser";
+import { HTMLElement } from "node-html-parser";
 import {
   Block,
   CaseInfoBlock,
   ColumnBlock,
+  HeadingBlock,
   ImageBlock,
   TextBlock,
   VideoBlock,
 } from "$utils/block.ts";
+import { parseBlocks } from "$utils/parse-blocks.ts";
 
 export interface BlockCreator {
   create: (htmlElement: HTMLElement) => Block | null;
@@ -64,7 +66,7 @@ class TextBlockCreator implements BlockCreator {
 
   #getSize(classList: HTMLElement["classList"]): TextBlock["size"] {
     if (classList.contains("has-x-large-font-size")) {
-      return "extra large";
+      return "extra-large";
     } else if (classList.contains("has-large-font-size")) {
       return "large";
     }
@@ -78,13 +80,28 @@ class HeadingBlockCreator implements BlockCreator {
     return {
       type: "heading",
       text: htmlElement.textContent,
+      size: this.#getSize(htmlElement.classList),
       variant: tagName === "h1" ? "h1" : "h2",
     };
   }
+
+  #getSize(classList: HTMLElement["classList"]): HeadingBlock["size"] {
+    if (classList.contains("has-x-large-font-size")) {
+      return "extra-large";
+    }
+    return "large";
+  }
 }
 
-class ColumnBlockCreator implements BlockCreator {
+class ColumnsBlockCreator implements BlockCreator {
+  #columnElement!: HTMLElement;
+  #numberOfColumns = 0;
+
   create(htmlElement: HTMLElement): Block | null {
+    this.#columnElement = htmlElement;
+    const columnElements = htmlElement.querySelectorAll("div");
+    this.#numberOfColumns = columnElements.length;
+
     return {
       type: "columns",
       columns: htmlElement
@@ -96,17 +113,20 @@ class ColumnBlockCreator implements BlockCreator {
   #createColumn(columnElement: HTMLElement): ColumnBlock["columns"][number] {
     return {
       width: this.#getWidth(columnElement.getAttribute("style")),
-      blocks: [],
+      blocks: parseBlocks(columnElement.innerHTML),
     };
   }
 
   #getWidth(style?: string): ColumnBlock["columns"][number]["width"] {
+    if (this.#numberOfColumns === 1) {
+      return 12;
+    }
     if (style === "flex-basis:66.66%") {
       return 8;
-    } else if (style === "flex-basis:33.33%") {
+    } else if (style === "flex-basis:33.33%" || this.#numberOfColumns === 3) {
       return 4;
     } else {
-      return 4;
+      return 6;
     }
   }
 }
@@ -123,7 +143,7 @@ const BlockFactoryCreatorMap: Record<Block["type"], BlockCreator> = {
   "heading": new HeadingBlockCreator(),
   "image": new ImageBlockCreator(),
   "text": new TextBlockCreator(),
-  "columns": new ColumnBlockCreator(),
+  "columns": new ColumnsBlockCreator(),
   "video": new VideoBlockCreator(),
   "case-info": new CaseInfoBlockCreator(),
 };
@@ -158,9 +178,13 @@ export class BlockFactory {
     let blockCreator: BlockCreator | undefined;
     if (BlockFactory.isColumnBlock(htmlElement)) {
       blockCreator = BlockFactoryCreatorMap["columns"];
+    } else if (BlockFactory.isHeadingBlock(htmlElement)) {
+      blockCreator = BlockFactoryCreatorMap["heading"];
+    } else if (BlockFactory.isTextBlock(htmlElement)) {
+      blockCreator = BlockFactoryCreatorMap["text"];
+    } else if (BlockFactory.isImageBlock(htmlElement)) {
+      blockCreator = BlockFactoryCreatorMap["image"];
     }
-    // if (BlockFactory.isImageBlock(htmlElement)) {
-    //   blockCreator = BlockFactoryCreatorMap["image"];
     // } else if (BlockFactory.isVideoBlock(htmlElement)) {
     //   blockCreator = BlockFactoryCreatorMap["video"];
     // } else if (BlockFactory.isTextBlock(htmlElement)) {
