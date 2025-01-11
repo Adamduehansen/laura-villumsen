@@ -6,6 +6,11 @@ import { Container } from "$component/layout/container.tsx";
 import { Row } from "$component/layout/row.tsx";
 import { Col } from "$component/layout/col.tsx";
 import { Image } from "$component/image.tsx";
+import { CaseClient } from "$component/case-content/case-client.tsx";
+import { CaseNotes } from "$component/case-content/case-notes.tsx";
+import { CaseServices } from "$component/case-content/case-services.tsx";
+import { CaseWebsite } from "$component/case-content/case-website.tsx";
+import { CaseYear } from "$component/case-content/case-year.tsx";
 
 interface Props {
   blocks: Block[];
@@ -32,8 +37,8 @@ function parseComponent(block: Block): JSX.Element | null | never {
       const H = block.variant;
       return (
         <H
-          class={classNames("mx-2.5 lg:m-0", {
-            "text-xl lg:text-3xl": block.size === "extra-large",
+          class={classNames("mx-2.5 lg:mx-0", {
+            "text-xl lg:text-3xl lg:mb-14": block.size === "extra-large",
             "text-xl lg:text-2xl": block.size === "large",
           })}
         >
@@ -45,7 +50,7 @@ function parseComponent(block: Block): JSX.Element | null | never {
       return (
         <p
           class={classNames("mx-2.5 lg:m-0", {
-            "text-3xl": block.size === "extra-large",
+            "text-3xl lg:mb-14": block.size === "extra-large",
           })}
         >
           {block.text}
@@ -64,7 +69,31 @@ function parseComponent(block: Block): JSX.Element | null | never {
     case "video":
       return <video autoplay muted loop src={block.src}></video>;
     case "case-info":
-      return null;
+      return (
+        <Container className="my-8.5">
+          <Row className="gap-3">
+            <Col sm={6} lg={2}>
+              <CaseClient client={block.client} />
+            </Col>
+            <Col sm={6} lg={2}>
+              <CaseYear year={block.year} />
+            </Col>
+            <Col sm={6} lg={2}>
+              <CaseServices services={block.services} />
+            </Col>
+            {block.websiteUrl && (
+              <Col sm={6} lg={2}>
+                <CaseWebsite website={block.websiteUrl} />
+              </Col>
+            )}
+            {block.notes.length > 0 && (
+              <Col sm={6} lg={2}>
+                <CaseNotes notes={block.notes} />
+              </Col>
+            )}
+          </Row>
+        </Container>
+      );
   }
 }
 

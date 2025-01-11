@@ -34,6 +34,11 @@ export interface ColumnBlock {
 
 export interface CaseInfoBlock {
   type: "case-info";
+  client: string;
+  year: string;
+  services: string[];
+  websiteUrl: string | null;
+  notes: string[];
 }
 
 export type Block =

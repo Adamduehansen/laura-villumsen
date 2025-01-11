@@ -9,6 +9,7 @@ import {
   VideoBlock,
 } from "$utils/block.ts";
 import { parseBlocks } from "$utils/parse-blocks.ts";
+import { Post } from "../services/post-service.ts";
 
 export interface BlockCreator {
   create: (htmlElement: HTMLElement) => Block | null;
@@ -131,10 +132,21 @@ class ColumnsBlockCreator implements BlockCreator {
   }
 }
 
-class CaseInfoBlockCreator implements BlockCreator {
+export class CaseInfoBlockCreator implements BlockCreator {
+  readonly #post: Post;
+
+  constructor(post: Post) {
+    this.#post = post;
+  }
+
   create(): CaseInfoBlock {
     return {
       type: "case-info",
+      client: this.#post.acf.client,
+      year: this.#post.acf.date.substring(0, 4),
+      notes: this.#post.acf.notes,
+      services: this.#post.tagNames,
+      websiteUrl: this.#post.acf.website,
     };
   }
 }
@@ -145,7 +157,18 @@ const BlockFactoryCreatorMap: Record<Block["type"], BlockCreator> = {
   "text": new TextBlockCreator(),
   "columns": new ColumnsBlockCreator(),
   "video": new VideoBlockCreator(),
-  "case-info": new CaseInfoBlockCreator(),
+  "case-info": {
+    create: function () {
+      return {
+        type: "case-info",
+        client: "",
+        notes: [],
+        services: [],
+        year: "",
+        websiteUrl: null,
+      };
+    },
+  },
 };
 
 export class BlockFactory {
@@ -186,16 +209,9 @@ export class BlockFactory {
       blockCreator = BlockFactoryCreatorMap["image"];
     } else if (BlockFactory.isVideoBlock(htmlElement)) {
       blockCreator = BlockFactoryCreatorMap["video"];
+    } else if (BlockFactory.isCaseInfo(htmlElement)) {
+      blockCreator = BlockFactoryCreatorMap["case-info"];
     }
-    // else if (BlockFactory.isTextBlock(htmlElement)) {
-    //   blockCreator = BlockFactoryCreatorMap["text"];
-    // } else if (BlockFactory.isHeadingBlock(htmlElement)) {
-    //   blockCreator = BlockFactoryCreatorMap["heading"];
-    // } else if (BlockFactory.isColumnBlock(htmlElement)) {
-    //   blockCreator = BlockFactoryCreatorMap["two-columns"];
-    // } else if (BlockFactory.isCaseInfo(htmlElement)) {
-    //   blockCreator = BlockFactoryCreatorMap["case-info"];
-    // }
 
     return blockCreator?.create(htmlElement) ?? null;
   }

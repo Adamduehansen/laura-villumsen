@@ -3,12 +3,8 @@ import { JSX } from "preact/jsx-runtime";
 // TODO: Create alias for page services.
 import { getPage, Page } from "../services/page-services.ts";
 import { Head } from "$fresh/runtime.ts";
-import { PostContent } from "$utils/post-content.ts";
-import { Container } from "$component/layout/container.tsx";
-import { Row } from "$component/layout/row.tsx";
-import { Col } from "$component/layout/col.tsx";
-import { CaseBlock } from "$component/case-content/case-block.tsx";
 import { parseBlocks } from "$utils/parse-blocks.ts";
+import { Blocks } from "$component/blocks.tsx";
 
 interface Props {
   page: Page;
@@ -29,26 +25,16 @@ export const handler: Handlers<Props> = {
 
 export default function About({ data }: PageProps<Props>): JSX.Element {
   const { page } = data;
-  // const pageContent = new PostContent(page.content.rendered);
   const blocks = parseBlocks(page.content.rendered);
-  console.log(blocks);
 
   return (
     <div class="lg:mt-20">
       <Head>
         <title>About | Laura Villumsen, Graphic Designer</title>
       </Head>
-      {
-        /* {pageContent.blocks.map((block) => (
-        <Container>
-          <Row>
-            <Col>
-              <CaseBlock block={block} />
-            </Col>
-          </Row>
-        </Container>
-      ))} */
-      }
+      <div class="flex flex-col gap-y-3">
+        <Blocks blocks={blocks} />
+      </div>
     </div>
   );
 }

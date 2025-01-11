@@ -11,8 +11,13 @@ export function CaseWebsite({ website }: Props): JSX.Element | null {
 
   return (
     <div>
-      <a href={website} target="_BLANK" rel="noopener noreferrer">
-        View website here
+      <a
+        href={website}
+        class="text-link"
+        target="_BLANK"
+        rel="noopener noreferrer"
+      >
+        Visit website here
       </a>
     </div>
   );
