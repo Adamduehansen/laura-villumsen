@@ -184,10 +184,10 @@ export class BlockFactory {
       blockCreator = BlockFactoryCreatorMap["text"];
     } else if (BlockFactory.isImageBlock(htmlElement)) {
       blockCreator = BlockFactoryCreatorMap["image"];
+    } else if (BlockFactory.isVideoBlock(htmlElement)) {
+      blockCreator = BlockFactoryCreatorMap["video"];
     }
-    // } else if (BlockFactory.isVideoBlock(htmlElement)) {
-    //   blockCreator = BlockFactoryCreatorMap["video"];
-    // } else if (BlockFactory.isTextBlock(htmlElement)) {
+    // else if (BlockFactory.isTextBlock(htmlElement)) {
     //   blockCreator = BlockFactoryCreatorMap["text"];
     // } else if (BlockFactory.isHeadingBlock(htmlElement)) {
     //   blockCreator = BlockFactoryCreatorMap["heading"];

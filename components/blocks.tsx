@@ -62,6 +62,7 @@ function parseComponent(block: Block): JSX.Element | null | never {
         />
       );
     case "video":
+      return <video autoplay muted loop src={block.src}></video>;
     case "case-info":
       return null;
   }
