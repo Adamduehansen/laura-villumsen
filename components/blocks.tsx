@@ -94,6 +94,24 @@ function parseComponent(block: Block): JSX.Element | null | never {
           </Row>
         </Container>
       );
+    case "table":
+      return (
+        <figure class="mb-14">
+          <figcaption class="font-semibold mb-4">{block.heading}</figcaption>
+          <table>
+            <tbody>
+              {block.rows.map(([key, value]) => {
+                return (
+                  <tr class="[&>td]:pb-4">
+                    <td class="w-28">{key}</td>
+                    <td>{value}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </figure>
+      );
   }
 }
 

@@ -41,10 +41,17 @@ export interface CaseInfoBlock {
   notes: string[];
 }
 
+export interface TableBlock {
+  type: "table";
+  heading: string;
+  rows: [string, string][];
+}
+
 export type Block =
   | TextBlock
   | ImageBlock
   | VideoBlock
   | HeadingBlock
   | ColumnBlock
-  | CaseInfoBlock;
+  | CaseInfoBlock
+  | TableBlock;

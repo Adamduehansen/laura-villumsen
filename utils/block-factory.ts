@@ -5,6 +5,7 @@ import {
   ColumnBlock,
   HeadingBlock,
   ImageBlock,
+  TableBlock,
   TextBlock,
   VideoBlock,
 } from "$utils/block.ts";
@@ -151,6 +152,23 @@ export class CaseInfoBlockCreator implements BlockCreator {
   }
 }
 
+export class TableBlockCreator implements BlockCreator {
+  create(htmlElement: HTMLElement): TableBlock | null {
+    const tableRows = htmlElement.querySelectorAll("tr");
+    const rows = tableRows.map((row): [string, string] => {
+      const cellElements = row.querySelectorAll("td");
+      return [cellElements[0].textContent, cellElements[1].textContent];
+    });
+    return {
+      type: "table",
+      heading: htmlElement
+        .querySelector(".wp-element-caption")?.textContent ??
+        "",
+      rows: rows,
+    };
+  }
+}
+
 const BlockFactoryCreatorMap: Record<Block["type"], BlockCreator> = {
   "heading": new HeadingBlockCreator(),
   "image": new ImageBlockCreator(),
@@ -169,6 +187,7 @@ const BlockFactoryCreatorMap: Record<Block["type"], BlockCreator> = {
       };
     },
   },
+  "table": new TableBlockCreator(),
 };
 
 export class BlockFactory {
@@ -197,6 +216,10 @@ export class BlockFactory {
     return htmlElement.classList.contains("wp-case-info");
   }
 
+  static isTableBlock(htmlElement: HTMLElement): boolean {
+    return htmlElement.classList.contains("wp-block-table");
+  }
+
   static getBlock(htmlElement: HTMLElement): Block | null {
     let blockCreator: BlockCreator | undefined;
     if (BlockFactory.isColumnBlock(htmlElement)) {
@@ -211,6 +234,8 @@ export class BlockFactory {
       blockCreator = BlockFactoryCreatorMap["video"];
     } else if (BlockFactory.isCaseInfo(htmlElement)) {
       blockCreator = BlockFactoryCreatorMap["case-info"];
+    } else if (BlockFactory.isTableBlock(htmlElement)) {
+      blockCreator = BlockFactoryCreatorMap["table"];
     }
 
     return blockCreator?.create(htmlElement) ?? null;
