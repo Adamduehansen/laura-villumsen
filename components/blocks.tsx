@@ -104,7 +104,13 @@ function parseComponent(block: Block): JSX.Element | null | never {
                 return (
                   <tr class="[&>td]:pb-4">
                     <td class="w-28">{key}</td>
-                    <td>{value}</td>
+                    <td
+                      class="[&>a]:text-link"
+                      dangerouslySetInnerHTML={{
+                        __html: value,
+                      }}
+                    >
+                    </td>
                   </tr>
                 );
               })}

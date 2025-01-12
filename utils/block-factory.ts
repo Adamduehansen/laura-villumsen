@@ -157,7 +157,7 @@ export class TableBlockCreator implements BlockCreator {
     const tableRows = htmlElement.querySelectorAll("tr");
     const rows = tableRows.map((row): [string, string] => {
       const cellElements = row.querySelectorAll("td");
-      return [cellElements[0].textContent, cellElements[1].textContent];
+      return [cellElements[0].textContent, cellElements[1].innerHTML];
     });
     return {
       type: "table",
