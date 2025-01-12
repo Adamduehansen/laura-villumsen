@@ -1,6 +1,7 @@
 import { Head } from "$fresh/runtime.ts";
 
 export default function Error404() {
+  // TODO: Style this page.
   return (
     <>
       <Head>

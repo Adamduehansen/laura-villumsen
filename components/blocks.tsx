@@ -70,6 +70,7 @@ function parseComponent(block: Block): JSX.Element | null | never {
         />
       );
     case "video":
+      // TODO: Create a video component for reusability.
       return <video autoplay muted loop playsInline src={block.src}></video>;
     case "case-info":
       return (
