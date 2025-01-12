@@ -99,6 +99,7 @@ function parseComponent(block: Block): JSX.Element | null | never {
         </Container>
       );
     case "table":
+      // FIXME: cells are vertically centered. 
       return (
         <figure class="mb-14 mx-2.5 lg:mx-0">
           <figcaption class="font-semibold mb-4">{block.heading}</figcaption>
