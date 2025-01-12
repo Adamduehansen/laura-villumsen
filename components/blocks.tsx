@@ -20,7 +20,7 @@ function parseComponent(block: Block): JSX.Element | null | never {
   switch (block.type) {
     case "columns": {
       return (
-        <Container>
+        <Container fluid>
           <Row className="lg:gap-x-3">
             {block.columns.map((column) => {
               return (
@@ -37,7 +37,7 @@ function parseComponent(block: Block): JSX.Element | null | never {
       const H = block.variant;
       return (
         <H
-          class={classNames("mx-2.5 lg:mx-0", {
+          class={classNames("mx-2.5", {
             "text-xl lg:text-3xl lg:mb-14": block.size === "extra-large",
             "text-xl lg:text-2xl": block.size === "large",
           })}
@@ -49,7 +49,7 @@ function parseComponent(block: Block): JSX.Element | null | never {
     case "text":
       return (
         <p
-          class={classNames("mx-2.5 lg:m-0", {
+          class={classNames("mx-2.5", {
             "text-3xl lg:mb-14": block.size === "extra-large",
           })}
         >
