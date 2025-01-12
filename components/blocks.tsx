@@ -21,10 +21,13 @@ function parseComponent(block: Block): JSX.Element | null | never {
     case "columns": {
       return (
         <Container fluid>
-          <Row className="lg:gap-x-3">
+          <Row className="gap-y-3 lg:gap-y-0 lg:gap-x-3">
             {block.columns.map((column) => {
               return (
-                <Col lg={column.width}>
+                <Col
+                  lg={column.width}
+                  className="grid gap-y-3 lg:flex lg:flex-col"
+                >
                   <Blocks blocks={column.blocks} />
                 </Col>
               );
@@ -96,7 +99,7 @@ function parseComponent(block: Block): JSX.Element | null | never {
       );
     case "table":
       return (
-        <figure class="mb-14">
+        <figure class="mb-14 mx-2.5 lg:mx-0">
           <figcaption class="font-semibold mb-4">{block.heading}</figcaption>
           <table>
             <tbody>
