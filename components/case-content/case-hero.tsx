@@ -32,7 +32,7 @@ export function CaseHero(props: Props): JSX.Element {
             />
           )}
           {props.variant === "video" && (
-            <video autoplay loop muted src={props.src} />
+            <video autoplay loop playsInline muted src={props.src} />
           )}
         </Col>
       </Row>
