@@ -70,7 +70,7 @@ function parseComponent(block: Block): JSX.Element | null | never {
         />
       );
     case "video":
-      return <video autoplay muted loop src={block.src}></video>;
+      return <video autoplay muted loop playsInline src={block.src}></video>;
     case "case-info":
       return (
         <Container className="my-8.5">

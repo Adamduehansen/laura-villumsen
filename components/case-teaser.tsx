@@ -30,7 +30,13 @@ export function CaseTeaser({ post }: Props): JSX.Element {
             />
           )}
           {post.featuredVideoUrl !== null && (
-            <video autoplay loop muted src={post.featuredVideoUrl} />
+            <video
+              autoplay
+              loop
+              muted
+              playsInline
+              src={post.featuredVideoUrl}
+            />
           )}
         </a>
         <Container
