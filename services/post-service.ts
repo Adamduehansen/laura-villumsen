@@ -77,6 +77,7 @@ export async function getPosts(): Promise<Post[]> {
     `${WpSiteHost}/wp-json/wp/v2/posts`,
   );
   const json = await response.json();
+  // TODO: Sort posts by date.
   const posts = v.parse(v.array(PostSchema), json);
   return posts.filter((post) => post.published);
 }
