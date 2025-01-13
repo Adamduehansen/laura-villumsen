@@ -85,21 +85,17 @@ function parseComponent(block: Block): JSX.Element | null | never {
             <Col sm={6} lg={2}>
               <CaseServices services={block.services} />
             </Col>
-            {block.websiteUrl && (
-              <Col sm={6} lg={2}>
-                <CaseWebsite website={block.websiteUrl} />
-              </Col>
-            )}
-            {block.notes.length > 0 && (
-              <Col sm={6} lg={2}>
-                <CaseNotes notes={block.notes} />
-              </Col>
-            )}
+            <Col sm={6} lg={2}>
+              <CaseWebsite website={block.websiteUrl} />
+            </Col>
+            <Col sm={6} lg={2}>
+              <CaseNotes notes={block.notes} />
+            </Col>
           </Row>
         </Container>
       );
     case "table":
-      // FIXME: cells are vertically centered. 
+      // FIXME: cells are vertically centered.
       return (
         <figure class="mb-14 mx-2.5 lg:mx-0">
           <figcaption class="font-semibold mb-4">{block.heading}</figcaption>
