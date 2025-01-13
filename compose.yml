@@ -1,9 +1,7 @@
-# TODO: update service containers to latest versions.
-
 services:
   database:
     mem_limit: 2048m
-    image: mariadb:11.3.2-jammy
+    image: mariadb:11.6-ubi
     restart: unless-stopped
     ports:
       - 3306:3306
@@ -33,7 +31,7 @@ services:
   wordpress:
     depends_on:
       - database
-    image: wordpress:6.4.3-apache
+    image: wordpress:6.7.1-apache
     restart: unless-stopped
     ports:
       - 8080:80
