@@ -1,6 +1,6 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { JSX } from "preact/jsx-runtime";
-import { getPost, Post } from "../../services/post-service.ts";
+import { getPost, Post } from "$services/post-service.ts";
 import { Head } from "$fresh/runtime.ts";
 import { CaseHero } from "$component/case-content/case-hero.tsx";
 import { parseBlocks } from "$utils/parse-blocks.ts";

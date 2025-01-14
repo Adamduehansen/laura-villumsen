@@ -1,6 +1,6 @@
 import { JSX } from "preact/jsx-runtime";
 import { Head } from "$fresh/runtime.ts";
-import { getPosts, Post } from "../services/post-service.ts";
+import { getPosts, Post } from "$services/post-service.ts";
 import { Container } from "$component/layout/container.tsx";
 import { Row } from "$component/layout/row.tsx";
 import { Col } from "$component/layout/col.tsx";

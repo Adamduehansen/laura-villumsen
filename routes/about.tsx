@@ -1,7 +1,6 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { JSX } from "preact/jsx-runtime";
-// TODO: Create alias for page services.
-import { getPage, Page } from "../services/page-services.ts";
+import { getPage, Page } from "$services/page-services.ts";
 import { Head } from "$fresh/runtime.ts";
 import { parseBlocks } from "$utils/parse-blocks.ts";
 import { Blocks } from "$component/blocks.tsx";
