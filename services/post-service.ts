@@ -21,7 +21,7 @@ const AcfSchema = v.pipe(
       ...rest,
       frontpageText: frontpage_text,
       website: typeof website === "string" ? null : website.url,
-      notes: notes.split(", "),
+      notes: notes !== "" ? notes.split(", ") : [],
       frontpageColor: frontpage_color,
     };
   }),

@@ -6,7 +6,6 @@ interface Props {
 }
 
 export function CaseNotes({ notes }: Props): JSX.Element | null {
-  // TODO: Notes header is rendered for some reason.
   if (notes.length === 0) {
     return null;
   }
