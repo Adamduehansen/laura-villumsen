@@ -3,6 +3,7 @@ import { Col } from "$component/layout/col.tsx";
 import { Container } from "$component/layout/container.tsx";
 import { Row } from "$component/layout/row.tsx";
 import { Image } from "$component/image.tsx";
+import { Video } from "$component/video.tsx";
 
 type Props =
   | {
@@ -31,9 +32,7 @@ export function CaseHero(props: Props): JSX.Element {
               class="w-full"
             />
           )}
-          {props.variant === "video" && (
-            <video autoplay loop playsInline muted src={props.src} />
-          )}
+          {props.variant === "video" && <Video src={props.src} />}
         </Col>
       </Row>
     </Container>

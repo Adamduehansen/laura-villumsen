@@ -11,6 +11,7 @@ import { CaseNotes } from "$component/case-content/case-notes.tsx";
 import { CaseServices } from "$component/case-content/case-services.tsx";
 import { CaseWebsite } from "$component/case-content/case-website.tsx";
 import { CaseYear } from "$component/case-content/case-year.tsx";
+import { Video } from "$component/video.tsx";
 
 interface Props {
   blocks: Block[];
@@ -70,8 +71,7 @@ function parseComponent(block: Block): JSX.Element | null | never {
         />
       );
     case "video":
-      // TODO: Create a video component for reusability.
-      return <video autoplay muted loop playsInline src={block.src}></video>;
+      return <Video src={block.src} />;
     case "case-info":
       return (
         <Container className="my-8.5">
