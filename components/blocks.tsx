@@ -95,7 +95,6 @@ function parseComponent(block: Block): JSX.Element | null | never {
         </Container>
       );
     case "table":
-      // FIXME: cells are vertically centered.
       return (
         <figure class="mb-14 mx-2.5 lg:mx-0">
           <figcaption class="font-semibold mb-4">{block.heading}</figcaption>
@@ -104,7 +103,7 @@ function parseComponent(block: Block): JSX.Element | null | never {
               {block.rows.map(([key, value]) => {
                 return (
                   <tr class="[&>td]:pb-4">
-                    <td class="w-28">{key}</td>
+                    <td class="w-28 align-baseline">{key}</td>
                     <td
                       class="[&>a]:text-link"
                       dangerouslySetInnerHTML={{
