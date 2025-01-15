@@ -34,9 +34,9 @@ export function Navigation(): JSX.Element {
           },
         )}
       >
-        <div className="lg:absolute lg:bottom-0 lg:inset-x-0">
-          <Container className="flex lg:block flex-col h-screen lg:h-auto">
-            <nav className="flex-1 flex flex-col justify-center lg:grid lg:grid-cols-12">
+        <div className="absolute bottom-0 lg:inset-x-0">
+          <Container>
+            <Row as="nav" className="mb-10 lg:mb-0">
               <Col className="relative text-4xl lg:text-5xl group" lg={3}>
                 {/* TODO: Can blur effect be animated? */}
                 <a
@@ -54,7 +54,7 @@ export function Navigation(): JSX.Element {
                   About
                 </a>
               </Col>
-            </nav>
+            </Row>
             <Row className="lg:fixed lg:w-full lg:left-0 lg:top-[10px] lg:leading-4 lg:pointer-events-none">
               <Col className="hidden lg:block" lg={4}></Col>
               <Col lg={2}>Open for new biz!</Col>
@@ -71,7 +71,7 @@ export function Navigation(): JSX.Element {
               </Col>
               <Col lg={2} className="lg:pointer-events-auto">
                 <p>
-                  T: <a href={`tel:30118674`}>+45 30 11 86 74</a>
+                  T: <a href="tel:30118674">+45 30 11 86 74</a>
                 </p>
               </Col>
             </Row>
