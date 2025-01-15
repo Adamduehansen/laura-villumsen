@@ -48,7 +48,17 @@ export default function Footer(): JSX.Element {
           </Col>
           <Col sm={8} lg={2} className="text-sm">
             <p>Design by Laura Villumsen</p>
-            <p>Coded by Adam Due Hansen</p>
+            <p>
+              Coded by{" "}
+              <a
+                href="https://adamduehansen.deno.dev"
+                target="_BLANK"
+                rel="noreferrer"
+                class="text-link"
+              >
+                Adam Due Hansen
+              </a>
+            </p>
           </Col>
         </Row>
       </Container>
