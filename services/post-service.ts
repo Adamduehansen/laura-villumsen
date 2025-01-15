@@ -1,6 +1,18 @@
 import { yellow } from "@std/fmt/colors";
 import * as v from "@valibot/valibot";
 
+function formatDateString(input: string) {
+  if (input.length !== 8) {
+    throw new Error(
+      "Input must be an 8-character string in the format YYYYMMDD",
+    );
+  }
+  const year = input.slice(0, 4);
+  const month = input.slice(4, 6);
+  const day = input.slice(6, 8);
+  return `${year}-${month}-${day}`;
+}
+
 const AcfSchema = v.pipe(
   v.object({
     client: v.string(),
@@ -16,13 +28,15 @@ const AcfSchema = v.pipe(
     notes: v.string(),
   }),
   v.transform((input) => {
-    const { frontpage_text, frontpage_color, website, notes, ...rest } = input;
+    const { frontpage_text, frontpage_color, website, notes, date, ...rest } =
+      input;
     return {
       ...rest,
       frontpageText: frontpage_text,
       website: typeof website === "string" ? null : website.url,
       notes: notes !== "" ? notes.split(", ") : [],
       frontpageColor: frontpage_color,
+      date: formatDateString(date),
     };
   }),
 );
@@ -77,9 +91,18 @@ export async function getPosts(): Promise<Post[]> {
     `${WpSiteHost}/wp-json/wp/v2/posts`,
   );
   const json = await response.json();
-  // TODO: Sort posts by date.
   const posts = v.parse(v.array(PostSchema), json);
-  return posts.filter((post) => post.published);
+  return posts.filter((post) => post.published).sort((postA, postB) => {
+    const dateA = new Date(postA.acf.date);
+    const dateB = new Date(postB.acf.date);
+    if (dateA < dateB) {
+      return 1;
+    } else if (dateA > dateB) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
 }
 
 export async function getPost(slug: string): Promise<Post | null> {
