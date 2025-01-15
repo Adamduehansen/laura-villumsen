@@ -54,7 +54,7 @@ export default function Footer(): JSX.Element {
                 href="https://adamduehansen.deno.dev"
                 target="_BLANK"
                 rel="noreferrer"
-                class="text-link"
+                class="text-link z-50 relative"
               >
                 Adam Due Hansen
               </a>

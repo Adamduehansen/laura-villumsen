@@ -15,7 +15,7 @@ export default function App({ Component }: PageProps) {
       </head>
       <body class="font-neue-haas text-base">
         <Header />
-        <main class="mb-[440px]">
+        <main class="lg:mb-[440px]">
           <Component />
         </main>
         <Footer />
