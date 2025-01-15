@@ -176,3 +176,12 @@ function add_cors_to_video_requests() {
 add_action('template_redirect', 'add_cors_to_video_requests');
 
 /* ===================================================== */
+
+/* INCREASE THE SIZE OF POSTS ENDPOINT */
+function modify_rest_api_posts_per_page($params) {
+  $params['per_page']['default'] = 20; // Set the default posts per page to 20
+  $params['per_page']['maximum'] = 200; // Optionally increase the maximum limit
+  return $params;
+}
+add_filter('rest_post_collection_params', 'modify_rest_api_posts_per_page');
+/* ===================================================== */

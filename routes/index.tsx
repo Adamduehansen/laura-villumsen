@@ -22,6 +22,7 @@ function getGroupedPosts(arr: Post[]) {
 }
 
 export default async function Home() {
+  // TODO: Use pagination or lazy loading
   const groupedPosts = await getPosts().then(getGroupedPosts);
 
   return (
