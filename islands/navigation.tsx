@@ -43,6 +43,7 @@ export function Navigation(): JSX.Element {
                   className="lg:hover:blur-sm font-semibold aria-[current=page]:blur-sm"
                   href="/"
                 >
+                  {/* TODO: should be "Work" */}
                   Works
                 </a>
               </Col>
