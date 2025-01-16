@@ -4,6 +4,7 @@ import { Row } from "$component/layout/row.tsx";
 import { Col } from "$component/layout/col.tsx";
 
 export default function Footer(): JSX.Element {
+  // TODO: style for mibile
   return (
     <footer>
       <Container className="mb-3">
