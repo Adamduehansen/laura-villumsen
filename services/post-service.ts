@@ -66,6 +66,9 @@ const PostSchema = v.pipe(
     content: v.object({
       rendered: v.string(),
     }),
+    excerpt: v.object({
+      rendered: v.string(),
+    }),
     link: v.string(),
     status: v.string(),
   }),

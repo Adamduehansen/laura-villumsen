@@ -29,6 +29,7 @@ export default async function Home() {
     <div class="flex flex-col gap-y-3 lg:mt-20">
       <Head>
         <title>Laura Villumsen, Graphic Designer</title>
+        <meta name="description" content="Laura Villumsen, Graphic Designer" />
       </Head>
       {groupedPosts.map((posts): JSX.Element | null => {
         if (posts.length === 2) {

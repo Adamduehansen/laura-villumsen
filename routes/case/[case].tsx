@@ -40,6 +40,12 @@ export default function Case({ data }: PageProps<Props>): JSX.Element {
     <div class="lg:mt-20">
       <Head>
         <title>{post.title.rendered} | Laura Villumsen, Graphic Designer</title>
+        <meta
+          name="description"
+          content={post.excerpt.rendered
+            .replace("<p>", "")
+            .replace("</p>", "")}
+        />
       </Head>
       {post.featuredImage !== null && (
         <CaseHero variant="image" {...post.featuredImage} />
