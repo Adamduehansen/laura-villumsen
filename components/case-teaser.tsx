@@ -20,6 +20,7 @@ export function CaseTeaser({ post }: Props): JSX.Element {
         <a
           href={url.pathname}
           class="block scale-100 lg:duration-700 lg:ease-out lg:group-hover:scale-105"
+          aria-label={post.title.rendered}
         >
           {post.featuredImage !== null && (
             <Image
