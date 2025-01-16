@@ -26,10 +26,18 @@ const AcfSchema = v.pipe(
       }),
     ]),
     notes: v.string(),
+    sort_order: v.number(),
   }),
   v.transform((input) => {
-    const { frontpage_text, frontpage_color, website, notes, date, ...rest } =
-      input;
+    const {
+      frontpage_text,
+      frontpage_color,
+      website,
+      notes,
+      date,
+      sort_order,
+      ...rest
+    } = input;
     return {
       ...rest,
       frontpageText: frontpage_text,
@@ -37,6 +45,7 @@ const AcfSchema = v.pipe(
       notes: notes !== "" ? notes.split(", ") : [],
       frontpageColor: frontpage_color,
       date: formatDateString(date),
+      sortOrder: sort_order,
     };
   }),
 );
@@ -96,11 +105,9 @@ export async function getPosts(): Promise<Post[]> {
   const json = await response.json();
   const posts = v.parse(v.array(PostSchema), json);
   return posts.filter((post) => post.published).sort((postA, postB) => {
-    const dateA = new Date(postA.acf.date);
-    const dateB = new Date(postB.acf.date);
-    if (dateA < dateB) {
+    if (postA.acf.sortOrder < postB.acf.sortOrder) {
       return 1;
-    } else if (dateA > dateB) {
+    } else if (postA.acf.sortOrder > postB.acf.sortOrder) {
       return -1;
     } else {
       return 0;
