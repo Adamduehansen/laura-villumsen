@@ -8,7 +8,7 @@ export default function Footer(): JSX.Element {
     <footer>
       <Container className="mb-3">
         <Row>
-          <Col lg={1} lgStart={10}>
+          <Col sm={4} lg={1} lgStart={10}>
             <a
               href="https://www.instagram.com/lauravill_design/?hl=da"
               target="_blank"
@@ -18,7 +18,7 @@ export default function Footer(): JSX.Element {
               Instagram
             </a>
           </Col>
-          <Col lg={1} lgStart={11}>
+          <Col sm={6} lg={1} lgStart={11}>
             <a
               href="https://www.linkedin.com/in/laura-villumsen-design"
               target="_blank"
@@ -28,7 +28,7 @@ export default function Footer(): JSX.Element {
               LinkedIn
             </a>
           </Col>
-          <Col lg={1} lgStart={12}>
+          <Col sm={2} lg={1} lgStart={12}>
             <p>©2025</p>
           </Col>
         </Row>
