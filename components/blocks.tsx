@@ -61,6 +61,7 @@ function parseComponent(block: Block): JSX.Element | null | never {
         </p>
       );
     case "image":
+      // TODO: adds sizes and srcset
       return (
         <Image
           src={block.src}

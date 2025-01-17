@@ -24,6 +24,7 @@ export function CaseHero(props: Props): JSX.Element {
       <Row>
         <Col>
           {props.variant === "image" && (
+            // TODO: adds sizes and srcset
             <Image
               src={props.url}
               width={props.width}

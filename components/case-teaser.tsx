@@ -23,6 +23,7 @@ export function CaseTeaser({ post }: Props): JSX.Element {
           aria-label={post.title.rendered}
         >
           {post.featuredImage !== null && (
+            // TODO: adds sizes and srcset
             <Image
               src={post.featuredImage.url}
               width={post.featuredImage.width}
