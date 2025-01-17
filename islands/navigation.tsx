@@ -36,7 +36,7 @@ export function Navigation(): JSX.Element {
       >
         <div className="absolute bottom-0 lg:inset-x-0">
           <Container>
-            <Row as="nav" className="mb-10 lg:mb-0">
+            <Row as="nav" className="mb-10 lg:-mb-6">
               <Col className="relative text-4xl lg:text-5xl group" lg={3}>
                 {/* TODO: Can blur effect be animated? */}
                 <a
