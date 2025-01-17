@@ -30,6 +30,10 @@ export default function About({ data }: PageProps<Props>): JSX.Element {
     <div class="lg:mt-20">
       <Head>
         <title>About | Laura Villumsen, Graphic Designer</title>
+        <meta
+          name="description"
+          content="27-year-old graphic designer based in Copenhagen. Currently, I work as a freelance designer. Feel free to reach out!"
+        />
       </Head>
       <div class="flex flex-col gap-y-3">
         <Blocks blocks={blocks} />
