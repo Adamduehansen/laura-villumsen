@@ -26,9 +26,13 @@ export default {
       sm: "0.938rem", // 15px
       base: "1rem", // 16px
       lg: "1.125rem", // 18px
-      xl: "1.875rem", // 30px
+      xl: ["1.875rem", { // 30px
+        lineHeight: "2.15rem",
+      }],
       "2xl": "2.1875rem", // 35px
-      "3xl": "3.4375rem", // 55px
+      "3xl": ["3.4375rem", { // 55px
+        lineHeight: "3.5rem",
+      }],
       "4xl": "5.625rem", // 90px
       "5xl": "6.875rem", // 110px
     },

@@ -51,7 +51,6 @@ function parseComponent(block: Block): JSX.Element | null | never {
       );
     }
     case "text":
-      // TODO: smaller line height
       return (
         <p
           class={classNames("mx-2.5", {
