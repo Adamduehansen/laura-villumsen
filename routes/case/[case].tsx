@@ -1,12 +1,13 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { JSX } from "preact/jsx-runtime";
-import { getPost, Post } from "$services/post-service.ts";
 import { Head } from "$fresh/runtime.ts";
 import { CaseHero } from "$component/case-content/case-hero.tsx";
 import { parseBlocks } from "$utils/parse-blocks.ts";
 import { Blocks } from "$component/blocks.tsx";
 import { Block } from "$utils/block.ts";
 import { CaseInfoBlockCreator } from "$utils/block-factory.ts";
+import { Post } from "$services/post/post.ts";
+import { FetchGetPostHandler, getPost } from "$services/post/get-post.ts";
 
 interface Props {
   post: Post;
@@ -15,7 +16,7 @@ interface Props {
 export const handler: Handlers<Props> = {
   GET: async function (_reg, ctx) {
     const caseSlug = ctx.params.case;
-    const post = await getPost(caseSlug);
+    const post = await getPost(new FetchGetPostHandler(caseSlug));
     if (post === null) {
       return ctx.renderNotFound();
     }

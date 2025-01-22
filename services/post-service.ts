@@ -98,23 +98,6 @@ export type Post = v.InferOutput<typeof PostSchema>;
 
 const WpSiteHost = Deno.env.get("WP_SITE_URL");
 
-export async function getPosts(): Promise<Post[]> {
-  const response = await fetch(
-    `${WpSiteHost}/wp-json/wp/v2/posts`,
-  );
-  const json = await response.json();
-  const posts = v.parse(v.array(PostSchema), json);
-  return posts.filter((post) => post.published).sort((postA, postB) => {
-    if (postA.acf.sortOrder < postB.acf.sortOrder) {
-      return 1;
-    } else if (postA.acf.sortOrder > postB.acf.sortOrder) {
-      return -1;
-    } else {
-      return 0;
-    }
-  });
-}
-
 export async function getPost(slug: string): Promise<Post | null> {
   const url = new URL(`${WpSiteHost}/wp-json/wp/v2/posts?slug=${slug}`);
   // TODO: move this to middleware once possible.
