@@ -1,5 +1,6 @@
 import { Post, PostSchema } from "$services/post/post.ts";
 import * as v from "@valibot/valibot";
+import { yellow } from "@std/fmt/colors";
 
 export interface GetPostHandler {
   getPost: () => Promise<Post | null>;
@@ -12,6 +13,7 @@ export class FetchGetPostHandler implements GetPostHandler {
 
   async getPost() {
     const url = new URL(`${WpSiteHost}/wp-json/wp/v2/posts?slug=${this.slug}`);
+    console.log("Case WP URL is", yellow(url.toString()));
     const response = await fetch(url);
     const json = await response.json();
     const parsedPosts = v.parse(v.array(PostSchema), json);
