@@ -61,13 +61,14 @@ function parseComponent(block: Block): JSX.Element | null | never {
         </p>
       );
     case "image":
-      // TODO: adds sizes and srcset
       return (
         <Image
           src={block.src}
           width={block.width}
           height={block.height}
           alt={block.alt}
+          srcset={block.srcset}
+          sizes={block.sizes}
           class="w-full"
         />
       );
