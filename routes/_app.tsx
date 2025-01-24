@@ -11,8 +11,6 @@ export default function App({ Component }: PageProps) {
         <title>laura-villumsen</title>
         <link rel="stylesheet" href="/styles.css" />
         <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
-        {/* TODO: preconnect to https://use.typekit.net */}
-        {/* https://developer.chrome.com/docs/lighthouse/performance/uses-rel-preconnect/?utm_source=lighthouse&utm_medium=devtools */}
         <link rel="stylesheet" href="https://use.typekit.net/wsq1sgw.css" />
       </head>
       <body class="font-neue-haas text-base">
