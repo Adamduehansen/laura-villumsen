@@ -52,6 +52,7 @@ const AcfSchema = v.pipe(
 export const PostSchema = v.pipe(
   v.object({
     id: v.number(),
+    date: v.string(),
     featured_image: v.nullable(
       v.object({
         url: v.string(),
