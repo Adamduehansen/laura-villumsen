@@ -25,7 +25,7 @@ class ImageBlockCreator implements BlockCreator {
     }
     const srcAttribute = imageElement.getAttribute("src");
     if (srcAttribute === undefined) {
-      console.log("Whops, video element had no src");
+      console.log("Whops, image element had no src");
       return null;
     }
     return {
@@ -34,6 +34,8 @@ class ImageBlockCreator implements BlockCreator {
       alt: imageElement.getAttribute("alt"),
       height: imageElement.getAttribute("height"),
       width: imageElement.getAttribute("width"),
+      srcset: imageElement.getAttribute("srcset"),
+      sizes: imageElement.getAttribute("sizes"),
     };
   }
 }

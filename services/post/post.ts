@@ -1,4 +1,3 @@
-import { yellow } from "@std/fmt/colors";
 import * as v from "@valibot/valibot";
 
 function formatDateString(input: string) {
@@ -50,7 +49,7 @@ const AcfSchema = v.pipe(
   }),
 );
 
-const PostSchema = v.pipe(
+export const PostSchema = v.pipe(
   v.object({
     id: v.number(),
     featured_image: v.nullable(
@@ -96,23 +95,6 @@ const PostSchema = v.pipe(
 
 export type Post = v.InferOutput<typeof PostSchema>;
 
-const WpSiteHost = Deno.env.get("WP_SITE_URL");
-
-export async function getPost(slug: string): Promise<Post | null> {
-  const url = new URL(`${WpSiteHost}/wp-json/wp/v2/posts?slug=${slug}`);
-  // TODO: move this to middleware once possible.
-  console.log("Case URL is", yellow(url.toString()));
-  const response = await fetch(url);
-  const json = await response.json();
-  const parsedPosts = v.parse(v.array(PostSchema), json);
-
-  if (parsedPosts.length === 0) {
-    return null;
-  }
-
-  if (parsedPosts.length > 1) {
-    throw new Error(`Found more that one post for slug ${slug}`);
-  }
-
-  return parsedPosts[0];
+export function isPublishedPost(post: Post): boolean {
+  return post.published;
 }

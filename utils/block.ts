@@ -15,6 +15,8 @@ export interface ImageBlock {
   height?: string;
   width?: string;
   alt?: string;
+  srcset?: string;
+  sizes?: string;
 }
 
 export interface HeadingBlock {

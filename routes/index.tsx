@@ -1,10 +1,11 @@
 import { JSX } from "preact/jsx-runtime";
 import { Head } from "$fresh/runtime.ts";
-import { getPosts, Post } from "$services/post-service.ts";
 import { Container } from "$component/layout/container.tsx";
 import { Row } from "$component/layout/row.tsx";
 import { Col } from "$component/layout/col.tsx";
 import { CaseTeaser } from "$component/case-teaser.tsx";
+import { FetchGetPostsHandler, getPosts } from "$services/post/get-posts.ts";
+import { Post } from "$services/post/post.ts";
 
 function getGroupedPosts(arr: Post[]) {
   const pattern = [2, 1];
@@ -23,7 +24,9 @@ function getGroupedPosts(arr: Post[]) {
 
 export default async function Home() {
   // TODO: Use pagination or lazy loading
-  const groupedPosts = await getPosts().then(getGroupedPosts);
+  const groupedPosts = await getPosts(new FetchGetPostsHandler()).then(
+    getGroupedPosts,
+  );
 
   return (
     <div class="flex flex-col gap-y-3 lg:mt-20">
