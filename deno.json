@@ -37,7 +37,8 @@
     "$std/": "https://deno.land/std@0.216.0/",
     "$component/": "./components/",
     "$utils/": "./utils/",
-    "$services/": "./services/"
+    "$services/": "./services/",
+    "$plugins/": "./plugins/"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
