@@ -2,6 +2,8 @@ import { yellow } from "$std/fmt/colors.ts";
 import * as v from "@valibot/valibot";
 
 const PageSchema = v.object({
+  date: v.string(),
+  link: v.string(),
   content: v.object({
     rendered: v.string(),
   }),
