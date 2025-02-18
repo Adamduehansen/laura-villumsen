@@ -5,6 +5,8 @@ import { Col } from "$component/layout/col.tsx";
 import { Container } from "$component/layout/container.tsx";
 import { Row } from "$component/layout/row.tsx";
 
+// TODO: Can navigation toggle be moved to a js file in static.
+
 function toggleScroll(): void {
   document.documentElement.classList.toggle("overflow-hidden");
 }
