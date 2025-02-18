@@ -2,7 +2,7 @@ import { type PageProps } from "$fresh/server.ts";
 import Footer from "$component/footer.tsx";
 import { Header } from "$component/header.tsx";
 
-export default function App({ Component }: PageProps) {
+export default function App({ Component, url }: PageProps) {
   return (
     <html lang="en">
       <head>
@@ -12,6 +12,7 @@ export default function App({ Component }: PageProps) {
         <link rel="stylesheet" href="/styles.css" />
         <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
         <link rel="stylesheet" href="https://use.typekit.net/wsq1sgw.css" />
+        <link rel="canonical" href={url.toString()} />
       </head>
       <body class="font-neue-haas text-base">
         <Header />
