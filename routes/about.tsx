@@ -1,9 +1,10 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { JSX } from "preact/jsx-runtime";
-import { getPage, Page } from "$services/page-services.ts";
 import { Head } from "$fresh/runtime.ts";
 import { parseBlocks } from "$utils/parse-blocks.ts";
 import { Blocks } from "$component/blocks.tsx";
+import { Page } from "$services/page/page.ts";
+import { PageService } from "$services/page/page-service.ts";
 
 interface Props {
   page: Page;
@@ -11,7 +12,8 @@ interface Props {
 
 export const handler: Handlers<Props> = {
   GET: async function (_req, ctx) {
-    const page = await getPage("about");
+    const pageService = new PageService();
+    const page = await pageService.getPage("about");
     if (page === null) {
       return ctx.renderNotFound();
     }

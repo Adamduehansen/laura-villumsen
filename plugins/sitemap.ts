@@ -1,6 +1,6 @@
 import { Plugin } from "$fresh/server.ts";
 import { PostsService } from "$services/post/posts-service.ts";
-import { getPage } from "$services/page-services.ts";
+import { PageService } from "$services/page/page-service.ts";
 
 interface Url {
   loc: string;
@@ -43,7 +43,11 @@ async function getPostsForSitemap(domain: string): Promise<Url[]> {
 }
 
 async function getPagesForSitemap(domain: string): Promise<Url[]> {
-  const pageFetches = [getPage("/work"), getPage("/about")];
+  const pageService = new PageService();
+  const pageFetches = [
+    pageService.getPage("/work"),
+    pageService.getPage("/about"),
+  ];
   const pages = await Promise.allSettled(pageFetches);
 
   return pages.reduce<Url[]>((urls, currentFetchPageResult): Url[] => {
