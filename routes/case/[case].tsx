@@ -28,7 +28,7 @@ export const handler: Handlers<Props> = {
   },
 };
 
-export default function Case({ data }: PageProps<Props>): JSX.Element {
+export default function Case({ data, url }: PageProps<Props>): JSX.Element {
   const { post } = data;
 
   const blocks = parseBlocks(post.content.rendered).map((block): Block => {
@@ -39,15 +39,33 @@ export default function Case({ data }: PageProps<Props>): JSX.Element {
     return caseInfoBlockCreator.create();
   });
 
+  const description = post.excerpt.rendered
+    .replace("<p>", "")
+    .replace("</p>", "");
+
   return (
     <div class="lg:mt-20">
       <Head>
         <title>{post.title.rendered} | Laura Villumsen, Graphic Designer</title>
         <meta
           name="description"
-          content={post.excerpt.rendered
-            .replace("<p>", "")
-            .replace("</p>", "")}
+          content={description}
+        />
+        <meta property="og:title" content={post.title.rendered} />
+        <meta property="og:description" content={description} />
+        {post.featuredImage !== null && (
+          <>
+            <meta property="og:image" content={post.featuredImage.url} />
+            {post.featuredImage.alt !== null && (
+              <meta property="og:image" content={post.featuredImage.alt} />
+            )}
+          </>
+        )}
+        <meta property="og:url" content={url.href} />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:site_name"
+          content="Laura Villumsen, Graphic Designer"
         />
       </Head>
       {post.featuredImage !== null && (
