@@ -7,13 +7,13 @@ import { Blocks } from "$component/blocks.tsx";
 import { Block } from "$utils/block.ts";
 import { CaseInfoBlockCreator } from "$utils/block-factory.ts";
 import { Post } from "$services/post/post.ts";
-import { PostRepository, PostService } from "$services/post/post-service.ts";
+import { PostService } from "$services/post/post-service.ts";
 
 interface Props {
   post: Post;
 }
 
-const postService: PostRepository = new PostService();
+const postService = new PostService();
 
 export const handler: Handlers<Props> = {
   GET: async function (_reg, ctx) {

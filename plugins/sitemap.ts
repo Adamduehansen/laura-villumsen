@@ -1,5 +1,5 @@
 import { Plugin } from "$fresh/server.ts";
-import { FetchGetPostsHandler, getPosts } from "$services/post/get-posts.ts";
+import { PostsService } from "$services/post/posts-service.ts";
 import { getPage } from "$services/page-services.ts";
 
 interface Url {
@@ -29,8 +29,10 @@ function adaptDateToSitemapLastMod(date: Date): string {
     .join("-");
 }
 
+const postsService = new PostsService();
+
 async function getPostsForSitemap(domain: string): Promise<Url[]> {
-  const posts = await getPosts(new FetchGetPostsHandler());
+  const posts = await postsService.getPosts();
   return posts.map((post): Url => {
     const path = new URL(post.link).pathname;
     return {

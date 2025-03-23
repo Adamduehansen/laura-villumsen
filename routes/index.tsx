@@ -4,7 +4,7 @@ import { Container } from "$component/layout/container.tsx";
 import { Row } from "$component/layout/row.tsx";
 import { Col } from "$component/layout/col.tsx";
 import { CaseTeaser } from "$component/case-teaser.tsx";
-import { FetchGetPostsHandler, getPosts } from "$services/post/get-posts.ts";
+import { PostsService } from "$services/post/posts-service.ts";
 import { Post } from "$services/post/post.ts";
 
 function getGroupedPosts(arr: Post[]) {
@@ -22,11 +22,11 @@ function getGroupedPosts(arr: Post[]) {
   return result;
 }
 
+const postsService = new PostsService();
+
 export default async function Home() {
-  // TODO: Use pagination or lazy loading
-  const groupedPosts = await getPosts(new FetchGetPostsHandler()).then(
-    getGroupedPosts,
-  );
+  const posts = await postsService.getPosts();
+  const groupedPosts = getGroupedPosts(posts);
 
   return (
     <div class="flex flex-col gap-y-3 lg:mt-20">

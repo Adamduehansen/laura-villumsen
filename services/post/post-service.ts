@@ -5,6 +5,8 @@ export interface PostRepository {
   getPost: (slug: string) => Promise<Post | null>;
 }
 
+const WpSiteHost = Deno.env.get("WP_SITE_URL");
+
 /**
  * Uses HTTP to get a post.
  */
@@ -26,8 +28,6 @@ export class HttpPostRepository implements PostRepository {
     return parsedPosts[0];
   }
 }
-
-const WpSiteHost = Deno.env.get("WP_SITE_URL");
 
 /**
  * Service for handling a getting a single post.
