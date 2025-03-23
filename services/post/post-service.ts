@@ -5,13 +5,12 @@ export interface PostRepository {
   getPost: (slug: string) => Promise<Post | null>;
 }
 
-const WpSiteHost = Deno.env.get("WP_SITE_URL");
-
 /**
  * Uses HTTP to get a post.
  */
 export class HttpPostRepository implements PostRepository {
   async getPost(slug: string): Promise<Post | null> {
+    const WpSiteHost = Deno.env.get("WP_SITE_URL");
     const url = new URL(`${WpSiteHost}/wp-json/wp/v2/posts?slug=${slug}`);
     const response = await fetch(url);
     const json = await response.json();

@@ -6,10 +6,9 @@ export interface PostsRepository {
   getPosts: () => Promise<Post[]>;
 }
 
-const WpSiteHost = Deno.env.get("WP_SITE_URL");
-
 export class HttpPostsRepository implements PostsRepository {
   async getPosts(): Promise<Post[]> {
+    const WpSiteHost = Deno.env.get("WP_SITE_URL");
     const response = await fetch(`${WpSiteHost}/wp-json/wp/v2/posts`);
     const json = await response.json();
     return v.parse(v.array(PostSchema), json);
@@ -17,7 +16,11 @@ export class HttpPostsRepository implements PostsRepository {
 }
 
 export class PostsService {
-  #postsRepository: PostsRepository = new HttpPostsRepository();
+  #postsRepository: PostsRepository;
+
+  constructor(postsRepository?: PostsRepository) {
+    this.#postsRepository = postsRepository ?? new HttpPostsRepository();
+  }
 
   async getPosts(): Promise<Post[]> {
     const posts = await this.#postsRepository.getPosts();
