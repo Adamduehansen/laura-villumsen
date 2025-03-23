@@ -10,7 +10,7 @@ import {
   VideoBlock,
 } from "$utils/block.ts";
 import { parseBlocks } from "$utils/parse-blocks.ts";
-import { Post } from "$services/post-service.ts";
+import { Post } from "$services/post/post.ts";
 
 export interface BlockCreator {
   create: (htmlElement: HTMLElement) => Block | null;
