@@ -1,6 +1,5 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { JSX } from "preact/jsx-runtime";
-import { Head } from "$fresh/runtime.ts";
 import { CaseHero } from "$component/case-content/case-hero.tsx";
 import { parseBlocks } from "$utils/parse-blocks.ts";
 import { Blocks } from "$component/blocks.tsx";
@@ -8,6 +7,7 @@ import { Block } from "$utils/block.ts";
 import { CaseInfoBlockCreator } from "$utils/block-factory.ts";
 import { Post } from "$services/post/post.ts";
 import { PostService } from "$services/post/post-service.ts";
+import { CaseMeta } from "$component/case-content/case-meta.tsx";
 
 interface Props {
   post: Post;
@@ -39,35 +39,17 @@ export default function Case({ data, url }: PageProps<Props>): JSX.Element {
     return caseInfoBlockCreator.create();
   });
 
-  const description = post.excerpt.rendered
-    .replace("<p>", "")
-    .replace("</p>", "");
-
   return (
     <div class="lg:mt-20">
-      <Head>
-        <title>{post.title.rendered} | Laura Villumsen, Graphic Designer</title>
-        <meta
-          name="description"
-          content={description}
-        />
-        <meta property="og:title" content={post.title.rendered} />
-        <meta property="og:description" content={description} />
-        {post.featuredImage !== null && (
-          <>
-            <meta property="og:image" content={post.featuredImage.url} />
-            {post.featuredImage.alt !== null && (
-              <meta property="og:image" content={post.featuredImage.alt} />
-            )}
-          </>
-        )}
-        <meta property="og:url" content={url.href} />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:site_name"
-          content="Laura Villumsen, Graphic Designer"
-        />
-      </Head>
+      <CaseMeta
+        title={post.title.rendered}
+        description={post.excerpt.rendered
+          .replace("<p>", "")
+          .replace("</p>", "")}
+        ogImageUrl={post.featuredImage?.url ?? null}
+        ogImageAlt={post.featuredImage?.alt ?? null}
+        ogUrl={url.href}
+      />
       {post.featuredImage !== null && (
         <CaseHero variant="image" {...post.featuredImage} />
       )}
