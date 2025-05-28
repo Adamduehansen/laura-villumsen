@@ -1,6 +1,6 @@
 import { Plugin } from "$fresh/server.ts";
-import { FetchGetPostsHandler, getPosts } from "$services/post/get-posts.ts";
-import { getPage } from "$services/page-services.ts";
+import { PostsService } from "$services/post/posts-service.ts";
+import { PageService } from "$services/page/page-service.ts";
 
 interface Url {
   loc: string;
@@ -29,8 +29,10 @@ function adaptDateToSitemapLastMod(date: Date): string {
     .join("-");
 }
 
+const postsService = new PostsService();
+
 async function getPostsForSitemap(domain: string): Promise<Url[]> {
-  const posts = await getPosts(new FetchGetPostsHandler());
+  const posts = await postsService.getPosts();
   return posts.map((post): Url => {
     const path = new URL(post.link).pathname;
     return {
@@ -41,7 +43,11 @@ async function getPostsForSitemap(domain: string): Promise<Url[]> {
 }
 
 async function getPagesForSitemap(domain: string): Promise<Url[]> {
-  const pageFetches = [getPage("/work"), getPage("/about")];
+  const pageService = new PageService();
+  const pageFetches = [
+    pageService.getPage("/work"),
+    pageService.getPage("/about"),
+  ];
   const pages = await Promise.allSettled(pageFetches);
 
   return pages.reduce<Url[]>((urls, currentFetchPageResult): Url[] => {

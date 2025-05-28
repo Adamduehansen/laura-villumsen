@@ -1,11 +1,11 @@
 import { JSX } from "preact/jsx-runtime";
 import classNames from "classnames";
-import { Post } from "$services/post-service.ts";
 import { Col } from "$component/layout/col.tsx";
 import { Container } from "$component/layout/container.tsx";
 import { Row } from "$component/layout/row.tsx";
 import { Image } from "$component/image.tsx";
 import { Video } from "$component/video.tsx";
+import { Post } from "$services/post/post.ts";
 
 interface Props {
   post: Post;

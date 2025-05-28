@@ -1,22 +1,24 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
 import { JSX } from "preact/jsx-runtime";
-import { Head } from "$fresh/runtime.ts";
 import { CaseHero } from "$component/case-content/case-hero.tsx";
 import { parseBlocks } from "$utils/parse-blocks.ts";
 import { Blocks } from "$component/blocks.tsx";
 import { Block } from "$utils/block.ts";
 import { CaseInfoBlockCreator } from "$utils/block-factory.ts";
 import { Post } from "$services/post/post.ts";
-import { FetchGetPostHandler, getPost } from "$services/post/get-post.ts";
+import { PostService } from "$services/post/post-service.ts";
+import { CaseMeta } from "$component/case-content/case-meta.tsx";
 
 interface Props {
   post: Post;
 }
 
+const postService = new PostService();
+
 export const handler: Handlers<Props> = {
   GET: async function (_reg, ctx) {
     const caseSlug = ctx.params.case;
-    const post = await getPost(new FetchGetPostHandler(caseSlug));
+    const post = await postService.getPost(caseSlug);
     if (post === null) {
       return ctx.renderNotFound();
     }
@@ -26,7 +28,7 @@ export const handler: Handlers<Props> = {
   },
 };
 
-export default function Case({ data }: PageProps<Props>): JSX.Element {
+export default function Case({ data, url }: PageProps<Props>): JSX.Element {
   const { post } = data;
 
   const blocks = parseBlocks(post.content.rendered).map((block): Block => {
@@ -39,15 +41,15 @@ export default function Case({ data }: PageProps<Props>): JSX.Element {
 
   return (
     <div class="lg:mt-20">
-      <Head>
-        <title>{post.title.rendered} | Laura Villumsen, Graphic Designer</title>
-        <meta
-          name="description"
-          content={post.excerpt.rendered
-            .replace("<p>", "")
-            .replace("</p>", "")}
-        />
-      </Head>
+      <CaseMeta
+        title={post.title.rendered}
+        description={post.excerpt.rendered
+          .replace("<p>", "")
+          .replace("</p>", "")}
+        ogImageUrl={post.featuredImage?.url ?? null}
+        ogImageAlt={post.featuredImage?.alt ?? null}
+        ogUrl={url.href}
+      />
       {post.featuredImage !== null && (
         <CaseHero variant="image" {...post.featuredImage} />
       )}
