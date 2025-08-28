@@ -10,5 +10,3 @@
 1. Check that the rest API is working: http://localhost:8080/wp-json.
 1. Install Advanced Custom Fields plugin
 1. Import data from production site.
-
-`
