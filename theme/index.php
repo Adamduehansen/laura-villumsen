@@ -10,44 +10,8 @@
   <title><?php echo $pageTitle ?></title>
 </head>
 <body>
-  <header>
-    <a href="/" aria-current="page" title="Gå til forsiden">Laura Villumsen</a>
-    <button>Menu</button>
-    <nav>
-      <?php
-        wp_nav_menu(
-          array(
-            'theme_location' => 'navigation',
-            'container' => false,
-            'menu_class' => '',
-          )
-        );
-      ?>
-    </nav>
-    <p>Open for new biz!</p>
-      <?php
-        wp_nav_menu(
-          array(
-            'theme_location' => 'contact',
-            'container' => false,
-            'menu_class' => '',
-          )
-        );
-      ?>
-    <p>Portfolio</p>
-  </header>
+  <?php get_template_part( 'template-parts/header' ); ?>
   <main></main>
-  <footer>
-    <?php
-      wp_nav_menu(
-        array(
-          'theme_location' => 'social',
-          'container' => false,
-          'menu_class' => '',
-        )
-      );
-    ?>
-    ©2026
-  </footer>
+  <?php get_template_part( 'template-parts/footer' ); ?>
 </body>
 </html>
