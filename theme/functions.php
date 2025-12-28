@@ -5,7 +5,7 @@ function register_menues() {
   register_nav_menus(
     array(
       'navigation'  => _('Main Navigation Menu'),
-      // 'social'      => _('Social Menu'),
+      'social'      => _('Social Menu'),
       'contact'     => _('Contact Menu'),
     )
   );
