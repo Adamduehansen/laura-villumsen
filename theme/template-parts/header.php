@@ -1,26 +1,8 @@
 <header>
   <a href="/" aria-current="page" title="Gå til forsiden">Laura Villumsen</a>
   <button>Menu</button>
-  <nav>
-    <?php
-      wp_nav_menu(
-        array(
-          'theme_location' => 'navigation',
-          'container' => false,
-          'menu_class' => '',
-        )
-      );
-    ?>
-  </nav>
+  <?php get_template_part( 'template-parts/menu' ); ?>
   <p>Open for new biz!</p>
-    <?php
-      wp_nav_menu(
-        array(
-          'theme_location' => 'contact',
-          'container' => false,
-          'menu_class' => '',
-        )
-      );
-    ?>
+  <?php get_template_part( 'template-parts/contact' ) ?>
   <p>Portfolio</p>
 </header>
