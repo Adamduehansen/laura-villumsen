@@ -5,18 +5,16 @@
 .env.production.local
 .env.local
 
-# Fresh build directory
-_fresh/
+# Ignore unlighthouse folder
+.unlighthouse
 
-# npm dependencies
-node_modules/
+# Stubs
+!stubs/.gitkeep
+stubs/*
+
 
 # Un-ignore the specific file
 !docker/data/wp-content/themes/default/style.css
 
 # Ignore everything in the docker folder
 docker/*
-
-# Ignore unlighthouse folder
-.unlighthouse
-

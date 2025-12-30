@@ -11,4 +11,9 @@
 1. Install Advanced Custom Fields plugin
 1. Import data from production site.
 
-`
+### ACF Stubs
+
+https://github.com/php-stubs/acf-pro-stubs
+
+1. Clone to "stubs" folder
+2. Add relative path to "Include Paths" in the Intelephense settings.
