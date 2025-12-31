@@ -1,10 +1,8 @@
 <?php
 $all_posts = wp_get_recent_posts(array(
-    'numberposts' => -1, // -1 means it will find all posts.
-    'post_status' => 'publish',
+  'numberposts' => -1, // -1 means it will find all posts.
+  'post_status' => 'publish',
 ));
-
-
 ?>
 
 <?php get_header(); ?>
