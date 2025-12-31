@@ -12,27 +12,55 @@ function register_menues() {
 }
 add_action('init', 'register_menues');
 
-$priority = 10;
-$acceptedArgs = 4;
+// ----------------------------------------------------------------------------
 
-// Remove all menu classes/IDs for a specific menu location ('navigation')
-function _c_clean_nav_menu_css_class($classes, $item, $args, $depth) {
-  return array(); // no classes on <li>
+// THUMBNAIL WITH VIDEO SUPPORT
+function add_media_thumbnail_meta_box() {
+  add_meta_box(
+    'media_thumbnail_meta_box',
+    'Udvalgt video',
+    'media_thumbnail_meta_box_callback',
+    'post',
+    'side',
+    'high',
+    array(
+      '__block_editor_compatible_meta_box' => true, // Ensure compatibility with the block editor
+    )
+  );
 }
-add_filter('nav_menu_css_class', '_c_clean_nav_menu_css_class', $priority, $acceptedArgs);
+add_action('add_meta_boxes', 'add_media_thumbnail_meta_box');
 
-function _c_clean_nav_menu_item_id($id, $item, $args, $depth) {
-  return ''; // remove id attribute on <li>
-}
-add_filter('nav_menu_item_id', '_c_clean_nav_menu_item_id', $priority, $acceptedArgs);
+function media_thumbnail_meta_box_callback($post) {
+  $media_id = get_post_meta($post->ID, 'media_thumbnail_id', true);
+  $media_url = $media_id ? wp_get_attachment_url($media_id) : '';
 
-function _c_clean_nav_submenu_css_class($classes, $args, $depth) {
-  return array(); // no classes on submenu <ul>
+  echo '<div id="media-thumbnail-container">';
+  echo $media_url ? '<div><img src="' . esc_url($media_url) . '" style="max-width:100%;"></div>' : '';
+  echo '<input type="hidden" id="media_thumbnail_id" name="media_thumbnail_id" value="' . esc_attr($media_id) . '">';
+  echo '<button type="button" id="select-media-thumbnail" class="button">Select Media</button>';
+  echo '<button type="button" id="remove-media-thumbnail" class="button" style="' . ($media_url ? '' : 'display:none;') . '">Remove Media</button>';
+  echo '</div>';
 }
-add_filter('nav_menu_submenu_css_class', '_c_clean_nav_submenu_css_class', $priority, $acceptedArgs);
 
-function _c_clean_nav_menu_link_attributes($atts, $item, $args, $depth) {
-  unset($atts['class']); // remove class on <a>
-  return $atts;
+function enqueue_media_library_scripts($hook) {
+  if ('post.php' === $hook || 'post-new.php' === $hook) {
+    wp_enqueue_media();
+    wp_enqueue_script(
+      'media-thumbnail-script',
+      get_template_directory_uri() . '/editor/media-thumbnail.js', // Adjust path if needed
+      array('jquery'),
+      filemtime(get_template_directory() . '/editor/media-thumbnail.js'),
+      true
+    );
+  }
 }
-add_filter('nav_menu_link_attributes', '_c_clean_nav_menu_link_attributes', $priority, $acceptedArgs);
+add_action('admin_enqueue_scripts', 'enqueue_media_library_scripts');
+
+function save_media_thumbnail_meta($post_id) {
+  if (isset($_POST['media_thumbnail_id'])) {
+    update_post_meta($post_id, 'media_thumbnail_id', absint($_POST['media_thumbnail_id']));
+  }
+}
+add_action('save_post', 'save_media_thumbnail_meta');
+
+// ----------------------------------------------------------------------------
