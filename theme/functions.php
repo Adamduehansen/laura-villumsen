@@ -14,7 +14,7 @@ add_action('init', 'register_menues');
 
 // ----------------------------------------------------------------------------
 
-// THUMBNAIL WITH VIDEO SUPPORT
+// Add thumbnail video support
 function add_media_thumbnail_meta_box() {
   add_meta_box(
     'media_thumbnail_meta_box',
@@ -62,5 +62,13 @@ function save_media_thumbnail_meta($post_id) {
   }
 }
 add_action('save_post', 'save_media_thumbnail_meta');
+
+// ----------------------------------------------------------------------------
+
+// This function loads your theme’s stylesheet.
+function my_theme_enqueue_styles() {
+  wp_enqueue_style('laura-villumsen', get_stylesheet_uri());
+}
+add_action( 'wp_enqueue_scripts', 'my_theme_enqueue_styles' );
 
 // ----------------------------------------------------------------------------

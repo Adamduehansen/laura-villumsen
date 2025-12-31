@@ -1,0 +1,3 @@
+[submodule "acf-pro-stubs"]
+	path = acf-pro-stubs
+	url = https://github.com/php-stubs/acf-pro-stubs
