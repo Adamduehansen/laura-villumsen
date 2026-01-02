@@ -6,3 +6,25 @@
 */
 
 @import url("reset.css");
+
+img, video {
+  width: 100%;
+}
+
+a.work-teaser {
+  position: relative;
+  display: block;
+
+  .caption {
+    position: absolute;
+    bottom: 0;
+
+    &.white {
+      color: white;
+    }
+
+    &.black {
+      color: black;
+    }
+  }
+}
