@@ -7,6 +7,10 @@
 
 @import url("reset.css");
 
+html, body {
+  font-family: 'neue-haas-grotesk-display';
+}
+
 img, video {
   width: 100%;
 }
