@@ -14,10 +14,8 @@ img, video {
 ul.work-teasers {
   display: grid;
   gap: .75rem;
-
-  @media (max-width: 767px) {
-    grid-template-columns: 1fr;
-  }
+  grid-template-columns: 1fr;
+  font-size: .5rem;
 
   @media (min-width: 768px) {
     grid-template-columns: repeat(2, 1fr);
@@ -34,7 +32,10 @@ a.work-teaser {
 
   .caption {
     position: absolute;
-    bottom: 0;
+    bottom: 10px;
+    left: 10px;
+    display: flex;
+    gap: 50px;
 
     &.white {
       color: white;

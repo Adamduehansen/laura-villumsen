@@ -1,13 +1,15 @@
 <?php
+const ALL_POSTS = -1;
+
 $all_posts = wp_get_recent_posts(array(
-  'numberposts' => -1, // -1 means it will find all posts.
+  'numberposts' => ALL_POSTS,
   'post_status' => 'publish',
 ));
 
 usort($all_posts, function($a, $b) {
     $sort_a = get_field('sort_order', $a['ID']);
     $sort_b = get_field('sort_order', $b['ID']);
-    return $sort_b <=> $sort_a; // Sort in ascending order
+    return $sort_b <=> $sort_a;
 });
 
 function renderThumbnail($post) {
@@ -32,9 +34,9 @@ function renderThumbnail($post) {
         <a href="<?php echo get_permalink($post['ID']); ?>" class="work-teaser">
           <figure>
             <?php renderThumbnail($post); ?>
-            <figcaption class="caption black">
-              <?php echo get_field("client", $post['ID']); ?>
-              <?php echo get_field("types", $post['ID']); ?>
+            <figcaption class="caption <?php echo get_field("frontpage_color", $post['ID']) ?>">
+              <p><?php echo get_field("client", $post['ID']); ?></p>
+              <p><?php echo get_field("types", $post['ID']); ?></p>
             </figcaption>
           </figure>
           
