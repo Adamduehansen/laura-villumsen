@@ -29,6 +29,13 @@ ul.work-teasers {
 a.work-teaser {
   position: relative;
   display: block;
+  overflow: hidden;
+
+  img, video {
+    transition-duration: .7s;
+    transition-timing-function: cubic-bezier(0, 0, .2, 1);
+    transform: scale(1);
+  }
 
   .caption {
     position: absolute;
@@ -37,12 +44,31 @@ a.work-teaser {
     display: flex;
     gap: 50px;
 
+    @media (min-width: 768px) {
+      opacity: 0;
+      font-size: .938rem;
+      transition-duration: .7s;
+    }
+
     &.white {
       color: white;
     }
 
     &.black {
       color: black;
+    }
+  }
+
+  &:hover {
+    img, video {
+      transform: scale(1.05);
+    }
+
+    .caption {
+      @media (min-width: 768px) {
+        opacity: 1;
+        
+      }
     }
   }
 }
