@@ -11,6 +11,23 @@ img, video {
   width: 100%;
 }
 
+ul.work-teasers {
+  display: grid;
+  gap: .75rem;
+
+  @media (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    
+    li:nth-child(3n) {
+      grid-column: 1 / -1;
+    }
+  }
+}
+
 a.work-teaser {
   position: relative;
   display: block;

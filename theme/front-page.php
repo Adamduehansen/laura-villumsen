@@ -4,6 +4,12 @@ $all_posts = wp_get_recent_posts(array(
   'post_status' => 'publish',
 ));
 
+usort($all_posts, function($a, $b) {
+    $sort_a = get_field('sort_order', $a['ID']);
+    $sort_b = get_field('sort_order', $b['ID']);
+    return $sort_b <=> $sort_a; // Sort in ascending order
+});
+
 function renderThumbnail($post) {
   $thumbnailUrl = get_the_post_thumbnail_url($post['ID'], 'full');
   $media_thumbnail_id = get_post_meta($post['ID'], 'media_thumbnail_id', true);
@@ -20,7 +26,7 @@ function renderThumbnail($post) {
 <?php get_header(); ?>
 <main>
   <nav>
-    <ul>
+    <ul class="work-teasers">
       <?php foreach ($all_posts as $post) : ?>
       <li>
         <a href="<?php echo get_permalink($post['ID']); ?>" class="work-teaser">
