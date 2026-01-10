@@ -12,7 +12,7 @@ usort($all_posts, function($a, $b) {
     return $sort_b <=> $sort_a;
 });
 
-function renderThumbnail($post) {
+function render_thumbnail($post) {
   $thumbnailUrl = get_the_post_thumbnail_url($post['ID'], 'full');
   $media_thumbnail_id = get_post_meta($post['ID'], 'media_thumbnail_id', true);
   $media_thumbnail_url = $media_thumbnail_id ? wp_get_attachment_url($media_thumbnail_id) : '';
@@ -33,7 +33,7 @@ function renderThumbnail($post) {
       <li>
         <a href="<?php echo get_permalink($post['ID']); ?>" class="work-teaser">
           <figure>
-            <?php renderThumbnail($post); ?>
+            <?php render_thumbnail($post); ?>
             <figcaption class="caption <?php echo get_field("frontpage_color", $post['ID']) ?>">
               <p><?php echo get_field("client", $post['ID']); ?></p>
               <p><?php echo get_field("types", $post['ID']); ?></p>
