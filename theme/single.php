@@ -66,7 +66,7 @@ function render_case_info() {
 ?>
 
 <?php get_header(); ?>
-<main>
+<main class="case">
 
 <?php
 

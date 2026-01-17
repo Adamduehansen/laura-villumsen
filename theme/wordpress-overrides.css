@@ -2,3 +2,11 @@ h1.wp-block-heading.has-x-large-font-size {
   font-size: 1.875rem !important;
   line-height: 2.15rem !important;
 }
+
+div.wp-block-columns {
+  margin: 0 var(--global-margin);
+}
+
+div.wp-block-columns:has(.wp-block-image) {
+  margin: 0;
+}
