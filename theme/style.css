@@ -12,6 +12,9 @@
   --global-margin: 0.625rem;
 }
 
+/* Global setup */
+/* ------------------------------------------------------------------------- */
+
 html, body {
   font-family: "neue-haas-grotesk-display";
   line-height: 24px;
@@ -21,9 +24,14 @@ img, video {
   width: 100%;
 }
 
-.font-semibold {
+/* ------------------------------------------------------------------------- */
+
+
+/* .font-semibold {
   font-weight: 600;
-}
+} */
+
+/* .md-menu {}
 
 .grid-container {
   display: grid;
@@ -31,10 +39,10 @@ img, video {
   gap: 0.75rem;
   margin: 0 var(--global-margin);
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1024px) {
     grid-template-columns: repeat(6, minmax(0, 1fr));
   }
-}
+} */
 
 .grid-item {
   grid-column: span 1 / span 1;
@@ -46,7 +54,7 @@ ul.work-teasers {
   grid-template-columns: 1fr;
   font-size: 0.5rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);
 
     li:nth-child(3n) {
@@ -73,7 +81,7 @@ a.work-teaser {
     display: flex;
     gap: 50px;
 
-    @media (min-width: 768px) {
+    @media (min-width: 1024px) {
       opacity: 0;
       font-size: 0.938rem;
       transition-duration: 0.7s;
@@ -94,15 +102,15 @@ a.work-teaser {
     }
 
     .caption {
-      @media (min-width: 768px) {
+      @media (min-width: 1024px) {
         opacity: 1;
       }
     }
   }
 }
 
-.case {
+/* .case {
   display: flex;
   flex-direction: column;
   row-gap: 0.75rem;
-}
+} */
