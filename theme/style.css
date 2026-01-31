@@ -24,11 +24,42 @@ img, video {
   width: 100%;
 }
 
+button {
+  background: none;
+  border: none;
+  font-size: 100%;
+  font-family: inherit;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+
+  &:visited {
+    /* Resets the "visited" style on links */
+    color: inherit;
+  }
+}
+
+.container {
+  margin: 0 var(--global-margin);
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
 /* ------------------------------------------------------------------------- */
 /* MD menu */
 /* ------------------------------------------------------------------------- */
 
-#md-menu-list {
+#md-menu {
+  margin-top: 16px;
+  margin-bottom: 48px;
+}
+
+#md-menu__list {
   &.closed {
     display: none;
   }
