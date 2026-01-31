@@ -13,10 +13,5 @@
 </head>
 <body>
 <header>
-  <a href="<?php esc_url(home_url("/")) ?>" title="Gå til forsiden">Laura Villumsen</a>
-  <button>Menu</button>
-  <?php get_template_part( 'template-parts/menu' ); ?>
-  <p>Open for new biz!</p>
-  <?php get_template_part( 'template-parts/contact' ) ?>
-  <p>Portfolio</p>
+  <?php get_template_part( 'template-parts/md-header' ); ?>
 </header>

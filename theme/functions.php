@@ -85,3 +85,19 @@ function disable_emojis() {
     add_filter('tiny_mce_plugins', 'disable_emojis_tinymce');
 }
 add_action('init', 'disable_emojis');
+
+// ----------------------------------------------------------------------------
+
+function enqueue_menu_js() {
+    // Enqueue your custom script
+    wp_enqueue_script(
+        'menu-script', // Handle (unique name for your script)
+        get_template_directory_uri() . '/js/menu.js', // Path to your script
+        array(), // Dependencies (e.g., jQuery)
+        '1.0.0', // Version number
+        true // Load in the footer (recommended for performance)
+    );
+}
+add_action('wp_enqueue_scripts', 'enqueue_menu_js');
+
+
