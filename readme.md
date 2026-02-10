@@ -15,5 +15,7 @@
 
 https://github.com/php-stubs/acf-pro-stubs
 
-1. Clone to "stubs" folder
-2. Add relative path to "Include Paths" in the Intelephense settings.
+1. Initialize Git submodule: `git submodule init` and then
+   `git submodule update`.
+2. Add relative path (./acf-pro-stubs) to "Include Paths" in the Intelephense
+   settings (@ext:bmewburn.vscode-intelephense-client include paths).
